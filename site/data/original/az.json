@@ -1,0 +1,1526 @@
+[
+  {
+    "id": "az-0903-31",
+    "subject": "az",
+    "typeId": "az.syntax-sentence",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 31
+    },
+    "stem": "<p>“Nəhayət, hərbi xidməti başa vurduqdan sonra gimnaziyadan şəhadətnaməmi aldım” cümləsinin sintaktik təhlil sxemini müəyyən edin.</p><p><small>Обозначения: ─── mübtəda, ═══ xəbər, - - - tamamlıq, 〰〰 təyin, <u>〰〰</u> zərflik.</small></p>",
+    "format": "single",
+    "options": [
+      "- - - &nbsp; <u>〰〰</u> &nbsp; - - - &nbsp; ═══",
+      "〰〰 &nbsp; <u>〰〰</u> &nbsp; <u>〰〰</u> &nbsp; ═══",
+      "〰〰 &nbsp; ─── &nbsp; - - - &nbsp; ═══",
+      "- - - &nbsp; <u>〰〰</u> &nbsp; <u>〰〰</u> &nbsp; - - - &nbsp; ═══",
+      "<u>〰〰</u> &nbsp; <u>〰〰</u> &nbsp; - - - &nbsp; ═══"
+    ],
+    "answer": 4,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Синтаксис",
+    "explanation": "В предложении: <i>Nəhayət</i> — модальное слово (не является членом предложения); <i>hərbi xidməti başa vurduqdan sonra</i> — обстоятельство (zərflik); <i>gimnaziyadan</i> — обстоятельство места (zərflik); <i>şəhadətnaməmi</i> — дополнение (tamamlıq); <i>aldım</i> — сказуемое (xəbər). Верный вариант: E."
+  },
+  {
+    "id": "az-0903-32",
+    "subject": "az",
+    "typeId": "az.syntax-phrases",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 32
+    },
+    "stem": "Hansı cümlədə feili sifət tərkibi işlənib?",
+    "format": "single",
+    "options": [
+      "Ev sahibləri gələn qonaqları mehribanlıqla qarşıladılar.",
+      "Ahəstə süzən qartal anidən şikarına tərəf şığıdı.",
+      "Asif yazılmış məktubu qatlayıb zərfə qoydu.",
+      "Dostum, oxuyan məqsədinə çatar.",
+      "Yaşıllaşan ağaclar göz oxşayırdı."
+    ],
+    "answer": 1,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Синтаксис",
+    "explanation": "Слова <i>gələn</i>, <i>yazılmış</i>, <i>oxuyan</i>, <i>yaşıllaşan</i> являются одиночными причастиями и не образуют причастного оборота. В варианте B <i>ahəstə süzən</i> — причастный оборот (feili sifət tərkibi)."
+  },
+  {
+    "id": "az-0903-33",
+    "subject": "az",
+    "typeId": "az.morphology-verb",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 33
+    },
+    "stem": "<p>Nümunə ilə bağlı <b>yanlış</b> fikri müəyyən edin:</p><blockquote>Yerimək öyrətdin tutub əlimdən,<br>Dolaşdım aranı, dolaşdım dağı.<br>Balana yerimək öyrədincə sən,<br>Gərək öyrədəydin yıxılmamağı. <i>(B. Vahabzadə)</i></blockquote>",
+    "format": "single",
+    "options": [
+      "Əvəzliyin bir məna növündən istifadə edilmişdir.",
+      "Yönlük halda işlənmiş söz mənsubiyyət şəkilçilidir.",
+      "İkinci misrada işlənmiş isimlər təsirlik haldadır.",
+      "Təsriflənən feillərin hamısı xəbər şəklindədir.",
+      "Yalnız qrammatik mənası olan bir söz işlənmişdir."
+    ],
+    "answer": 3,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Морфология",
+    "explanation": "Верные утверждения: местоимение одного разряда (<i>sən</i> — личное), <i>balana</i> — дательный падеж с притяжательностью, <i>aranı, dağı</i> — винительный падеж, служебное слово <i>gərək</i> (частица). Неверно D: три спрягаемых глагола (<i>öyrətdin, dolaşdım, dolaşdım</i>) стоят в изъявительном наклонении (xəbər şəkli), а <i>öyrədəydin</i> — в желательном наклонении (arzu şəkli)."
+  },
+  {
+    "id": "az-0903-34",
+    "subject": "az",
+    "typeId": "az.morphology-verb",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 34
+    },
+    "stem": "<p>Tərzi-hərəkət zərfinin təsriflənməyən feilə aid olduğu nümunələri müəyyən edin.</p><p>1. Tamamilə xəbərsiz idi ki, necə gəliblər.<br>2. Belə danışmağın heç bir əsası yoxdur.<br>3. Onlar ev yiyəsi ilə gülə-gülə salamlaşıb içəri keçdilər.<br>4. Şuşada çiyin-çiyinə döyüşdüyü dostlarını heç vaxt unutmurdu.<br>5. Öz uğurlarından iftixarla danışan sədr indi susmuşdu.<br>6. Dilucu təşəkkür edib çölə çıxdı.</p>",
+    "format": "single",
+    "options": [
+      "2, 3, 6",
+      "1, 3, 4, 5",
+      "4, 5, 6",
+      "2, 3, 5",
+      "1, 2, 4, 6"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Морфология",
+    "explanation": "1) <i>tamamilə</i> относится к прилагательному <i>xəbərsiz</i>; 2) <i>belə</i> — местоимение; 3) <i>gülə-gülə</i> — деепричастие (не наречие). В 4, 5 и 6 наречия образа действия относятся к неспрягаемым формам глагола: <i>çiyin-çiyinə</i> → прич. <i>döyüşdüyü</i>; <i>iftixarla</i> → прич. <i>danışan</i>; <i>dilucu</i> → дееприч. <i>təşəkkür edib</i>."
+  },
+  {
+    "id": "az-0903-35",
+    "subject": "az",
+    "typeId": "az.syntax-sentence",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 35
+    },
+    "stem": "<p>Uyğunsuzluğu müəyyən edin.<br>I. Vasitəsiz nitqli cümlə (durğu işarələri buraxılmışdır)<br>II. Vasitəsiz nitqli cümlənin sxemi</p>",
+    "format": "single",
+    "options": [
+      "I. Qarı bir az düşünüb Yaxşı qərar sənindir dedi<br>II. M: “V”,–m.",
+      "I. Bəli dedi bir dəfə yerli bələdçilərlə qoruğa getmişdik<br>II. M: “V”.",
+      "I. Biz demək olar ki çatmışıq deyə Səlim gülümsədi<br>II. “V”,–m.",
+      "I. Mən buradayam komandir cəld dilləndim bura gələ bilərsinizmi<br>II. “V,–m,–v?”",
+      "I. Kapitan səmimiyyətlə dedi Sizi təbrik edirəm leytenant<br>II. M: “V”."
+    ],
+    "answer": 1,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Синтаксис",
+    "explanation": "В варианте B после восстановления знаков препинания получаем: «Bəli, – dedi, – bir dəfə yerli bələdçilərlə qoruğa getmişdik.» Авторская ремарка стоит внутри прямой речи, поэтому схема должна быть <b>“V, – m, – v”.</b>, а не M: “V”."
+  },
+  {
+    "id": "az-0903-36",
+    "subject": "az",
+    "typeId": "az.phonetics",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 36
+    },
+    "stem": "<p>Klasteri tamamlaya <b>bilməz</b>:</p><div class=\"note\"><b>Klaster:</b> Səs və hərflərin sayı bərabərdir → <i>uşaqcanlı, açıq-aşkar</i></div><p>1. Üç cingiltili samit işlənmişdir.<br>2. [ğ] samitinin kar qarşılığı işlənib.<br>3. Açıq saitlərin sayı qapalı saitlərin sayından çoxdur.<br>4. Deyilişi ilə yazılışı arasında iki fərqli məqam var.<br>5. Yanaşı işlənən kar və cingiltili samitlər var.<br>6. Kar qarşılığı olan bir samit işlənib.</p>",
+    "format": "single",
+    "options": [
+      "2, 3, 6",
+      "2, 4, 6",
+      "1, 2, 3, 5",
+      "4, 5, 6",
+      "1, 3, 4, 5"
+    ],
+    "answer": 0,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Фонетика",
+    "explanation": "Транскрипции: <i>uşaqcanlı [uşaxcannı]</i>, <i>açıq-aşkar [açığ-aşgar]</i>. Утверждения 1, 4 и 5 верны для обоих слов. Неверны (не могут завершить кластер) пункты <b>2, 3, 6</b>: в <i>açıq-aşkar</i> нет [x]; в <i>uşaqcanlı</i> число открытых и закрытых гласных равно (2 и 2); в <i>açıq-aşkar</i> два звука с глухой парой ([ğ] и [g])."
+  },
+  {
+    "id": "az-0903-37",
+    "subject": "az",
+    "typeId": "az.syntax-phrases",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 37
+    },
+    "stem": "<p>Nümunələrə əsasən cədvəldəki uyğun fikirləri müəyyən edin.</p><blockquote>• Gəncliyim, şərəfim, müqəddəratım<br>Bir ürkək ceyranın əlinə düşdü. <i>(M. Müşfiq)</i><br>• Qayıt, yerinə qoy Ayı, Günəşi,<br>Yenə olduğutək görüm həyatı.<br>Qayıt, gözüm nuru, könlüm atəşi,<br>Qayıt, sahmana sal bu kainatı! <i>(Ə. Kərim)</i></blockquote><table><thead><tr><th>Nümunələrin hər ikisinə aiddir</th><th>Nümunələrin yalnız birinə aiddir</th></tr></thead><tbody><tr><td>1. Nitq hissəsi ilə ifadə olunan həmcins üzvlər işlənmişdir.<br>2. Baş üzvlərdən birinin həmcinsliyi var.<br>3. Həmcins üzvlər uzlaşma əlaqəsində əsas tərəfdir.</td><td>4. İki fərqli cümlə üzvü həmcinsdir.<br>5. Həmcins mübtədaların ifadə vasitəsi söz birləşməsidir.<br>6. Həmcins tamamlıqlar işlənmişdir.</td></tr></tbody></table>",
+    "format": "single",
+    "options": [
+      "1, 3, 4, 5",
+      "1, 2, 4, 6",
+      "3, 5, 6",
+      "2, 3, 4",
+      "1, 2, 5, 6"
+    ],
+    "answer": 1,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Синтаксис",
+    "explanation": "1) В обоих примерах однородные члены выражены частями речи; 2) в 1-м однородны подлежащие, во 2-м — сказуемые; 3) верно только для 1-го (однородные подлежащие — главное слово согласования), поэтому в левом столбце лишнее; 4) во 2-м примере однородны и сказуемые, и дополнения; 5) во 2-м словосочетания <i>gözüm nuru, könlüm atəşi</i> — обращения, а не подлежащие; 6) во 2-м однородные дополнения <i>Ayı, Günəşi</i>. Ответ: <b>1, 2, 4, 6</b>."
+  },
+  {
+    "id": "az-0903-38",
+    "subject": "az",
+    "typeId": "az.morphemics",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 38
+    },
+    "stem": "Biri mürəkkəb addır:",
+    "format": "single",
+    "options": [
+      "ədəbiyyat müəllimi",
+      "dəvəquşu",
+      "Novruz bayramı",
+      "Gülyaz",
+      "günəbaxan"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Словообразование",
+    "explanation": "<i>Novruz bayramı</i> — сложное наименование в форме словосочетания (mürəkkəb ad). <i>Dəvəquşu, Gülyaz, günəbaxan</i> — сложные слова (mürəkkəb söz), а <i>ədəbiyyat müəllimi</i> — обычное словосочетание."
+  },
+  {
+    "id": "az-0903-39",
+    "subject": "az",
+    "typeId": "az.morphemics",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 39
+    },
+    "stem": "Cərgələrdən birindəki sözlər <b>┌─┐ ^ ^</b> (kök + 2 leksik şəkilçi) sxeminə uyğundur:",
+    "format": "single",
+    "options": [
+      "peşəkarcasına, küskündür",
+      "dahiyanə, çəkiliş",
+      "tanışlıq, işlətdikcə",
+      "genəldir, yüksəklikdəki",
+      "oxşarlıq, bərkit"
+    ],
+    "answer": 4,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Словообразование",
+    "explanation": "<i>oxşarlıq</i> (oxşa + r + lıq) и <i>bərkit</i> (bərk + i + t) состоят из корня и 2 лексических суффиксов. В остальных парах присутствуют грамматические окончания (<i>-dür, -dikcə, -ir</i>) или только 1 лексический суффикс (<i>dahiyanə</i>)."
+  },
+  {
+    "id": "az-0903-40",
+    "subject": "az",
+    "typeId": "az.morphology-verb",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 40
+    },
+    "stem": "“Ölkəmizin beynəlxalq arenada qazandığı uğurlar idmana qarşı xüsusi diqqət göstərildiyinə dəlalət edir” cümləsi ilə bağlı <b>doğru</b> fikirdir:",
+    "format": "single",
+    "options": [
+      "Quruluşca mürəkkəb, xəbər şəklində olan feil xəbərin ifadə vasitəsidir.",
+      "Feillər qayıdış və məlum növdədir.",
+      "Şəxsə və kəmiyyətə görə dəyişməyən feillər eyni cümlə üzvü vəzifəsindədir.",
+      "Feilin bütün təsriflənməyən formalarına aid nümunə işlənmişdir.",
+      "Feillərin hər biri söz birləşməsinin əsas tərəfini təşkil edir."
+    ],
+    "answer": 0,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Морфология",
+    "explanation": "Сложный глагол в изъявительном наклонении <i>dəlalət edir</i> выступает сказуемым (верно A). Глаголы стоят в безличном (<i>göstərildiyinə</i>) и действительном залоге; причастия (<i>qazandığı</i> и <i>göstərildiyinə</i>) выполняют функции определения и дополнения; деепричастий и инфинитива нет."
+  },
+  {
+    "id": "az-0903-41",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 41
+    },
+    "passage": {
+      "id": "az-0903-p1",
+      "title": "Dərbənd ətrafında",
+      "html": "<p>Şirvan üzərinə yerimək<sup>1</sup> üçün Dərbənd yaxınlığında düşərgə salmış Toxtamış xan həmişəkindən fərqli olaraq, bu gün şad-xürrəm görünürdü. <span class=\"num\">1.</span> Hökmdarın çadırına toplaşmış əyanlar, sərkərdələr ondakı bu dəyişikliyin səbəbini öyrənməyə çalışırdılar. Toxtamış xan onların bu intizarına son qoymaq vaxtının çatdığını anlayıbmış kimi dedi:</p><p>– Səhər çaparlarımız xəbər gətirdilər ki, ədavət bəslədiyimiz Əmir Teymur Kür çayının sahilində düşərgə salıb. <u>Görünür, müttəfiqi İbrahimə kömək etmək fikrində deyil.</u> Biz Şirvanşah İbrahimi təkləyib məğlub edər, Şirvandan da çoxlu qənimət qopararıq.</p><p>Toxtamış xanın ▲ <b>təyin etdiyi</b> vaxtda bütün qoşun ayaq üstündə idi. Qala divarlarını dağıtmaq təlimatı almış döyüşçülər Dərbənd üzərinə yeriməyə başladılar. <span class=\"num\">2.</span> Lakin onlarla qala arasında hətta əlli addımdan az məsafə qalanda da oradan bir oxun belə atılmaması Toxtamış xanın ən yaxın adamı Cormağan xanı təəccübləndirdi. <u>Qaladakı sakitliyi görən Toxtamış xan da narahat oldu.</u> O:</p><p>– İbrahimin, görünür, nəsə bir ■ <b>kələyi</b> var, – dedi, sonra bir az irəli yeridi<sup>2</sup> və gözlərini qalaya zilləyib davam etdi, – ola bilər ki, döyüşçülər qala divarlarına yaxınlaşan kimi neft yandırıb onların üzərinə tökməyə hazırlaşırlar.</p><p><span class=\"num\">3.</span> Xanın əmri ilə belə vəziyyətlərdə təcrübəli olan döyüşçülər irəli yeridilər. <span class=\"num\">4.</span> Onların əllərində dairəsi iri, qalxanabənzər qorunma alətləri var idi. Onlar qala divarlarına çatdılar, lakin qaladan müqavimət görmədilər. Qala darvazalarını itələdilər, bağlı idi.</p><p>Döyüşçülərin hərəkətlərini izləyən Toxtamış xan dedi:</p><p>– Qala boşdur. İbrahim xan yaxşı bilirdi ki, otuz min nəfərlik qoşunla mənim qabağıma çıxmaq döyüşçülərini qırğına vermək deməkdir. Çəkilib gedib.</p><p>Cormağan xan Dərbənd darvazalarını sındırmağı əmr etdi. Bu, şəhərin deyil, Dərbənd keçidinin darvazaları idi. Qala, həqiqətən də, boş idi. Cormağan xan şəhərin də boş olduğunu zənn edib döyüşçülərə şəhər darvazalarını da açmaq üçün hasarlara dırmaşmağı əmr etdi. Lakin döyüşçülər hasarlara yaxınlaşa bilmədilər, onların üzərinə ox yağdırıldı.</p><p>Toxtamış xan şəhərin alınmasının həm (1.).................... hesabına olacağını, həm də (2.)..................... itirəcəyini nəzərə alıb dedi:</p><p>– Bizə Şirvan torpaqlarına girməkdən ötrü keçid lazım idi. İndi keçid bizim əlimizdədir. <span class=\"num\">5.</span> İbrahim uzun müddət özünə gələ bilməz. Tələsməliyik, Şirvanın içərilərinə doğru irəliləməliyik.</p><p>Toxtamış xanın qoşunu Samur çayına doğru hərəkətə başlayarkən Şirvanşah İbrahim də düşmən qoşununun yolu üstündəki kəndlərdən əhalini ● <b>təxliyə edir</b>, qoşununun sayını artırır, müttəfiqləri ilə danışıqlar apararaq əks-həmləyə hazırlaşırdı.</p>"
+    },
+    "stem": "<p>Mətnə əsasən səbəbini müəyyən etmək <b>mümkün deyil</b>:</p><p>1. Əmir Teymurun Kür çayının sahilində düşərgə salmasının<br>2. Döyüşçülərin şəhərin hasarlarına yaxınlaşa bilməməsinin<br>3. Cormağan xanın heyrətlənməsinin<br>4. Qalanın içindəki sakitliyin<br>5. Toxtamış xanın Əmir Teymura ədavət bəsləməsinin</p>",
+    "format": "single",
+    "options": [
+      "2, 3, 4",
+      "3, 5",
+      "1, 5",
+      "2, 4, 5",
+      "1, 4"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Причины 2 (на них посыпался град стрел), 3 (из пустой крепости не вылетела ни одна стрела) и 4 (крепость была пуста) указаны в тексте. Причины 1 и 5 (почему Тимур встал лагерем на Куре и за что Тохтамыш враждовал с ним) в тексте не объясняются."
+  },
+  {
+    "id": "az-0903-42",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 42
+    },
+    "passage": {
+      "id": "az-0903-p1",
+      "title": "Dərbənd ətrafında",
+      "html": "<p>Şirvan üzərinə yerimək<sup>1</sup> üçün Dərbənd yaxınlığında düşərgə salmış Toxtamış xan həmişəkindən fərqli olaraq, bu gün şad-xürrəm görünürdü. <span class=\"num\">1.</span> Hökmdarın çadırına toplaşmış əyanlar, sərkərdələr ondakı bu dəyişikliyin səbəbini öyrənməyə çalışırdılar. Toxtamış xan onların bu intizarına son qoymaq vaxtının çatdığını anlayıbmış kimi dedi:</p><p>– Səhər çaparlarımız xəbər gətirdilər ki, ədavət bəslədiyimiz Əmir Teymur Kür çayının sahilində düşərgə salıb. <u>Görünür, müttəfiqi İbrahimə kömək etmək fikrində deyil.</u> Biz Şirvanşah İbrahimi təkləyib məğlub edər, Şirvandan da çoxlu qənimət qopararıq.</p><p>Toxtamış xanın ▲ <b>təyin etdiyi</b> vaxtda bütün qoşun ayaq üstündə idi. Qala divarlarını dağıtmaq təlimatı almış döyüşçülər Dərbənd üzərinə yeriməyə başladılar. <span class=\"num\">2.</span> Lakin onlarla qala arasında hətta əlli addımdan az məsafə qalanda da oradan bir oxun belə atılmaması Toxtamış xanın ən yaxın adamı Cormağan xanı təəccübləndirdi. <u>Qaladakı sakitliyi görən Toxtamış xan da narahat oldu.</u> O:</p><p>– İbrahimin, görünür, nəsə bir ■ <b>kələyi</b> var, – dedi, sonra bir az irəli yeridi<sup>2</sup> və gözlərini qalaya zilləyib davam etdi, – ola bilər ki, döyüşçülər qala divarlarına yaxınlaşan kimi neft yandırıb onların üzərinə tökməyə hazırlaşırlar.</p><p><span class=\"num\">3.</span> Xanın əmri ilə belə vəziyyətlərdə təcrübəli olan döyüşçülər irəli yeridilər. <span class=\"num\">4.</span> Onların əllərində dairəsi iri, qalxanabənzər qorunma alətləri var idi. Onlar qala divarlarına çatdılar, lakin qaladan müqavimət görmədilər. Qala darvazalarını itələdilər, bağlı idi.</p><p>Döyüşçülərin hərəkətlərini izləyən Toxtamış xan dedi:</p><p>– Qala boşdur. İbrahim xan yaxşı bilirdi ki, otuz min nəfərlik qoşunla mənim qabağıma çıxmaq döyüşçülərini qırğına vermək deməkdir. Çəkilib gedib.</p><p>Cormağan xan Dərbənd darvazalarını sındırmağı əmr etdi. Bu, şəhərin deyil, Dərbənd keçidinin darvazaları idi. Qala, həqiqətən də, boş idi. Cormağan xan şəhərin də boş olduğunu zənn edib döyüşçülərə şəhər darvazalarını da açmaq üçün hasarlara dırmaşmağı əmr etdi. Lakin döyüşçülər hasarlara yaxınlaşa bilmədilər, onların üzərinə ox yağdırıldı.</p><p>Toxtamış xan şəhərin alınmasının həm (1.).................... hesabına olacağını, həm də (2.)..................... itirəcəyini nəzərə alıb dedi:</p><p>– Bizə Şirvan torpaqlarına girməkdən ötrü keçid lazım idi. İndi keçid bizim əlimizdədir. <span class=\"num\">5.</span> İbrahim uzun müddət özünə gələ bilməz. Tələsməliyik, Şirvanın içərilərinə doğru irəliləməliyik.</p><p>Toxtamış xanın qoşunu Samur çayına doğru hərəkətə başlayarkən Şirvanşah İbrahim də düşmən qoşununun yolu üstündəki kəndlərdən əhalini ● <b>təxliyə edir</b>, qoşununun sayını artırır, müttəfiqləri ilə danışıqlar apararaq əks-həmləyə hazırlaşırdı.</p>"
+    },
+    "stem": "Əvvəlində rəqəm yazılmış hansı cümlələr mətndən çıxarılsa, məzmuna xələl <b>gəlməz</b>?",
+    "format": "single",
+    "options": [
+      "1, 2",
+      "1, 4",
+      "2, 3",
+      "4, 5",
+      "3, 5"
+    ],
+    "answer": 3,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Удаление предложений 1, 2 или 3 нарушит связность и логику событий. Предложения 4 (описание щитов воинов) и 5 (реплика Тохтамыша о том, что Ибрагим не скоро придёт в себя) не нарушают общую канву текста."
+  },
+  {
+    "id": "az-0903-43",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 43
+    },
+    "passage": {
+      "id": "az-0903-p1",
+      "title": "Dərbənd ətrafında",
+      "html": "<p>Şirvan üzərinə yerimək<sup>1</sup> üçün Dərbənd yaxınlığında düşərgə salmış Toxtamış xan həmişəkindən fərqli olaraq, bu gün şad-xürrəm görünürdü. <span class=\"num\">1.</span> Hökmdarın çadırına toplaşmış əyanlar, sərkərdələr ondakı bu dəyişikliyin səbəbini öyrənməyə çalışırdılar. Toxtamış xan onların bu intizarına son qoymaq vaxtının çatdığını anlayıbmış kimi dedi:</p><p>– Səhər çaparlarımız xəbər gətirdilər ki, ədavət bəslədiyimiz Əmir Teymur Kür çayının sahilində düşərgə salıb. <u>Görünür, müttəfiqi İbrahimə kömək etmək fikrində deyil.</u> Biz Şirvanşah İbrahimi təkləyib məğlub edər, Şirvandan da çoxlu qənimət qopararıq.</p><p>Toxtamış xanın ▲ <b>təyin etdiyi</b> vaxtda bütün qoşun ayaq üstündə idi. Qala divarlarını dağıtmaq təlimatı almış döyüşçülər Dərbənd üzərinə yeriməyə başladılar. <span class=\"num\">2.</span> Lakin onlarla qala arasında hətta əlli addımdan az məsafə qalanda da oradan bir oxun belə atılmaması Toxtamış xanın ən yaxın adamı Cormağan xanı təəccübləndirdi. <u>Qaladakı sakitliyi görən Toxtamış xan da narahat oldu.</u> O:</p><p>– İbrahimin, görünür, nəsə bir ■ <b>kələyi</b> var, – dedi, sonra bir az irəli yeridi<sup>2</sup> və gözlərini qalaya zilləyib davam etdi, – ola bilər ki, döyüşçülər qala divarlarına yaxınlaşan kimi neft yandırıb onların üzərinə tökməyə hazırlaşırlar.</p><p><span class=\"num\">3.</span> Xanın əmri ilə belə vəziyyətlərdə təcrübəli olan döyüşçülər irəli yeridilər. <span class=\"num\">4.</span> Onların əllərində dairəsi iri, qalxanabənzər qorunma alətləri var idi. Onlar qala divarlarına çatdılar, lakin qaladan müqavimət görmədilər. Qala darvazalarını itələdilər, bağlı idi.</p><p>Döyüşçülərin hərəkətlərini izləyən Toxtamış xan dedi:</p><p>– Qala boşdur. İbrahim xan yaxşı bilirdi ki, otuz min nəfərlik qoşunla mənim qabağıma çıxmaq döyüşçülərini qırğına vermək deməkdir. Çəkilib gedib.</p><p>Cormağan xan Dərbənd darvazalarını sındırmağı əmr etdi. Bu, şəhərin deyil, Dərbənd keçidinin darvazaları idi. Qala, həqiqətən də, boş idi. Cormağan xan şəhərin də boş olduğunu zənn edib döyüşçülərə şəhər darvazalarını da açmaq üçün hasarlara dırmaşmağı əmr etdi. Lakin döyüşçülər hasarlara yaxınlaşa bilmədilər, onların üzərinə ox yağdırıldı.</p><p>Toxtamış xan şəhərin alınmasının həm (1.).................... hesabına olacağını, həm də (2.)..................... itirəcəyini nəzərə alıb dedi:</p><p>– Bizə Şirvan torpaqlarına girməkdən ötrü keçid lazım idi. İndi keçid bizim əlimizdədir. <span class=\"num\">5.</span> İbrahim uzun müddət özünə gələ bilməz. Tələsməliyik, Şirvanın içərilərinə doğru irəliləməliyik.</p><p>Toxtamış xanın qoşunu Samur çayına doğru hərəkətə başlayarkən Şirvanşah İbrahim də düşmən qoşununun yolu üstündəki kəndlərdən əhalini ● <b>təxliyə edir</b>, qoşununun sayını artırır, müttəfiqləri ilə danışıqlar apararaq əks-həmləyə hazırlaşırdı.</p>"
+    },
+    "stem": "<p>Mətnə əsasən cədvəldəki uyğun fikirləri müəyyən edin.</p><table><thead><tr><th>Doğrudur</th><th>Yanlışdır</th><th>Ehtimaldır</th></tr></thead><tbody><tr><td>1. Toxtamışın planları arasında maddi mənfəət əldə etmək də var idi.</td><td>3. Qalada müqavimətlə qarşılaşan Toxtamış xan geri çəkilməyə məcbur olur.</td><td>5. Çaparın gətirdiyi xəbər Toxtamış xanın əhvali-ruhiyyəsində dəyişikliyə səbəb olur.</td></tr><tr><td>2. Şirvanşah İbrahim əhalini Dərbənddən zorla çıxartmışdı.</td><td>4. Dərbənd üzərinə hücuma keçən döyüşçülər qala divarlarını dağıtmaq üçün göstəriş almışdılar.</td><td>6. Şirvanşah İbrahimlə Əmir Teymur arasında soyuqluq var idi.</td></tr></tbody></table>",
+    "format": "single",
+    "options": [
+      "2, 4, 6",
+      "1, 3, 4, 5",
+      "1, 3, 6",
+      "2, 3, 5",
+      "1, 4, 5, 6"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Работа с текстом",
+    "explanation": "1) Верно (хотел захватить богатую добычу в Ширване) — в «Doğrudur»; 3) Неверно (крепость была пустой) — в «Yanlışdır»; 6) В тексте не указано — предположение в «Ehtimaldır». Пункты 2 (не сказано о насилии), 4 (верно, а стоит в Yanlışdır) и 5 (факт, а стоит в Ehtimaldır) не подходят. Ответ: <b>1, 3, 6</b>."
+  },
+  {
+    "id": "az-0903-44",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 44
+    },
+    "passage": {
+      "id": "az-0903-p1",
+      "title": "Dərbənd ətrafında",
+      "html": "<p>Şirvan üzərinə yerimək<sup>1</sup> üçün Dərbənd yaxınlığında düşərgə salmış Toxtamış xan həmişəkindən fərqli olaraq, bu gün şad-xürrəm görünürdü. <span class=\"num\">1.</span> Hökmdarın çadırına toplaşmış əyanlar, sərkərdələr ondakı bu dəyişikliyin səbəbini öyrənməyə çalışırdılar. Toxtamış xan onların bu intizarına son qoymaq vaxtının çatdığını anlayıbmış kimi dedi:</p><p>– Səhər çaparlarımız xəbər gətirdilər ki, ədavət bəslədiyimiz Əmir Teymur Kür çayının sahilində düşərgə salıb. <u>Görünür, müttəfiqi İbrahimə kömək etmək fikrində deyil.</u> Biz Şirvanşah İbrahimi təkləyib məğlub edər, Şirvandan da çoxlu qənimət qopararıq.</p><p>Toxtamış xanın ▲ <b>təyin etdiyi</b> vaxtda bütün qoşun ayaq üstündə idi. Qala divarlarını dağıtmaq təlimatı almış döyüşçülər Dərbənd üzərinə yeriməyə başladılar. <span class=\"num\">2.</span> Lakin onlarla qala arasında hətta əlli addımdan az məsafə qalanda da oradan bir oxun belə atılmaması Toxtamış xanın ən yaxın adamı Cormağan xanı təəccübləndirdi. <u>Qaladakı sakitliyi görən Toxtamış xan da narahat oldu.</u> O:</p><p>– İbrahimin, görünür, nəsə bir ■ <b>kələyi</b> var, – dedi, sonra bir az irəli yeridi<sup>2</sup> və gözlərini qalaya zilləyib davam etdi, – ola bilər ki, döyüşçülər qala divarlarına yaxınlaşan kimi neft yandırıb onların üzərinə tökməyə hazırlaşırlar.</p><p><span class=\"num\">3.</span> Xanın əmri ilə belə vəziyyətlərdə təcrübəli olan döyüşçülər irəli yeridilər. <span class=\"num\">4.</span> Onların əllərində dairəsi iri, qalxanabənzər qorunma alətləri var idi. Onlar qala divarlarına çatdılar, lakin qaladan müqavimət görmədilər. Qala darvazalarını itələdilər, bağlı idi.</p><p>Döyüşçülərin hərəkətlərini izləyən Toxtamış xan dedi:</p><p>– Qala boşdur. İbrahim xan yaxşı bilirdi ki, otuz min nəfərlik qoşunla mənim qabağıma çıxmaq döyüşçülərini qırğına vermək deməkdir. Çəkilib gedib.</p><p>Cormağan xan Dərbənd darvazalarını sındırmağı əmr etdi. Bu, şəhərin deyil, Dərbənd keçidinin darvazaları idi. Qala, həqiqətən də, boş idi. Cormağan xan şəhərin də boş olduğunu zənn edib döyüşçülərə şəhər darvazalarını da açmaq üçün hasarlara dırmaşmağı əmr etdi. Lakin döyüşçülər hasarlara yaxınlaşa bilmədilər, onların üzərinə ox yağdırıldı.</p><p>Toxtamış xan şəhərin alınmasının həm (1.).................... hesabına olacağını, həm də (2.)..................... itirəcəyini nəzərə alıb dedi:</p><p>– Bizə Şirvan torpaqlarına girməkdən ötrü keçid lazım idi. İndi keçid bizim əlimizdədir. <span class=\"num\">5.</span> İbrahim uzun müddət özünə gələ bilməz. Tələsməliyik, Şirvanın içərilərinə doğru irəliləməliyik.</p><p>Toxtamış xanın qoşunu Samur çayına doğru hərəkətə başlayarkən Şirvanşah İbrahim də düşmən qoşununun yolu üstündəki kəndlərdən əhalini ● <b>təxliyə edir</b>, qoşununun sayını artırır, müttəfiqləri ilə danışıqlar apararaq əks-həmləyə hazırlaşırdı.</p>"
+    },
+    "stem": "<p>Klasteri tamamlayan fikirləri müəyyən edin:<br><div class=\"note\"><b>Toxtamış xan:</b> işğalçı hökmdardır → ...</div></p><p>1. Dərbənd keçidinin ələ keçirilməsini əhəmiyyətli hesab edir.<br>2. düşməninin necə həmlə edəcəyini qabaqcadan dəqiq müəyyən edir.<br>3. yaranan fürsətləri dəyərləndirir.<br>4. Şirvanşah İbrahimin müttəfiqi ilə danışıqlar aparır.<br>5. şəhərin boş olduğunu güman edib döyüşçülərə şəhərə daxil olmağı əmr edir.</p>",
+    "format": "single",
+    "options": [
+      "1, 5",
+      "1, 3",
+      "3, 5",
+      "1, 2, 4",
+      "2, 4, 5"
+    ],
+    "answer": 1,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "1) Верно (проход в Ширван уже в его руках); 3) Верно (узнав о Тимуре на Куре, решил немедленно атаковать Ибрагима). Утв. 2 неверно (он ошибочно предположил горящую нефть), 4 не отражено в тексте, 5 сделал Джормаган-хан, а не Тохтамыш."
+  },
+  {
+    "id": "az-0903-45",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 45
+    },
+    "passage": {
+      "id": "az-0903-p1",
+      "title": "Dərbənd ətrafında",
+      "html": "<p>Şirvan üzərinə yerimək<sup>1</sup> üçün Dərbənd yaxınlığında düşərgə salmış Toxtamış xan həmişəkindən fərqli olaraq, bu gün şad-xürrəm görünürdü. <span class=\"num\">1.</span> Hökmdarın çadırına toplaşmış əyanlar, sərkərdələr ondakı bu dəyişikliyin səbəbini öyrənməyə çalışırdılar. Toxtamış xan onların bu intizarına son qoymaq vaxtının çatdığını anlayıbmış kimi dedi:</p><p>– Səhər çaparlarımız xəbər gətirdilər ki, ədavət bəslədiyimiz Əmir Teymur Kür çayının sahilində düşərgə salıb. <u>Görünür, müttəfiqi İbrahimə kömək etmək fikrində deyil.</u> Biz Şirvanşah İbrahimi təkləyib məğlub edər, Şirvandan da çoxlu qənimət qopararıq.</p><p>Toxtamış xanın ▲ <b>təyin etdiyi</b> vaxtda bütün qoşun ayaq üstündə idi. Qala divarlarını dağıtmaq təlimatı almış döyüşçülər Dərbənd üzərinə yeriməyə başladılar. <span class=\"num\">2.</span> Lakin onlarla qala arasında hətta əlli addımdan az məsafə qalanda da oradan bir oxun belə atılmaması Toxtamış xanın ən yaxın adamı Cormağan xanı təəccübləndirdi. <u>Qaladakı sakitliyi görən Toxtamış xan da narahat oldu.</u> O:</p><p>– İbrahimin, görünür, nəsə bir ■ <b>kələyi</b> var, – dedi, sonra bir az irəli yeridi<sup>2</sup> və gözlərini qalaya zilləyib davam etdi, – ola bilər ki, döyüşçülər qala divarlarına yaxınlaşan kimi neft yandırıb onların üzərinə tökməyə hazırlaşırlar.</p><p><span class=\"num\">3.</span> Xanın əmri ilə belə vəziyyətlərdə təcrübəli olan döyüşçülər irəli yeridilər. <span class=\"num\">4.</span> Onların əllərində dairəsi iri, qalxanabənzər qorunma alətləri var idi. Onlar qala divarlarına çatdılar, lakin qaladan müqavimət görmədilər. Qala darvazalarını itələdilər, bağlı idi.</p><p>Döyüşçülərin hərəkətlərini izləyən Toxtamış xan dedi:</p><p>– Qala boşdur. İbrahim xan yaxşı bilirdi ki, otuz min nəfərlik qoşunla mənim qabağıma çıxmaq döyüşçülərini qırğına vermək deməkdir. Çəkilib gedib.</p><p>Cormağan xan Dərbənd darvazalarını sındırmağı əmr etdi. Bu, şəhərin deyil, Dərbənd keçidinin darvazaları idi. Qala, həqiqətən də, boş idi. Cormağan xan şəhərin də boş olduğunu zənn edib döyüşçülərə şəhər darvazalarını da açmaq üçün hasarlara dırmaşmağı əmr etdi. Lakin döyüşçülər hasarlara yaxınlaşa bilmədilər, onların üzərinə ox yağdırıldı.</p><p>Toxtamış xan şəhərin alınmasının həm (1.).................... hesabına olacağını, həm də (2.)..................... itirəcəyini nəzərə alıb dedi:</p><p>– Bizə Şirvan torpaqlarına girməkdən ötrü keçid lazım idi. İndi keçid bizim əlimizdədir. <span class=\"num\">5.</span> İbrahim uzun müddət özünə gələ bilməz. Tələsməliyik, Şirvanın içərilərinə doğru irəliləməliyik.</p><p>Toxtamış xanın qoşunu Samur çayına doğru hərəkətə başlayarkən Şirvanşah İbrahim də düşmən qoşununun yolu üstündəki kəndlərdən əhalini ● <b>təxliyə edir</b>, qoşununun sayını artırır, müttəfiqləri ilə danışıqlar apararaq əks-həmləyə hazırlaşırdı.</p>"
+    },
+    "stem": "<p>Üzərində rəqəm yazılmış sözlər (<b>1. yerimək<sup>1</sup></b>, <b>2. yeridi<sup>2</sup></b>) əsasında uyğunluğu müəyyən edin.</p><p>a. Addımlamaq sözünün qarşılığıdır.<br>b. <i>Saat heç yerimir, ürəyim lap sıxıldı</i> cümləsində kontekstə görə eyni mənanı ifadə edən söz işlənmişdir.<br>c. Hücum etmək anlamındadır.<br>d. <i>Bir qoca köhnə paltar əynində, Yeriyir yolda torba çiynində (A. Səhhət)</i> nümunəsində kontekstə görə eyni mənanı daşıyan söz var.<br>e. <i>Bu işlər bizim vilayətdə yeriməz, vəssalam (C. Məmmədquluzadə)</i> nümunəsində kontekstə görə mətndəki mənaya uyğun ifadə işlənmişdir.</p>",
+    "format": "single",
+    "options": [
+      "1 – c; 2 – a, d",
+      "1 – a; 2 – b, e",
+      "1 – b; 2 – a, d",
+      "1 – c, e; 2 – b",
+      "1 – c; 2 – d, e"
+    ],
+    "answer": 0,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Работа с текстом",
+    "explanation": "В тексте <i>yerimək¹</i> (Şirvan üzərinə yerimək) означает «наступать, нападать» (c), а <i>yeridi²</i> (bir az irəli yeridi) — «шагать, продвигаться вперёд» (a, d — как у А. Саххата). Примеры b («не идут часы») и e («не пройдёт/не приживётся») имеют иные значения."
+  },
+  {
+    "id": "az-0903-46",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 46
+    },
+    "passage": {
+      "id": "az-0903-p1",
+      "title": "Dərbənd ətrafında",
+      "html": "<p>Şirvan üzərinə yerimək<sup>1</sup> üçün Dərbənd yaxınlığında düşərgə salmış Toxtamış xan həmişəkindən fərqli olaraq, bu gün şad-xürrəm görünürdü. <span class=\"num\">1.</span> Hökmdarın çadırına toplaşmış əyanlar, sərkərdələr ondakı bu dəyişikliyin səbəbini öyrənməyə çalışırdılar. Toxtamış xan onların bu intizarına son qoymaq vaxtının çatdığını anlayıbmış kimi dedi:</p><p>– Səhər çaparlarımız xəbər gətirdilər ki, ədavət bəslədiyimiz Əmir Teymur Kür çayının sahilində düşərgə salıb. <u>Görünür, müttəfiqi İbrahimə kömək etmək fikrində deyil.</u> Biz Şirvanşah İbrahimi təkləyib məğlub edər, Şirvandan da çoxlu qənimət qopararıq.</p><p>Toxtamış xanın ▲ <b>təyin etdiyi</b> vaxtda bütün qoşun ayaq üstündə idi. Qala divarlarını dağıtmaq təlimatı almış döyüşçülər Dərbənd üzərinə yeriməyə başladılar. <span class=\"num\">2.</span> Lakin onlarla qala arasında hətta əlli addımdan az məsafə qalanda da oradan bir oxun belə atılmaması Toxtamış xanın ən yaxın adamı Cormağan xanı təəccübləndirdi. <u>Qaladakı sakitliyi görən Toxtamış xan da narahat oldu.</u> O:</p><p>– İbrahimin, görünür, nəsə bir ■ <b>kələyi</b> var, – dedi, sonra bir az irəli yeridi<sup>2</sup> və gözlərini qalaya zilləyib davam etdi, – ola bilər ki, döyüşçülər qala divarlarına yaxınlaşan kimi neft yandırıb onların üzərinə tökməyə hazırlaşırlar.</p><p><span class=\"num\">3.</span> Xanın əmri ilə belə vəziyyətlərdə təcrübəli olan döyüşçülər irəli yeridilər. <span class=\"num\">4.</span> Onların əllərində dairəsi iri, qalxanabənzər qorunma alətləri var idi. Onlar qala divarlarına çatdılar, lakin qaladan müqavimət görmədilər. Qala darvazalarını itələdilər, bağlı idi.</p><p>Döyüşçülərin hərəkətlərini izləyən Toxtamış xan dedi:</p><p>– Qala boşdur. İbrahim xan yaxşı bilirdi ki, otuz min nəfərlik qoşunla mənim qabağıma çıxmaq döyüşçülərini qırğına vermək deməkdir. Çəkilib gedib.</p><p>Cormağan xan Dərbənd darvazalarını sındırmağı əmr etdi. Bu, şəhərin deyil, Dərbənd keçidinin darvazaları idi. Qala, həqiqətən də, boş idi. Cormağan xan şəhərin də boş olduğunu zənn edib döyüşçülərə şəhər darvazalarını da açmaq üçün hasarlara dırmaşmağı əmr etdi. Lakin döyüşçülər hasarlara yaxınlaşa bilmədilər, onların üzərinə ox yağdırıldı.</p><p>Toxtamış xan şəhərin alınmasının həm (1.).................... hesabına olacağını, həm də (2.)..................... itirəcəyini nəzərə alıb dedi:</p><p>– Bizə Şirvan torpaqlarına girməkdən ötrü keçid lazım idi. İndi keçid bizim əlimizdədir. <span class=\"num\">5.</span> İbrahim uzun müddət özünə gələ bilməz. Tələsməliyik, Şirvanın içərilərinə doğru irəliləməliyik.</p><p>Toxtamış xanın qoşunu Samur çayına doğru hərəkətə başlayarkən Şirvanşah İbrahim də düşmən qoşununun yolu üstündəki kəndlərdən əhalini ● <b>təxliyə edir</b>, qoşununun sayını artırır, müttəfiqləri ilə danışıqlar apararaq əks-həmləyə hazırlaşırdı.</p>"
+    },
+    "stem": "Əvvəlində işarə qoyulmuş sözlərin qarşılığını (ifadə etdiyi mənanı) kontekstə əsasən müəyyən edib yazın:<br>▲ <b>təyin etdiyi</b><br>■ <b>kələyi</b><br>● <b>təxliyə edir</b>",
+    "format": "open",
+    "answer": "▲ müəyyən etmək, qərarlaşdırmaq;<br>■ hiylə, fırıldaq;<br>● köçürmək, təhlükəsiz yerə çıxarmaq.",
+    "rubric": "2 балла — верно определено значение всех 3 слов по контексту; 1 балл — 2 слова; 0 баллов — 0–1 слово.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Официальные варианты DİM: ▲ müəyyən etmək / qərarlaşdırmaq; ■ hiylə / fırıldaq; ● köçürmək / çıxarmaq."
+  },
+  {
+    "id": "az-0903-47",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 47
+    },
+    "passage": {
+      "id": "az-0903-p1",
+      "title": "Dərbənd ətrafında",
+      "html": "<p>Şirvan üzərinə yerimək<sup>1</sup> üçün Dərbənd yaxınlığında düşərgə salmış Toxtamış xan həmişəkindən fərqli olaraq, bu gün şad-xürrəm görünürdü. <span class=\"num\">1.</span> Hökmdarın çadırına toplaşmış əyanlar, sərkərdələr ondakı bu dəyişikliyin səbəbini öyrənməyə çalışırdılar. Toxtamış xan onların bu intizarına son qoymaq vaxtının çatdığını anlayıbmış kimi dedi:</p><p>– Səhər çaparlarımız xəbər gətirdilər ki, ədavət bəslədiyimiz Əmir Teymur Kür çayının sahilində düşərgə salıb. <u>Görünür, müttəfiqi İbrahimə kömək etmək fikrində deyil.</u> Biz Şirvanşah İbrahimi təkləyib məğlub edər, Şirvandan da çoxlu qənimət qopararıq.</p><p>Toxtamış xanın ▲ <b>təyin etdiyi</b> vaxtda bütün qoşun ayaq üstündə idi. Qala divarlarını dağıtmaq təlimatı almış döyüşçülər Dərbənd üzərinə yeriməyə başladılar. <span class=\"num\">2.</span> Lakin onlarla qala arasında hətta əlli addımdan az məsafə qalanda da oradan bir oxun belə atılmaması Toxtamış xanın ən yaxın adamı Cormağan xanı təəccübləndirdi. <u>Qaladakı sakitliyi görən Toxtamış xan da narahat oldu.</u> O:</p><p>– İbrahimin, görünür, nəsə bir ■ <b>kələyi</b> var, – dedi, sonra bir az irəli yeridi<sup>2</sup> və gözlərini qalaya zilləyib davam etdi, – ola bilər ki, döyüşçülər qala divarlarına yaxınlaşan kimi neft yandırıb onların üzərinə tökməyə hazırlaşırlar.</p><p><span class=\"num\">3.</span> Xanın əmri ilə belə vəziyyətlərdə təcrübəli olan döyüşçülər irəli yeridilər. <span class=\"num\">4.</span> Onların əllərində dairəsi iri, qalxanabənzər qorunma alətləri var idi. Onlar qala divarlarına çatdılar, lakin qaladan müqavimət görmədilər. Qala darvazalarını itələdilər, bağlı idi.</p><p>Döyüşçülərin hərəkətlərini izləyən Toxtamış xan dedi:</p><p>– Qala boşdur. İbrahim xan yaxşı bilirdi ki, otuz min nəfərlik qoşunla mənim qabağıma çıxmaq döyüşçülərini qırğına vermək deməkdir. Çəkilib gedib.</p><p>Cormağan xan Dərbənd darvazalarını sındırmağı əmr etdi. Bu, şəhərin deyil, Dərbənd keçidinin darvazaları idi. Qala, həqiqətən də, boş idi. Cormağan xan şəhərin də boş olduğunu zənn edib döyüşçülərə şəhər darvazalarını da açmaq üçün hasarlara dırmaşmağı əmr etdi. Lakin döyüşçülər hasarlara yaxınlaşa bilmədilər, onların üzərinə ox yağdırıldı.</p><p>Toxtamış xan şəhərin alınmasının həm (1.).................... hesabına olacağını, həm də (2.)..................... itirəcəyini nəzərə alıb dedi:</p><p>– Bizə Şirvan torpaqlarına girməkdən ötrü keçid lazım idi. İndi keçid bizim əlimizdədir. <span class=\"num\">5.</span> İbrahim uzun müddət özünə gələ bilməz. Tələsməliyik, Şirvanın içərilərinə doğru irəliləməliyik.</p><p>Toxtamış xanın qoşunu Samur çayına doğru hərəkətə başlayarkən Şirvanşah İbrahim də düşmən qoşununun yolu üstündəki kəndlərdən əhalini ● <b>təxliyə edir</b>, qoşununun sayını artırır, müttəfiqləri ilə danışıqlar apararaq əks-həmləyə hazırlaşırdı.</p>"
+    },
+    "stem": "Altından xətt çəkilmiş cümlələri mətnin səciyyəvi üslubi xüsusiyyətlərinə uyğun zənginləşdirməklə (məcazi mənalı ifadələr artırmaqla) yenidən yazın:<br>1. <i>Görünür, müttəfiqi İbrahimə kömək etmək fikrində deyil.</i><br>2. <i>Qaladakı sakitliyi görən Toxtamış xan da narahat oldu.</i>",
+    "format": "open",
+    "answer": "1. Görünür, müttəfiqi İbrahimin əlindən tutmaq üçün tərpənmək fikrində deyil (və ya: İbrahimə kömək etmək ağlının ucundan da keçmir).<br>2. Qalanın susmasını görən Toxtamış xan təşvişə düşdü (həyəcan keçirdi).",
+    "rubric": "2 балла — оба предложения художественно обогащены переносными выражениями с сохранением смысла; 1 балл — обогащено только 1 предложение; 0 баллов — без образных средств.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Образцы DİM используют фразеологизмы и метафоры («əlindən tutmaq», «ağlının ucundan keçmir», «qalanın susması», «təşvişə düşdü»)."
+  },
+  {
+    "id": "az-0903-48",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 48
+    },
+    "passage": {
+      "id": "az-0903-p1",
+      "title": "Dərbənd ətrafında",
+      "html": "<p>Şirvan üzərinə yerimək<sup>1</sup> üçün Dərbənd yaxınlığında düşərgə salmış Toxtamış xan həmişəkindən fərqli olaraq, bu gün şad-xürrəm görünürdü. <span class=\"num\">1.</span> Hökmdarın çadırına toplaşmış əyanlar, sərkərdələr ondakı bu dəyişikliyin səbəbini öyrənməyə çalışırdılar. Toxtamış xan onların bu intizarına son qoymaq vaxtının çatdığını anlayıbmış kimi dedi:</p><p>– Səhər çaparlarımız xəbər gətirdilər ki, ədavət bəslədiyimiz Əmir Teymur Kür çayının sahilində düşərgə salıb. <u>Görünür, müttəfiqi İbrahimə kömək etmək fikrində deyil.</u> Biz Şirvanşah İbrahimi təkləyib məğlub edər, Şirvandan da çoxlu qənimət qopararıq.</p><p>Toxtamış xanın ▲ <b>təyin etdiyi</b> vaxtda bütün qoşun ayaq üstündə idi. Qala divarlarını dağıtmaq təlimatı almış döyüşçülər Dərbənd üzərinə yeriməyə başladılar. <span class=\"num\">2.</span> Lakin onlarla qala arasında hətta əlli addımdan az məsafə qalanda da oradan bir oxun belə atılmaması Toxtamış xanın ən yaxın adamı Cormağan xanı təəccübləndirdi. <u>Qaladakı sakitliyi görən Toxtamış xan da narahat oldu.</u> O:</p><p>– İbrahimin, görünür, nəsə bir ■ <b>kələyi</b> var, – dedi, sonra bir az irəli yeridi<sup>2</sup> və gözlərini qalaya zilləyib davam etdi, – ola bilər ki, döyüşçülər qala divarlarına yaxınlaşan kimi neft yandırıb onların üzərinə tökməyə hazırlaşırlar.</p><p><span class=\"num\">3.</span> Xanın əmri ilə belə vəziyyətlərdə təcrübəli olan döyüşçülər irəli yeridilər. <span class=\"num\">4.</span> Onların əllərində dairəsi iri, qalxanabənzər qorunma alətləri var idi. Onlar qala divarlarına çatdılar, lakin qaladan müqavimət görmədilər. Qala darvazalarını itələdilər, bağlı idi.</p><p>Döyüşçülərin hərəkətlərini izləyən Toxtamış xan dedi:</p><p>– Qala boşdur. İbrahim xan yaxşı bilirdi ki, otuz min nəfərlik qoşunla mənim qabağıma çıxmaq döyüşçülərini qırğına vermək deməkdir. Çəkilib gedib.</p><p>Cormağan xan Dərbənd darvazalarını sındırmağı əmr etdi. Bu, şəhərin deyil, Dərbənd keçidinin darvazaları idi. Qala, həqiqətən də, boş idi. Cormağan xan şəhərin də boş olduğunu zənn edib döyüşçülərə şəhər darvazalarını da açmaq üçün hasarlara dırmaşmağı əmr etdi. Lakin döyüşçülər hasarlara yaxınlaşa bilmədilər, onların üzərinə ox yağdırıldı.</p><p>Toxtamış xan şəhərin alınmasının həm (1.).................... hesabına olacağını, həm də (2.)..................... itirəcəyini nəzərə alıb dedi:</p><p>– Bizə Şirvan torpaqlarına girməkdən ötrü keçid lazım idi. İndi keçid bizim əlimizdədir. <span class=\"num\">5.</span> İbrahim uzun müddət özünə gələ bilməz. Tələsməliyik, Şirvanın içərilərinə doğru irəliləməliyik.</p><p>Toxtamış xanın qoşunu Samur çayına doğru hərəkətə başlayarkən Şirvanşah İbrahim də düşmən qoşununun yolu üstündəki kəndlərdən əhalini ● <b>təxliyə edir</b>, qoşununun sayını artırır, müttəfiqləri ilə danışıqlar apararaq əks-həmləyə hazırlaşırdı.</p>"
+    },
+    "stem": "Mətnə əsasən <b>Şirvanşah İbrahim</b> obrazı ilə bağlı cədvəli doldurun (2 xüsusiyyət və fikrin əsaslandırılması).",
+    "format": "open",
+    "answer": "1. <b>Tədbirli:</b> Düşmən qoşununun yolu üstündəki kəndlərdən əhalini təxliyə edir, qoşununun sayını artırır, müttəfiqləri ilə danışıqlar apararaq əks-həmləyə hazırlaşır.<br>2. <b>Uzaqgörən:</b> Toxtamış xanın hücum edəcəyini əvvəlcədən bilir; düşmən qoşunu şəhər hasarlarına yaxınlaşanda onların üzərinə oxlar yağdırılır.",
+    "rubric": "2 балла — названы 2 черты характера и приведено точное текстовое обоснование для каждой; 1 балл — 1 черта с обоснованием; 0 баллов — неверно.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "По тексту Ширваншах Ибрагим проявляет предусмотрительность (tədbirli) и дальновидность (uzaqgörən)."
+  },
+  {
+    "id": "az-0903-49",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 49
+    },
+    "passage": {
+      "id": "az-0903-p1",
+      "title": "Dərbənd ətrafında",
+      "html": "<p>Şirvan üzərinə yerimək<sup>1</sup> üçün Dərbənd yaxınlığında düşərgə salmış Toxtamış xan həmişəkindən fərqli olaraq, bu gün şad-xürrəm görünürdü. <span class=\"num\">1.</span> Hökmdarın çadırına toplaşmış əyanlar, sərkərdələr ondakı bu dəyişikliyin səbəbini öyrənməyə çalışırdılar. Toxtamış xan onların bu intizarına son qoymaq vaxtının çatdığını anlayıbmış kimi dedi:</p><p>– Səhər çaparlarımız xəbər gətirdilər ki, ədavət bəslədiyimiz Əmir Teymur Kür çayının sahilində düşərgə salıb. <u>Görünür, müttəfiqi İbrahimə kömək etmək fikrində deyil.</u> Biz Şirvanşah İbrahimi təkləyib məğlub edər, Şirvandan da çoxlu qənimət qopararıq.</p><p>Toxtamış xanın ▲ <b>təyin etdiyi</b> vaxtda bütün qoşun ayaq üstündə idi. Qala divarlarını dağıtmaq təlimatı almış döyüşçülər Dərbənd üzərinə yeriməyə başladılar. <span class=\"num\">2.</span> Lakin onlarla qala arasında hətta əlli addımdan az məsafə qalanda da oradan bir oxun belə atılmaması Toxtamış xanın ən yaxın adamı Cormağan xanı təəccübləndirdi. <u>Qaladakı sakitliyi görən Toxtamış xan da narahat oldu.</u> O:</p><p>– İbrahimin, görünür, nəsə bir ■ <b>kələyi</b> var, – dedi, sonra bir az irəli yeridi<sup>2</sup> və gözlərini qalaya zilləyib davam etdi, – ola bilər ki, döyüşçülər qala divarlarına yaxınlaşan kimi neft yandırıb onların üzərinə tökməyə hazırlaşırlar.</p><p><span class=\"num\">3.</span> Xanın əmri ilə belə vəziyyətlərdə təcrübəli olan döyüşçülər irəli yeridilər. <span class=\"num\">4.</span> Onların əllərində dairəsi iri, qalxanabənzər qorunma alətləri var idi. Onlar qala divarlarına çatdılar, lakin qaladan müqavimət görmədilər. Qala darvazalarını itələdilər, bağlı idi.</p><p>Döyüşçülərin hərəkətlərini izləyən Toxtamış xan dedi:</p><p>– Qala boşdur. İbrahim xan yaxşı bilirdi ki, otuz min nəfərlik qoşunla mənim qabağıma çıxmaq döyüşçülərini qırğına vermək deməkdir. Çəkilib gedib.</p><p>Cormağan xan Dərbənd darvazalarını sındırmağı əmr etdi. Bu, şəhərin deyil, Dərbənd keçidinin darvazaları idi. Qala, həqiqətən də, boş idi. Cormağan xan şəhərin də boş olduğunu zənn edib döyüşçülərə şəhər darvazalarını da açmaq üçün hasarlara dırmaşmağı əmr etdi. Lakin döyüşçülər hasarlara yaxınlaşa bilmədilər, onların üzərinə ox yağdırıldı.</p><p>Toxtamış xan şəhərin alınmasının həm (1.).................... hesabına olacağını, həm də (2.)..................... itirəcəyini nəzərə alıb dedi:</p><p>– Bizə Şirvan torpaqlarına girməkdən ötrü keçid lazım idi. İndi keçid bizim əlimizdədir. <span class=\"num\">5.</span> İbrahim uzun müddət özünə gələ bilməz. Tələsməliyik, Şirvanın içərilərinə doğru irəliləməliyik.</p><p>Toxtamış xanın qoşunu Samur çayına doğru hərəkətə başlayarkən Şirvanşah İbrahim də düşmən qoşununun yolu üstündəki kəndlərdən əhalini ● <b>təxliyə edir</b>, qoşununun sayını artırır, müttəfiqləri ilə danışıqlar apararaq əks-həmləyə hazırlaşırdı.</p>"
+    },
+    "stem": "Mətndə nöqtələrin yerinə uyğun ifadələr yazmaqla cümləni tamamlayın:<br><i>«Toxtamış xan şəhərin alınmasının həm (1.).................... hesabına olacağını, həm də (2.)..................... itirəcəyini nəzərə alıb dedi...»</i>",
+    "format": "open",
+    "answer": "1. böyük itkilər / böyük çətinlik;<br>2. xeyli vaxt / xeyli sayda döyüşçü.",
+    "rubric": "2 балла — оба пропуска заполнены логически и грамматически точно в контексте падежа и смысла; 1 балл — 1 пропуск; 0 баллов — неверно.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Варианты DİM: (1) böyük itkilər / çətinlik; (2) xeyli vaxt / xeyli sayda döyüşçü."
+  },
+  {
+    "id": "az-0903-50",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 50
+    },
+    "passage": {
+      "id": "az-0903-p1",
+      "title": "Dərbənd ətrafında",
+      "html": "<p>Şirvan üzərinə yerimək<sup>1</sup> üçün Dərbənd yaxınlığında düşərgə salmış Toxtamış xan həmişəkindən fərqli olaraq, bu gün şad-xürrəm görünürdü. <span class=\"num\">1.</span> Hökmdarın çadırına toplaşmış əyanlar, sərkərdələr ondakı bu dəyişikliyin səbəbini öyrənməyə çalışırdılar. Toxtamış xan onların bu intizarına son qoymaq vaxtının çatdığını anlayıbmış kimi dedi:</p><p>– Səhər çaparlarımız xəbər gətirdilər ki, ədavət bəslədiyimiz Əmir Teymur Kür çayının sahilində düşərgə salıb. <u>Görünür, müttəfiqi İbrahimə kömək etmək fikrində deyil.</u> Biz Şirvanşah İbrahimi təkləyib məğlub edər, Şirvandan da çoxlu qənimət qopararıq.</p><p>Toxtamış xanın ▲ <b>təyin etdiyi</b> vaxtda bütün qoşun ayaq üstündə idi. Qala divarlarını dağıtmaq təlimatı almış döyüşçülər Dərbənd üzərinə yeriməyə başladılar. <span class=\"num\">2.</span> Lakin onlarla qala arasında hətta əlli addımdan az məsafə qalanda da oradan bir oxun belə atılmaması Toxtamış xanın ən yaxın adamı Cormağan xanı təəccübləndirdi. <u>Qaladakı sakitliyi görən Toxtamış xan da narahat oldu.</u> O:</p><p>– İbrahimin, görünür, nəsə bir ■ <b>kələyi</b> var, – dedi, sonra bir az irəli yeridi<sup>2</sup> və gözlərini qalaya zilləyib davam etdi, – ola bilər ki, döyüşçülər qala divarlarına yaxınlaşan kimi neft yandırıb onların üzərinə tökməyə hazırlaşırlar.</p><p><span class=\"num\">3.</span> Xanın əmri ilə belə vəziyyətlərdə təcrübəli olan döyüşçülər irəli yeridilər. <span class=\"num\">4.</span> Onların əllərində dairəsi iri, qalxanabənzər qorunma alətləri var idi. Onlar qala divarlarına çatdılar, lakin qaladan müqavimət görmədilər. Qala darvazalarını itələdilər, bağlı idi.</p><p>Döyüşçülərin hərəkətlərini izləyən Toxtamış xan dedi:</p><p>– Qala boşdur. İbrahim xan yaxşı bilirdi ki, otuz min nəfərlik qoşunla mənim qabağıma çıxmaq döyüşçülərini qırğına vermək deməkdir. Çəkilib gedib.</p><p>Cormağan xan Dərbənd darvazalarını sındırmağı əmr etdi. Bu, şəhərin deyil, Dərbənd keçidinin darvazaları idi. Qala, həqiqətən də, boş idi. Cormağan xan şəhərin də boş olduğunu zənn edib döyüşçülərə şəhər darvazalarını da açmaq üçün hasarlara dırmaşmağı əmr etdi. Lakin döyüşçülər hasarlara yaxınlaşa bilmədilər, onların üzərinə ox yağdırıldı.</p><p>Toxtamış xan şəhərin alınmasının həm (1.).................... hesabına olacağını, həm də (2.)..................... itirəcəyini nəzərə alıb dedi:</p><p>– Bizə Şirvan torpaqlarına girməkdən ötrü keçid lazım idi. İndi keçid bizim əlimizdədir. <span class=\"num\">5.</span> İbrahim uzun müddət özünə gələ bilməz. Tələsməliyik, Şirvanın içərilərinə doğru irəliləməliyik.</p><p>Toxtamış xanın qoşunu Samur çayına doğru hərəkətə başlayarkən Şirvanşah İbrahim də düşmən qoşununun yolu üstündəki kəndlərdən əhalini ● <b>təxliyə edir</b>, qoşununun sayını artırır, müttəfiqləri ilə danışıqlar apararaq əks-həmləyə hazırlaşırdı.</p>"
+    },
+    "stem": "“Sən saydığını say, gör, fələk nə sayır” atalar sözünü mətndəki 2 müxtəlif məqamla əlaqələndirib fikirlərinizi yazın.",
+    "format": "open",
+    "answer": "1. Toxtamış xan İbrahimin Dərbəndi itirdikdən sonra bir daha özünə gələ bilməyəcəyini düşündüyü halda, İbrahim qoşun toplayıb əks-həmləyə hazırlaşırdı.<br>2. Cormağan xan şəhərin boş olduğunu zənn edib döyüşçülərə hasara dırmaşmağı əmr etdi, lakin onlar oxçuların əks-hücumu ilə qarşılaşdılar.",
+    "rubric": "2 балла — оба момента текста точно соотнесены с пословицей (расчёт Тохтамыша/Джормагана vs реальность); 1 балл — 1 момент; 0 баллов — неверно.",
+    "points": 2,
+    "difficulty": 3,
+    "topic": "Работа с текстом",
+    "explanation": "Пословица «человек предполагает, а судьба располагает» раскрывается через ошибочные расчёты Тохтамыш-хана и Джормаган-хана."
+  },
+  {
+    "id": "az-0903-51",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 51
+    },
+    "passage": {
+      "id": "az-0903-p2",
+      "title": "Azərbaycanda parçaçılıq sənəti",
+      "html": "<p>Azərbaycanda parçaçılıq sənətinin tarixi çox qədimdir. Bu sənət sahəsi yarandığından bu günə qədər daima yüksək səviyyədə inkişaf etmişdir.</p><p>Fərqli materiallardan hazırlanan parça <u>məmulatlarının</u> Venesiya, Genuya, Hollandiya, Fransa, İngiltərə və Rusiyada böyük alıcı kütləsi olmuşdur. <span class=\"mark\">Səfəvilər tarixində Azərbaycanda olmuş məşhur fransız səyyahı Sarden burada müxtəlif parça növlərinin toxunduğunu gündəliyində istinad etmişdir.</span></p><p>Rusların Azərbaycan parçaları ilə tanışlığı barədə hələ IX-XII əsrlərə aid <u>məxəzlərdə</u> yazılmışdır<sup>1</sup>. Sonrakı yazılı mənbələrdə 1663-cü ildə Şamaxıya və Təbrizə parça almağa göndərilən ekspedisiyadan və Şamaxı ipəyindən rus çarı Romanov üçün paltar tikilməsindən bəhs olunur. Azərbaycan ipəyi hətta qədim rus xalq mahnısındakı «sənə Şamaxıda toxunan ipəkdən köynək tikdirəcəyəm» ifadəsinin yaranmasına səbəb olmuşdur.</p><p>XIV-XVII əsrlərdə Təbriz və Şamaxının bəzi emalatxanalarında toxunan zərli parçalar parçaçılıq sənətində xüsusi yer tuturdu. O parçalar qızıl və gümüş saplarla bəzədildiyi üçün dünya bazarında baha qiymətə satılırdı. Belə toxuma parçaların saplarını zərgərlər hazırlayırdılar<sup>2</sup>. <span class=\"num\">[I]</span> Qızıl və gümüşü zindanın üstündə nazik vərəq şəklinə salana qədər döyürdülər. <span class=\"num\">[II]</span> Sonra bu vərəqləri metal alətin deşiyindən keçirərək sap halına salırdılar<sup>3</sup>.</p><p>Azərbaycan parçalarının belə şöhrət qazanmasına səbəb təkcə onların gözəl və <u>davamlı</u> olması deyildi. Onlar bədii xüsusiyyət ▲ <b>daşıyan</b> naxışlarla bəzədilir və daha gözəl görünməsi<sup>4</sup> üçün müxtəlif rəssamların <u>tablolarına</u> müraciət edilirdi. Naxışların arasında nağıl qəhrəmanları, klassik şairlərin, xüsusən N. Gəncəvinin əsərlərindəki obrazlar da təsvir edilirdi. <span class=\"num\">[III]</span></p><p>Hazırda Moskvada Şərq Xalqları Muzeyində XVI əsrdə Təbrizdə toxunmuş ipək parçanın bir hissəsi saxlanılır. Bu hissənin üzərində qızılbaş paltarı geyinmiş bir gənc atlı və onun kəməndlə ■ <b>tutduğu</b> bir düşmən təsvir olunmuşdur. Araşdırmalar göstərir<sup>5</sup> ki, bu parça əvvəllər İstanbulda <u>əntiq</u> mallar alverçisində olmuşdur. Sonralar satıcı bu nadir parçanı mənfəət əldə etmək üçün bir neçə hissəyə bölərək müxtəlif şəxslərə satmışdır. XVI əsrin yadigarı sayılan bu parçanın bir hissəsi Kiyev, bir hissəsi Moskva, bir hissəsi də Paris muzeyində nümayiş etdirilir.</p><p>Azərbaycan parçaçılıq sənətinin tarixində məşəqqətli illər də olmuşdur. <span class=\"num\">[IV]</span> 1514-cü ildə Sultan Səlimin Şah İsmayıl üzərindəki qələbəsindən sonra sultanın göstərişi ilə Təbriz toxucularının böyük əksəriyyəti parçaçılıq sənətini inkişaf etdirmək məqsədilə həmişəlik İstanbula aparılmışdır. Bu hadisə Azərbaycanda parça sənətinə böyük zərbə vurmuşdur. <span class=\"num\">[V]</span></p>"
+    },
+    "stem": "“Məşhur fransız sənətşünası Q. Mijon “Müsəlman incəsənəti” kitabında “Onlar elə bil “Min bir gecə” nağıllarına çəkilmiş illüstrasiyadır” yazaraq bu sənət nümunələrinə məftunluğunu etiraf etmişdir” cümləsi mətndəki nömrələnmiş hansı çərçivənin yerinə artırılsa, cümlələr arasında məzmun ardıcıllığı pozulmaz?",
+    "format": "single",
+    "options": [
+      "III",
+      "IV",
+      "V",
+      "I",
+      "II"
+    ],
+    "answer": 0,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "В абзаце перед рамкой <b>[III]</b> говорится о том, что на тканях изображались сказочные герои и образы поэзии (в частности Низами Гянджеви). Сравнение Г. Мижона с иллюстрациями к «Тысяче и одной ночи» логично завершает именно этот абзац."
+  },
+  {
+    "id": "az-0903-52",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 52
+    },
+    "passage": {
+      "id": "az-0903-p2",
+      "title": "Azərbaycanda parçaçılıq sənəti",
+      "html": "<p>Azərbaycanda parçaçılıq sənətinin tarixi çox qədimdir. Bu sənət sahəsi yarandığından bu günə qədər daima yüksək səviyyədə inkişaf etmişdir.</p><p>Fərqli materiallardan hazırlanan parça <u>məmulatlarının</u> Venesiya, Genuya, Hollandiya, Fransa, İngiltərə və Rusiyada böyük alıcı kütləsi olmuşdur. <span class=\"mark\">Səfəvilər tarixində Azərbaycanda olmuş məşhur fransız səyyahı Sarden burada müxtəlif parça növlərinin toxunduğunu gündəliyində istinad etmişdir.</span></p><p>Rusların Azərbaycan parçaları ilə tanışlığı barədə hələ IX-XII əsrlərə aid <u>məxəzlərdə</u> yazılmışdır<sup>1</sup>. Sonrakı yazılı mənbələrdə 1663-cü ildə Şamaxıya və Təbrizə parça almağa göndərilən ekspedisiyadan və Şamaxı ipəyindən rus çarı Romanov üçün paltar tikilməsindən bəhs olunur. Azərbaycan ipəyi hətta qədim rus xalq mahnısındakı «sənə Şamaxıda toxunan ipəkdən köynək tikdirəcəyəm» ifadəsinin yaranmasına səbəb olmuşdur.</p><p>XIV-XVII əsrlərdə Təbriz və Şamaxının bəzi emalatxanalarında toxunan zərli parçalar parçaçılıq sənətində xüsusi yer tuturdu. O parçalar qızıl və gümüş saplarla bəzədildiyi üçün dünya bazarında baha qiymətə satılırdı. Belə toxuma parçaların saplarını zərgərlər hazırlayırdılar<sup>2</sup>. <span class=\"num\">[I]</span> Qızıl və gümüşü zindanın üstündə nazik vərəq şəklinə salana qədər döyürdülər. <span class=\"num\">[II]</span> Sonra bu vərəqləri metal alətin deşiyindən keçirərək sap halına salırdılar<sup>3</sup>.</p><p>Azərbaycan parçalarının belə şöhrət qazanmasına səbəb təkcə onların gözəl və <u>davamlı</u> olması deyildi. Onlar bədii xüsusiyyət ▲ <b>daşıyan</b> naxışlarla bəzədilir və daha gözəl görünməsi<sup>4</sup> üçün müxtəlif rəssamların <u>tablolarına</u> müraciət edilirdi. Naxışların arasında nağıl qəhrəmanları, klassik şairlərin, xüsusən N. Gəncəvinin əsərlərindəki obrazlar da təsvir edilirdi. <span class=\"num\">[III]</span></p><p>Hazırda Moskvada Şərq Xalqları Muzeyində XVI əsrdə Təbrizdə toxunmuş ipək parçanın bir hissəsi saxlanılır. Bu hissənin üzərində qızılbaş paltarı geyinmiş bir gənc atlı və onun kəməndlə ■ <b>tutduğu</b> bir düşmən təsvir olunmuşdur. Araşdırmalar göstərir<sup>5</sup> ki, bu parça əvvəllər İstanbulda <u>əntiq</u> mallar alverçisində olmuşdur. Sonralar satıcı bu nadir parçanı mənfəət əldə etmək üçün bir neçə hissəyə bölərək müxtəlif şəxslərə satmışdır. XVI əsrin yadigarı sayılan bu parçanın bir hissəsi Kiyev, bir hissəsi Moskva, bir hissəsi də Paris muzeyində nümayiş etdirilir.</p><p>Azərbaycan parçaçılıq sənətinin tarixində məşəqqətli illər də olmuşdur. <span class=\"num\">[IV]</span> 1514-cü ildə Sultan Səlimin Şah İsmayıl üzərindəki qələbəsindən sonra sultanın göstərişi ilə Təbriz toxucularının böyük əksəriyyəti parçaçılıq sənətini inkişaf etdirmək məqsədilə həmişəlik İstanbula aparılmışdır. Bu hadisə Azərbaycanda parça sənətinə böyük zərbə vurmuşdur. <span class=\"num\">[V]</span></p>"
+    },
+    "image": {
+      "svg": "<svg viewBox=\"0 0 380 210\" xmlns=\"http://www.w3.org/2000/svg\"><text x=\"110\" y=\"24\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">Şamaxı</text><text x=\"270\" y=\"24\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"bold\" fill=\"currentColor\">Təbriz</text><ellipse cx=\"145\" cy=\"115\" rx=\"115\" ry=\"75\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><ellipse cx=\"235\" cy=\"115\" rx=\"115\" ry=\"75\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"85\" y=\"95\" text-anchor=\"middle\" font-size=\"16\" fill=\"currentColor\">1.</text><text x=\"85\" y=\"140\" text-anchor=\"middle\" font-size=\"16\" fill=\"currentColor\">2.</text><text x=\"190\" y=\"95\" text-anchor=\"middle\" font-size=\"16\" fill=\"currentColor\">3.</text><text x=\"190\" y=\"140\" text-anchor=\"middle\" font-size=\"16\" fill=\"currentColor\">4.</text><text x=\"295\" y=\"95\" text-anchor=\"middle\" font-size=\"16\" fill=\"currentColor\">5.</text><text x=\"295\" y=\"140\" text-anchor=\"middle\" font-size=\"16\" fill=\"currentColor\">6.</text></svg>",
+      "alt": "Диаграмма Эйлера-Венна для Şamaxı (1, 2), пересечения (3, 4) и Təbriz (5, 6)"
+    },
+    "stem": "<p>Mətnə əsasən Eyler-Venn diaqramındakı <b>yanlış</b> fikirləri müəyyən edin.</p><p>1. Xalq mahnısında burada toxunan parçaya işarə edilir.<br>2. Mənbələrdə buraya ticarət məqsədilə göndərilən heyətdən söz açılır.<br>3. Parça toxucuları şəhəri tərk etmək məcburiyyətində qalmışdır.<br>4. Bəzi emalatxanalarında hazırlanan parçalar yüksək qiymətə satılırdı.<br>5. Parça toxuyan sənətkarları qiymətli metallardan da istifadə edirdilər.<br>6. Burada toxunmuş parçanın hissələri müxtəlif muzeylərdə saxlanılır.</p>",
+    "format": "single",
+    "options": [
+      "2, 4, 6",
+      "1, 4, 5",
+      "1, 2, 3",
+      "3, 4, 6",
+      "2, 3, 5"
+    ],
+    "answer": 4,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Работа с текстом",
+    "explanation": "1) Верно (только Шемаха); 2) Ошибочно стоит в зоне «только Шемаха» — экспедиция 1663 г. направлялась и в Шемаху, и в Тебриз; 3) Ошибочно стоит в общей зоне — в Стамбул увезли ткачей только Тебриза; 4) Верно (общая зона); 5) Ошибочно стоит в зоне «только Тебриз» — золотые и серебряные нити использовали в обоих городах; 6) Верно (только Тебриз). Неверные пункты: <b>2, 3, 5</b>."
+  },
+  {
+    "id": "az-0903-53",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 53
+    },
+    "passage": {
+      "id": "az-0903-p2",
+      "title": "Azərbaycanda parçaçılıq sənəti",
+      "html": "<p>Azərbaycanda parçaçılıq sənətinin tarixi çox qədimdir. Bu sənət sahəsi yarandığından bu günə qədər daima yüksək səviyyədə inkişaf etmişdir.</p><p>Fərqli materiallardan hazırlanan parça <u>məmulatlarının</u> Venesiya, Genuya, Hollandiya, Fransa, İngiltərə və Rusiyada böyük alıcı kütləsi olmuşdur. <span class=\"mark\">Səfəvilər tarixində Azərbaycanda olmuş məşhur fransız səyyahı Sarden burada müxtəlif parça növlərinin toxunduğunu gündəliyində istinad etmişdir.</span></p><p>Rusların Azərbaycan parçaları ilə tanışlığı barədə hələ IX-XII əsrlərə aid <u>məxəzlərdə</u> yazılmışdır<sup>1</sup>. Sonrakı yazılı mənbələrdə 1663-cü ildə Şamaxıya və Təbrizə parça almağa göndərilən ekspedisiyadan və Şamaxı ipəyindən rus çarı Romanov üçün paltar tikilməsindən bəhs olunur. Azərbaycan ipəyi hətta qədim rus xalq mahnısındakı «sənə Şamaxıda toxunan ipəkdən köynək tikdirəcəyəm» ifadəsinin yaranmasına səbəb olmuşdur.</p><p>XIV-XVII əsrlərdə Təbriz və Şamaxının bəzi emalatxanalarında toxunan zərli parçalar parçaçılıq sənətində xüsusi yer tuturdu. O parçalar qızıl və gümüş saplarla bəzədildiyi üçün dünya bazarında baha qiymətə satılırdı. Belə toxuma parçaların saplarını zərgərlər hazırlayırdılar<sup>2</sup>. <span class=\"num\">[I]</span> Qızıl və gümüşü zindanın üstündə nazik vərəq şəklinə salana qədər döyürdülər. <span class=\"num\">[II]</span> Sonra bu vərəqləri metal alətin deşiyindən keçirərək sap halına salırdılar<sup>3</sup>.</p><p>Azərbaycan parçalarının belə şöhrət qazanmasına səbəb təkcə onların gözəl və <u>davamlı</u> olması deyildi. Onlar bədii xüsusiyyət ▲ <b>daşıyan</b> naxışlarla bəzədilir və daha gözəl görünməsi<sup>4</sup> üçün müxtəlif rəssamların <u>tablolarına</u> müraciət edilirdi. Naxışların arasında nağıl qəhrəmanları, klassik şairlərin, xüsusən N. Gəncəvinin əsərlərindəki obrazlar da təsvir edilirdi. <span class=\"num\">[III]</span></p><p>Hazırda Moskvada Şərq Xalqları Muzeyində XVI əsrdə Təbrizdə toxunmuş ipək parçanın bir hissəsi saxlanılır. Bu hissənin üzərində qızılbaş paltarı geyinmiş bir gənc atlı və onun kəməndlə ■ <b>tutduğu</b> bir düşmən təsvir olunmuşdur. Araşdırmalar göstərir<sup>5</sup> ki, bu parça əvvəllər İstanbulda <u>əntiq</u> mallar alverçisində olmuşdur. Sonralar satıcı bu nadir parçanı mənfəət əldə etmək üçün bir neçə hissəyə bölərək müxtəlif şəxslərə satmışdır. XVI əsrin yadigarı sayılan bu parçanın bir hissəsi Kiyev, bir hissəsi Moskva, bir hissəsi də Paris muzeyində nümayiş etdirilir.</p><p>Azərbaycan parçaçılıq sənətinin tarixində məşəqqətli illər də olmuşdur. <span class=\"num\">[IV]</span> 1514-cü ildə Sultan Səlimin Şah İsmayıl üzərindəki qələbəsindən sonra sultanın göstərişi ilə Təbriz toxucularının böyük əksəriyyəti parçaçılıq sənətini inkişaf etdirmək məqsədilə həmişəlik İstanbula aparılmışdır. Bu hadisə Azərbaycanda parça sənətinə böyük zərbə vurmuşdur. <span class=\"num\">[V]</span></p>"
+    },
+    "stem": "Mətndə altından xətt çəkilmiş sözlərdən heç birinin kontekstə görə şərhinə <b>uyğun deyil</b>:",
+    "format": "single",
+    "options": [
+      "istehsal olunmuş, hazırlanmış şeylər, məhsullar",
+      "portret, ornament",
+      "sənəd, mənbə",
+      "çətin dağılan, gec yırtılan",
+      "nadir tapılan, dəyərli"
+    ],
+    "answer": 1,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "<i>məmulat</i> — изделия, продукция (A); <i>məxəz</i> — документ, источник (C); <i>davamlı</i> — прочный (D); <i>əntiq</i> — антикварный, редкий и ценный (E). Слово <i>tablo</i> означает «картина, полотно», а не «portret, ornament» (B)."
+  },
+  {
+    "id": "az-0903-54",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 54
+    },
+    "passage": {
+      "id": "az-0903-p2",
+      "title": "Azərbaycanda parçaçılıq sənəti",
+      "html": "<p>Azərbaycanda parçaçılıq sənətinin tarixi çox qədimdir. Bu sənət sahəsi yarandığından bu günə qədər daima yüksək səviyyədə inkişaf etmişdir.</p><p>Fərqli materiallardan hazırlanan parça <u>məmulatlarının</u> Venesiya, Genuya, Hollandiya, Fransa, İngiltərə və Rusiyada böyük alıcı kütləsi olmuşdur. <span class=\"mark\">Səfəvilər tarixində Azərbaycanda olmuş məşhur fransız səyyahı Sarden burada müxtəlif parça növlərinin toxunduğunu gündəliyində istinad etmişdir.</span></p><p>Rusların Azərbaycan parçaları ilə tanışlığı barədə hələ IX-XII əsrlərə aid <u>məxəzlərdə</u> yazılmışdır<sup>1</sup>. Sonrakı yazılı mənbələrdə 1663-cü ildə Şamaxıya və Təbrizə parça almağa göndərilən ekspedisiyadan və Şamaxı ipəyindən rus çarı Romanov üçün paltar tikilməsindən bəhs olunur. Azərbaycan ipəyi hətta qədim rus xalq mahnısındakı «sənə Şamaxıda toxunan ipəkdən köynək tikdirəcəyəm» ifadəsinin yaranmasına səbəb olmuşdur.</p><p>XIV-XVII əsrlərdə Təbriz və Şamaxının bəzi emalatxanalarında toxunan zərli parçalar parçaçılıq sənətində xüsusi yer tuturdu. O parçalar qızıl və gümüş saplarla bəzədildiyi üçün dünya bazarında baha qiymətə satılırdı. Belə toxuma parçaların saplarını zərgərlər hazırlayırdılar<sup>2</sup>. <span class=\"num\">[I]</span> Qızıl və gümüşü zindanın üstündə nazik vərəq şəklinə salana qədər döyürdülər. <span class=\"num\">[II]</span> Sonra bu vərəqləri metal alətin deşiyindən keçirərək sap halına salırdılar<sup>3</sup>.</p><p>Azərbaycan parçalarının belə şöhrət qazanmasına səbəb təkcə onların gözəl və <u>davamlı</u> olması deyildi. Onlar bədii xüsusiyyət ▲ <b>daşıyan</b> naxışlarla bəzədilir və daha gözəl görünməsi<sup>4</sup> üçün müxtəlif rəssamların <u>tablolarına</u> müraciət edilirdi. Naxışların arasında nağıl qəhrəmanları, klassik şairlərin, xüsusən N. Gəncəvinin əsərlərindəki obrazlar da təsvir edilirdi. <span class=\"num\">[III]</span></p><p>Hazırda Moskvada Şərq Xalqları Muzeyində XVI əsrdə Təbrizdə toxunmuş ipək parçanın bir hissəsi saxlanılır. Bu hissənin üzərində qızılbaş paltarı geyinmiş bir gənc atlı və onun kəməndlə ■ <b>tutduğu</b> bir düşmən təsvir olunmuşdur. Araşdırmalar göstərir<sup>5</sup> ki, bu parça əvvəllər İstanbulda <u>əntiq</u> mallar alverçisində olmuşdur. Sonralar satıcı bu nadir parçanı mənfəət əldə etmək üçün bir neçə hissəyə bölərək müxtəlif şəxslərə satmışdır. XVI əsrin yadigarı sayılan bu parçanın bir hissəsi Kiyev, bir hissəsi Moskva, bir hissəsi də Paris muzeyində nümayiş etdirilir.</p><p>Azərbaycan parçaçılıq sənətinin tarixində məşəqqətli illər də olmuşdur. <span class=\"num\">[IV]</span> 1514-cü ildə Sultan Səlimin Şah İsmayıl üzərindəki qələbəsindən sonra sultanın göstərişi ilə Təbriz toxucularının böyük əksəriyyəti parçaçılıq sənətini inkişaf etdirmək məqsədilə həmişəlik İstanbula aparılmışdır. Bu hadisə Azərbaycanda parça sənətinə böyük zərbə vurmuşdur. <span class=\"num\">[V]</span></p>"
+    },
+    "stem": "Mətndə üzərində rəqəm yazılmış sözlərdən biri hansı nümunədə kontekstə görə mətndəki mənasında işlədilmişdir?",
+    "format": "single",
+    "options": [
+      "4 – Gedişindən sonra ailədə Orxanın yeri görünür, hamı onun üçün darıxırdı.",
+      "2 – Şagird sualların cavabını qabaqcadan hazırlamışdı.",
+      "1 – Sənin taleyinə də bu yazılıbmış, qızım.",
+      "3 – Qoca əlləri əsə-əsə açarı qapıya saldı.",
+      "5 – Təcrübələr bu fikrin doğru olduğunu göstərir."
+    ],
+    "answer": 4,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "В вариантах A–D значения переносные или иные (недоставать; подготовить ответы; предначертано; вставить ключ). В E слово <i>göstərir</i> («показывают/подтверждают») совпадает со значением <i>araşdırmalar göstərir⁵</i> в тексте."
+  },
+  {
+    "id": "az-0903-55",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 55
+    },
+    "passage": {
+      "id": "az-0903-p2",
+      "title": "Azərbaycanda parçaçılıq sənəti",
+      "html": "<p>Azərbaycanda parçaçılıq sənətinin tarixi çox qədimdir. Bu sənət sahəsi yarandığından bu günə qədər daima yüksək səviyyədə inkişaf etmişdir.</p><p>Fərqli materiallardan hazırlanan parça <u>məmulatlarının</u> Venesiya, Genuya, Hollandiya, Fransa, İngiltərə və Rusiyada böyük alıcı kütləsi olmuşdur. <span class=\"mark\">Səfəvilər tarixində Azərbaycanda olmuş məşhur fransız səyyahı Sarden burada müxtəlif parça növlərinin toxunduğunu gündəliyində istinad etmişdir.</span></p><p>Rusların Azərbaycan parçaları ilə tanışlığı barədə hələ IX-XII əsrlərə aid <u>məxəzlərdə</u> yazılmışdır<sup>1</sup>. Sonrakı yazılı mənbələrdə 1663-cü ildə Şamaxıya və Təbrizə parça almağa göndərilən ekspedisiyadan və Şamaxı ipəyindən rus çarı Romanov üçün paltar tikilməsindən bəhs olunur. Azərbaycan ipəyi hətta qədim rus xalq mahnısındakı «sənə Şamaxıda toxunan ipəkdən köynək tikdirəcəyəm» ifadəsinin yaranmasına səbəb olmuşdur.</p><p>XIV-XVII əsrlərdə Təbriz və Şamaxının bəzi emalatxanalarında toxunan zərli parçalar parçaçılıq sənətində xüsusi yer tuturdu. O parçalar qızıl və gümüş saplarla bəzədildiyi üçün dünya bazarında baha qiymətə satılırdı. Belə toxuma parçaların saplarını zərgərlər hazırlayırdılar<sup>2</sup>. <span class=\"num\">[I]</span> Qızıl və gümüşü zindanın üstündə nazik vərəq şəklinə salana qədər döyürdülər. <span class=\"num\">[II]</span> Sonra bu vərəqləri metal alətin deşiyindən keçirərək sap halına salırdılar<sup>3</sup>.</p><p>Azərbaycan parçalarının belə şöhrət qazanmasına səbəb təkcə onların gözəl və <u>davamlı</u> olması deyildi. Onlar bədii xüsusiyyət ▲ <b>daşıyan</b> naxışlarla bəzədilir və daha gözəl görünməsi<sup>4</sup> üçün müxtəlif rəssamların <u>tablolarına</u> müraciət edilirdi. Naxışların arasında nağıl qəhrəmanları, klassik şairlərin, xüsusən N. Gəncəvinin əsərlərindəki obrazlar da təsvir edilirdi. <span class=\"num\">[III]</span></p><p>Hazırda Moskvada Şərq Xalqları Muzeyində XVI əsrdə Təbrizdə toxunmuş ipək parçanın bir hissəsi saxlanılır. Bu hissənin üzərində qızılbaş paltarı geyinmiş bir gənc atlı və onun kəməndlə ■ <b>tutduğu</b> bir düşmən təsvir olunmuşdur. Araşdırmalar göstərir<sup>5</sup> ki, bu parça əvvəllər İstanbulda <u>əntiq</u> mallar alverçisində olmuşdur. Sonralar satıcı bu nadir parçanı mənfəət əldə etmək üçün bir neçə hissəyə bölərək müxtəlif şəxslərə satmışdır. XVI əsrin yadigarı sayılan bu parçanın bir hissəsi Kiyev, bir hissəsi Moskva, bir hissəsi də Paris muzeyində nümayiş etdirilir.</p><p>Azərbaycan parçaçılıq sənətinin tarixində məşəqqətli illər də olmuşdur. <span class=\"num\">[IV]</span> 1514-cü ildə Sultan Səlimin Şah İsmayıl üzərindəki qələbəsindən sonra sultanın göstərişi ilə Təbriz toxucularının böyük əksəriyyəti parçaçılıq sənətini inkişaf etdirmək məqsədilə həmişəlik İstanbula aparılmışdır. Bu hadisə Azərbaycanda parça sənətinə böyük zərbə vurmuşdur. <span class=\"num\">[V]</span></p>"
+    },
+    "stem": "<p>Mətnə əsasən cədvəldəki uyğun fikirləri müəyyən edin.</p><table><thead><tr><th>Doğrudur</th><th>Yanlışdır</th><th>Ehtimaldır</th></tr></thead><tbody><tr><td>1. Azərbaycan parçaçılıq sənətinin nümunələri qazanc məqsədilə satılmışdır.</td><td>3. Azərbaycan parçaları haqqında müxtəlif mənbələrdən məlumat almaq mümkündür.</td><td>5. Əntiq mallar alverçisi bir neçə hissəyə bölərək müxtəlif şəxslərə satdığı parçanı Təbriz şəhərindən almışdır.</td></tr><tr><td>2. Parçaçılıq sənətkarları sadəcə ipək parça istehsal edirdilər.</td><td>4. Şamaxı və Təbriz ipəyindən rus çarı üçün geyim hazırlanmasına IX-XII əsrlərin mənbələrində rast gəlinir.</td><td>6. Şərq Xalqları Muzeyində saxlanılan parçanın üzərində düşmənin ələ keçirilməsi təsvir edilmişdir.</td></tr></tbody></table>",
+    "format": "single",
+    "options": [
+      "2, 4, 6",
+      "1, 3, 4",
+      "2, 3, 6",
+      "1, 4, 5",
+      "1, 3, 5"
+    ],
+    "answer": 3,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Работа с текстом",
+    "explanation": "1) Верно (торговец в Стамбуле продал ради выгоды) — верно размещено в «Doğrudur»; 4) Неверно (это упоминается в более поздних источниках, а не IX–XII вв.) — верно размещено в «Yanlışdır»; 5) В тексте не указано, где именно торговец купил ткань — верно размещено в «Ehtimaldır». Ответ: <b>1, 4, 5</b>."
+  },
+  {
+    "id": "az-0903-56",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 56
+    },
+    "passage": {
+      "id": "az-0903-p2",
+      "title": "Azərbaycanda parçaçılıq sənəti",
+      "html": "<p>Azərbaycanda parçaçılıq sənətinin tarixi çox qədimdir. Bu sənət sahəsi yarandığından bu günə qədər daima yüksək səviyyədə inkişaf etmişdir.</p><p>Fərqli materiallardan hazırlanan parça <u>məmulatlarının</u> Venesiya, Genuya, Hollandiya, Fransa, İngiltərə və Rusiyada böyük alıcı kütləsi olmuşdur. <span class=\"mark\">Səfəvilər tarixində Azərbaycanda olmuş məşhur fransız səyyahı Sarden burada müxtəlif parça növlərinin toxunduğunu gündəliyində istinad etmişdir.</span></p><p>Rusların Azərbaycan parçaları ilə tanışlığı barədə hələ IX-XII əsrlərə aid <u>məxəzlərdə</u> yazılmışdır<sup>1</sup>. Sonrakı yazılı mənbələrdə 1663-cü ildə Şamaxıya və Təbrizə parça almağa göndərilən ekspedisiyadan və Şamaxı ipəyindən rus çarı Romanov üçün paltar tikilməsindən bəhs olunur. Azərbaycan ipəyi hətta qədim rus xalq mahnısındakı «sənə Şamaxıda toxunan ipəkdən köynək tikdirəcəyəm» ifadəsinin yaranmasına səbəb olmuşdur.</p><p>XIV-XVII əsrlərdə Təbriz və Şamaxının bəzi emalatxanalarında toxunan zərli parçalar parçaçılıq sənətində xüsusi yer tuturdu. O parçalar qızıl və gümüş saplarla bəzədildiyi üçün dünya bazarında baha qiymətə satılırdı. Belə toxuma parçaların saplarını zərgərlər hazırlayırdılar<sup>2</sup>. <span class=\"num\">[I]</span> Qızıl və gümüşü zindanın üstündə nazik vərəq şəklinə salana qədər döyürdülər. <span class=\"num\">[II]</span> Sonra bu vərəqləri metal alətin deşiyindən keçirərək sap halına salırdılar<sup>3</sup>.</p><p>Azərbaycan parçalarının belə şöhrət qazanmasına səbəb təkcə onların gözəl və <u>davamlı</u> olması deyildi. Onlar bədii xüsusiyyət ▲ <b>daşıyan</b> naxışlarla bəzədilir və daha gözəl görünməsi<sup>4</sup> üçün müxtəlif rəssamların <u>tablolarına</u> müraciət edilirdi. Naxışların arasında nağıl qəhrəmanları, klassik şairlərin, xüsusən N. Gəncəvinin əsərlərindəki obrazlar da təsvir edilirdi. <span class=\"num\">[III]</span></p><p>Hazırda Moskvada Şərq Xalqları Muzeyində XVI əsrdə Təbrizdə toxunmuş ipək parçanın bir hissəsi saxlanılır. Bu hissənin üzərində qızılbaş paltarı geyinmiş bir gənc atlı və onun kəməndlə ■ <b>tutduğu</b> bir düşmən təsvir olunmuşdur. Araşdırmalar göstərir<sup>5</sup> ki, bu parça əvvəllər İstanbulda <u>əntiq</u> mallar alverçisində olmuşdur. Sonralar satıcı bu nadir parçanı mənfəət əldə etmək üçün bir neçə hissəyə bölərək müxtəlif şəxslərə satmışdır. XVI əsrin yadigarı sayılan bu parçanın bir hissəsi Kiyev, bir hissəsi Moskva, bir hissəsi də Paris muzeyində nümayiş etdirilir.</p><p>Azərbaycan parçaçılıq sənətinin tarixində məşəqqətli illər də olmuşdur. <span class=\"num\">[IV]</span> 1514-cü ildə Sultan Səlimin Şah İsmayıl üzərindəki qələbəsindən sonra sultanın göstərişi ilə Təbriz toxucularının böyük əksəriyyəti parçaçılıq sənətini inkişaf etdirmək məqsədilə həmişəlik İstanbula aparılmışdır. Bu hadisə Azərbaycanda parça sənətinə böyük zərbə vurmuşdur. <span class=\"num\">[V]</span></p>"
+    },
+    "stem": "<p>Mətnə əsasən cədvəli tamamlayın:</p><table><thead><tr><th>Müddəa</th><th>Müddəanı təsdiq edən faktlar</th></tr></thead><tbody><tr><td>(1) ?</td><td>• Yazılı mənbələrdə 1663-cü ildə Şamaxıya və Təbrizə parça almağa göndərilən ekspedisiyadan və Şamaxı ipəyindən rus çarı Romanov üçün paltar tikilməsindən bəhs olunur.<br>• (2) ?<br>• (3) ?</td></tr></tbody></table>",
+    "format": "open",
+    "answer": "<b>Müddəa:</b> Bir sıra mənbələrdə Azərbaycan parçaları haqqında məlumatlara rast gəlmək olar.<br><b>Faktlar (2–3):</b><br>• IX–XII əsrlərə aid məxəzlərdə rusların Azərbaycan parçaları ilə tanışlığı barədə məlumatlara rast gəlinir.<br>• Fransız səyyahı Sardenin gündəliyindən Azərbaycan parçaları haqqında məlumat almaq mümkündür.",
+    "rubric": "2 балла — сформулирован точный тезис (о различных источниках) и приведены 2 дополнительных факта из текста; 1 балл — только тезис или 1 факт; 0 баллов — неверно.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Тезис объединяет все исторические свидетельства: источники IX–XII веков, дневник Шардена и документы 1663 года."
+  },
+  {
+    "id": "az-0903-57",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 57
+    },
+    "passage": {
+      "id": "az-0903-p2",
+      "title": "Azərbaycanda parçaçılıq sənəti",
+      "html": "<p>Azərbaycanda parçaçılıq sənətinin tarixi çox qədimdir. Bu sənət sahəsi yarandığından bu günə qədər daima yüksək səviyyədə inkişaf etmişdir.</p><p>Fərqli materiallardan hazırlanan parça <u>məmulatlarının</u> Venesiya, Genuya, Hollandiya, Fransa, İngiltərə və Rusiyada böyük alıcı kütləsi olmuşdur. <span class=\"mark\">Səfəvilər tarixində Azərbaycanda olmuş məşhur fransız səyyahı Sarden burada müxtəlif parça növlərinin toxunduğunu gündəliyində istinad etmişdir.</span></p><p>Rusların Azərbaycan parçaları ilə tanışlığı barədə hələ IX-XII əsrlərə aid <u>məxəzlərdə</u> yazılmışdır<sup>1</sup>. Sonrakı yazılı mənbələrdə 1663-cü ildə Şamaxıya və Təbrizə parça almağa göndərilən ekspedisiyadan və Şamaxı ipəyindən rus çarı Romanov üçün paltar tikilməsindən bəhs olunur. Azərbaycan ipəyi hətta qədim rus xalq mahnısındakı «sənə Şamaxıda toxunan ipəkdən köynək tikdirəcəyəm» ifadəsinin yaranmasına səbəb olmuşdur.</p><p>XIV-XVII əsrlərdə Təbriz və Şamaxının bəzi emalatxanalarında toxunan zərli parçalar parçaçılıq sənətində xüsusi yer tuturdu. O parçalar qızıl və gümüş saplarla bəzədildiyi üçün dünya bazarında baha qiymətə satılırdı. Belə toxuma parçaların saplarını zərgərlər hazırlayırdılar<sup>2</sup>. <span class=\"num\">[I]</span> Qızıl və gümüşü zindanın üstündə nazik vərəq şəklinə salana qədər döyürdülər. <span class=\"num\">[II]</span> Sonra bu vərəqləri metal alətin deşiyindən keçirərək sap halına salırdılar<sup>3</sup>.</p><p>Azərbaycan parçalarının belə şöhrət qazanmasına səbəb təkcə onların gözəl və <u>davamlı</u> olması deyildi. Onlar bədii xüsusiyyət ▲ <b>daşıyan</b> naxışlarla bəzədilir və daha gözəl görünməsi<sup>4</sup> üçün müxtəlif rəssamların <u>tablolarına</u> müraciət edilirdi. Naxışların arasında nağıl qəhrəmanları, klassik şairlərin, xüsusən N. Gəncəvinin əsərlərindəki obrazlar da təsvir edilirdi. <span class=\"num\">[III]</span></p><p>Hazırda Moskvada Şərq Xalqları Muzeyində XVI əsrdə Təbrizdə toxunmuş ipək parçanın bir hissəsi saxlanılır. Bu hissənin üzərində qızılbaş paltarı geyinmiş bir gənc atlı və onun kəməndlə ■ <b>tutduğu</b> bir düşmən təsvir olunmuşdur. Araşdırmalar göstərir<sup>5</sup> ki, bu parça əvvəllər İstanbulda <u>əntiq</u> mallar alverçisində olmuşdur. Sonralar satıcı bu nadir parçanı mənfəət əldə etmək üçün bir neçə hissəyə bölərək müxtəlif şəxslərə satmışdır. XVI əsrin yadigarı sayılan bu parçanın bir hissəsi Kiyev, bir hissəsi Moskva, bir hissəsi də Paris muzeyində nümayiş etdirilir.</p><p>Azərbaycan parçaçılıq sənətinin tarixində məşəqqətli illər də olmuşdur. <span class=\"num\">[IV]</span> 1514-cü ildə Sultan Səlimin Şah İsmayıl üzərindəki qələbəsindən sonra sultanın göstərişi ilə Təbriz toxucularının böyük əksəriyyəti parçaçılıq sənətini inkişaf etdirmək məqsədilə həmişəlik İstanbula aparılmışdır. Bu hadisə Azərbaycanda parça sənətinə böyük zərbə vurmuşdur. <span class=\"num\">[V]</span></p>"
+    },
+    "stem": "Əvvəlində işarə qoyulmuş sözlər (▲ <b>daşıyan</b>, ■ <b>tutduğu</b>) əsasında cədvəli doldurun: 1) İfadənin mətndəki funksiyası (<i>poetik, informativ və ya terminoloji</i>); 2) İfadənin mətndəkindən fərqli funksiyada cümlədə işlədilməsi.",
+    "format": "open",
+    "answer": "▲ <b>daşıyan:</b> Mətndəki funksiyası — <i>Poetik</i> (bədii xüsusiyyət daşıyan). Fərqli funksiyada (informativ): Yükləri anbara daşıdılar.<br>■ <b>tutduğu:</b> Mətndəki funksiyası — <i>İnformativ</i> (kəməndlə tutduğu). Fərqli funksiyada (poetik): Dostumun sözləri məni yaman tutdu.",
+    "rubric": "2 балла — верно определены функции обоих слов и составлены грамотные предложения с противоположной функцией; 1 балл — верно только для 1 слова; 0 баллов — неверно.",
+    "points": 2,
+    "difficulty": 3,
+    "topic": "Работа с текстом",
+    "explanation": "В тексте «bədii xüsusiyyət daşıyan» — переносная (поэтическая) функция; «kəməndlə tutduğu» — прямая (информативная) функция."
+  },
+  {
+    "id": "az-0903-58",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 58
+    },
+    "passage": {
+      "id": "az-0903-p2",
+      "title": "Azərbaycanda parçaçılıq sənəti",
+      "html": "<p>Azərbaycanda parçaçılıq sənətinin tarixi çox qədimdir. Bu sənət sahəsi yarandığından bu günə qədər daima yüksək səviyyədə inkişaf etmişdir.</p><p>Fərqli materiallardan hazırlanan parça <u>məmulatlarının</u> Venesiya, Genuya, Hollandiya, Fransa, İngiltərə və Rusiyada böyük alıcı kütləsi olmuşdur. <span class=\"mark\">Səfəvilər tarixində Azərbaycanda olmuş məşhur fransız səyyahı Sarden burada müxtəlif parça növlərinin toxunduğunu gündəliyində istinad etmişdir.</span></p><p>Rusların Azərbaycan parçaları ilə tanışlığı barədə hələ IX-XII əsrlərə aid <u>məxəzlərdə</u> yazılmışdır<sup>1</sup>. Sonrakı yazılı mənbələrdə 1663-cü ildə Şamaxıya və Təbrizə parça almağa göndərilən ekspedisiyadan və Şamaxı ipəyindən rus çarı Romanov üçün paltar tikilməsindən bəhs olunur. Azərbaycan ipəyi hətta qədim rus xalq mahnısındakı «sənə Şamaxıda toxunan ipəkdən köynək tikdirəcəyəm» ifadəsinin yaranmasına səbəb olmuşdur.</p><p>XIV-XVII əsrlərdə Təbriz və Şamaxının bəzi emalatxanalarında toxunan zərli parçalar parçaçılıq sənətində xüsusi yer tuturdu. O parçalar qızıl və gümüş saplarla bəzədildiyi üçün dünya bazarında baha qiymətə satılırdı. Belə toxuma parçaların saplarını zərgərlər hazırlayırdılar<sup>2</sup>. <span class=\"num\">[I]</span> Qızıl və gümüşü zindanın üstündə nazik vərəq şəklinə salana qədər döyürdülər. <span class=\"num\">[II]</span> Sonra bu vərəqləri metal alətin deşiyindən keçirərək sap halına salırdılar<sup>3</sup>.</p><p>Azərbaycan parçalarının belə şöhrət qazanmasına səbəb təkcə onların gözəl və <u>davamlı</u> olması deyildi. Onlar bədii xüsusiyyət ▲ <b>daşıyan</b> naxışlarla bəzədilir və daha gözəl görünməsi<sup>4</sup> üçün müxtəlif rəssamların <u>tablolarına</u> müraciət edilirdi. Naxışların arasında nağıl qəhrəmanları, klassik şairlərin, xüsusən N. Gəncəvinin əsərlərindəki obrazlar da təsvir edilirdi. <span class=\"num\">[III]</span></p><p>Hazırda Moskvada Şərq Xalqları Muzeyində XVI əsrdə Təbrizdə toxunmuş ipək parçanın bir hissəsi saxlanılır. Bu hissənin üzərində qızılbaş paltarı geyinmiş bir gənc atlı və onun kəməndlə ■ <b>tutduğu</b> bir düşmən təsvir olunmuşdur. Araşdırmalar göstərir<sup>5</sup> ki, bu parça əvvəllər İstanbulda <u>əntiq</u> mallar alverçisində olmuşdur. Sonralar satıcı bu nadir parçanı mənfəət əldə etmək üçün bir neçə hissəyə bölərək müxtəlif şəxslərə satmışdır. XVI əsrin yadigarı sayılan bu parçanın bir hissəsi Kiyev, bir hissəsi Moskva, bir hissəsi də Paris muzeyində nümayiş etdirilir.</p><p>Azərbaycan parçaçılıq sənətinin tarixində məşəqqətli illər də olmuşdur. <span class=\"num\">[IV]</span> 1514-cü ildə Sultan Səlimin Şah İsmayıl üzərindəki qələbəsindən sonra sultanın göstərişi ilə Təbriz toxucularının böyük əksəriyyəti parçaçılıq sənətini inkişaf etdirmək məqsədilə həmişəlik İstanbula aparılmışdır. Bu hadisə Azərbaycanda parça sənətinə böyük zərbə vurmuşdur. <span class=\"num\">[V]</span></p>"
+    },
+    "stem": "Mətndə çərçivəyə (seçilmiş hissəyə) alınmış cümlədə uyğun düzəlişlər (yalnız qüsurlu məqamlarda) etməklə cümləni yenidən yazın:<br><i>«Səfəvilər tarixində Azərbaycanda olmuş məşhur fransız səyyahı Sarden burada müxtəlif parça növlərinin toxunduğunu gündəliyində istinad etmişdir.»</i>",
+    "format": "open",
+    "answer": "Səfəvilər <b>dövründə</b> Azərbaycanda olmuş məşhur fransız səyyahı Sarden burada müxtəlif parça növlərinin toxunduğunu gündəliyində <b>qeyd etmişdir</b>.",
+    "rubric": "2 балла — исправлены обе лексические ошибки (tarixində → dövründə; istinad etmişdir → qeyd etmişdir) без лишней правки верных слов; 1 балл — исправлена 1 ошибка; 0 баллов — не исправлено.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "В эпоху Сефевидов правильно говорить <i>Səfəvilər dövründə</i> (а не tarixində), а в дневнике автор делает заметки — <i>qeyd etmişdir</i> (а не istinad etmişdir)."
+  },
+  {
+    "id": "az-0903-59",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 59
+    },
+    "passage": {
+      "id": "az-0903-p2",
+      "title": "Azərbaycanda parçaçılıq sənəti",
+      "html": "<p>Azərbaycanda parçaçılıq sənətinin tarixi çox qədimdir. Bu sənət sahəsi yarandığından bu günə qədər daima yüksək səviyyədə inkişaf etmişdir.</p><p>Fərqli materiallardan hazırlanan parça <u>məmulatlarının</u> Venesiya, Genuya, Hollandiya, Fransa, İngiltərə və Rusiyada böyük alıcı kütləsi olmuşdur. <span class=\"mark\">Səfəvilər tarixində Azərbaycanda olmuş məşhur fransız səyyahı Sarden burada müxtəlif parça növlərinin toxunduğunu gündəliyində istinad etmişdir.</span></p><p>Rusların Azərbaycan parçaları ilə tanışlığı barədə hələ IX-XII əsrlərə aid <u>məxəzlərdə</u> yazılmışdır<sup>1</sup>. Sonrakı yazılı mənbələrdə 1663-cü ildə Şamaxıya və Təbrizə parça almağa göndərilən ekspedisiyadan və Şamaxı ipəyindən rus çarı Romanov üçün paltar tikilməsindən bəhs olunur. Azərbaycan ipəyi hətta qədim rus xalq mahnısındakı «sənə Şamaxıda toxunan ipəkdən köynək tikdirəcəyəm» ifadəsinin yaranmasına səbəb olmuşdur.</p><p>XIV-XVII əsrlərdə Təbriz və Şamaxının bəzi emalatxanalarında toxunan zərli parçalar parçaçılıq sənətində xüsusi yer tuturdu. O parçalar qızıl və gümüş saplarla bəzədildiyi üçün dünya bazarında baha qiymətə satılırdı. Belə toxuma parçaların saplarını zərgərlər hazırlayırdılar<sup>2</sup>. <span class=\"num\">[I]</span> Qızıl və gümüşü zindanın üstündə nazik vərəq şəklinə salana qədər döyürdülər. <span class=\"num\">[II]</span> Sonra bu vərəqləri metal alətin deşiyindən keçirərək sap halına salırdılar<sup>3</sup>.</p><p>Azərbaycan parçalarının belə şöhrət qazanmasına səbəb təkcə onların gözəl və <u>davamlı</u> olması deyildi. Onlar bədii xüsusiyyət ▲ <b>daşıyan</b> naxışlarla bəzədilir və daha gözəl görünməsi<sup>4</sup> üçün müxtəlif rəssamların <u>tablolarına</u> müraciət edilirdi. Naxışların arasında nağıl qəhrəmanları, klassik şairlərin, xüsusən N. Gəncəvinin əsərlərindəki obrazlar da təsvir edilirdi. <span class=\"num\">[III]</span></p><p>Hazırda Moskvada Şərq Xalqları Muzeyində XVI əsrdə Təbrizdə toxunmuş ipək parçanın bir hissəsi saxlanılır. Bu hissənin üzərində qızılbaş paltarı geyinmiş bir gənc atlı və onun kəməndlə ■ <b>tutduğu</b> bir düşmən təsvir olunmuşdur. Araşdırmalar göstərir<sup>5</sup> ki, bu parça əvvəllər İstanbulda <u>əntiq</u> mallar alverçisində olmuşdur. Sonralar satıcı bu nadir parçanı mənfəət əldə etmək üçün bir neçə hissəyə bölərək müxtəlif şəxslərə satmışdır. XVI əsrin yadigarı sayılan bu parçanın bir hissəsi Kiyev, bir hissəsi Moskva, bir hissəsi də Paris muzeyində nümayiş etdirilir.</p><p>Azərbaycan parçaçılıq sənətinin tarixində məşəqqətli illər də olmuşdur. <span class=\"num\">[IV]</span> 1514-cü ildə Sultan Səlimin Şah İsmayıl üzərindəki qələbəsindən sonra sultanın göstərişi ilə Təbriz toxucularının böyük əksəriyyəti parçaçılıq sənətini inkişaf etdirmək məqsədilə həmişəlik İstanbula aparılmışdır. Bu hadisə Azərbaycanda parça sənətinə böyük zərbə vurmuşdur. <span class=\"num\">[V]</span></p>"
+    },
+    "stem": "Mətnin iki müxtəlif tərkib hissəsində bir-biri ilə ziddiyyət təşkil edən cümlələri müəyyən edərək yazın.",
+    "format": "open",
+    "answer": "1. Bu sənət sahəsi yarandığından bu günə qədər daima yüksək səviyyədə inkişaf etmişdir.<br>2. Azərbaycan parçaçılıq sənətinin tarixində məşəqqətli illər də olmuşdur.",
+    "rubric": "2 балла — выписаны оба противоречащих предложения из вступления и последнего абзаца; 1 балл — указано только 1 предложение или неточный пересказ; 0 баллов — неверно.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Утверждение о непрерывном высоком развитии противоречит сообщению о тяжёлых годах (1514 г., вывоз мастеров в Стамбул) в конце текста."
+  },
+  {
+    "id": "az-0903-60",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 60
+    },
+    "passage": {
+      "id": "az-0903-p2",
+      "title": "Azərbaycanda parçaçılıq sənəti",
+      "html": "<p>Azərbaycanda parçaçılıq sənətinin tarixi çox qədimdir. Bu sənət sahəsi yarandığından bu günə qədər daima yüksək səviyyədə inkişaf etmişdir.</p><p>Fərqli materiallardan hazırlanan parça <u>məmulatlarının</u> Venesiya, Genuya, Hollandiya, Fransa, İngiltərə və Rusiyada böyük alıcı kütləsi olmuşdur. <span class=\"mark\">Səfəvilər tarixində Azərbaycanda olmuş məşhur fransız səyyahı Sarden burada müxtəlif parça növlərinin toxunduğunu gündəliyində istinad etmişdir.</span></p><p>Rusların Azərbaycan parçaları ilə tanışlığı barədə hələ IX-XII əsrlərə aid <u>məxəzlərdə</u> yazılmışdır<sup>1</sup>. Sonrakı yazılı mənbələrdə 1663-cü ildə Şamaxıya və Təbrizə parça almağa göndərilən ekspedisiyadan və Şamaxı ipəyindən rus çarı Romanov üçün paltar tikilməsindən bəhs olunur. Azərbaycan ipəyi hətta qədim rus xalq mahnısındakı «sənə Şamaxıda toxunan ipəkdən köynək tikdirəcəyəm» ifadəsinin yaranmasına səbəb olmuşdur.</p><p>XIV-XVII əsrlərdə Təbriz və Şamaxının bəzi emalatxanalarında toxunan zərli parçalar parçaçılıq sənətində xüsusi yer tuturdu. O parçalar qızıl və gümüş saplarla bəzədildiyi üçün dünya bazarında baha qiymətə satılırdı. Belə toxuma parçaların saplarını zərgərlər hazırlayırdılar<sup>2</sup>. <span class=\"num\">[I]</span> Qızıl və gümüşü zindanın üstündə nazik vərəq şəklinə salana qədər döyürdülər. <span class=\"num\">[II]</span> Sonra bu vərəqləri metal alətin deşiyindən keçirərək sap halına salırdılar<sup>3</sup>.</p><p>Azərbaycan parçalarının belə şöhrət qazanmasına səbəb təkcə onların gözəl və <u>davamlı</u> olması deyildi. Onlar bədii xüsusiyyət ▲ <b>daşıyan</b> naxışlarla bəzədilir və daha gözəl görünməsi<sup>4</sup> üçün müxtəlif rəssamların <u>tablolarına</u> müraciət edilirdi. Naxışların arasında nağıl qəhrəmanları, klassik şairlərin, xüsusən N. Gəncəvinin əsərlərindəki obrazlar da təsvir edilirdi. <span class=\"num\">[III]</span></p><p>Hazırda Moskvada Şərq Xalqları Muzeyində XVI əsrdə Təbrizdə toxunmuş ipək parçanın bir hissəsi saxlanılır. Bu hissənin üzərində qızılbaş paltarı geyinmiş bir gənc atlı və onun kəməndlə ■ <b>tutduğu</b> bir düşmən təsvir olunmuşdur. Araşdırmalar göstərir<sup>5</sup> ki, bu parça əvvəllər İstanbulda <u>əntiq</u> mallar alverçisində olmuşdur. Sonralar satıcı bu nadir parçanı mənfəət əldə etmək üçün bir neçə hissəyə bölərək müxtəlif şəxslərə satmışdır. XVI əsrin yadigarı sayılan bu parçanın bir hissəsi Kiyev, bir hissəsi Moskva, bir hissəsi də Paris muzeyində nümayiş etdirilir.</p><p>Azərbaycan parçaçılıq sənətinin tarixində məşəqqətli illər də olmuşdur. <span class=\"num\">[IV]</span> 1514-cü ildə Sultan Səlimin Şah İsmayıl üzərindəki qələbəsindən sonra sultanın göstərişi ilə Təbriz toxucularının böyük əksəriyyəti parçaçılıq sənətini inkişaf etdirmək məqsədilə həmişəlik İstanbula aparılmışdır. Bu hadisə Azərbaycanda parça sənətinə böyük zərbə vurmuşdur. <span class=\"num\">[V]</span></p>"
+    },
+    "stem": "“Azərbaycan parçalarının şöhrət qazanmasında müxtəlif sənət sahələrinin də rolu olmuşdur” fikrini mətnlə əlaqələndirib fikirlərinizi yazın.",
+    "format": "open",
+    "answer": "Azərbaycan parçalarının şöhrət qazanmasında zərgərlik, rəssamlıq və bədii ədəbiyyatın rolu olmuşdur: zərgərlər qızıl və gümüş saplar hazırlayırdı; daha gözəl görünməsi üçün rəssamların tablolarına müraciət edilirdi; naxışlar arasında nağıl qəhrəmanları və klassik şairlərin (xüsusən N. Gəncəvinin) əsərlərindəki obrazlar təsvir olunurdu.",
+    "rubric": "2 балла — приведены все 3 смежных вида искусства (ювелирное дело, живопись, литература) с фактами из текста; 1 балл — приведены 1–2 вида искусства; 0 баллов — неверно.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Текст раскрывает вклад трёх областей: ювелиры (золотые/серебряные нити), художники (картины для узоров) и литература (сказки и образы Низами)."
+  },
+  {
+    "id": "az-1503-31",
+    "subject": "az",
+    "typeId": "az.morphology-noun-adj-num",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 31
+    },
+    "stem": "<p>Verilmiş cümlələr əsasında cədvəldəki uyğun fikirləri müəyyən edin.<br>I. Onlarla həll olunmamış məsələyə birgə baxış keçirilsə də, yenə də bir neçə işi yekunlaşdırmaq mümkün olmadı.<br>II. Onlarca insanın gözü qabağında baş verən bu hadisə bir çox qəzetlərdə dəfələrlə işıqlandırılmışdı.</p><table><thead><tr><th>Nümunələrin hər ikisinə aiddir</th><th>Nümunələrin yalnız birinə aiddir</th></tr></thead><tbody><tr><td>1. Kökü omonim olan saydan yaranmış söz işlənmişdir.<br>2. Feili birləşmənin asılı tərəfində olan say var.<br>3. Rəqəmlə yazıla bilməyən say işlənmişdir.</td><td>4. Neçə say işləndiyini dəqiq müəyyən etmək mümkün deyil.<br>5. Təyin vəzifəsində olan qeyri-müəyyən miqdar sayı var.<br>6. Sayla aid olduğu isim arasında numerativ sözdən istifadə edilməmişdir.</td></tr></tbody></table>",
+    "format": "single",
+    "options": [
+      "3, 5, 6",
+      "1, 3, 4, 6",
+      "1, 2, 5",
+      "1, 2, 4, 6",
+      "2, 3, 4, 5"
+    ],
+    "answer": 4,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Морфология",
+    "explanation": "1) <i>birgə</i> есть только в I (поэтому в столбце «обоим» неверно); 2) верно для обоих (<i>bir neçə işi yekunlaşdırmaq; onlarca insanın gözü qabağında baş verən</i>); 3) верно для обоих (неопределённые числительные цифрой не пишутся); 4) верно только для I (<i>onlarla</i> может быть числительным или местоимением); 5) верно только для II (<i>bir çox</i> — определение при дополнении <i>qəzetlərdə</i>); 6) верно для обоих, а стоит в «только одному». Ответ: <b>2, 3, 4, 5</b>."
+  },
+  {
+    "id": "az-1503-32",
+    "subject": "az",
+    "typeId": "az.lexics-idioms",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 32
+    },
+    "stem": "Frazeoloji birləşməni müəyyən edin.",
+    "format": "single",
+    "options": [
+      "yaxşılıq etmək",
+      "qapıdan çıxmaq",
+      "özündən çıxmaq",
+      "beşiyi yırğalamaq",
+      "kömək etmək"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Лексика и фразеология",
+    "explanation": "<i>özündən çıxmaq</i> («выйти из себя, рассердиться») — устойчивый фразеологизм. <i>yaxşılıq etmək, kömək etmək</i> — составные глаголы, а <i>qapıdan çıxmaq, beşiyi yırğalamaq</i> — свободные словосочетания."
+  },
+  {
+    "id": "az-1503-33",
+    "subject": "az",
+    "typeId": "az.syntax-phrases",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 33
+    },
+    "stem": "Cümlələrdən birinin xəbəri məsdər tərkibi ilə ifadə edilmişdir:",
+    "format": "single",
+    "options": [
+      "Gəlişimizin məqsədi başına ağıl qoymaqdır.",
+      "Məbədə gəlməkdə niyyətləri dua etmək idi.",
+      "Yayın qızmar günlərində şəhərdə qalmaq heç kəsin ürəyincə deyildi.",
+      "Aləmşahbəyimin yeganə çıxış yolu uşaqlarını buradan uzaqlaşdırmaq idi.",
+      "İndi Mədinənin bacısının həyatdakı ən böyük arzusu oxumaq idi."
+    ],
+    "answer": 3,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Синтаксис",
+    "explanation": "В A сказуемое — фразеологизм (<i>başına ağıl qoymaqdır</i>); в B — составной глагол (<i>dua etmək idi</i>); в C оборот <i>yayın qızmar günlərində şəhərdə qalmaq</i> является подлежащим; в E — одиночный инфинитив (<i>oxumaq idi</i>). Лишь в D сказуемое выражено инфинитивным оборотом <i>uşaqlarını buradan uzaqlaşdırmaq idi</i>."
+  },
+  {
+    "id": "az-1503-34",
+    "subject": "az",
+    "typeId": "az.syntax-sentence",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 34
+    },
+    "stem": "<p>“Gedib xaricdə təhsilini artırar, ...” cümləsində nöqtələrin yerinə hansı cümlələr yazılsa, mürəkkəb cümlə alınar?</p><p>1. qayıdıb vətənində işləyər.<br>2. atası arzusuna çatar.<br>3. elə orada bir iş tapıb işləyər.<br>4. biliyi xalqına gərəkli olar.<br>5. savadı ilə hamını təəccübləndirər.</p>",
+    "format": "single",
+    "options": [
+      "2, 4",
+      "4, 5",
+      "3, 5",
+      "1, 2",
+      "1, 3"
+    ],
+    "answer": 0,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Синтаксис",
+    "explanation": "Продолжения 1, 3 и 5 относятся к тому же субъекту (однородные сказуемые → простое предложение). Продолжения <b>2</b> (<i>atası arzusuna çatar</i>) и <b>4</b> (<i>biliyi xalqına gərəkli olar</i>) вводят новую грамматическую основу с собственным подлежащим → сложное предложение."
+  },
+  {
+    "id": "az-1503-35",
+    "subject": "az",
+    "typeId": "az.syntax-sentence",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 35
+    },
+    "stem": "<p>Cümlədə buraxılmış durğu işarələrinin düzgün işlənmə ardıcıllığını müəyyən edin.</p><p><i>Ordu qaçqınlar əsirlər bir sözlə hər kəs bir-birinə dəyib.</i></p>",
+    "format": "single",
+    "options": [
+      "vergül, vergül, tire, vergül",
+      "vergül, vergül, vergül, tire",
+      "qoşa nöqtə, vergül, vergül, vergül",
+      "vergül, vergül, vergül, vergül",
+      "tire, vergül, tire, vergül"
+    ],
+    "answer": 0,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Синтаксис",
+    "explanation": "Знаки препинания расставляются так: <i>Ordu, qaçqınlar, əsirlər – bir sözlə, hər kəs bir-birinə dəyib.</i> После однородных членов перед обобщающим словом <i>hər kəs</i> ставится тире, после вводного <i>bir sözlə</i> — запятая."
+  },
+  {
+    "id": "az-1503-36",
+    "subject": "az",
+    "typeId": "az.morphology-noun-adj-num",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 36
+    },
+    "stem": "<p>“Fələk ömrümüzə saldı ayrılıq,<br>Getdin, gözəl, çox gözlədim, gəlmədin” nümunəsinə əsasən cədvəldəki uyğun fikirləri müəyyən edin.</p><table><thead><tr><th>Doğrudur</th><th>Yanlışdır</th></tr></thead><tbody><tr><td>1. Feillər eyni zamanda, eyni şəkildə işlənmişdir.<br>2. Hal şəkilçisinin tələbi ilə söz kökündə saiti düşmüş isim tamamlıq vəzifəsindədir.<br>3. Müraciət bildirən söz isimləşmiş nitq hissəsi ilə ifadə olunmuşdur.</td><td>4. Quruluşca düzəltmə olan feil əmr şəklində, I şəxsin təkindədir.<br>5. Kəmiyyət zərfi zərflik vəzifəsindədir.<br>6. İsmin eyni halında olan sözlərdən biri mübtəda vəzifəsində çıxış etmişdir.</td></tr></tbody></table>",
+    "format": "single",
+    "options": [
+      "1, 2, 6",
+      "1, 3, 4",
+      "1, 5, 6",
+      "2, 3, 4, 5",
+      "2, 3, 5, 6"
+    ],
+    "answer": 1,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Морфология",
+    "explanation": "1) Верно (прош. время, изъявит. наклонение) — в «Doğrudur»; 2) Неверно (в <i>ömrümüzə</i> гласный выпал из-за притяжательного аффикса <i>-ümüz</i>, а не падежного); 3) Верно (обращение <i>gözəl</i> — субстантивированное прилагательное) — в «Doğrudur»; 4) Неверно (<i>gözlədim</i> в изъявительном, а не повелительном наклонении) — верно размещено в «Yanlışdır»; 5 и 6 верны, поэтому в «Yanlışdır» не подходят. Ответ: <b>1, 3, 4</b>."
+  },
+  {
+    "id": "az-1503-37",
+    "subject": "az",
+    "typeId": "az.morphology-verb",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 37
+    },
+    "stem": "<p>Xəbəri icbar növdə olan hansı cümlələrin tərkibində hərəkətin subyekti və obyekti <b>yoxdur</b>?</p><p>1. Həmişə həvəslə yazdırırlar.<br>2. Əlbəttə, yenə vaxtında dəyişdirməlisiniz.<br>3. Dünən yazdırdıqlarımız qovluqdadır.<br>4. Səhərə kimi kəndə daşıtmalıdırlar.<br>5. Yeni layihələri mütəxəssislərə hazırladın.</p>",
+    "format": "single",
+    "options": [
+      "1, 3, 5",
+      "2, 4, 5",
+      "1, 2",
+      "1, 4",
+      "3, 4"
+    ],
+    "answer": 3,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Морфология",
+    "explanation": "1) Сказуемое <i>yazdırırlar</i> в понудительном залоге (icbar növ), субъекта и объекта в предложении нет; 2) <i>dəyişdirmək</i> не является понудительным залогом (образован от непереходного); 3) сказуемое выражено субстантивированным причастием/существительным; 4) <i>daşıtmalıdırlar</i> в icbar növ без субъекта и объекта; 5) объект <i>layihələri</i> присутствует. Ответ: <b>1, 4</b>."
+  },
+  {
+    "id": "az-1503-38",
+    "subject": "az",
+    "typeId": "az.syntax-phrases",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 38
+    },
+    "stem": "<p>“Dünənki yarışın qalibi <b>Səlim</b> nə isə söyləyərək otaqdan çıxdı” nümunəsi ilə bağlı <b>doğru</b> fikirləri müəyyən edin.</p><p>1. Feili birləşmənin işləndiyini əminliklə söyləmək olmaz.<br>2. Tünd-qara hərflərlə verilmiş söz sintaktik əlaqədə yalnız əsas tərəfdir.<br>3. Çıxışlıq hal şəkilçili söz tabelilik əlaqəsində asılı tərəfdir.<br>4. Haqqında danışılan cümlədən çıxarılarsa, ismi birləşmə uzlaşma əlaqəsində əsas tərəf olar.<br>5. Xəbər tamamlıq və zərfliklə sintaktik əlaqədədir.</p>",
+    "format": "single",
+    "options": [
+      "3, 4, 5",
+      "1, 2, 3",
+      "2, 3, 4",
+      "1, 4, 5",
+      "1, 2, 5"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Синтаксис",
+    "explanation": "1) Неверно (<i>nə isə söyləyərək</i> — деепричастный оборот); 2) Верно (<i>Səlim</i> — подлежащее, в синтаксических связях только главное слово); 3) Верно (<i>otaqdan</i> — обстоятельство места, зависимое слово); 4) Верно (без <i>Səlim</i> подлежащим станет <i>yarışın qalibi</i>); 5) Неверно (в предложении нет дополнения). Ответ: <b>2, 3, 4</b>."
+  },
+  {
+    "id": "az-1503-39",
+    "subject": "az",
+    "typeId": "az.phonetics",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 39
+    },
+    "stem": "<p>Nümunədə üzərinə rəqəm yazılmış sözlərin fonetik xüsusiyyətinə əsasən uyğunluğu müəyyən edin.<br>I. Yazılışı ilə deyilişi fərqlənmir.<br>II. Səs və hərflərin sayı bərabər deyil.<br>III. Tərkibində kar samit işlənməmişdir.</p><p><i>Adı sənət<sup>1</sup> tariximizin ən parlaq<sup>2</sup> səhifələrində<sup>3</sup> yer alan, böyük<sup>4</sup> əməlləri olan şəxsiyyətlərdən<sup>5</sup> biri də Ələsgər Ələkbərovdur.</i></p>",
+    "format": "single",
+    "options": [
+      "I – 2; II – 4; III – 5",
+      "I – 1, 2; II – 4; III – 3",
+      "I – 3; II – 1, 5; III – 2",
+      "I – 1, 3; II – 5; III – 4",
+      "I – 4; II – 3, 5; III – 2"
+    ],
+    "answer": 3,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Фонетика",
+    "explanation": "Написание и произношение совпадают в словах <i>sənət</i> (1) и <i>səhifələrində</i> (3). В слове <i>şəxsiyyətlərdən</i> (5) удвоенное <i>yy</i> произносится как один звук [y], поэтому звуков меньше, чем букв. В словосочетании <i>böyük əməlləri</i> (4, перед гласным) конечное k озвончается в [y], и глухих согласных нет. Ответ: <b>I – 1, 3; II – 5; III – 4</b>."
+  },
+  {
+    "id": "az-1503-40",
+    "subject": "az",
+    "typeId": "az.syntax-phrases",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 40
+    },
+    "stem": "Hansı nümunədə altından xətt çəkilmiş söz həm xitab, həm də mübtəda kimi düşünülə bilər?",
+    "format": "single",
+    "options": [
+      "Dostum, <u>Qabil</u>, səhərdən evdən çıxıb, amma geri qayıtmayıb.",
+      "<u>Aqil</u>, Səfər və Kərim səni axtarırdılar.",
+      "<u>Qədir</u>! Xahiş edirəm ki, mənim fikirlərimə hörmətlə yanaşasan.",
+      "Bilirmi ki, <u>kamil</u>, ağıllı oğlandır?",
+      "Əvvəlcədən deyim ki, <u>Sabir</u> hələ də tapşırıqları düzgün yerinə yetirməmişdir."
+    ],
+    "answer": 1,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Синтаксис",
+    "explanation": "В варианте B слово <i>Aqil</i> может быть понято и как одно из трёх однородных подлежащих («Агиль, Сафар и Керим искали тебя»), и как обращение («Агиль, Сафар и Керим искали тебя»). В A и C — только обращение, в D — определение, в E — только подлежащее."
+  },
+  {
+    "id": "az-1503-41",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 41
+    },
+    "passage": {
+      "id": "az-1503-p1",
+      "title": "İntiqam alovu",
+      "html": "<p>İsrafil ağa Mollazal uşağı tayfasını hökumətin əli ilə Kəsəməndən başqa kəndə sürgün etdirəndən sonra qəlbində bir az ▲ <b>səngimiş</b> intiqam alovu günlər keçdikcə yenidən artmaqda idi. Bir tərəfdən də, tayfasının dəliqanlı cavanları atlarını Acıdərəyə çapmaq, Mollazal uşağı tayfasının yaşadığı evlərə hücum etmək üçün İsrafil ağadan icazə istəyirdilər. Lakin o, məğlubiyyətdən qorxur, cavanların güclə <u>ipini çəkirdi</u>.</p><p>İsrafil ağa bu günlərdə həmişəkindən çox fikirləşirdi: «Onları yerindən oynadıb buraya gətirməliyik. Qoy onlar bizim üstümüzə gəlsinlər. Onda onlar açıqda – düzdə, biz daldada – səngərdə. O zaman bizim birimiz onların onuna güc gələr».</p><p>Mollazal uşağı tayfası sürgün ediləndən Kəsəməndə səssizlik idi. <span class=\"num\">1.</span> Lakin bir gecə güllə səsləri bu sakitliyi pozdu. Gün qalxan vaxt danışırdılar ki, bu atışma qəbiristanlıqda olub, Mollazal uşağı tayfasından olanların qəbirləri güllələnib.</p><p>Qəbirlərinin gülləyə tutulması xəbəri Acıdərədə Mollazal uşağı tayfasına çatanda onların arasında ■ <b>təlatüm</b> yarandı: çoxu atını yəhərsiz-yüyənsiz mindi, hətta qız-gəlinlərdən də yaraqlanıb döyüşə tələsənlər oldu. <span class=\"num\">2.</span> Bu tayfanın gəlib torpağına sığındığı kəndin camaatından da silaha sarılanlar oldu. Alhüseyn də dəlilik dərəcəsinə çatdı, dəstənin qabağında atını yola doğru səyirtdi.</p><p><b>At ayaqları yeri döyəcləyirdi, toz-duman qalxmışdı.</b> Bu zaman tozun-dumanın içindən hamını yerində dondurub saxlayan heybətli bir səs, bir çağırış eşidildi:</p><p>– Dayanın!</p><p><span class=\"num\">3.</span> Baş alıb gedənlər atlarının cilovunu çəkdilər, yerə endilər. Hamı atını yurdun hündür yerinə çıxmış ucaqamətli ananın – Gülnazın yanına sarı yedəklədi.</p><p>Gülnaz üzünü bu ərlərə tutdu:</p><p>– Balalarım, dünyada gözlərimlə od üfürmüşəm, kösöv qaraltmışam, çox ● <b>məşəqqətlərdən</b> keçmişəm. Axırda bu qənaətə gəlmişəm ki, səbir lazımdır. <span class=\"num\">4.</span> Düşmən bizi açıqdan-açığa güllə qabağına çağırır, tələyə çəkir. Qoyun qanlımızın qurduğu tələ boş qalsın! Düşmən acizliyini bizi yox, cansız daşları gülləyə tutmaqla sübut etdi. Bu bizim qələbəmizdir!</p><p>Araya sükut çökdü. Heç vaxt bir sözü iki olmayan Gülnaz ananın sözü ilə razılaşmaq onun doğmalarına çətin gəlirdi. Hamı Alhüseynə baxdı: bəlkə, o, Gülnaz ananı fikrindən döndərə. <span class=\"num\">5.</span> Alhüseyn fikirləşdi ki, anası haqlıdır, onları kəndə çağıran İsrafil ağadır. Kim bilir, onları hansı dağda, hansı dərədə qarşılayacaq.</p><p>Alhüseyn qətiyyətlə dedi:</p><p>– Ana, ölsəm də, çıxmaram sənin sözündən!</p><p><b>Gülnaz qollarını oğlunun boynuna dolayıb onu qucaqladı.</b></p><p>İsrafil ağanın ümidləri boşa çıxandan sonra qəfəsdəki pələngə dönmüşdü. Bir tərəfdən, (1) ................, digər tərəfdən isə, (2) ................... onu dəli edirdi.</p>"
+    },
+    "stem": "<p>Mətndə Gülnazın nitqi əsasında onunla bağlı hansı qənaətə gəlmək olar?</p><p>1. Çox əzablar görmüşdür.<br>2. Düşmənə münasibətdə soyuqqanlı olmağı məsləhət görür.<br>3. Düşməni onları didərgin salmaqda ittiham edir.<br>4. Uzaqgörənliklə vəziyyəti dəyərləndirir.<br>5. Düşmənlə barışıq niyyətindədir.</p>",
+    "format": "single",
+    "options": [
+      "2, 3, 4",
+      "1, 3, 5",
+      "3, 4, 5",
+      "1, 2, 4",
+      "1, 2, 5"
+    ],
+    "answer": 3,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "В речи Гюльназ отражены: 1) перенесённые страдания («çox məşəqqətlərdən keçmişəm»); 2) призыв к выдержке («səbir lazımdır»); 4) дальновидность (понимание ловушки врага). Обвинений в изгнании (3) и намерения мириться (5) в её словах нет."
+  },
+  {
+    "id": "az-1503-42",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 42
+    },
+    "passage": {
+      "id": "az-1503-p1",
+      "title": "İntiqam alovu",
+      "html": "<p>İsrafil ağa Mollazal uşağı tayfasını hökumətin əli ilə Kəsəməndən başqa kəndə sürgün etdirəndən sonra qəlbində bir az ▲ <b>səngimiş</b> intiqam alovu günlər keçdikcə yenidən artmaqda idi. Bir tərəfdən də, tayfasının dəliqanlı cavanları atlarını Acıdərəyə çapmaq, Mollazal uşağı tayfasının yaşadığı evlərə hücum etmək üçün İsrafil ağadan icazə istəyirdilər. Lakin o, məğlubiyyətdən qorxur, cavanların güclə <u>ipini çəkirdi</u>.</p><p>İsrafil ağa bu günlərdə həmişəkindən çox fikirləşirdi: «Onları yerindən oynadıb buraya gətirməliyik. Qoy onlar bizim üstümüzə gəlsinlər. Onda onlar açıqda – düzdə, biz daldada – səngərdə. O zaman bizim birimiz onların onuna güc gələr».</p><p>Mollazal uşağı tayfası sürgün ediləndən Kəsəməndə səssizlik idi. <span class=\"num\">1.</span> Lakin bir gecə güllə səsləri bu sakitliyi pozdu. Gün qalxan vaxt danışırdılar ki, bu atışma qəbiristanlıqda olub, Mollazal uşağı tayfasından olanların qəbirləri güllələnib.</p><p>Qəbirlərinin gülləyə tutulması xəbəri Acıdərədə Mollazal uşağı tayfasına çatanda onların arasında ■ <b>təlatüm</b> yarandı: çoxu atını yəhərsiz-yüyənsiz mindi, hətta qız-gəlinlərdən də yaraqlanıb döyüşə tələsənlər oldu. <span class=\"num\">2.</span> Bu tayfanın gəlib torpağına sığındığı kəndin camaatından da silaha sarılanlar oldu. Alhüseyn də dəlilik dərəcəsinə çatdı, dəstənin qabağında atını yola doğru səyirtdi.</p><p><b>At ayaqları yeri döyəcləyirdi, toz-duman qalxmışdı.</b> Bu zaman tozun-dumanın içindən hamını yerində dondurub saxlayan heybətli bir səs, bir çağırış eşidildi:</p><p>– Dayanın!</p><p><span class=\"num\">3.</span> Baş alıb gedənlər atlarının cilovunu çəkdilər, yerə endilər. Hamı atını yurdun hündür yerinə çıxmış ucaqamətli ananın – Gülnazın yanına sarı yedəklədi.</p><p>Gülnaz üzünü bu ərlərə tutdu:</p><p>– Balalarım, dünyada gözlərimlə od üfürmüşəm, kösöv qaraltmışam, çox ● <b>məşəqqətlərdən</b> keçmişəm. Axırda bu qənaətə gəlmişəm ki, səbir lazımdır. <span class=\"num\">4.</span> Düşmən bizi açıqdan-açığa güllə qabağına çağırır, tələyə çəkir. Qoyun qanlımızın qurduğu tələ boş qalsın! Düşmən acizliyini bizi yox, cansız daşları gülləyə tutmaqla sübut etdi. Bu bizim qələbəmizdir!</p><p>Araya sükut çökdü. Heç vaxt bir sözü iki olmayan Gülnaz ananın sözü ilə razılaşmaq onun doğmalarına çətin gəlirdi. Hamı Alhüseynə baxdı: bəlkə, o, Gülnaz ananı fikrindən döndərə. <span class=\"num\">5.</span> Alhüseyn fikirləşdi ki, anası haqlıdır, onları kəndə çağıran İsrafil ağadır. Kim bilir, onları hansı dağda, hansı dərədə qarşılayacaq.</p><p>Alhüseyn qətiyyətlə dedi:</p><p>– Ana, ölsəm də, çıxmaram sənin sözündən!</p><p><b>Gülnaz qollarını oğlunun boynuna dolayıb onu qucaqladı.</b></p><p>İsrafil ağanın ümidləri boşa çıxandan sonra qəfəsdəki pələngə dönmüşdü. Bir tərəfdən, (1) ................, digər tərəfdən isə, (2) ................... onu dəli edirdi.</p>"
+    },
+    "stem": "Əvvəlində rəqəm yazılmış hansı cümlələr mətndən çıxarılsa, məntiqi ardıcıllıq <b>pozulmaz</b>?",
+    "format": "single",
+    "options": [
+      "1, 5",
+      "3, 5",
+      "1, 3, 4",
+      "1, 2, 4",
+      "2, 3, 4"
+    ],
+    "answer": 4,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Предложения 1 (выстрелы нарушили тишину) и 5 (размышление Алгусейна о правоте матери) ключевые для сюжета — их нельзя убирать. Предложения <b>2, 3, 4</b> можно удалить без потери логической последовательности."
+  },
+  {
+    "id": "az-1503-43",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 43
+    },
+    "passage": {
+      "id": "az-1503-p1",
+      "title": "İntiqam alovu",
+      "html": "<p>İsrafil ağa Mollazal uşağı tayfasını hökumətin əli ilə Kəsəməndən başqa kəndə sürgün etdirəndən sonra qəlbində bir az ▲ <b>səngimiş</b> intiqam alovu günlər keçdikcə yenidən artmaqda idi. Bir tərəfdən də, tayfasının dəliqanlı cavanları atlarını Acıdərəyə çapmaq, Mollazal uşağı tayfasının yaşadığı evlərə hücum etmək üçün İsrafil ağadan icazə istəyirdilər. Lakin o, məğlubiyyətdən qorxur, cavanların güclə <u>ipini çəkirdi</u>.</p><p>İsrafil ağa bu günlərdə həmişəkindən çox fikirləşirdi: «Onları yerindən oynadıb buraya gətirməliyik. Qoy onlar bizim üstümüzə gəlsinlər. Onda onlar açıqda – düzdə, biz daldada – səngərdə. O zaman bizim birimiz onların onuna güc gələr».</p><p>Mollazal uşağı tayfası sürgün ediləndən Kəsəməndə səssizlik idi. <span class=\"num\">1.</span> Lakin bir gecə güllə səsləri bu sakitliyi pozdu. Gün qalxan vaxt danışırdılar ki, bu atışma qəbiristanlıqda olub, Mollazal uşağı tayfasından olanların qəbirləri güllələnib.</p><p>Qəbirlərinin gülləyə tutulması xəbəri Acıdərədə Mollazal uşağı tayfasına çatanda onların arasında ■ <b>təlatüm</b> yarandı: çoxu atını yəhərsiz-yüyənsiz mindi, hətta qız-gəlinlərdən də yaraqlanıb döyüşə tələsənlər oldu. <span class=\"num\">2.</span> Bu tayfanın gəlib torpağına sığındığı kəndin camaatından da silaha sarılanlar oldu. Alhüseyn də dəlilik dərəcəsinə çatdı, dəstənin qabağında atını yola doğru səyirtdi.</p><p><b>At ayaqları yeri döyəcləyirdi, toz-duman qalxmışdı.</b> Bu zaman tozun-dumanın içindən hamını yerində dondurub saxlayan heybətli bir səs, bir çağırış eşidildi:</p><p>– Dayanın!</p><p><span class=\"num\">3.</span> Baş alıb gedənlər atlarının cilovunu çəkdilər, yerə endilər. Hamı atını yurdun hündür yerinə çıxmış ucaqamətli ananın – Gülnazın yanına sarı yedəklədi.</p><p>Gülnaz üzünü bu ərlərə tutdu:</p><p>– Balalarım, dünyada gözlərimlə od üfürmüşəm, kösöv qaraltmışam, çox ● <b>məşəqqətlərdən</b> keçmişəm. Axırda bu qənaətə gəlmişəm ki, səbir lazımdır. <span class=\"num\">4.</span> Düşmən bizi açıqdan-açığa güllə qabağına çağırır, tələyə çəkir. Qoyun qanlımızın qurduğu tələ boş qalsın! Düşmən acizliyini bizi yox, cansız daşları gülləyə tutmaqla sübut etdi. Bu bizim qələbəmizdir!</p><p>Araya sükut çökdü. Heç vaxt bir sözü iki olmayan Gülnaz ananın sözü ilə razılaşmaq onun doğmalarına çətin gəlirdi. Hamı Alhüseynə baxdı: bəlkə, o, Gülnaz ananı fikrindən döndərə. <span class=\"num\">5.</span> Alhüseyn fikirləşdi ki, anası haqlıdır, onları kəndə çağıran İsrafil ağadır. Kim bilir, onları hansı dağda, hansı dərədə qarşılayacaq.</p><p>Alhüseyn qətiyyətlə dedi:</p><p>– Ana, ölsəm də, çıxmaram sənin sözündən!</p><p><b>Gülnaz qollarını oğlunun boynuna dolayıb onu qucaqladı.</b></p><p>İsrafil ağanın ümidləri boşa çıxandan sonra qəfəsdəki pələngə dönmüşdü. Bir tərəfdən, (1) ................, digər tərəfdən isə, (2) ................... onu dəli edirdi.</p>"
+    },
+    "stem": "<p>Hansı cümlədə altından xətt çəkilmiş birləşmənin (<i>ipini çəkirdi</i>) kontekstə görə mənasına uyğun ifadə işlənmişdir?</p><p>1. Yaşlı adam atı çətinliklə cilovladı və damın altındakı dirəyə bağladı.<br>2. Uşağın vaxt ikən cilovunu bərk yığışdır, sonra gec olar! <i>(M. İbrahimov)</i><br>3. Məryəm buradakı uşaqları güclə öz nəzarətində saxlaya bilirdi.<br>4. Öz qardaşın da olsa, başında qoz sındıracaq, onu da intizama dəvət etmək lazımdır. <i>(M. İbrahimov)</i><br>5. Cavanlıqda ixtiyarı əldən verdiyi üçün yaş artdıqca lap acizləşmişdi.</p>",
+    "format": "single",
+    "options": [
+      "1, 4, 5",
+      "1, 2, 3",
+      "2, 3, 4",
+      "2, 4, 5",
+      "1, 3, 5"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Работа с текстом",
+    "explanation": "Фразеологизм <i>ipini çəkmək</i> означает «удерживать, контролировать, призывать к дисциплине». Этому соответствуют <b>2</b> (<i>cilovunu bərk yığışdır</i>), <b>3</b> (<i>öz nəzarətində saxlaya bilirdi</i>) и <b>4</b> (<i>intizama dəvət etmək</i>). В 1 — прямое значение, в 5 — противоположное."
+  },
+  {
+    "id": "az-1503-44",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 44
+    },
+    "passage": {
+      "id": "az-1503-p1",
+      "title": "İntiqam alovu",
+      "html": "<p>İsrafil ağa Mollazal uşağı tayfasını hökumətin əli ilə Kəsəməndən başqa kəndə sürgün etdirəndən sonra qəlbində bir az ▲ <b>səngimiş</b> intiqam alovu günlər keçdikcə yenidən artmaqda idi. Bir tərəfdən də, tayfasının dəliqanlı cavanları atlarını Acıdərəyə çapmaq, Mollazal uşağı tayfasının yaşadığı evlərə hücum etmək üçün İsrafil ağadan icazə istəyirdilər. Lakin o, məğlubiyyətdən qorxur, cavanların güclə <u>ipini çəkirdi</u>.</p><p>İsrafil ağa bu günlərdə həmişəkindən çox fikirləşirdi: «Onları yerindən oynadıb buraya gətirməliyik. Qoy onlar bizim üstümüzə gəlsinlər. Onda onlar açıqda – düzdə, biz daldada – səngərdə. O zaman bizim birimiz onların onuna güc gələr».</p><p>Mollazal uşağı tayfası sürgün ediləndən Kəsəməndə səssizlik idi. <span class=\"num\">1.</span> Lakin bir gecə güllə səsləri bu sakitliyi pozdu. Gün qalxan vaxt danışırdılar ki, bu atışma qəbiristanlıqda olub, Mollazal uşağı tayfasından olanların qəbirləri güllələnib.</p><p>Qəbirlərinin gülləyə tutulması xəbəri Acıdərədə Mollazal uşağı tayfasına çatanda onların arasında ■ <b>təlatüm</b> yarandı: çoxu atını yəhərsiz-yüyənsiz mindi, hətta qız-gəlinlərdən də yaraqlanıb döyüşə tələsənlər oldu. <span class=\"num\">2.</span> Bu tayfanın gəlib torpağına sığındığı kəndin camaatından da silaha sarılanlar oldu. Alhüseyn də dəlilik dərəcəsinə çatdı, dəstənin qabağında atını yola doğru səyirtdi.</p><p><b>At ayaqları yeri döyəcləyirdi, toz-duman qalxmışdı.</b> Bu zaman tozun-dumanın içindən hamını yerində dondurub saxlayan heybətli bir səs, bir çağırış eşidildi:</p><p>– Dayanın!</p><p><span class=\"num\">3.</span> Baş alıb gedənlər atlarının cilovunu çəkdilər, yerə endilər. Hamı atını yurdun hündür yerinə çıxmış ucaqamətli ananın – Gülnazın yanına sarı yedəklədi.</p><p>Gülnaz üzünü bu ərlərə tutdu:</p><p>– Balalarım, dünyada gözlərimlə od üfürmüşəm, kösöv qaraltmışam, çox ● <b>məşəqqətlərdən</b> keçmişəm. Axırda bu qənaətə gəlmişəm ki, səbir lazımdır. <span class=\"num\">4.</span> Düşmən bizi açıqdan-açığa güllə qabağına çağırır, tələyə çəkir. Qoyun qanlımızın qurduğu tələ boş qalsın! Düşmən acizliyini bizi yox, cansız daşları gülləyə tutmaqla sübut etdi. Bu bizim qələbəmizdir!</p><p>Araya sükut çökdü. Heç vaxt bir sözü iki olmayan Gülnaz ananın sözü ilə razılaşmaq onun doğmalarına çətin gəlirdi. Hamı Alhüseynə baxdı: bəlkə, o, Gülnaz ananı fikrindən döndərə. <span class=\"num\">5.</span> Alhüseyn fikirləşdi ki, anası haqlıdır, onları kəndə çağıran İsrafil ağadır. Kim bilir, onları hansı dağda, hansı dərədə qarşılayacaq.</p><p>Alhüseyn qətiyyətlə dedi:</p><p>– Ana, ölsəm də, çıxmaram sənin sözündən!</p><p><b>Gülnaz qollarını oğlunun boynuna dolayıb onu qucaqladı.</b></p><p>İsrafil ağanın ümidləri boşa çıxandan sonra qəfəsdəki pələngə dönmüşdü. Bir tərəfdən, (1) ................, digər tərəfdən isə, (2) ................... onu dəli edirdi.</p>"
+    },
+    "stem": "<p>Mətnə əsasən uyğunluğu müəyyən edin.<br>1. Doğrudur &nbsp; 2. Yanlışdır &nbsp; 3. Ehtimaldır</p><p>a. Mollazal uşağı tayfası vaxtilə İsrafil ağaya qarşı çıxmışdır.<br>b. Mollazal uşağı tayfasının qadınları döyüşkəndir.<br>c. Sürgün edilənlərin yaşadığı kəndin camaatı onları rəğbətlə qarşılamışdır.<br>d. Hər iki tayfada sözükeçən adamlar var.<br>e. Mollazal uşağı tayfasının cavanları öldürülənlərin intiqamını almaq üçün tələsirlər.</p>",
+    "format": "single",
+    "options": [
+      "1 – a, b; 2 – d, e; 3 – c",
+      "1 – c, e; 2 – b; 3 – a, d",
+      "1 – b, d; 2 – e; 3 – a, c",
+      "1 – a; 2 – b, c; 3 – d, e",
+      "1 – c, d; 2 – b, e; 3 – a"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Работа с текстом",
+    "explanation": "1 (Doğrudur): <b>b</b> (даже девушки и невестки взялись за оружие) и <b>d</b> (Исрафил-ага и мать Гюльназ — авторитетные люди); 2 (Yanlışdır): <b>e</b> (они спешили отомстить за расстрел могил, а не за убитых); 3 (Ehtimaldır): <b>a, c</b>. Ответ: C."
+  },
+  {
+    "id": "az-1503-45",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 45
+    },
+    "passage": {
+      "id": "az-1503-p1",
+      "title": "İntiqam alovu",
+      "html": "<p>İsrafil ağa Mollazal uşağı tayfasını hökumətin əli ilə Kəsəməndən başqa kəndə sürgün etdirəndən sonra qəlbində bir az ▲ <b>səngimiş</b> intiqam alovu günlər keçdikcə yenidən artmaqda idi. Bir tərəfdən də, tayfasının dəliqanlı cavanları atlarını Acıdərəyə çapmaq, Mollazal uşağı tayfasının yaşadığı evlərə hücum etmək üçün İsrafil ağadan icazə istəyirdilər. Lakin o, məğlubiyyətdən qorxur, cavanların güclə <u>ipini çəkirdi</u>.</p><p>İsrafil ağa bu günlərdə həmişəkindən çox fikirləşirdi: «Onları yerindən oynadıb buraya gətirməliyik. Qoy onlar bizim üstümüzə gəlsinlər. Onda onlar açıqda – düzdə, biz daldada – səngərdə. O zaman bizim birimiz onların onuna güc gələr».</p><p>Mollazal uşağı tayfası sürgün ediləndən Kəsəməndə səssizlik idi. <span class=\"num\">1.</span> Lakin bir gecə güllə səsləri bu sakitliyi pozdu. Gün qalxan vaxt danışırdılar ki, bu atışma qəbiristanlıqda olub, Mollazal uşağı tayfasından olanların qəbirləri güllələnib.</p><p>Qəbirlərinin gülləyə tutulması xəbəri Acıdərədə Mollazal uşağı tayfasına çatanda onların arasında ■ <b>təlatüm</b> yarandı: çoxu atını yəhərsiz-yüyənsiz mindi, hətta qız-gəlinlərdən də yaraqlanıb döyüşə tələsənlər oldu. <span class=\"num\">2.</span> Bu tayfanın gəlib torpağına sığındığı kəndin camaatından da silaha sarılanlar oldu. Alhüseyn də dəlilik dərəcəsinə çatdı, dəstənin qabağında atını yola doğru səyirtdi.</p><p><b>At ayaqları yeri döyəcləyirdi, toz-duman qalxmışdı.</b> Bu zaman tozun-dumanın içindən hamını yerində dondurub saxlayan heybətli bir səs, bir çağırış eşidildi:</p><p>– Dayanın!</p><p><span class=\"num\">3.</span> Baş alıb gedənlər atlarının cilovunu çəkdilər, yerə endilər. Hamı atını yurdun hündür yerinə çıxmış ucaqamətli ananın – Gülnazın yanına sarı yedəklədi.</p><p>Gülnaz üzünü bu ərlərə tutdu:</p><p>– Balalarım, dünyada gözlərimlə od üfürmüşəm, kösöv qaraltmışam, çox ● <b>məşəqqətlərdən</b> keçmişəm. Axırda bu qənaətə gəlmişəm ki, səbir lazımdır. <span class=\"num\">4.</span> Düşmən bizi açıqdan-açığa güllə qabağına çağırır, tələyə çəkir. Qoyun qanlımızın qurduğu tələ boş qalsın! Düşmən acizliyini bizi yox, cansız daşları gülləyə tutmaqla sübut etdi. Bu bizim qələbəmizdir!</p><p>Araya sükut çökdü. Heç vaxt bir sözü iki olmayan Gülnaz ananın sözü ilə razılaşmaq onun doğmalarına çətin gəlirdi. Hamı Alhüseynə baxdı: bəlkə, o, Gülnaz ananı fikrindən döndərə. <span class=\"num\">5.</span> Alhüseyn fikirləşdi ki, anası haqlıdır, onları kəndə çağıran İsrafil ağadır. Kim bilir, onları hansı dağda, hansı dərədə qarşılayacaq.</p><p>Alhüseyn qətiyyətlə dedi:</p><p>– Ana, ölsəm də, çıxmaram sənin sözündən!</p><p><b>Gülnaz qollarını oğlunun boynuna dolayıb onu qucaqladı.</b></p><p>İsrafil ağanın ümidləri boşa çıxandan sonra qəfəsdəki pələngə dönmüşdü. Bir tərəfdən, (1) ................, digər tərəfdən isə, (2) ................... onu dəli edirdi.</p>"
+    },
+    "stem": "<p>Mətnə əsasən uyğun fikirləri müəyyən edin.</p><table><thead><tr><th>Səbəbini müəyyən etmək mümkündür</th><th>Səbəbini müəyyən etmək mümkün deyil</th></tr></thead><tbody><tr><td>1. İsrafil ağanın Mollazal uşağı tayfası ilə ədavətinin.<br>2. İsrafil ağanın Acıdərəyə həmlə etməkdən ehtiyat etməsinin.<br>3. Məqsədinə çatdıqdan sonra da İsrafil ağanın intiqam hissinin artmasının.</td><td>4. Gülnaz ananın tayfa nümayəndələrini düşmənin cavabını verməkdən çəkindirməsinin.<br>5. Hökumətin Mollazal uşağı tayfasını başqa kəndə sürgün etmək məsələsində İsrafil ağaya dəstək olmasının.</td></tr></tbody></table>",
+    "format": "single",
+    "options": [
+      "1, 3, 5",
+      "2, 5",
+      "2, 4",
+      "1, 2, 3",
+      "1, 3, 4"
+    ],
+    "answer": 1,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Причину пункта 2 (боялся поражения) можно определить — верно размещён в левом столбце. Причину пункта 5 (почему власти поддержали Исрафил-агу) определить нельзя — верно размещён в правом столбце. Пункты 1, 3 (невозможно определить) и 4 (поняла ловушку — можно) размещены не в своих столбцах. Ответ: <b>2, 5</b>."
+  },
+  {
+    "id": "az-1503-46",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 46
+    },
+    "passage": {
+      "id": "az-1503-p1",
+      "title": "İntiqam alovu",
+      "html": "<p>İsrafil ağa Mollazal uşağı tayfasını hökumətin əli ilə Kəsəməndən başqa kəndə sürgün etdirəndən sonra qəlbində bir az ▲ <b>səngimiş</b> intiqam alovu günlər keçdikcə yenidən artmaqda idi. Bir tərəfdən də, tayfasının dəliqanlı cavanları atlarını Acıdərəyə çapmaq, Mollazal uşağı tayfasının yaşadığı evlərə hücum etmək üçün İsrafil ağadan icazə istəyirdilər. Lakin o, məğlubiyyətdən qorxur, cavanların güclə <u>ipini çəkirdi</u>.</p><p>İsrafil ağa bu günlərdə həmişəkindən çox fikirləşirdi: «Onları yerindən oynadıb buraya gətirməliyik. Qoy onlar bizim üstümüzə gəlsinlər. Onda onlar açıqda – düzdə, biz daldada – səngərdə. O zaman bizim birimiz onların onuna güc gələr».</p><p>Mollazal uşağı tayfası sürgün ediləndən Kəsəməndə səssizlik idi. <span class=\"num\">1.</span> Lakin bir gecə güllə səsləri bu sakitliyi pozdu. Gün qalxan vaxt danışırdılar ki, bu atışma qəbiristanlıqda olub, Mollazal uşağı tayfasından olanların qəbirləri güllələnib.</p><p>Qəbirlərinin gülləyə tutulması xəbəri Acıdərədə Mollazal uşağı tayfasına çatanda onların arasında ■ <b>təlatüm</b> yarandı: çoxu atını yəhərsiz-yüyənsiz mindi, hətta qız-gəlinlərdən də yaraqlanıb döyüşə tələsənlər oldu. <span class=\"num\">2.</span> Bu tayfanın gəlib torpağına sığındığı kəndin camaatından da silaha sarılanlar oldu. Alhüseyn də dəlilik dərəcəsinə çatdı, dəstənin qabağında atını yola doğru səyirtdi.</p><p><b>At ayaqları yeri döyəcləyirdi, toz-duman qalxmışdı.</b> Bu zaman tozun-dumanın içindən hamını yerində dondurub saxlayan heybətli bir səs, bir çağırış eşidildi:</p><p>– Dayanın!</p><p><span class=\"num\">3.</span> Baş alıb gedənlər atlarının cilovunu çəkdilər, yerə endilər. Hamı atını yurdun hündür yerinə çıxmış ucaqamətli ananın – Gülnazın yanına sarı yedəklədi.</p><p>Gülnaz üzünü bu ərlərə tutdu:</p><p>– Balalarım, dünyada gözlərimlə od üfürmüşəm, kösöv qaraltmışam, çox ● <b>məşəqqətlərdən</b> keçmişəm. Axırda bu qənaətə gəlmişəm ki, səbir lazımdır. <span class=\"num\">4.</span> Düşmən bizi açıqdan-açığa güllə qabağına çağırır, tələyə çəkir. Qoyun qanlımızın qurduğu tələ boş qalsın! Düşmən acizliyini bizi yox, cansız daşları gülləyə tutmaqla sübut etdi. Bu bizim qələbəmizdir!</p><p>Araya sükut çökdü. Heç vaxt bir sözü iki olmayan Gülnaz ananın sözü ilə razılaşmaq onun doğmalarına çətin gəlirdi. Hamı Alhüseynə baxdı: bəlkə, o, Gülnaz ananı fikrindən döndərə. <span class=\"num\">5.</span> Alhüseyn fikirləşdi ki, anası haqlıdır, onları kəndə çağıran İsrafil ağadır. Kim bilir, onları hansı dağda, hansı dərədə qarşılayacaq.</p><p>Alhüseyn qətiyyətlə dedi:</p><p>– Ana, ölsəm də, çıxmaram sənin sözündən!</p><p><b>Gülnaz qollarını oğlunun boynuna dolayıb onu qucaqladı.</b></p><p>İsrafil ağanın ümidləri boşa çıxandan sonra qəfəsdəki pələngə dönmüşdü. Bir tərəfdən, (1) ................, digər tərəfdən isə, (2) ................... onu dəli edirdi.</p>"
+    },
+    "stem": "Mətndə tünd-qara hərflərlə verilmiş cümlələri mətnin səciyyəvi üslubi xüsusiyyətlərinə uyğun zənginləşdirməklə (məcazi mənalı ifadələrdən istifadə etməklə) yenidən yazın:<br>1. <i>At ayaqları yeri döyəcləyirdi, toz-duman qalxmışdı.</i><br>2. <i>Gülnaz qollarını oğlunun boynuna dolayıb onu qucaqladı.</i>",
+    "format": "open",
+    "answer": "1. At ayaqları yeri təbil kimi döyəcləyirdi, toz-duman ərşə qalxmışdı (və ya: yeri-göyü lərzəyə gətirirdi, toz-dumandan göz-gözü görmürdü).<br>2. Gülnaz qollarını çinar boylu oğlunun boynuna sarmaşıq kimi dolayıb onu bağrına basdı.",
+    "rubric": "2 балла — оба предложения обогащены выразительными метафорами/сравнениями с сохранением содержания; 1 балл — обогащено 1 предложение; 0 баллов — без образности.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Эталон DİM использует образные сравнения («təbil kimi», «sarmaşıq kimi», «çinar boylu») и фразеологизмы («ərşə qalxmışdı», «göz-gözü görmürdü», «bağrına basdı»)."
+  },
+  {
+    "id": "az-1503-47",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 47
+    },
+    "passage": {
+      "id": "az-1503-p1",
+      "title": "İntiqam alovu",
+      "html": "<p>İsrafil ağa Mollazal uşağı tayfasını hökumətin əli ilə Kəsəməndən başqa kəndə sürgün etdirəndən sonra qəlbində bir az ▲ <b>səngimiş</b> intiqam alovu günlər keçdikcə yenidən artmaqda idi. Bir tərəfdən də, tayfasının dəliqanlı cavanları atlarını Acıdərəyə çapmaq, Mollazal uşağı tayfasının yaşadığı evlərə hücum etmək üçün İsrafil ağadan icazə istəyirdilər. Lakin o, məğlubiyyətdən qorxur, cavanların güclə <u>ipini çəkirdi</u>.</p><p>İsrafil ağa bu günlərdə həmişəkindən çox fikirləşirdi: «Onları yerindən oynadıb buraya gətirməliyik. Qoy onlar bizim üstümüzə gəlsinlər. Onda onlar açıqda – düzdə, biz daldada – səngərdə. O zaman bizim birimiz onların onuna güc gələr».</p><p>Mollazal uşağı tayfası sürgün ediləndən Kəsəməndə səssizlik idi. <span class=\"num\">1.</span> Lakin bir gecə güllə səsləri bu sakitliyi pozdu. Gün qalxan vaxt danışırdılar ki, bu atışma qəbiristanlıqda olub, Mollazal uşağı tayfasından olanların qəbirləri güllələnib.</p><p>Qəbirlərinin gülləyə tutulması xəbəri Acıdərədə Mollazal uşağı tayfasına çatanda onların arasında ■ <b>təlatüm</b> yarandı: çoxu atını yəhərsiz-yüyənsiz mindi, hətta qız-gəlinlərdən də yaraqlanıb döyüşə tələsənlər oldu. <span class=\"num\">2.</span> Bu tayfanın gəlib torpağına sığındığı kəndin camaatından da silaha sarılanlar oldu. Alhüseyn də dəlilik dərəcəsinə çatdı, dəstənin qabağında atını yola doğru səyirtdi.</p><p><b>At ayaqları yeri döyəcləyirdi, toz-duman qalxmışdı.</b> Bu zaman tozun-dumanın içindən hamını yerində dondurub saxlayan heybətli bir səs, bir çağırış eşidildi:</p><p>– Dayanın!</p><p><span class=\"num\">3.</span> Baş alıb gedənlər atlarının cilovunu çəkdilər, yerə endilər. Hamı atını yurdun hündür yerinə çıxmış ucaqamətli ananın – Gülnazın yanına sarı yedəklədi.</p><p>Gülnaz üzünü bu ərlərə tutdu:</p><p>– Balalarım, dünyada gözlərimlə od üfürmüşəm, kösöv qaraltmışam, çox ● <b>məşəqqətlərdən</b> keçmişəm. Axırda bu qənaətə gəlmişəm ki, səbir lazımdır. <span class=\"num\">4.</span> Düşmən bizi açıqdan-açığa güllə qabağına çağırır, tələyə çəkir. Qoyun qanlımızın qurduğu tələ boş qalsın! Düşmən acizliyini bizi yox, cansız daşları gülləyə tutmaqla sübut etdi. Bu bizim qələbəmizdir!</p><p>Araya sükut çökdü. Heç vaxt bir sözü iki olmayan Gülnaz ananın sözü ilə razılaşmaq onun doğmalarına çətin gəlirdi. Hamı Alhüseynə baxdı: bəlkə, o, Gülnaz ananı fikrindən döndərə. <span class=\"num\">5.</span> Alhüseyn fikirləşdi ki, anası haqlıdır, onları kəndə çağıran İsrafil ağadır. Kim bilir, onları hansı dağda, hansı dərədə qarşılayacaq.</p><p>Alhüseyn qətiyyətlə dedi:</p><p>– Ana, ölsəm də, çıxmaram sənin sözündən!</p><p><b>Gülnaz qollarını oğlunun boynuna dolayıb onu qucaqladı.</b></p><p>İsrafil ağanın ümidləri boşa çıxandan sonra qəfəsdəki pələngə dönmüşdü. Bir tərəfdən, (1) ................, digər tərəfdən isə, (2) ................... onu dəli edirdi.</p>"
+    },
+    "stem": "Mətndə əvvəlində işarə qoyulmuş sözlərin mənasını müəyyən edib yazın:<br>▲ <b>səngimiş</b><br>■ <b>təlatüm</b><br>● <b>məşəqqətlərdən</b>",
+    "format": "open",
+    "answer": "▲ yavaşımaq, azalmaq, sakitləşmək;<br>■ çaxnaşma, vəlvələ, həyəcan, təlaş;<br>● əzab, əziyyət, sıxıntı, çətinlik.",
+    "rubric": "2 балла — верно определены все 3 слова; 1 балл — 2 слова; 0 баллов — 0–1 слово.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Ключи DİM: ▲ səngimiş — утихший/уменьшившийся; ■ təlatüm — волнение/смятение; ● məşəqqət — мучения/лишения."
+  },
+  {
+    "id": "az-1503-48",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 48
+    },
+    "passage": {
+      "id": "az-1503-p1",
+      "title": "İntiqam alovu",
+      "html": "<p>İsrafil ağa Mollazal uşağı tayfasını hökumətin əli ilə Kəsəməndən başqa kəndə sürgün etdirəndən sonra qəlbində bir az ▲ <b>səngimiş</b> intiqam alovu günlər keçdikcə yenidən artmaqda idi. Bir tərəfdən də, tayfasının dəliqanlı cavanları atlarını Acıdərəyə çapmaq, Mollazal uşağı tayfasının yaşadığı evlərə hücum etmək üçün İsrafil ağadan icazə istəyirdilər. Lakin o, məğlubiyyətdən qorxur, cavanların güclə <u>ipini çəkirdi</u>.</p><p>İsrafil ağa bu günlərdə həmişəkindən çox fikirləşirdi: «Onları yerindən oynadıb buraya gətirməliyik. Qoy onlar bizim üstümüzə gəlsinlər. Onda onlar açıqda – düzdə, biz daldada – səngərdə. O zaman bizim birimiz onların onuna güc gələr».</p><p>Mollazal uşağı tayfası sürgün ediləndən Kəsəməndə səssizlik idi. <span class=\"num\">1.</span> Lakin bir gecə güllə səsləri bu sakitliyi pozdu. Gün qalxan vaxt danışırdılar ki, bu atışma qəbiristanlıqda olub, Mollazal uşağı tayfasından olanların qəbirləri güllələnib.</p><p>Qəbirlərinin gülləyə tutulması xəbəri Acıdərədə Mollazal uşağı tayfasına çatanda onların arasında ■ <b>təlatüm</b> yarandı: çoxu atını yəhərsiz-yüyənsiz mindi, hətta qız-gəlinlərdən də yaraqlanıb döyüşə tələsənlər oldu. <span class=\"num\">2.</span> Bu tayfanın gəlib torpağına sığındığı kəndin camaatından da silaha sarılanlar oldu. Alhüseyn də dəlilik dərəcəsinə çatdı, dəstənin qabağında atını yola doğru səyirtdi.</p><p><b>At ayaqları yeri döyəcləyirdi, toz-duman qalxmışdı.</b> Bu zaman tozun-dumanın içindən hamını yerində dondurub saxlayan heybətli bir səs, bir çağırış eşidildi:</p><p>– Dayanın!</p><p><span class=\"num\">3.</span> Baş alıb gedənlər atlarının cilovunu çəkdilər, yerə endilər. Hamı atını yurdun hündür yerinə çıxmış ucaqamətli ananın – Gülnazın yanına sarı yedəklədi.</p><p>Gülnaz üzünü bu ərlərə tutdu:</p><p>– Balalarım, dünyada gözlərimlə od üfürmüşəm, kösöv qaraltmışam, çox ● <b>məşəqqətlərdən</b> keçmişəm. Axırda bu qənaətə gəlmişəm ki, səbir lazımdır. <span class=\"num\">4.</span> Düşmən bizi açıqdan-açığa güllə qabağına çağırır, tələyə çəkir. Qoyun qanlımızın qurduğu tələ boş qalsın! Düşmən acizliyini bizi yox, cansız daşları gülləyə tutmaqla sübut etdi. Bu bizim qələbəmizdir!</p><p>Araya sükut çökdü. Heç vaxt bir sözü iki olmayan Gülnaz ananın sözü ilə razılaşmaq onun doğmalarına çətin gəlirdi. Hamı Alhüseynə baxdı: bəlkə, o, Gülnaz ananı fikrindən döndərə. <span class=\"num\">5.</span> Alhüseyn fikirləşdi ki, anası haqlıdır, onları kəndə çağıran İsrafil ağadır. Kim bilir, onları hansı dağda, hansı dərədə qarşılayacaq.</p><p>Alhüseyn qətiyyətlə dedi:</p><p>– Ana, ölsəm də, çıxmaram sənin sözündən!</p><p><b>Gülnaz qollarını oğlunun boynuna dolayıb onu qucaqladı.</b></p><p>İsrafil ağanın ümidləri boşa çıxandan sonra qəfəsdəki pələngə dönmüşdü. Bir tərəfdən, (1) ................, digər tərəfdən isə, (2) ................... onu dəli edirdi.</p>"
+    },
+    "stem": "Mətndə nöqtələrin yerinə uyğun gələn fikirlər yazmaqla cümləni tamamlayın:<br><i>«Bir tərəfdən, (1) ................, digər tərəfdən isə, (2) ................... onu dəli edirdi.»</i>",
+    "format": "open",
+    "answer": "Bir tərəfdən, <b>intiqam planının boşa çıxması (Mollazal uşağı tayfasını tələyə sala bilməməsi)</b>, digər tərəfdən isə, <b>tayfa cavanları arasında nüfuzdan düşəcəyi fikri</b> onu dəli edirdi.",
+    "rubric": "2 балла — оба пропуска раскрывают две причины ярости Исрафил-аги (провал плана мести и страх потерять авторитет); 1 балл — 1 причина; 0 баллов — неверно.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Соединяет неудавшуюся засаду и страх потерять влияние среди молодёжи своего рода."
+  },
+  {
+    "id": "az-1503-49",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 49
+    },
+    "passage": {
+      "id": "az-1503-p1",
+      "title": "İntiqam alovu",
+      "html": "<p>İsrafil ağa Mollazal uşağı tayfasını hökumətin əli ilə Kəsəməndən başqa kəndə sürgün etdirəndən sonra qəlbində bir az ▲ <b>səngimiş</b> intiqam alovu günlər keçdikcə yenidən artmaqda idi. Bir tərəfdən də, tayfasının dəliqanlı cavanları atlarını Acıdərəyə çapmaq, Mollazal uşağı tayfasının yaşadığı evlərə hücum etmək üçün İsrafil ağadan icazə istəyirdilər. Lakin o, məğlubiyyətdən qorxur, cavanların güclə <u>ipini çəkirdi</u>.</p><p>İsrafil ağa bu günlərdə həmişəkindən çox fikirləşirdi: «Onları yerindən oynadıb buraya gətirməliyik. Qoy onlar bizim üstümüzə gəlsinlər. Onda onlar açıqda – düzdə, biz daldada – səngərdə. O zaman bizim birimiz onların onuna güc gələr».</p><p>Mollazal uşağı tayfası sürgün ediləndən Kəsəməndə səssizlik idi. <span class=\"num\">1.</span> Lakin bir gecə güllə səsləri bu sakitliyi pozdu. Gün qalxan vaxt danışırdılar ki, bu atışma qəbiristanlıqda olub, Mollazal uşağı tayfasından olanların qəbirləri güllələnib.</p><p>Qəbirlərinin gülləyə tutulması xəbəri Acıdərədə Mollazal uşağı tayfasına çatanda onların arasında ■ <b>təlatüm</b> yarandı: çoxu atını yəhərsiz-yüyənsiz mindi, hətta qız-gəlinlərdən də yaraqlanıb döyüşə tələsənlər oldu. <span class=\"num\">2.</span> Bu tayfanın gəlib torpağına sığındığı kəndin camaatından da silaha sarılanlar oldu. Alhüseyn də dəlilik dərəcəsinə çatdı, dəstənin qabağında atını yola doğru səyirtdi.</p><p><b>At ayaqları yeri döyəcləyirdi, toz-duman qalxmışdı.</b> Bu zaman tozun-dumanın içindən hamını yerində dondurub saxlayan heybətli bir səs, bir çağırış eşidildi:</p><p>– Dayanın!</p><p><span class=\"num\">3.</span> Baş alıb gedənlər atlarının cilovunu çəkdilər, yerə endilər. Hamı atını yurdun hündür yerinə çıxmış ucaqamətli ananın – Gülnazın yanına sarı yedəklədi.</p><p>Gülnaz üzünü bu ərlərə tutdu:</p><p>– Balalarım, dünyada gözlərimlə od üfürmüşəm, kösöv qaraltmışam, çox ● <b>məşəqqətlərdən</b> keçmişəm. Axırda bu qənaətə gəlmişəm ki, səbir lazımdır. <span class=\"num\">4.</span> Düşmən bizi açıqdan-açığa güllə qabağına çağırır, tələyə çəkir. Qoyun qanlımızın qurduğu tələ boş qalsın! Düşmən acizliyini bizi yox, cansız daşları gülləyə tutmaqla sübut etdi. Bu bizim qələbəmizdir!</p><p>Araya sükut çökdü. Heç vaxt bir sözü iki olmayan Gülnaz ananın sözü ilə razılaşmaq onun doğmalarına çətin gəlirdi. Hamı Alhüseynə baxdı: bəlkə, o, Gülnaz ananı fikrindən döndərə. <span class=\"num\">5.</span> Alhüseyn fikirləşdi ki, anası haqlıdır, onları kəndə çağıran İsrafil ağadır. Kim bilir, onları hansı dağda, hansı dərədə qarşılayacaq.</p><p>Alhüseyn qətiyyətlə dedi:</p><p>– Ana, ölsəm də, çıxmaram sənin sözündən!</p><p><b>Gülnaz qollarını oğlunun boynuna dolayıb onu qucaqladı.</b></p><p>İsrafil ağanın ümidləri boşa çıxandan sonra qəfəsdəki pələngə dönmüşdü. Bir tərəfdən, (1) ................, digər tərəfdən isə, (2) ................... onu dəli edirdi.</p>"
+    },
+    "stem": "Mətnə əsasən <b>İsrafil ağa</b> və <b>Alhüseyn</b> üçün «Problemi» və «Problemin həllini nədə görür?» cədvəlini tamamlayın.",
+    "format": "open",
+    "answer": "<b>İsrafil ağa:</b><br>• <i>Problemi:</i> Mollazal uşağı tayfasından intiqam almaq; tayfasının cavanları arasında nüfuzunu itirmək ehtimalı.<br>• <i>Həlli:</i> Mollazal uşağı tayfasının qəbirlərini güllələdir.<br><b>Alhüseyn:</b><br>• <i>Problemi:</i> Qəbirlərin güllələnməsinin intiqamını almaq.<br>• <i>Həlli:</i> Silaha sarılıb düşmənin üzərinə getməyə hazırlaşır.",
+    "rubric": "2 балла — верно заполнены проблемы и способы решения для обоих героев; 1 балл — верно только для одного героя; 0 баллов — неверно.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "По ключам DİM: Исрафил-ага провоцирует врага расстрелом могил; Алгусейн сначала видит решение в вооружённом выступлении."
+  },
+  {
+    "id": "az-1503-50",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 50
+    },
+    "passage": {
+      "id": "az-1503-p1",
+      "title": "İntiqam alovu",
+      "html": "<p>İsrafil ağa Mollazal uşağı tayfasını hökumətin əli ilə Kəsəməndən başqa kəndə sürgün etdirəndən sonra qəlbində bir az ▲ <b>səngimiş</b> intiqam alovu günlər keçdikcə yenidən artmaqda idi. Bir tərəfdən də, tayfasının dəliqanlı cavanları atlarını Acıdərəyə çapmaq, Mollazal uşağı tayfasının yaşadığı evlərə hücum etmək üçün İsrafil ağadan icazə istəyirdilər. Lakin o, məğlubiyyətdən qorxur, cavanların güclə <u>ipini çəkirdi</u>.</p><p>İsrafil ağa bu günlərdə həmişəkindən çox fikirləşirdi: «Onları yerindən oynadıb buraya gətirməliyik. Qoy onlar bizim üstümüzə gəlsinlər. Onda onlar açıqda – düzdə, biz daldada – səngərdə. O zaman bizim birimiz onların onuna güc gələr».</p><p>Mollazal uşağı tayfası sürgün ediləndən Kəsəməndə səssizlik idi. <span class=\"num\">1.</span> Lakin bir gecə güllə səsləri bu sakitliyi pozdu. Gün qalxan vaxt danışırdılar ki, bu atışma qəbiristanlıqda olub, Mollazal uşağı tayfasından olanların qəbirləri güllələnib.</p><p>Qəbirlərinin gülləyə tutulması xəbəri Acıdərədə Mollazal uşağı tayfasına çatanda onların arasında ■ <b>təlatüm</b> yarandı: çoxu atını yəhərsiz-yüyənsiz mindi, hətta qız-gəlinlərdən də yaraqlanıb döyüşə tələsənlər oldu. <span class=\"num\">2.</span> Bu tayfanın gəlib torpağına sığındığı kəndin camaatından da silaha sarılanlar oldu. Alhüseyn də dəlilik dərəcəsinə çatdı, dəstənin qabağında atını yola doğru səyirtdi.</p><p><b>At ayaqları yeri döyəcləyirdi, toz-duman qalxmışdı.</b> Bu zaman tozun-dumanın içindən hamını yerində dondurub saxlayan heybətli bir səs, bir çağırış eşidildi:</p><p>– Dayanın!</p><p><span class=\"num\">3.</span> Baş alıb gedənlər atlarının cilovunu çəkdilər, yerə endilər. Hamı atını yurdun hündür yerinə çıxmış ucaqamətli ananın – Gülnazın yanına sarı yedəklədi.</p><p>Gülnaz üzünü bu ərlərə tutdu:</p><p>– Balalarım, dünyada gözlərimlə od üfürmüşəm, kösöv qaraltmışam, çox ● <b>məşəqqətlərdən</b> keçmişəm. Axırda bu qənaətə gəlmişəm ki, səbir lazımdır. <span class=\"num\">4.</span> Düşmən bizi açıqdan-açığa güllə qabağına çağırır, tələyə çəkir. Qoyun qanlımızın qurduğu tələ boş qalsın! Düşmən acizliyini bizi yox, cansız daşları gülləyə tutmaqla sübut etdi. Bu bizim qələbəmizdir!</p><p>Araya sükut çökdü. Heç vaxt bir sözü iki olmayan Gülnaz ananın sözü ilə razılaşmaq onun doğmalarına çətin gəlirdi. Hamı Alhüseynə baxdı: bəlkə, o, Gülnaz ananı fikrindən döndərə. <span class=\"num\">5.</span> Alhüseyn fikirləşdi ki, anası haqlıdır, onları kəndə çağıran İsrafil ağadır. Kim bilir, onları hansı dağda, hansı dərədə qarşılayacaq.</p><p>Alhüseyn qətiyyətlə dedi:</p><p>– Ana, ölsəm də, çıxmaram sənin sözündən!</p><p><b>Gülnaz qollarını oğlunun boynuna dolayıb onu qucaqladı.</b></p><p>İsrafil ağanın ümidləri boşa çıxandan sonra qəfəsdəki pələngə dönmüşdü. Bir tərəfdən, (1) ................, digər tərəfdən isə, (2) ................... onu dəli edirdi.</p>"
+    },
+    "stem": "Mətndəki <b>İsrafil ağa</b> obrazı əsasında cədvəli doldurun (3 xarakterik xüsusiyyət və əsaslandırma).",
+    "format": "open",
+    "answer": "1. <b>Hiyləgərdir:</b> Düşmənlərini üzbəüz döyüşdə yox, tələyə salıb məhv etmək üçün planlar qurur.<br>2. <b>Namərddir:</b> Düşməni ilə üz-üzə gəlməkdən qorxur, onu alçaqcasına (qəbirləri güllələməklə) təxribata çəkir.<br>3. <b>Qorxaqdır:</b> Açıq döyüşdən və məğlubiyyətdən qorxur.",
+    "rubric": "2 балла — указаны 2–3 верные черты характера с текстовым обоснованием; 1 балл — 1 черта с обоснованием; 0 баллов — неверно.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Образ Исрафил-аги характеризуется коварством (hiyləgər), подлостью (namərd) и трусостью (qorxaq)."
+  },
+  {
+    "id": "az-1503-51",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 51
+    },
+    "passage": {
+      "id": "az-1503-p2",
+      "title": "Azərbaycan xalçalarında simvollar",
+      "html": "<p>Xalçaçılıq sənətinin tarixi çox qədim dövrlərə gedib çıxır. <span class=\"num\">[1]</span> Xalça qədim türk evinin ayrılmaz elementi olmuşdur. Köçəri həyat tərzi keçirən türklər xalçaları getdikləri yerlərə özləri ilə daşıyırdılar<sup>1</sup>. <span class=\"num\">[2]</span></p><p>Mütəxəssislər xalça naxışlarının qədim insanların dünyagörüşü haqqında informasiya daşıdığını vurğulayırlar. Onlar belə hesab edirlər ki, hər bir naxış müəyyən bir fikir ifadəçisidir. Azərbaycan xalçalarında yer alan naxışlardan yalnız gözəllik məqsədilə deyil, eyni zamanda gələcək nəsillərə ideya ötürmək üçün gizli kod kimi istifadə edilib. Bu naxışlar, əsasən, zənginliyin, bolluğun, baharın, məhəbbətin, qəhrəmanlığın və qələbənin təcəssümüdür.</p><p>Azərbaycan xalçalarında ən çox həndəsi, xüsusilə kvadrat və romb formalı naxışlar üstünlük təşkil edir. Bu xüsusiyyət qədim dövrlərdən Naxçıvan incəsənəti üçün xüsusilə xarakterikdir. Belə təsvirlərə Naxçıvandakı Gəmiqaya rəsmlərində də rast gəlinir.</p><p>Xalçalardakı səkkizguşəli ulduz təsviri türk-Səlcuq mədəniyyəti ilə bağlıdır. Səkkizbucaqlı yerlə göy arasındakı əlaqənin keçid mərhələsini simvollaşdırır. Təsadüfi deyil ki, günəş şüaları yerə təxminən səkkiz dəqiqəyə gəlib çatır.</p><p><span class=\"num\">[3]</span> Həyat ağacı xalçalarda müşahidə edilən və ən çox təsadüf olunan rəmzlərdəndir. Ümumiyyətlə, bitki, xüsusilə də ağac türk mədəniyyətində geniş yayılmış anlayışlardır. «Dədə Qorqud» dastanında rast gəldiyimiz «qaba ağac» ifadəsi də, xalçalardakı həyat ağacı da, şübhəsiz ki, oğuz-qıpçaq xalqlarının əsatirlərində olan həyat ağacı ilə bağlıdır. Həyat ağacının kökləri yeraltı dünyanı və keçmişi, budaqları isə səma və gələcəyi mənalandırır.</p><p>Heyvan motivləri bolluğu, bərəkəti, xüsusilə də güc-qüvvəti simvolizə edir. <span class=\"num\">[4]</span> Heyvan təsvirləri arasında müxtəlif mənalar ifadə edən quş motivlərinin önəmli yeri var. Xalçalarımızdakı bu motivlərin mənasına ilk dəfə şumerlərin «Bilqamıs» dastanında rast gəlinir. Burada quş dirilik ağacı ilə əlaqələndirilir və ölməzlik anlamını ifadə edir.</p><p>Xalçalarda ən çox rast gəlinən qədim ornamentlərdən biri də butadır. Müxtəlif sənət adamlarının buta elementinə fərqli yanaşmaları mövcuddur. Şəhərsalmada, geyimlərdə geniş istifadə edilən buta elementini dizaynerlər sadəcə çiçək ləçəyi ilə sərv ağacının sintezi kimi qəbul edirlərsə, folklorşünasların fikrincə, buta atəşpərəstlikdə həyatın və əbədiliyin simvoludur.</p><p><u>Qədim dövrlərdən tarixi inkişaf yolu aşaraq günümüzədək gəlib çatmış xalçaçılıq sənəti bu gün də mədəniyyətimizdə və məişətimizdə öz ifasını qoruyub saxlayır.</u> <span class=\"num\">[5]</span> Bununla belə, qədim dövr xalçalarından fərqli olaraq, müasir xalçalarda ifadə olunan naxışlar yalnız bəzək xarakteri daşımaqdadır<sup>2</sup>.</p>"
+    },
+    "stem": "<p>Mətnə əsasən cədvəldəki uyğun fikirləri müəyyən edin.</p><table><thead><tr><th>Fikir</th><th>Doğrudur</th><th>Yanlışdır</th></tr></thead><tbody><tr><td>1. Xalçalardakı naxışlar qədim insanların dünyagörüşü ilə sıx bağlıdır.</td><td>✓</td><td></td></tr><tr><td>2. Çağdaş dövrdə xalçalardakı naxışlar sırf dekorativ məqsədlə istifadə edilir.</td><td></td><td>✓</td></tr><tr><td>3. Xalçalardakı naxış elementləri daha çox müsbət fikirlərin ifadəçisidir.</td><td>✓</td><td></td></tr><tr><td>4. Naxçıvan incəsənət nümunələrində həndəsi naxışlara üstünlük verilməsi təkcə xalçaçılıq sənəti ilə məhdudlaşmır.</td><td></td><td>✓</td></tr><tr><td>5. Bəzi xalça naxışları əsatirlərlə bağlıdır.</td><td>✓</td><td></td></tr><tr><td>6. Qədim dövrdən fərqli olaraq, günümüzdə xalçalar insanların məişətinin mühüm elementidir.</td><td>✓</td><td></td></tr></tbody></table>",
+    "format": "single",
+    "options": [
+      "1, 3, 5",
+      "1, 2, 5, 6",
+      "1, 4, 5, 6",
+      "2, 3, 4",
+      "1, 2, 3, 4"
+    ],
+    "answer": 0,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Утверждения 1, 3 и 5 истинны и верно отмечены в столбце «Doğrudur». Утверждения 2 и 4 тоже истинны, но ошибочно помечены как «Yanlışdır». Утверждение 6 ложно (ковры были элементом быта и в древности, и сейчас), но стоит в «Doğrudur». Ответ: <b>1, 3, 5</b>."
+  },
+  {
+    "id": "az-1503-52",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 52
+    },
+    "passage": {
+      "id": "az-1503-p2",
+      "title": "Azərbaycan xalçalarında simvollar",
+      "html": "<p>Xalçaçılıq sənətinin tarixi çox qədim dövrlərə gedib çıxır. <span class=\"num\">[1]</span> Xalça qədim türk evinin ayrılmaz elementi olmuşdur. Köçəri həyat tərzi keçirən türklər xalçaları getdikləri yerlərə özləri ilə daşıyırdılar<sup>1</sup>. <span class=\"num\">[2]</span></p><p>Mütəxəssislər xalça naxışlarının qədim insanların dünyagörüşü haqqında informasiya daşıdığını vurğulayırlar. Onlar belə hesab edirlər ki, hər bir naxış müəyyən bir fikir ifadəçisidir. Azərbaycan xalçalarında yer alan naxışlardan yalnız gözəllik məqsədilə deyil, eyni zamanda gələcək nəsillərə ideya ötürmək üçün gizli kod kimi istifadə edilib. Bu naxışlar, əsasən, zənginliyin, bolluğun, baharın, məhəbbətin, qəhrəmanlığın və qələbənin təcəssümüdür.</p><p>Azərbaycan xalçalarında ən çox həndəsi, xüsusilə kvadrat və romb formalı naxışlar üstünlük təşkil edir. Bu xüsusiyyət qədim dövrlərdən Naxçıvan incəsənəti üçün xüsusilə xarakterikdir. Belə təsvirlərə Naxçıvandakı Gəmiqaya rəsmlərində də rast gəlinir.</p><p>Xalçalardakı səkkizguşəli ulduz təsviri türk-Səlcuq mədəniyyəti ilə bağlıdır. Səkkizbucaqlı yerlə göy arasındakı əlaqənin keçid mərhələsini simvollaşdırır. Təsadüfi deyil ki, günəş şüaları yerə təxminən səkkiz dəqiqəyə gəlib çatır.</p><p><span class=\"num\">[3]</span> Həyat ağacı xalçalarda müşahidə edilən və ən çox təsadüf olunan rəmzlərdəndir. Ümumiyyətlə, bitki, xüsusilə də ağac türk mədəniyyətində geniş yayılmış anlayışlardır. «Dədə Qorqud» dastanında rast gəldiyimiz «qaba ağac» ifadəsi də, xalçalardakı həyat ağacı da, şübhəsiz ki, oğuz-qıpçaq xalqlarının əsatirlərində olan həyat ağacı ilə bağlıdır. Həyat ağacının kökləri yeraltı dünyanı və keçmişi, budaqları isə səma və gələcəyi mənalandırır.</p><p>Heyvan motivləri bolluğu, bərəkəti, xüsusilə də güc-qüvvəti simvolizə edir. <span class=\"num\">[4]</span> Heyvan təsvirləri arasında müxtəlif mənalar ifadə edən quş motivlərinin önəmli yeri var. Xalçalarımızdakı bu motivlərin mənasına ilk dəfə şumerlərin «Bilqamıs» dastanında rast gəlinir. Burada quş dirilik ağacı ilə əlaqələndirilir və ölməzlik anlamını ifadə edir.</p><p>Xalçalarda ən çox rast gəlinən qədim ornamentlərdən biri də butadır. Müxtəlif sənət adamlarının buta elementinə fərqli yanaşmaları mövcuddur. Şəhərsalmada, geyimlərdə geniş istifadə edilən buta elementini dizaynerlər sadəcə çiçək ləçəyi ilə sərv ağacının sintezi kimi qəbul edirlərsə, folklorşünasların fikrincə, buta atəşpərəstlikdə həyatın və əbədiliyin simvoludur.</p><p><u>Qədim dövrlərdən tarixi inkişaf yolu aşaraq günümüzədək gəlib çatmış xalçaçılıq sənəti bu gün də mədəniyyətimizdə və məişətimizdə öz ifasını qoruyub saxlayır.</u> <span class=\"num\">[5]</span> Bununla belə, qədim dövr xalçalarından fərqli olaraq, müasir xalçalarda ifadə olunan naxışlar yalnız bəzək xarakteri daşımaqdadır<sup>2</sup>.</p>"
+    },
+    "stem": "<p>Mətnə əsasən uyğun fikirləri müəyyən edin.</p><table><thead><tr><th>Mətndə məlumat var</th><th>Mətndə məlumat yoxdur</th></tr></thead><tbody><tr><td>1. Xalçalarda türk mədəniyyəti ilə bağlı simvollara təsadüf edilir.<br>2. Həyat ağacının eyni bir hissəsi fərqli anlayışları ifadə edə bilir.<br>3. Ay, günəş kimi səma cisimlərinin əks olunduğu naxışlar xalçalarda üstünlük təşkil edir.</td><td>4. Xalçalardakı heyvan motivləri bir neçə anlayışı simvollaşdırır.<br>5. Xalçalarda qədim insanların yaşayış tərzini əks etdirən təsvirlərə rast gəlinir.<br>6. Azərbaycan xalçaları üçün ölümsüzlüyü ifadə edən motivlər də xarakterikdir.</td></tr></tbody></table>",
+    "format": "single",
+    "options": [
+      "2, 3, 6",
+      "2, 3, 4, 5",
+      "1, 2, 5",
+      "1, 4, 6",
+      "1, 3, 4, 5"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Работа с текстом",
+    "explanation": "Информация о 1 (тюркские символы: восьмиконечная звезда, древо жизни) и 2 (корни древа выражают подземный мир и прошлое) в тексте есть; о 5 (изображение быта древних людей) в тексте нет. О пункте 3 сведений нет, а о 4 и 6 — есть. Ответ: <b>1, 2, 5</b>."
+  },
+  {
+    "id": "az-1503-53",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 53
+    },
+    "passage": {
+      "id": "az-1503-p2",
+      "title": "Azərbaycan xalçalarında simvollar",
+      "html": "<p>Xalçaçılıq sənətinin tarixi çox qədim dövrlərə gedib çıxır. <span class=\"num\">[1]</span> Xalça qədim türk evinin ayrılmaz elementi olmuşdur. Köçəri həyat tərzi keçirən türklər xalçaları getdikləri yerlərə özləri ilə daşıyırdılar<sup>1</sup>. <span class=\"num\">[2]</span></p><p>Mütəxəssislər xalça naxışlarının qədim insanların dünyagörüşü haqqında informasiya daşıdığını vurğulayırlar. Onlar belə hesab edirlər ki, hər bir naxış müəyyən bir fikir ifadəçisidir. Azərbaycan xalçalarında yer alan naxışlardan yalnız gözəllik məqsədilə deyil, eyni zamanda gələcək nəsillərə ideya ötürmək üçün gizli kod kimi istifadə edilib. Bu naxışlar, əsasən, zənginliyin, bolluğun, baharın, məhəbbətin, qəhrəmanlığın və qələbənin təcəssümüdür.</p><p>Azərbaycan xalçalarında ən çox həndəsi, xüsusilə kvadrat və romb formalı naxışlar üstünlük təşkil edir. Bu xüsusiyyət qədim dövrlərdən Naxçıvan incəsənəti üçün xüsusilə xarakterikdir. Belə təsvirlərə Naxçıvandakı Gəmiqaya rəsmlərində də rast gəlinir.</p><p>Xalçalardakı səkkizguşəli ulduz təsviri türk-Səlcuq mədəniyyəti ilə bağlıdır. Səkkizbucaqlı yerlə göy arasındakı əlaqənin keçid mərhələsini simvollaşdırır. Təsadüfi deyil ki, günəş şüaları yerə təxminən səkkiz dəqiqəyə gəlib çatır.</p><p><span class=\"num\">[3]</span> Həyat ağacı xalçalarda müşahidə edilən və ən çox təsadüf olunan rəmzlərdəndir. Ümumiyyətlə, bitki, xüsusilə də ağac türk mədəniyyətində geniş yayılmış anlayışlardır. «Dədə Qorqud» dastanında rast gəldiyimiz «qaba ağac» ifadəsi də, xalçalardakı həyat ağacı da, şübhəsiz ki, oğuz-qıpçaq xalqlarının əsatirlərində olan həyat ağacı ilə bağlıdır. Həyat ağacının kökləri yeraltı dünyanı və keçmişi, budaqları isə səma və gələcəyi mənalandırır.</p><p>Heyvan motivləri bolluğu, bərəkəti, xüsusilə də güc-qüvvəti simvolizə edir. <span class=\"num\">[4]</span> Heyvan təsvirləri arasında müxtəlif mənalar ifadə edən quş motivlərinin önəmli yeri var. Xalçalarımızdakı bu motivlərin mənasına ilk dəfə şumerlərin «Bilqamıs» dastanında rast gəlinir. Burada quş dirilik ağacı ilə əlaqələndirilir və ölməzlik anlamını ifadə edir.</p><p>Xalçalarda ən çox rast gəlinən qədim ornamentlərdən biri də butadır. Müxtəlif sənət adamlarının buta elementinə fərqli yanaşmaları mövcuddur. Şəhərsalmada, geyimlərdə geniş istifadə edilən buta elementini dizaynerlər sadəcə çiçək ləçəyi ilə sərv ağacının sintezi kimi qəbul edirlərsə, folklorşünasların fikrincə, buta atəşpərəstlikdə həyatın və əbədiliyin simvoludur.</p><p><u>Qədim dövrlərdən tarixi inkişaf yolu aşaraq günümüzədək gəlib çatmış xalçaçılıq sənəti bu gün də mədəniyyətimizdə və məişətimizdə öz ifasını qoruyub saxlayır.</u> <span class=\"num\">[5]</span> Bununla belə, qədim dövr xalçalarından fərqli olaraq, müasir xalçalarda ifadə olunan naxışlar yalnız bəzək xarakteri daşımaqdadır<sup>2</sup>.</p>"
+    },
+    "stem": "<p>Mətndə üzərində rəqəm yazılmış sözlər (<b>1. daşıyırdılar<sup>1</sup></b>, <b>2. daşımaqdadır<sup>2</sup></b>) əsasında uyğunluğu müəyyən edin.</p><p>a. <i>Şairin qoşma və gəraylıları dərin mahiyyət daşıyır</i> cümləsində kontekstə görə eyni məna ifadə edən söz işlənmişdir.<br>b. Aparmaq sözünün qarşılığıdır.<br>c. <i>O, dövlət idarələrindən birində orta vəzifə daşıyırdı</i> cümləsində kontekstə görə eyni anlamda olan ifadə işlənmişdir.<br>d. İfadə etmək anlamındadır.<br>e. <i>Ahıl ilə daş daşı, cahil ilə bal yemə (Atalar sözü)</i> nümunəsində kontekstə görə eyni mənalı söz var.</p>",
+    "format": "single",
+    "options": [
+      "1 – b; 2 – a, e",
+      "1 – a, b; 2 – c, d",
+      "1 – d, e; 2 – a, c",
+      "1 – e; 2 – b, c",
+      "1 – b, e; 2 – a, d"
+    ],
+    "answer": 4,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "1) <i>daşıyırdılar¹</i> (ковры носили с собой) означает «aparmaq» (b) и соответствует пословице «daş daşı» (e). 2) <i>daşımaqdadır²</i> (bəzək xarakteri daşımaqdadır) означает «выражать» (d) и соответствует «mahiyyət daşıyır» (a). Ответ: E."
+  },
+  {
+    "id": "az-1503-54",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 54
+    },
+    "passage": {
+      "id": "az-1503-p2",
+      "title": "Azərbaycan xalçalarında simvollar",
+      "html": "<p>Xalçaçılıq sənətinin tarixi çox qədim dövrlərə gedib çıxır. <span class=\"num\">[1]</span> Xalça qədim türk evinin ayrılmaz elementi olmuşdur. Köçəri həyat tərzi keçirən türklər xalçaları getdikləri yerlərə özləri ilə daşıyırdılar<sup>1</sup>. <span class=\"num\">[2]</span></p><p>Mütəxəssislər xalça naxışlarının qədim insanların dünyagörüşü haqqında informasiya daşıdığını vurğulayırlar. Onlar belə hesab edirlər ki, hər bir naxış müəyyən bir fikir ifadəçisidir. Azərbaycan xalçalarında yer alan naxışlardan yalnız gözəllik məqsədilə deyil, eyni zamanda gələcək nəsillərə ideya ötürmək üçün gizli kod kimi istifadə edilib. Bu naxışlar, əsasən, zənginliyin, bolluğun, baharın, məhəbbətin, qəhrəmanlığın və qələbənin təcəssümüdür.</p><p>Azərbaycan xalçalarında ən çox həndəsi, xüsusilə kvadrat və romb formalı naxışlar üstünlük təşkil edir. Bu xüsusiyyət qədim dövrlərdən Naxçıvan incəsənəti üçün xüsusilə xarakterikdir. Belə təsvirlərə Naxçıvandakı Gəmiqaya rəsmlərində də rast gəlinir.</p><p>Xalçalardakı səkkizguşəli ulduz təsviri türk-Səlcuq mədəniyyəti ilə bağlıdır. Səkkizbucaqlı yerlə göy arasındakı əlaqənin keçid mərhələsini simvollaşdırır. Təsadüfi deyil ki, günəş şüaları yerə təxminən səkkiz dəqiqəyə gəlib çatır.</p><p><span class=\"num\">[3]</span> Həyat ağacı xalçalarda müşahidə edilən və ən çox təsadüf olunan rəmzlərdəndir. Ümumiyyətlə, bitki, xüsusilə də ağac türk mədəniyyətində geniş yayılmış anlayışlardır. «Dədə Qorqud» dastanında rast gəldiyimiz «qaba ağac» ifadəsi də, xalçalardakı həyat ağacı da, şübhəsiz ki, oğuz-qıpçaq xalqlarının əsatirlərində olan həyat ağacı ilə bağlıdır. Həyat ağacının kökləri yeraltı dünyanı və keçmişi, budaqları isə səma və gələcəyi mənalandırır.</p><p>Heyvan motivləri bolluğu, bərəkəti, xüsusilə də güc-qüvvəti simvolizə edir. <span class=\"num\">[4]</span> Heyvan təsvirləri arasında müxtəlif mənalar ifadə edən quş motivlərinin önəmli yeri var. Xalçalarımızdakı bu motivlərin mənasına ilk dəfə şumerlərin «Bilqamıs» dastanında rast gəlinir. Burada quş dirilik ağacı ilə əlaqələndirilir və ölməzlik anlamını ifadə edir.</p><p>Xalçalarda ən çox rast gəlinən qədim ornamentlərdən biri də butadır. Müxtəlif sənət adamlarının buta elementinə fərqli yanaşmaları mövcuddur. Şəhərsalmada, geyimlərdə geniş istifadə edilən buta elementini dizaynerlər sadəcə çiçək ləçəyi ilə sərv ağacının sintezi kimi qəbul edirlərsə, folklorşünasların fikrincə, buta atəşpərəstlikdə həyatın və əbədiliyin simvoludur.</p><p><u>Qədim dövrlərdən tarixi inkişaf yolu aşaraq günümüzədək gəlib çatmış xalçaçılıq sənəti bu gün də mədəniyyətimizdə və məişətimizdə öz ifasını qoruyub saxlayır.</u> <span class=\"num\">[5]</span> Bununla belə, qədim dövr xalçalarından fərqli olaraq, müasir xalçalarda ifadə olunan naxışlar yalnız bəzək xarakteri daşımaqdadır<sup>2</sup>.</p>"
+    },
+    "stem": "<p>Xalçalardakı <b>buta</b> elementi ilə bağlı <b>yanlış</b> fikirləri müəyyən edin.</p><p>1. Az yayılmış xalça naxışı motivlərindəndir.<br>2. İzahı ilə bağlı fərqli fikirlər var.<br>3. Müxtəlif elementlərin birləşməsindən yarandığı da düşünülür.<br>4. Yaranması müasir dövrə təsadüf edir.<br>5. Hazırda istifadəsi xalçalarla məhdudlaşmır.</p>",
+    "format": "single",
+    "options": [
+      "1, 4",
+      "3, 5",
+      "1, 5",
+      "2, 4",
+      "2, 3"
+    ],
+    "answer": 0,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Бута — один из самых распространённых (а не редких — 1 неверно) и древних (а не современных — 4 неверно) орнаментов. Утверждения 2, 3 и 5 соответствуют тексту. Ответ: <b>1, 4</b>."
+  },
+  {
+    "id": "az-1503-55",
+    "subject": "az",
+    "typeId": "az.reading-closed",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 55
+    },
+    "passage": {
+      "id": "az-1503-p2",
+      "title": "Azərbaycan xalçalarında simvollar",
+      "html": "<p>Xalçaçılıq sənətinin tarixi çox qədim dövrlərə gedib çıxır. <span class=\"num\">[1]</span> Xalça qədim türk evinin ayrılmaz elementi olmuşdur. Köçəri həyat tərzi keçirən türklər xalçaları getdikləri yerlərə özləri ilə daşıyırdılar<sup>1</sup>. <span class=\"num\">[2]</span></p><p>Mütəxəssislər xalça naxışlarının qədim insanların dünyagörüşü haqqında informasiya daşıdığını vurğulayırlar. Onlar belə hesab edirlər ki, hər bir naxış müəyyən bir fikir ifadəçisidir. Azərbaycan xalçalarında yer alan naxışlardan yalnız gözəllik məqsədilə deyil, eyni zamanda gələcək nəsillərə ideya ötürmək üçün gizli kod kimi istifadə edilib. Bu naxışlar, əsasən, zənginliyin, bolluğun, baharın, məhəbbətin, qəhrəmanlığın və qələbənin təcəssümüdür.</p><p>Azərbaycan xalçalarında ən çox həndəsi, xüsusilə kvadrat və romb formalı naxışlar üstünlük təşkil edir. Bu xüsusiyyət qədim dövrlərdən Naxçıvan incəsənəti üçün xüsusilə xarakterikdir. Belə təsvirlərə Naxçıvandakı Gəmiqaya rəsmlərində də rast gəlinir.</p><p>Xalçalardakı səkkizguşəli ulduz təsviri türk-Səlcuq mədəniyyəti ilə bağlıdır. Səkkizbucaqlı yerlə göy arasındakı əlaqənin keçid mərhələsini simvollaşdırır. Təsadüfi deyil ki, günəş şüaları yerə təxminən səkkiz dəqiqəyə gəlib çatır.</p><p><span class=\"num\">[3]</span> Həyat ağacı xalçalarda müşahidə edilən və ən çox təsadüf olunan rəmzlərdəndir. Ümumiyyətlə, bitki, xüsusilə də ağac türk mədəniyyətində geniş yayılmış anlayışlardır. «Dədə Qorqud» dastanında rast gəldiyimiz «qaba ağac» ifadəsi də, xalçalardakı həyat ağacı da, şübhəsiz ki, oğuz-qıpçaq xalqlarının əsatirlərində olan həyat ağacı ilə bağlıdır. Həyat ağacının kökləri yeraltı dünyanı və keçmişi, budaqları isə səma və gələcəyi mənalandırır.</p><p>Heyvan motivləri bolluğu, bərəkəti, xüsusilə də güc-qüvvəti simvolizə edir. <span class=\"num\">[4]</span> Heyvan təsvirləri arasında müxtəlif mənalar ifadə edən quş motivlərinin önəmli yeri var. Xalçalarımızdakı bu motivlərin mənasına ilk dəfə şumerlərin «Bilqamıs» dastanında rast gəlinir. Burada quş dirilik ağacı ilə əlaqələndirilir və ölməzlik anlamını ifadə edir.</p><p>Xalçalarda ən çox rast gəlinən qədim ornamentlərdən biri də butadır. Müxtəlif sənət adamlarının buta elementinə fərqli yanaşmaları mövcuddur. Şəhərsalmada, geyimlərdə geniş istifadə edilən buta elementini dizaynerlər sadəcə çiçək ləçəyi ilə sərv ağacının sintezi kimi qəbul edirlərsə, folklorşünasların fikrincə, buta atəşpərəstlikdə həyatın və əbədiliyin simvoludur.</p><p><u>Qədim dövrlərdən tarixi inkişaf yolu aşaraq günümüzədək gəlib çatmış xalçaçılıq sənəti bu gün də mədəniyyətimizdə və məişətimizdə öz ifasını qoruyub saxlayır.</u> <span class=\"num\">[5]</span> Bununla belə, qədim dövr xalçalarından fərqli olaraq, müasir xalçalarda ifadə olunan naxışlar yalnız bəzək xarakteri daşımaqdadır<sup>2</sup>.</p>"
+    },
+    "stem": "<p>Mətndə boş çərçivələrin ([1]–[5]) yerinə uyğun gələn fikirlərin ardıcıllığını müəyyən edin.</p><p>1. Onlar daim yer dəyişdiklərinə görə müxtəlifnaxışlı, xovlu və xovsuz xalçalardan çadırların, alaçıqların divarlarında və döşəmələrində istifadə edirdilər.<br>2. Qədim türklərin xalçalarında başqa naxışlardan da istifadə edilirdi, məsələn, bitki motivli naxışlardan.<br>3. Bu peşənin qədimliyini qədim kurqanlardan tapılan keçə, alaçıq, araba qalıqları ilə yanaşı, xalçalar da sübut edir.<br>4. Bu, xalqımızın öz keçmişinə sədaqətinin göstəricisi və ənənələrini hal-hazırda da yaşatmasının sübutudur.<br>5. Cəsur döyüşçünün ayrılmaz dostu sayılan quyruğu düyünlü atın xalçalarımızda təsviri də elə bunun göstəricisidir.</p>",
+    "format": "single",
+    "options": [
+      "1, 4, 3, 2, 5",
+      "3, 1, 2, 5, 4",
+      "1, 2, 5, 3, 4",
+      "3, 5, 4, 2, 1",
+      "1, 2, 3, 5, 4"
+    ],
+    "answer": 1,
+    "points": 1,
+    "difficulty": 3,
+    "topic": "Работа с текстом",
+    "explanation": "Последовательность вставок: [1] → 3 (древность ремесла из курганов); [2] → 1 (кочевники использовали ковры в шатрах); [3] → 2 (растительные мотивы перед абзацем о древе жизни); [4] → 5 (изображение коня после «güc-qüvvəti simvolizə edir»); [5] → 4 (итог о верности традициям). Ответ: <b>3, 1, 2, 5, 4</b>."
+  },
+  {
+    "id": "az-1503-56",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 56
+    },
+    "passage": {
+      "id": "az-1503-p2",
+      "title": "Azərbaycan xalçalarında simvollar",
+      "html": "<p>Xalçaçılıq sənətinin tarixi çox qədim dövrlərə gedib çıxır. <span class=\"num\">[1]</span> Xalça qədim türk evinin ayrılmaz elementi olmuşdur. Köçəri həyat tərzi keçirən türklər xalçaları getdikləri yerlərə özləri ilə daşıyırdılar<sup>1</sup>. <span class=\"num\">[2]</span></p><p>Mütəxəssislər xalça naxışlarının qədim insanların dünyagörüşü haqqında informasiya daşıdığını vurğulayırlar. Onlar belə hesab edirlər ki, hər bir naxış müəyyən bir fikir ifadəçisidir. Azərbaycan xalçalarında yer alan naxışlardan yalnız gözəllik məqsədilə deyil, eyni zamanda gələcək nəsillərə ideya ötürmək üçün gizli kod kimi istifadə edilib. Bu naxışlar, əsasən, zənginliyin, bolluğun, baharın, məhəbbətin, qəhrəmanlığın və qələbənin təcəssümüdür.</p><p>Azərbaycan xalçalarında ən çox həndəsi, xüsusilə kvadrat və romb formalı naxışlar üstünlük təşkil edir. Bu xüsusiyyət qədim dövrlərdən Naxçıvan incəsənəti üçün xüsusilə xarakterikdir. Belə təsvirlərə Naxçıvandakı Gəmiqaya rəsmlərində də rast gəlinir.</p><p>Xalçalardakı səkkizguşəli ulduz təsviri türk-Səlcuq mədəniyyəti ilə bağlıdır. Səkkizbucaqlı yerlə göy arasındakı əlaqənin keçid mərhələsini simvollaşdırır. Təsadüfi deyil ki, günəş şüaları yerə təxminən səkkiz dəqiqəyə gəlib çatır.</p><p><span class=\"num\">[3]</span> Həyat ağacı xalçalarda müşahidə edilən və ən çox təsadüf olunan rəmzlərdəndir. Ümumiyyətlə, bitki, xüsusilə də ağac türk mədəniyyətində geniş yayılmış anlayışlardır. «Dədə Qorqud» dastanında rast gəldiyimiz «qaba ağac» ifadəsi də, xalçalardakı həyat ağacı da, şübhəsiz ki, oğuz-qıpçaq xalqlarının əsatirlərində olan həyat ağacı ilə bağlıdır. Həyat ağacının kökləri yeraltı dünyanı və keçmişi, budaqları isə səma və gələcəyi mənalandırır.</p><p>Heyvan motivləri bolluğu, bərəkəti, xüsusilə də güc-qüvvəti simvolizə edir. <span class=\"num\">[4]</span> Heyvan təsvirləri arasında müxtəlif mənalar ifadə edən quş motivlərinin önəmli yeri var. Xalçalarımızdakı bu motivlərin mənasına ilk dəfə şumerlərin «Bilqamıs» dastanında rast gəlinir. Burada quş dirilik ağacı ilə əlaqələndirilir və ölməzlik anlamını ifadə edir.</p><p>Xalçalarda ən çox rast gəlinən qədim ornamentlərdən biri də butadır. Müxtəlif sənət adamlarının buta elementinə fərqli yanaşmaları mövcuddur. Şəhərsalmada, geyimlərdə geniş istifadə edilən buta elementini dizaynerlər sadəcə çiçək ləçəyi ilə sərv ağacının sintezi kimi qəbul edirlərsə, folklorşünasların fikrincə, buta atəşpərəstlikdə həyatın və əbədiliyin simvoludur.</p><p><u>Qədim dövrlərdən tarixi inkişaf yolu aşaraq günümüzədək gəlib çatmış xalçaçılıq sənəti bu gün də mədəniyyətimizdə və məişətimizdə öz ifasını qoruyub saxlayır.</u> <span class=\"num\">[5]</span> Bununla belə, qədim dövr xalçalarından fərqli olaraq, müasir xalçalarda ifadə olunan naxışlar yalnız bəzək xarakteri daşımaqdadır<sup>2</sup>.</p>"
+    },
+    "stem": "Mətndə altından xətt çəkilmiş cümlədə uyğun düzəlişlər (yalnız qüsurlu məqamlarda) etməklə cümləni yenidən yazın:<br><i>«Qədim dövrlərdən tarixi inkişaf yolu aşaraq günümüzədək gəlib çatmış xalçaçılıq sənəti bu gün də mədəniyyətimizdə və məişətimizdə öz ifasını qoruyub saxlayır.»</i>",
+    "format": "open",
+    "answer": "Qədim dövrlərdən tarixi inkişaf yolu <b>keçərək (qət edərək)</b> günümüzədək gəlib çatmış xalçaçılıq sənəti bu gün də mədəniyyətimizdə və məişətimizdə öz <b>yerini (mövqeyini)</b> qoruyub saxlayır.",
+    "rubric": "2 балла — исправлены обе лексико-стилистические ошибки (aşaraq → keçərək/qət edərək; ifasını → yerini/mövqeyini); 1 балл — 1 ошибка; 0 баллов — не исправлено.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Нарушена лексическая сочетаемость: путь проходят (<i>yol keçərək / qət edərək</i>), а в культуре сохраняют своё место/позицию (<i>yerini / mövqeyini</i>), а не «исполнение» (ifasını)."
+  },
+  {
+    "id": "az-1503-57",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 57
+    },
+    "passage": {
+      "id": "az-1503-p2",
+      "title": "Azərbaycan xalçalarında simvollar",
+      "html": "<p>Xalçaçılıq sənətinin tarixi çox qədim dövrlərə gedib çıxır. <span class=\"num\">[1]</span> Xalça qədim türk evinin ayrılmaz elementi olmuşdur. Köçəri həyat tərzi keçirən türklər xalçaları getdikləri yerlərə özləri ilə daşıyırdılar<sup>1</sup>. <span class=\"num\">[2]</span></p><p>Mütəxəssislər xalça naxışlarının qədim insanların dünyagörüşü haqqında informasiya daşıdığını vurğulayırlar. Onlar belə hesab edirlər ki, hər bir naxış müəyyən bir fikir ifadəçisidir. Azərbaycan xalçalarında yer alan naxışlardan yalnız gözəllik məqsədilə deyil, eyni zamanda gələcək nəsillərə ideya ötürmək üçün gizli kod kimi istifadə edilib. Bu naxışlar, əsasən, zənginliyin, bolluğun, baharın, məhəbbətin, qəhrəmanlığın və qələbənin təcəssümüdür.</p><p>Azərbaycan xalçalarında ən çox həndəsi, xüsusilə kvadrat və romb formalı naxışlar üstünlük təşkil edir. Bu xüsusiyyət qədim dövrlərdən Naxçıvan incəsənəti üçün xüsusilə xarakterikdir. Belə təsvirlərə Naxçıvandakı Gəmiqaya rəsmlərində də rast gəlinir.</p><p>Xalçalardakı səkkizguşəli ulduz təsviri türk-Səlcuq mədəniyyəti ilə bağlıdır. Səkkizbucaqlı yerlə göy arasındakı əlaqənin keçid mərhələsini simvollaşdırır. Təsadüfi deyil ki, günəş şüaları yerə təxminən səkkiz dəqiqəyə gəlib çatır.</p><p><span class=\"num\">[3]</span> Həyat ağacı xalçalarda müşahidə edilən və ən çox təsadüf olunan rəmzlərdəndir. Ümumiyyətlə, bitki, xüsusilə də ağac türk mədəniyyətində geniş yayılmış anlayışlardır. «Dədə Qorqud» dastanında rast gəldiyimiz «qaba ağac» ifadəsi də, xalçalardakı həyat ağacı da, şübhəsiz ki, oğuz-qıpçaq xalqlarının əsatirlərində olan həyat ağacı ilə bağlıdır. Həyat ağacının kökləri yeraltı dünyanı və keçmişi, budaqları isə səma və gələcəyi mənalandırır.</p><p>Heyvan motivləri bolluğu, bərəkəti, xüsusilə də güc-qüvvəti simvolizə edir. <span class=\"num\">[4]</span> Heyvan təsvirləri arasında müxtəlif mənalar ifadə edən quş motivlərinin önəmli yeri var. Xalçalarımızdakı bu motivlərin mənasına ilk dəfə şumerlərin «Bilqamıs» dastanında rast gəlinir. Burada quş dirilik ağacı ilə əlaqələndirilir və ölməzlik anlamını ifadə edir.</p><p>Xalçalarda ən çox rast gəlinən qədim ornamentlərdən biri də butadır. Müxtəlif sənət adamlarının buta elementinə fərqli yanaşmaları mövcuddur. Şəhərsalmada, geyimlərdə geniş istifadə edilən buta elementini dizaynerlər sadəcə çiçək ləçəyi ilə sərv ağacının sintezi kimi qəbul edirlərsə, folklorşünasların fikrincə, buta atəşpərəstlikdə həyatın və əbədiliyin simvoludur.</p><p><u>Qədim dövrlərdən tarixi inkişaf yolu aşaraq günümüzədək gəlib çatmış xalçaçılıq sənəti bu gün də mədəniyyətimizdə və məişətimizdə öz ifasını qoruyub saxlayır.</u> <span class=\"num\">[5]</span> Bununla belə, qədim dövr xalçalarından fərqli olaraq, müasir xalçalarda ifadə olunan naxışlar yalnız bəzək xarakteri daşımaqdadır<sup>2</sup>.</p>"
+    },
+    "stem": "<p>Mətnə əsasən cədvəli tamamlayın (verilmiş faktlara uyğun ümumi müddəa yazın):</p><table><thead><tr><th>Müddəa</th><th>Müddəanı təsdiq edən faktlar</th></tr></thead><tbody><tr><td>?</td><td>• Azərbaycan xalçalarında həndəsi naxışlar geniş yayılmışdır.<br>• Xalçalarımızda bitki naxışları (həyat ağacı) əksini tapmışdır.<br>• Heyvanları simvolizə edən naxışlara xalçalarımızda rast gəlinir.<br>• Buta xalçalarımızda geniş yayılan naxışlardandır.<br>• Ulduz elementindən (astronomik elementlərdən) xalçalarımızda istifadə olunub.</td></tr></tbody></table>",
+    "format": "open",
+    "answer": "Xalçalarda müxtəlif naxış elementlərindən istifadə edilir (Azərbaycan xalçaları zəngin və rəngarəng ornamentlərə malikdir).",
+    "rubric": "2 балла — сформулирован точный обобщающий тезис, охватывающий все 5 фактов; 1 балл — слишком узкий или нечёткий тезис; 0 баллов — неверно.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Все пять фактов перечисляют различные типы ковровых орнаментов (геометрические, растительные, зооморфные, бута, звезда)."
+  },
+  {
+    "id": "az-1503-58",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 58
+    },
+    "passage": {
+      "id": "az-1503-p2",
+      "title": "Azərbaycan xalçalarında simvollar",
+      "html": "<p>Xalçaçılıq sənətinin tarixi çox qədim dövrlərə gedib çıxır. <span class=\"num\">[1]</span> Xalça qədim türk evinin ayrılmaz elementi olmuşdur. Köçəri həyat tərzi keçirən türklər xalçaları getdikləri yerlərə özləri ilə daşıyırdılar<sup>1</sup>. <span class=\"num\">[2]</span></p><p>Mütəxəssislər xalça naxışlarının qədim insanların dünyagörüşü haqqında informasiya daşıdığını vurğulayırlar. Onlar belə hesab edirlər ki, hər bir naxış müəyyən bir fikir ifadəçisidir. Azərbaycan xalçalarında yer alan naxışlardan yalnız gözəllik məqsədilə deyil, eyni zamanda gələcək nəsillərə ideya ötürmək üçün gizli kod kimi istifadə edilib. Bu naxışlar, əsasən, zənginliyin, bolluğun, baharın, məhəbbətin, qəhrəmanlığın və qələbənin təcəssümüdür.</p><p>Azərbaycan xalçalarında ən çox həndəsi, xüsusilə kvadrat və romb formalı naxışlar üstünlük təşkil edir. Bu xüsusiyyət qədim dövrlərdən Naxçıvan incəsənəti üçün xüsusilə xarakterikdir. Belə təsvirlərə Naxçıvandakı Gəmiqaya rəsmlərində də rast gəlinir.</p><p>Xalçalardakı səkkizguşəli ulduz təsviri türk-Səlcuq mədəniyyəti ilə bağlıdır. Səkkizbucaqlı yerlə göy arasındakı əlaqənin keçid mərhələsini simvollaşdırır. Təsadüfi deyil ki, günəş şüaları yerə təxminən səkkiz dəqiqəyə gəlib çatır.</p><p><span class=\"num\">[3]</span> Həyat ağacı xalçalarda müşahidə edilən və ən çox təsadüf olunan rəmzlərdəndir. Ümumiyyətlə, bitki, xüsusilə də ağac türk mədəniyyətində geniş yayılmış anlayışlardır. «Dədə Qorqud» dastanında rast gəldiyimiz «qaba ağac» ifadəsi də, xalçalardakı həyat ağacı da, şübhəsiz ki, oğuz-qıpçaq xalqlarının əsatirlərində olan həyat ağacı ilə bağlıdır. Həyat ağacının kökləri yeraltı dünyanı və keçmişi, budaqları isə səma və gələcəyi mənalandırır.</p><p>Heyvan motivləri bolluğu, bərəkəti, xüsusilə də güc-qüvvəti simvolizə edir. <span class=\"num\">[4]</span> Heyvan təsvirləri arasında müxtəlif mənalar ifadə edən quş motivlərinin önəmli yeri var. Xalçalarımızdakı bu motivlərin mənasına ilk dəfə şumerlərin «Bilqamıs» dastanında rast gəlinir. Burada quş dirilik ağacı ilə əlaqələndirilir və ölməzlik anlamını ifadə edir.</p><p>Xalçalarda ən çox rast gəlinən qədim ornamentlərdən biri də butadır. Müxtəlif sənət adamlarının buta elementinə fərqli yanaşmaları mövcuddur. Şəhərsalmada, geyimlərdə geniş istifadə edilən buta elementini dizaynerlər sadəcə çiçək ləçəyi ilə sərv ağacının sintezi kimi qəbul edirlərsə, folklorşünasların fikrincə, buta atəşpərəstlikdə həyatın və əbədiliyin simvoludur.</p><p><u>Qədim dövrlərdən tarixi inkişaf yolu aşaraq günümüzədək gəlib çatmış xalçaçılıq sənəti bu gün də mədəniyyətimizdə və məişətimizdə öz ifasını qoruyub saxlayır.</u> <span class=\"num\">[5]</span> Bununla belə, qədim dövr xalçalarından fərqli olaraq, müasir xalçalarda ifadə olunan naxışlar yalnız bəzək xarakteri daşımaqdadır<sup>2</sup>.</p>"
+    },
+    "stem": "<p>Mətnə əsasən cədvəlin boş hissələrini doldurun:</p><table><thead><tr><th>Ornament</th><th>Mənası</th><th>Mənbəyi</th></tr></thead><tbody><tr><td>quş motivləri</td><td>(1) ?</td><td>(2) ?</td></tr><tr><td>həyat ağacı</td><td>yeraltı dünya və səma (keçmiş və gələcək)</td><td>(3) ?</td></tr><tr><td>(4) ?</td><td>həyatın və əbədiliyin simvolu</td><td>atəşpərəstlik</td></tr></tbody></table>",
+    "format": "open",
+    "answer": "(1) ölməzlik; (2) «Bilqamıs» dastanı; (3) əsatirlər («Dədə Qorqud» dastanı); (4) buta.",
+    "rubric": "2 балла — заполнены все 4 ячейки; 1 балл — заполнены 2–3 ячейки; 0 баллов — 0–1 ячейка.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Данные берутся напрямую из текста: птицы — бессмертие («Эпос о Гильгамеше»); древо жизни — мифы / «Китаби Деде Коркуд»; символ вечности в огнепоклонничестве — бута."
+  },
+  {
+    "id": "az-1503-59",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 59
+    },
+    "passage": {
+      "id": "az-1503-p2",
+      "title": "Azərbaycan xalçalarında simvollar",
+      "html": "<p>Xalçaçılıq sənətinin tarixi çox qədim dövrlərə gedib çıxır. <span class=\"num\">[1]</span> Xalça qədim türk evinin ayrılmaz elementi olmuşdur. Köçəri həyat tərzi keçirən türklər xalçaları getdikləri yerlərə özləri ilə daşıyırdılar<sup>1</sup>. <span class=\"num\">[2]</span></p><p>Mütəxəssislər xalça naxışlarının qədim insanların dünyagörüşü haqqında informasiya daşıdığını vurğulayırlar. Onlar belə hesab edirlər ki, hər bir naxış müəyyən bir fikir ifadəçisidir. Azərbaycan xalçalarında yer alan naxışlardan yalnız gözəllik məqsədilə deyil, eyni zamanda gələcək nəsillərə ideya ötürmək üçün gizli kod kimi istifadə edilib. Bu naxışlar, əsasən, zənginliyin, bolluğun, baharın, məhəbbətin, qəhrəmanlığın və qələbənin təcəssümüdür.</p><p>Azərbaycan xalçalarında ən çox həndəsi, xüsusilə kvadrat və romb formalı naxışlar üstünlük təşkil edir. Bu xüsusiyyət qədim dövrlərdən Naxçıvan incəsənəti üçün xüsusilə xarakterikdir. Belə təsvirlərə Naxçıvandakı Gəmiqaya rəsmlərində də rast gəlinir.</p><p>Xalçalardakı səkkizguşəli ulduz təsviri türk-Səlcuq mədəniyyəti ilə bağlıdır. Səkkizbucaqlı yerlə göy arasındakı əlaqənin keçid mərhələsini simvollaşdırır. Təsadüfi deyil ki, günəş şüaları yerə təxminən səkkiz dəqiqəyə gəlib çatır.</p><p><span class=\"num\">[3]</span> Həyat ağacı xalçalarda müşahidə edilən və ən çox təsadüf olunan rəmzlərdəndir. Ümumiyyətlə, bitki, xüsusilə də ağac türk mədəniyyətində geniş yayılmış anlayışlardır. «Dədə Qorqud» dastanında rast gəldiyimiz «qaba ağac» ifadəsi də, xalçalardakı həyat ağacı da, şübhəsiz ki, oğuz-qıpçaq xalqlarının əsatirlərində olan həyat ağacı ilə bağlıdır. Həyat ağacının kökləri yeraltı dünyanı və keçmişi, budaqları isə səma və gələcəyi mənalandırır.</p><p>Heyvan motivləri bolluğu, bərəkəti, xüsusilə də güc-qüvvəti simvolizə edir. <span class=\"num\">[4]</span> Heyvan təsvirləri arasında müxtəlif mənalar ifadə edən quş motivlərinin önəmli yeri var. Xalçalarımızdakı bu motivlərin mənasına ilk dəfə şumerlərin «Bilqamıs» dastanında rast gəlinir. Burada quş dirilik ağacı ilə əlaqələndirilir və ölməzlik anlamını ifadə edir.</p><p>Xalçalarda ən çox rast gəlinən qədim ornamentlərdən biri də butadır. Müxtəlif sənət adamlarının buta elementinə fərqli yanaşmaları mövcuddur. Şəhərsalmada, geyimlərdə geniş istifadə edilən buta elementini dizaynerlər sadəcə çiçək ləçəyi ilə sərv ağacının sintezi kimi qəbul edirlərsə, folklorşünasların fikrincə, buta atəşpərəstlikdə həyatın və əbədiliyin simvoludur.</p><p><u>Qədim dövrlərdən tarixi inkişaf yolu aşaraq günümüzədək gəlib çatmış xalçaçılıq sənəti bu gün də mədəniyyətimizdə və məişətimizdə öz ifasını qoruyub saxlayır.</u> <span class=\"num\">[5]</span> Bununla belə, qədim dövr xalçalarından fərqli olaraq, müasir xalçalarda ifadə olunan naxışlar yalnız bəzək xarakteri daşımaqdadır<sup>2</sup>.</p>"
+    },
+    "stem": "“Xalçalarda əksini tapmış motivlərə başqa sənət sahələrində də rast gəlmək olur” fikrini mətnlə əlaqələndirib fikrinizi yazın.",
+    "format": "open",
+    "answer": "Xalçalarda əksini tapmış motivlər ədəbiyyatda, memarlıqda (şəhərsalmada) və geyim sənətində də özünü göstərir: həyat ağacı motivinə «Dədə Qorqud» və şumerlərin «Bilqamıs» dastanlarında, həndəsi təsvirlərə Naxçıvandakı Gəmiqaya rəsmlərində, buta elementinə isə şəhərsalmada və geyimlərdə geniş rast gəlinir.",
+    "rubric": "2 балла — приведены конкретные примеры из текста (литература, наскальные рисунки, градостроительство, одежда); 1 балл — только 1 пример; 0 баллов — неверно.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Текст связывает ковровые мотивы с эпосами, наскальными рисунками Гямигая, градостроительством и одеждой."
+  },
+  {
+    "id": "az-1503-60",
+    "subject": "az",
+    "typeId": "az.reading-open",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 60
+    },
+    "passage": {
+      "id": "az-1503-p2",
+      "title": "Azərbaycan xalçalarında simvollar",
+      "html": "<p>Xalçaçılıq sənətinin tarixi çox qədim dövrlərə gedib çıxır. <span class=\"num\">[1]</span> Xalça qədim türk evinin ayrılmaz elementi olmuşdur. Köçəri həyat tərzi keçirən türklər xalçaları getdikləri yerlərə özləri ilə daşıyırdılar<sup>1</sup>. <span class=\"num\">[2]</span></p><p>Mütəxəssislər xalça naxışlarının qədim insanların dünyagörüşü haqqında informasiya daşıdığını vurğulayırlar. Onlar belə hesab edirlər ki, hər bir naxış müəyyən bir fikir ifadəçisidir. Azərbaycan xalçalarında yer alan naxışlardan yalnız gözəllik məqsədilə deyil, eyni zamanda gələcək nəsillərə ideya ötürmək üçün gizli kod kimi istifadə edilib. Bu naxışlar, əsasən, zənginliyin, bolluğun, baharın, məhəbbətin, qəhrəmanlığın və qələbənin təcəssümüdür.</p><p>Azərbaycan xalçalarında ən çox həndəsi, xüsusilə kvadrat və romb formalı naxışlar üstünlük təşkil edir. Bu xüsusiyyət qədim dövrlərdən Naxçıvan incəsənəti üçün xüsusilə xarakterikdir. Belə təsvirlərə Naxçıvandakı Gəmiqaya rəsmlərində də rast gəlinir.</p><p>Xalçalardakı səkkizguşəli ulduz təsviri türk-Səlcuq mədəniyyəti ilə bağlıdır. Səkkizbucaqlı yerlə göy arasındakı əlaqənin keçid mərhələsini simvollaşdırır. Təsadüfi deyil ki, günəş şüaları yerə təxminən səkkiz dəqiqəyə gəlib çatır.</p><p><span class=\"num\">[3]</span> Həyat ağacı xalçalarda müşahidə edilən və ən çox təsadüf olunan rəmzlərdəndir. Ümumiyyətlə, bitki, xüsusilə də ağac türk mədəniyyətində geniş yayılmış anlayışlardır. «Dədə Qorqud» dastanında rast gəldiyimiz «qaba ağac» ifadəsi də, xalçalardakı həyat ağacı da, şübhəsiz ki, oğuz-qıpçaq xalqlarının əsatirlərində olan həyat ağacı ilə bağlıdır. Həyat ağacının kökləri yeraltı dünyanı və keçmişi, budaqları isə səma və gələcəyi mənalandırır.</p><p>Heyvan motivləri bolluğu, bərəkəti, xüsusilə də güc-qüvvəti simvolizə edir. <span class=\"num\">[4]</span> Heyvan təsvirləri arasında müxtəlif mənalar ifadə edən quş motivlərinin önəmli yeri var. Xalçalarımızdakı bu motivlərin mənasına ilk dəfə şumerlərin «Bilqamıs» dastanında rast gəlinir. Burada quş dirilik ağacı ilə əlaqələndirilir və ölməzlik anlamını ifadə edir.</p><p>Xalçalarda ən çox rast gəlinən qədim ornamentlərdən biri də butadır. Müxtəlif sənət adamlarının buta elementinə fərqli yanaşmaları mövcuddur. Şəhərsalmada, geyimlərdə geniş istifadə edilən buta elementini dizaynerlər sadəcə çiçək ləçəyi ilə sərv ağacının sintezi kimi qəbul edirlərsə, folklorşünasların fikrincə, buta atəşpərəstlikdə həyatın və əbədiliyin simvoludur.</p><p><u>Qədim dövrlərdən tarixi inkişaf yolu aşaraq günümüzədək gəlib çatmış xalçaçılıq sənəti bu gün də mədəniyyətimizdə və məişətimizdə öz ifasını qoruyub saxlayır.</u> <span class=\"num\">[5]</span> Bununla belə, qədim dövr xalçalarından fərqli olaraq, müasir xalçalarda ifadə olunan naxışlar yalnız bəzək xarakteri daşımaqdadır<sup>2</sup>.</p>"
+    },
+    "stem": "<p>Mətnə əsasən uyğun bəndi seçin (☑) və seçiminizi əsaslandırıb yazın:</p><p><b>Qədim dövrdə:</b> [ ] Xüsusi məqsədlə istifadə edilib / [ ] Yalnız bəzək məqsədilə istifadə edilib. Əsaslandırma: ...<br><b>Müasir dövrdə:</b> [ ] Əvvəlki məqsədini qoruyub / [ ] Məqsədini dəyişib. Əsaslandırma: ...</p>",
+    "format": "open",
+    "answer": "<b>Qədim dövrdə:</b> ☑ Xüsusi məqsədlə istifadə edilib.<br><i>Əsaslandırma:</i> Naxışlardan gizli kod kimi istifadə edilib, onlar gələcək nəsillərə ideya ötürmək və dünyagörüşünü ifadə etmək məqsədi daşıyıb.<br><b>Müasir dövrdə:</b> ☑ Məqsədini dəyişib.<br><i>Əsaslandırma:</i> Müasir xalçalarda naxışlar xüsusi kod məqsədinə xidmət etmir, yalnız bəzək xarakteri daşıyır.",
+    "rubric": "2 балла — оба выбора и оба обоснования верны по тексту; 1 балл — верно только для одного периода; 0 баллов — неверно.",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Работа с текстом",
+    "explanation": "Сравнение 2-го и последнего абзацев: в древности узоры служили «тайным кодом», а сегодня несут лишь декоративную функцию."
+  }
+]

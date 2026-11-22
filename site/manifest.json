@@ -1,0 +1,39 @@
+{
+  "name": "Ulduz — Тренажёр экзамена ДИМ",
+  "short_name": "Ulduz",
+  "description": "Интерактивный тренажёр для подготовки к выпускному экзамену ГЭЦ Азербайджана (DİM Buraxılış / 11 класс) по математике, русскому, английскому и азербайджанскому языкам.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#101B33",
+  "theme_color": "#101B33",
+  "lang": "ru",
+  "categories": ["education"],
+  "icons": [
+    {
+      "src": "./assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./assets/icons/icon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

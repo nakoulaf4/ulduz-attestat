@@ -1,0 +1,1133 @@
+[
+  {
+    "id": "math-0903-61",
+    "subject": "math",
+    "typeId": "math.trig-sum-prod",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 61
+    },
+    "stem": "Представьте выражение $\\cos 38^\\circ + \\cos 18^\\circ$ в виде произведения.",
+    "format": "single",
+    "options": [
+      "$2\\cos 20^\\circ \\sin 20^\\circ$",
+      "$\\frac{3}{4}$",
+      "$2\\cos 28^\\circ \\cos 10^\\circ$",
+      "$\\frac{1}{2}$",
+      "$2\\cos 14^\\circ \\cos 5^\\circ$"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Тригонометрия",
+    "explanation": "Используем формулу суммы косинусов $\\cos\\alpha + \\cos\\beta = 2\\cos\\frac{\\alpha+\\beta}{2}\\cos\\frac{\\alpha-\\beta}{2}$: $\\cos 38^\\circ + \\cos 18^\\circ = 2\\cos\\frac{38^\\circ + 18^\\circ}{2}\\cos\\frac{38^\\circ - 18^\\circ}{2} = 2\\cos 28^\\circ \\cos 10^\\circ$."
+  },
+  {
+    "id": "math-0903-62",
+    "subject": "math",
+    "typeId": "math.tri-similarity",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 62
+    },
+    "stem": "В треугольнике $ABC$ отрезок $MN \\parallel AC$, $AC = 20$ см, $BN = 8$ см и $NC = 17$ см. Найдите $MN$.",
+    "image": {
+      "svg": "<svg viewBox=\"0 0 240 165\" width=\"240\" height=\"165\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\">\n    <polygon points=\"120,22 44,136 196,136\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <line x1=\"82\" y1=\"79\" x2=\"158\" y2=\"79\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <text x=\"120\" y=\"11\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">B</text>\n    <text x=\"32\" y=\"140\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">A</text>\n    <text x=\"208\" y=\"140\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">C</text>\n    <text x=\"68\" y=\"77\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">M</text>\n    <text x=\"172\" y=\"77\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">N</text>\n    \n  </svg>",
+      "alt": "Треугольник ABC с отрезком MN, параллельным AC (M на AB, N на BC)"
+    },
+    "format": "single",
+    "options": [
+      "$6{,}4$ см",
+      "$6{,}8$ см",
+      "$10$ см",
+      "$8$ см",
+      "$5{,}2$ см"
+    ],
+    "answer": 0,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Планиметрия",
+    "explanation": "Так как $MN \\parallel AC$, то $\\triangle MBN \\sim \\triangle ABC$. Длина стороны $BC = BN + NC = 8 + 17 = 25$ см. Из подобия $\\frac{MN}{AC} = \\frac{BN}{BC} \\Rightarrow \\frac{MN}{20} = \\frac{8}{25} \\Rightarrow MN = 6{,}4$ см."
+  },
+  {
+    "id": "math-0903-63",
+    "subject": "math",
+    "typeId": "math.prism-base",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 63
+    },
+    "stem": "Объём призмы равен $120\\text{ см}^3$, а высота — $8$ см. Найдите площадь основания призмы.",
+    "format": "single",
+    "options": [
+      "$20\\text{ см}^2$",
+      "$10\\text{ см}^2$",
+      "$12\\text{ см}^2$",
+      "$16\\text{ см}^2$",
+      "$15\\text{ см}^2$"
+    ],
+    "answer": 4,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Стереометрия",
+    "explanation": "Объём призмы $V = S_{\\text{осн}} \\cdot h$, откуда $8 \\cdot S_{\\text{осн}} = 120$ и $S_{\\text{осн}} = 15\\text{ см}^2$."
+  },
+  {
+    "id": "math-0903-64",
+    "subject": "math",
+    "typeId": "math.real-power",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 64
+    },
+    "stem": "Найдите значение выражения $\\left(2^{\\sqrt{2}}\\right)^{\\sqrt{2}}$.",
+    "format": "single",
+    "options": [
+      "$4$",
+      "$8$",
+      "$2$",
+      "$64$",
+      "$16$"
+    ],
+    "answer": 0,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Степени и логарифмы",
+    "explanation": "$\\left(2^{\\sqrt{2}}\\right)^{\\sqrt{2}} = 2^{\\sqrt{2} \\cdot \\sqrt{2}} = 2^2 = 4$."
+  },
+  {
+    "id": "math-0903-65",
+    "subject": "math",
+    "typeId": "math.interval-count",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 65
+    },
+    "stem": "Найдите количество натуральных чисел $n$, удовлетворяющих условию $17 \\le n \\lt 23$.",
+    "format": "single",
+    "options": [
+      "$4$",
+      "$8$",
+      "$6$",
+      "$5$",
+      "$7$"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Числа, дроби и проценты",
+    "explanation": "Условию удовлетворяют натуральные числа $17, 18, 19, 20, 21, 22$ — всего $23 - 17 = 6$ чисел."
+  },
+  {
+    "id": "math-0903-66",
+    "subject": "math",
+    "typeId": "math.fractions-percent",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 66
+    },
+    "stem": "Найдите число, $40\\%$ которого равны значению выражения $4{,}5 \\cdot 1\\frac{2}{3} + 2{,}5$.",
+    "format": "single",
+    "options": [
+      "$75$",
+      "$250$",
+      "$25$",
+      "$120$",
+      "$205$"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Числа, дроби и проценты",
+    "explanation": "Вычислим выражение: $4{,}5 \\cdot 1\\frac{2}{3} + 2{,}5 = \\frac{9}{2} \\cdot \\frac{5}{3} + 2{,}5 = 7{,}5 + 2{,}5 = 10$. Число, $40\\%$ которого равны $10$, равно $\\frac{10 \\cdot 100\\%}{40\\%} = 25$."
+  },
+  {
+    "id": "math-0903-67",
+    "subject": "math",
+    "typeId": "math.circle-inscribed-angles",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 67
+    },
+    "stem": "Найдите угол $\\alpha$ по данным на рисунке ($O$ — центр окружности).",
+    "image": {
+      "svg": "<svg viewBox=\"0 0 200 190\" width=\"200\" height=\"190\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\">\n    <circle cx=\"100\" cy=\"96\" r=\"74\" fill=\"currentColor\" fill-opacity=\"0.03\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <circle cx=\"100\" cy=\"96\" r=\"2.6\" fill=\"currentColor\"/>\n    <polyline points=\"57.6,156.6 68.7,28.9 152.3,148.3\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"/>\n    <polyline points=\"57.6,156.6 149.5,41 152.3,148.3\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"/>\n    <text x=\"102\" y=\"108\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"13\">O</text>\n    <text x=\"71.7\" y=\"52.9\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"12\">40°</text>\n    <text x=\"139.5\" y=\"61\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">α</text>\n  </svg>",
+      "alt": "Окружность с центром O и двумя вписанными углами 40° и α, опирающимися на одну дугу"
+    },
+    "format": "single",
+    "options": [
+      "$30^\\circ$",
+      "$20^\\circ$",
+      "$40^\\circ$",
+      "$60^\\circ$",
+      "$50^\\circ$"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Планиметрия",
+    "explanation": "Вписанные углы, опирающиеся на одну и ту же дугу, равны, поэтому $\\alpha = 40^\\circ$."
+  },
+  {
+    "id": "math-0903-68",
+    "subject": "math",
+    "typeId": "math.diff-squares-eval",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 68
+    },
+    "stem": "Вычислите значение выражения $\\frac{828^2 - 72^2}{378}$.",
+    "format": "single",
+    "options": [
+      "$180$",
+      "$800$",
+      "$18000$",
+      "$2700$",
+      "$1800$"
+    ],
+    "answer": 4,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Алгебраические выражения",
+    "explanation": "$\\frac{828^2 - 72^2}{378} = \\frac{(828 + 72)(828 - 72)}{378} = \\frac{900 \\cdot 756}{378} = 900 \\cdot 2 = 1800$."
+  },
+  {
+    "id": "math-0903-69",
+    "subject": "math",
+    "typeId": "math.arith-prog-diff",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 69
+    },
+    "stem": "В арифметической прогрессии $(a_n)$ известно, что $a_{13} = 58$ и $a_{28} = 28$. Найдите разность прогрессии.",
+    "format": "single",
+    "options": [
+      "$-6$",
+      "$-3$",
+      "$2$",
+      "$5$",
+      "$-2$"
+    ],
+    "answer": 4,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Прогрессии",
+    "explanation": "Разность арифметической прогрессии равна $d = \\frac{a_{28} - a_{13}}{28 - 13} = \\frac{28 - 58}{15} = -2$."
+  },
+  {
+    "id": "math-0903-70",
+    "subject": "math",
+    "typeId": "math.combinatorics",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 70
+    },
+    "stem": "В классе $24$ ученика. Сколькими различными способами из них можно выбрать двух дежурных?",
+    "format": "single",
+    "options": [
+      "$288$",
+      "$576$",
+      "$240$",
+      "$276$",
+      "$96$"
+    ],
+    "answer": 3,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Комбинаторика, вероятность и статистика",
+    "explanation": "$C_{24}^2 = \\frac{24!}{22! \\cdot 2!} = \\frac{24 \\cdot 23}{2} = 12 \\cdot 23 = 276$."
+  },
+  {
+    "id": "math-0903-71",
+    "subject": "math",
+    "typeId": "math.rect-perimeter",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 71
+    },
+    "stem": "Найдите периметр прямоугольника с шириной $40$ и длиной $k$.",
+    "format": "single",
+    "options": [
+      "$P = 2(40 + 2k)$",
+      "$P = 2(40 + k)$",
+      "$P = 2(20 + k)$",
+      "$P = 2(20 + 2k)$",
+      "$P = 2(80 + 2k)$"
+    ],
+    "answer": 1,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Планиметрия",
+    "explanation": "Периметр прямоугольника со сторонами $a$ и $b$ равен $P = 2(a + b) = 2(40 + k)$."
+  },
+  {
+    "id": "math-0903-72",
+    "subject": "math",
+    "typeId": "math.linear-ineq",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 72
+    },
+    "stem": "Найдите наименьшее решение неравенства $-2x \\le 8$.",
+    "format": "single",
+    "options": [
+      "$4$",
+      "$-4$",
+      "$-5$",
+      "$2$",
+      "$-8$"
+    ],
+    "answer": 1,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Неравенства",
+    "explanation": "Из $-2x \\le 8$ при делении на $-2$ получаем $x \\ge -4$. Наименьшее решение равно $-4$."
+  },
+  {
+    "id": "math-0903-73",
+    "subject": "math",
+    "typeId": "math.trig-special-val",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 73
+    },
+    "stem": "Найдите значение выражения $\\sin 60^\\circ - \\cos 30^\\circ$.",
+    "format": "single",
+    "options": [
+      "$1$",
+      "$\\frac{\\sqrt{3}}{2}$",
+      "$\\frac{1 - \\sqrt{3}}{2}$",
+      "$0$",
+      "$\\frac{1}{2}$"
+    ],
+    "answer": 3,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Тригонометрия",
+    "explanation": "$\\sin 60^\\circ - \\cos 30^\\circ = \\frac{\\sqrt{3}}{2} - \\frac{\\sqrt{3}}{2} = 0$."
+  },
+  {
+    "id": "math-0903-74",
+    "subject": "math",
+    "typeId": "math.log-eval",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 74
+    },
+    "stem": "Вычислите значение выражения $\\log_{81} 8 : \\log_9 32$.",
+    "format": "short",
+    "answer": "0,3",
+    "accept": [
+      "0.3",
+      "3/10"
+    ],
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Степени и логарифмы",
+    "explanation": "$\\log_{81} 8 : \\log_9 32 = \\frac{\\log_{3^4} 2^3}{\\log_{3^2} 2^5} = \\frac{\\frac{3}{4}\\log_3 2}{\\frac{5}{2}\\log_3 2} = \\frac{3}{4} \\cdot \\frac{2}{5} = 0{,}3$."
+  },
+  {
+    "id": "math-0903-75",
+    "subject": "math",
+    "typeId": "math.exp-ineq",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 75
+    },
+    "stem": "Найдите наименьшее целое решение неравенства $2^{x+3} - 6 \\cdot 2^x \\lt 3^{x+1} - 3^x$.",
+    "format": "short",
+    "answer": "1",
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Неравенства",
+    "explanation": "$2^3 \\cdot 2^x - 6 \\cdot 2^x \\lt 3 \\cdot 3^x - 3^x \\Rightarrow 2 \\cdot 2^x \\lt 2 \\cdot 3^x \\Rightarrow 2^x \\lt 3^x$. Разделив обе части на $3^x > 0$, получаем $\\left(\\frac{2}{3}\\right)^x \\lt \\left(\\frac{2}{3}\\right)^0 \\Rightarrow x > 0$. Наименьшее целое решение: $1$."
+  },
+  {
+    "id": "math-0903-76",
+    "subject": "math",
+    "typeId": "math.cone-angle",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 76
+    },
+    "stem": "Образующая конуса равна $10\\sqrt{3}$ и образует с плоскостью основания угол $30^\\circ$. Найдите радиус основания конуса.",
+    "image": {
+      "svg": "<svg viewBox=\"0 0 210 185\" width=\"210\" height=\"185\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\">\n    <ellipse cx=\"110\" cy=\"144\" rx=\"68\" ry=\"18\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.7\"/>\n    <line x1=\"110\" y1=\"24\" x2=\"42\" y2=\"144\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <line x1=\"110\" y1=\"24\" x2=\"178\" y2=\"144\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <line x1=\"110\" y1=\"24\" x2=\"110\" y2=\"144\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-dasharray=\"4,3\"/>\n    <line x1=\"42\" y1=\"144\" x2=\"110\" y2=\"144\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n    <polyline points=\"119,144 119,135 110,135\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n    <path d=\"M 55,144 A 15,15 0 0,0 50,130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"68\" y=\"134\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"12\">30°</text>\n    <text x=\"62\" y=\"76\" text-anchor=\"end\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"13\">10√3</text>\n    <text x=\"76\" y=\"155\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"13\">R</text>\n    \n  </svg>",
+      "alt": "Осевое сечение конуса с образующей 10√3, углом 30° и радиусом основания R"
+    },
+    "format": "short",
+    "answer": "15",
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Стереометрия",
+    "explanation": "По свойству катета напротив угла $30^\\circ$ высота конуса равна $5\\sqrt{3}$, а радиус основания равен $5\\sqrt{3} \\cdot \\sqrt{3} = 15$ (или $R = 10\\sqrt{3}\\cos 30^\\circ = 15$)."
+  },
+  {
+    "id": "math-0903-77",
+    "subject": "math",
+    "typeId": "math.probability-digits",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 77
+    },
+    "stem": "Для двузначных чисел $\\overline{ab}$ выражение $\\sqrt{\\overline{ab}}$ является натуральным числом. Найдите вероятность того, что наугад выбранное такое число $\\overline{ab}$ окажется нечётным.",
+    "format": "short",
+    "answer": "0,5",
+    "accept": [
+      "0.5",
+      "1/2"
+    ],
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Комбинаторика, вероятность и статистика",
+    "explanation": "Двузначные числа, являющиеся квадратами натуральных чисел: $16, 25, 36, 49, 64, 81$ (всего $6$ чисел). Среди них нечётных $3$ ($25, 49, 81$). Вероятность равна $P = \\frac{3}{6} = 0{,}5$."
+  },
+  {
+    "id": "math-0903-78",
+    "subject": "math",
+    "typeId": "math.abs-eval",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 78
+    },
+    "stem": "При $x = -0{,}4$ найдите значение выражения $10x^2 - 5|x| + 3$.",
+    "format": "short",
+    "answer": "2,6",
+    "accept": [
+      "2.6"
+    ],
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Алгебраические выражения",
+    "explanation": "$10 \\cdot (-0{,}4)^2 - 5 \\cdot |-0{,}4| + 3 = 1{,}6 - 2 + 3 = 2{,}6$."
+  },
+  {
+    "id": "math-0903-79",
+    "subject": "math",
+    "typeId": "math.rational-motion-eq",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 79
+    },
+    "stem": "Из пунктов $A$ и $B$, расстояние между которыми равно $34$ км, одновременно навстречу друг другу выехали велосипедист и вышел пешеход. Скорость велосипедиста, выехавшего из $A$, на $8$ км/ч больше скорости пешехода. Велосипедист прибыл в пункт $C$, находящийся на расстоянии $24$ км от $A$, на $0{,}5$ ч раньше пешехода. Найдите скорость пешехода (точки $A, C, B$ лежат на одной прямой).",
+    "format": "short",
+    "answer": "4",
+    "accept": [
+      "4 км/ч"
+    ],
+    "points": 2,
+    "difficulty": 3,
+    "topic": "Уравнения и системы уравнений",
+    "explanation": "Пусть скорость пешехода равна $x$ км/ч, тогда скорость велосипедиста $(x + 8)$ км/ч. Расстояние $BC = 34 - 24 = 10$ км. По условию $\\frac{10}{x} - \\frac{24}{x+8} = \\frac{1}{2}$, что равносильно $x^2 + 36x - 160 = 0$. Корни $x_1 = -40$, $x_2 = 4$. Так как скорость положительна, скорость пешехода равна $4$ км/ч."
+  },
+  {
+    "id": "math-0903-80",
+    "subject": "math",
+    "typeId": "math.linear-system-word",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 80
+    },
+    "stem": "В рабочем коллективе из $24$ человек среднее арифметическое возрастов женщин равно $21$, а среднее арифметическое возрастов мужчин — $29$. Если среднее арифметическое возрастов всех сотрудников равно $26$, сколько мужчин в коллективе?",
+    "format": "short",
+    "answer": "15",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Уравнения и системы уравнений",
+    "explanation": "Обозначим число женщин за $x$, а мужчин за $y$. Получаем систему: $x + y = 24$ и $21x + 29y = 26 \\cdot 24$. Решая систему, находим $x = 9$, $y = 15$. В коллективе $15$ мужчин."
+  },
+  {
+    "id": "math-0903-81",
+    "subject": "math",
+    "typeId": "math.parabola-right-tri",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 81
+    },
+    "stem": "Дан график функции $f(x) = ax^2 + bx + c$. Если $AC \\perp BC$, $CO = 5$ и $BO = 25 \\cdot AO$, найдите абсциссу вершины параболы.",
+    "image": {
+      "svg": "<svg viewBox=\"0 0 260 185\" width=\"260\" height=\"185\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\">\n    <defs>\n      <marker id=\"arr\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\">\n        <path d=\"M 0 1 L 8 5 L 0 9 z\" fill=\"currentColor\"/>\n      </marker>\n    </defs>\n    <line x1=\"16\" y1=\"132\" x2=\"246\" y2=\"132\" stroke=\"currentColor\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n    <line x1=\"90\" y1=\"172\" x2=\"90\" y2=\"14\" stroke=\"currentColor\" stroke-width=\"1.5\" marker-end=\"url(#arr)\"/>\n    <polyline points=\"40,161.4 44,151.2 48,141.3 52,132.0 56,123.1 60,114.7 64,106.7 68,99.2 72,92.2 76,85.6 80,79.5 84,73.9 88,68.7 92,63.9 96,59.7 100,55.9 104,52.5 108,49.6 112,47.2 116,45.2 120,43.7 124,42.7 128,42.1 132,42.0 136,42.4 140,43.2 144,44.4 148,46.2 152,48.4 156,51.0 160,54.1 164,57.7 168,61.7 172,66.2 176,71.2 180,76.6 184,82.5 188,88.9 192,95.7 196,102.9 200,110.7 204,118.8 208,127.5 212,136.6 216,146.2 220,156.2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/>\n    <line x1=\"52\" y1=\"132\" x2=\"90\" y2=\"66.2\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n    <line x1=\"210\" y1=\"132\" x2=\"90\" y2=\"66.2\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n    <circle cx=\"52\" cy=\"132\" r=\"2.5\" fill=\"currentColor\"/>\n    <circle cx=\"210\" cy=\"132\" r=\"2.5\" fill=\"currentColor\"/>\n    <circle cx=\"90\" cy=\"66.2\" r=\"2.5\" fill=\"currentColor\"/>\n    <text x=\"245\" y=\"145\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"13\">x</text>\n    <text x=\"78\" y=\"16\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"13\">y</text>\n    <text x=\"81\" y=\"143\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"13\">O</text>\n    <text x=\"44\" y=\"144\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"13\">A</text>\n    <text x=\"216\" y=\"144\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"13\">B</text>\n    <text x=\"78\" y=\"60\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"13\">C</text>\n  </svg>",
+      "alt": "График параболы f(x)=ax²+bx+c с вершиной в положительной полуплоскости, пересечениями с осью x в точках A, B и с осью y в точке C, AC⊥BC"
+    },
+    "format": "short",
+    "answer": "12",
+    "points": 2,
+    "difficulty": 3,
+    "topic": "Функции и графики",
+    "explanation": "В прямоугольном треугольнике $ACB$ высота к гипотенузе $CO = 5$. Если $AO = k$, то $BO = 25k$, и $25 = k \\cdot 25k \\Rightarrow k = 1$ ($k > 0$). Нули функции: $-1$ и $25$, поэтому абсцисса вершины равна $m = \\frac{-1 + 25}{2} = 12$."
+  },
+  {
+    "id": "math-0903-82",
+    "subject": "math",
+    "typeId": "math.parallel-angles",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 82
+    },
+    "stem": "$\\alpha$ и $\\beta$ — разноимённые углы с соответственно параллельными сторонами, а $\\gamma$ и $\\varphi$ — одноимённые углы с соответственно параллельными сторонами. Если градусная мера $\\gamma$ на $20\\%$ меньше градусной меры $\\alpha$, а градусная мера $\\varphi$ на $20\\%$ больше градусной меры $\\beta$, найдите градусную меру каждого из углов $\\alpha$ и $\\beta$ (введите через точку с запятой: $\\alpha;\\ \\beta$).",
+    "format": "short",
+    "answer": "108; 72",
+    "accept": [
+      "108°; 72°",
+      "108, 72"
+    ],
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Планиметрия",
+    "explanation": "Так как $\\alpha$ и $\\beta$ разноимённые, $\\alpha + \\beta = 180^\\circ$; так как $\\gamma$ и $\\varphi$ одноимённые, $\\gamma = \\varphi$. По условию $\\gamma = 0{,}8\\alpha$ и $\\varphi = 1{,}2\\beta$, откуда $0{,}8\\alpha = 1{,}2\\beta \\Rightarrow \\alpha = 1{,}5\\beta$. Тогда $1{,}5\\beta + \\beta = 180^\\circ \\Rightarrow \\beta = 72^\\circ$ и $\\alpha = 108^\\circ$."
+  },
+  {
+    "id": "math-0903-83",
+    "subject": "math",
+    "typeId": "math.bisector-area",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 83
+    },
+    "stem": "В треугольнике $ABC$ угол $\\angle C = 90^\\circ$, $AD$ — биссектриса, $CD = 2{,}4$ см и $AB = 8{,}5$ см. Найдите площадь треугольника $ABD$.",
+    "image": {
+      "svg": "<svg viewBox=\"0 0 240 190\" width=\"240\" height=\"190\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\">\n    <polygon points=\"44,28 44,154 202,154\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <line x1=\"44\" y1=\"28\" x2=\"92\" y2=\"154\" stroke=\"currentColor\" stroke-width=\"1.7\"/>\n    <polyline points=\"54,154 54,144 44,144\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n    <path d=\"M 44,54 A 26,26 0 0,0 53,52\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.3\"/>\n    <path d=\"M 54,52 A 26,26 0 0,0 64,44\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.3\"/>\n    <text x=\"44\" y=\"16\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">A</text>\n    <text x=\"33\" y=\"158\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">C</text>\n    <text x=\"92\" y=\"168\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">D</text>\n    <text x=\"213\" y=\"158\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">B</text>\n    <text x=\"68\" y=\"167\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"12\">2,4</text>\n    <text x=\"135\" y=\"82\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"13\">8,5</text>\n  </svg>",
+      "alt": "Прямоугольный треугольник ABC с углом C=90°, биссектрисой AD, CD=2,4 и AB=8,5"
+    },
+    "format": "short",
+    "answer": "10,2",
+    "accept": [
+      "10.2"
+    ],
+    "points": 2,
+    "difficulty": 3,
+    "topic": "Планиметрия",
+    "explanation": "Обозначим $AC = b$ и $BD = a$. По свойству биссектрисы $\\frac{b}{2{,}4} = \\frac{8{,}5}{a} \\Rightarrow ab = 2{,}4 \\cdot 8{,}5$. В треугольнике $ABD$ высота к стороне $BD$ равна $AC = b$, следовательно $S_{\\triangle ABD} = \\frac{1}{2}ab = \\frac{1}{2} \\cdot 2{,}4 \\cdot 8{,}5 = 10{,}2$."
+  },
+  {
+    "id": "math-0903-84",
+    "subject": "math",
+    "typeId": "math.midpoint-param",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 84
+    },
+    "stem": "Середина отрезка, соединяющего точки $A(k^2 - 4k;\\ k^2)$ и $B(12 - 4k;\\ 32 - 12k)$, лежит на отрицательной части оси абсцисс. Найдите $k$.",
+    "format": "short",
+    "answer": "4",
+    "points": 2,
+    "difficulty": 3,
+    "topic": "Метод координат",
+    "explanation": "Координаты середины отрезка $AB$: $x = \\frac{k^2 - 8k + 12}{2}$ и $y = \\frac{k^2 - 12k + 32}{2}$. На отрицательной полуоси абсцисс $y = 0$ и $x \\lt 0$. Из $k^2 - 12k + 32 = 0$ получаем $k_1 = 4$, $k_2 = 8$. Условие $k^2 - 8k + 12 \\lt 0$ даёт интервал $(2;\\ 6)$, которому принадлежит только $k = 4$."
+  },
+  {
+    "id": "math-0903-85",
+    "subject": "math",
+    "typeId": "math.venn-ineq",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_09.03.2026_1773051095.pdf",
+      "number": 85
+    },
+    "stem": "На диаграмме Эйлера–Венна указано количество элементов множеств $A$ и $B$. Если $n(A \\cap B) > n(B \\setminus A)$, найдите сумму наименьшего и наибольшего возможных значений $n(A \\setminus B)$ при натуральных $x$.",
+    "image": {
+      "svg": "<svg viewBox=\"0 0 270 128\" width=\"270\" height=\"128\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\">\n    <ellipse cx=\"95\" cy=\"70\" rx=\"78\" ry=\"42\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-width=\"1.7\"/>\n    <ellipse cx=\"175\" cy=\"70\" rx=\"78\" ry=\"42\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-width=\"1.7\"/>\n    <text x=\"62\" y=\"19\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"700\" font-size=\"15\">A</text>\n    <text x=\"208\" y=\"19\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"700\" font-size=\"15\">B</text>\n    <text x=\"58\" y=\"70\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"13\">2x + 5</text>\n    <text x=\"135\" y=\"70\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"13\">3x + 4</text>\n    <text x=\"212\" y=\"70\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"13\">19 − 2x</text>\n  </svg>",
+      "alt": "Диаграмма Эйлера–Венна для множеств A и B: в A\\B указано 2x+5, в A∩B указано 3x+4, в B\\A указано 19-2x"
+    },
+    "format": "short",
+    "answer": "36",
+    "points": 2,
+    "difficulty": 3,
+    "topic": "Множества",
+    "explanation": "Из условия $3x + 4 > 19 - 2x$ получаем $5x > 15 \\Rightarrow x > 3$. Так как количество элементов $n(B \\setminus A) = 19 - 2x > 0$, то $x \\lt 9{,}5$. Значит, $x \\in \\{4, 5, 6, 7, 8, 9\\}$. Наименьшее значение $n(A \\setminus B) = 2\\cdot 4 + 5 = 13$, наибольшее $2\\cdot 9 + 5 = 23$. Сумма: $13 + 23 = 36$."
+  },
+  {
+    "id": "math-1503-61",
+    "subject": "math",
+    "typeId": "math.rational-simplify",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 61
+    },
+    "stem": "Сократите дробь $\\frac{25a^2 - 16}{5a + 4}$.",
+    "format": "single",
+    "options": [
+      "$4a - 3$",
+      "$5a + 4$",
+      "$4a + 3$",
+      "$5a - 4$",
+      "$5$"
+    ],
+    "answer": 3,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Алгебраические выражения",
+    "explanation": "Разложим числитель на множители и сократим: $\\frac{(5a - 4)(5a + 4)}{5a + 4} = 5a - 4$."
+  },
+  {
+    "id": "math-1503-62",
+    "subject": "math",
+    "typeId": "math.func-eval",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 62
+    },
+    "stem": "Если $f(x) = \\frac{2x + 3}{x^2 + 2}$, вычислите $f(3)$.",
+    "format": "single",
+    "options": [
+      "$\\frac{6}{11}$",
+      "$\\frac{7}{11}$",
+      "$\\frac{1}{5}$",
+      "$\\frac{2}{5}$",
+      "$\\frac{9}{11}$"
+    ],
+    "answer": 4,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Функции и графики",
+    "explanation": "При $x = 3$ получаем $f(3) = \\frac{2\\cdot 3 + 3}{3^2 + 2} = \\frac{9}{11}$."
+  },
+  {
+    "id": "math-1503-63",
+    "subject": "math",
+    "typeId": "math.trapezoid-area",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 63
+    },
+    "stem": "Найдите площадь трапеции, изображённой на рисунке.",
+    "image": {
+      "svg": "<svg viewBox=\"0 0 200 160\" width=\"200\" height=\"160\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\">\n    <polygon points=\"56,30 116,30 158,132 56,132\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <polyline points=\"65,30 65,39 56,39\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n    <polyline points=\"65,132 65,123 56,123\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n    <text x=\"86\" y=\"18\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"14\">2</text>\n    <text x=\"107\" y=\"146\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"14\">4</text>\n    <text x=\"40\" y=\"81\" text-anchor=\"end\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"14\">12</text>\n  </svg>",
+      "alt": "Прямоугольная трапеция с основаниями 2 и 4 и высотой 12"
+    },
+    "format": "single",
+    "options": [
+      "$14$",
+      "$40$",
+      "$18$",
+      "$15$",
+      "$36$"
+    ],
+    "answer": 4,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Планиметрия",
+    "explanation": "По формуле площади трапеции $S = \\frac{a + b}{2} \\cdot h = \\frac{2 + 4}{2} \\cdot 12 = 36$."
+  },
+  {
+    "id": "math-1503-64",
+    "subject": "math",
+    "typeId": "math.sets-ops",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 64
+    },
+    "stem": "Даны множества $A = \\{1;\\ 2;\\ 3;\\ 4;\\ 5;\\ 6\\}$ и $B = \\{2;\\ 4;\\ 6;\\ 8;\\ 10\\}$. Найдите $A \\setminus B$.",
+    "format": "single",
+    "options": [
+      "$\\{8;\\ 10\\}$",
+      "$\\{1;\\ 2;\\ 3;\\ 4;\\ 5;\\ 6;\\ 8;\\ 10\\}$",
+      "$\\varnothing$",
+      "$\\{1;\\ 3;\\ 5\\}$",
+      "$\\{2;\\ 4;\\ 6\\}$"
+    ],
+    "answer": 3,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Множества",
+    "explanation": "Элементы множества $A \\setminus B$ принадлежат $A$ и не принадлежат $B$: $A \\setminus B = \\{1;\\ 3;\\ 5\\}$."
+  },
+  {
+    "id": "math-1503-65",
+    "subject": "math",
+    "typeId": "math.poly-factor",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 65
+    },
+    "stem": "Разложите многочлен $12a^2 - 24a$ на множители.",
+    "format": "single",
+    "options": [
+      "$12(a - 12)$",
+      "$24a(a + 1)$",
+      "$12a(a - 2)$",
+      "$a(2a - 24)$",
+      "$12a(2a - 1)$"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Алгебраические выражения",
+    "explanation": "Вынесем общий множитель $12a$ за скобки: $12a^2 - 24a = 12a(a - 2)$."
+  },
+  {
+    "id": "math-1503-66",
+    "subject": "math",
+    "typeId": "math.combinatorics",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 66
+    },
+    "stem": "Вычислите значение выражения ${}_4P_4 + {}_3P_3$.",
+    "format": "single",
+    "options": [
+      "$18$",
+      "$25$",
+      "$30$",
+      "$40$",
+      "$10$"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Комбинаторика, вероятность и статистика",
+    "explanation": "По формуле числа перестановок $P_n = n!$: $4! + 3! = 4\\cdot 3\\cdot 2\\cdot 1 + 3\\cdot 2\\cdot 1 = 24 + 6 = 30$."
+  },
+  {
+    "id": "math-1503-67",
+    "subject": "math",
+    "typeId": "math.trig-quadrant-signs",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 67
+    },
+    "stem": "Определите знаки чисел $a = \\cos 271^\\circ$ и $b = \\operatorname{tg}(-187^\\circ)$.",
+    "format": "single",
+    "options": [
+      "$a > 0,\\ b \\lt 0$",
+      "$a \\lt 0,\\ b > 0$",
+      "$a > 0,\\ b > 0$",
+      "$a \\lt 0,\\ b \\lt 0$",
+      "$a \\lt 0,\\ b = 0$"
+    ],
+    "answer": 0,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Тригонометрия",
+    "explanation": "$271^\\circ$ — угол IV четверти, поэтому $a = \\cos 271^\\circ > 0$. $-187^\\circ$ — угол II четверти, поэтому $b = \\operatorname{tg}(-187^\\circ) \\lt 0$."
+  },
+  {
+    "id": "math-1503-68",
+    "subject": "math",
+    "typeId": "math.real-power",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 68
+    },
+    "stem": "Найдите значение выражения $16^{0{,}36} \\cdot 16^{0{,}14}$.",
+    "format": "single",
+    "options": [
+      "$8$",
+      "$0{,}5$",
+      "$0{,}25$",
+      "$4$",
+      "$2$"
+    ],
+    "answer": 3,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Степени и логарифмы",
+    "explanation": "$16^{0{,}36} \\cdot 16^{0{,}14} = 16^{0{,}36 + 0{,}14} = 16^{0{,}5} = \\sqrt{16} = 4$."
+  },
+  {
+    "id": "math-1503-69",
+    "subject": "math",
+    "typeId": "math.polygon-diagonals",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 69
+    },
+    "stem": "Найдите число диагоналей прямоугольника.",
+    "format": "single",
+    "options": [
+      "$1$",
+      "$2$",
+      "$5$",
+      "$3$",
+      "$4$"
+    ],
+    "answer": 1,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Планиметрия",
+    "explanation": "Число диагоналей $n$-угольника равно $\\frac{n(n - 3)}{2}$. Для прямоугольника ($n = 4$): $\\frac{4(4 - 3)}{2} = 2$."
+  },
+  {
+    "id": "math-1503-70",
+    "subject": "math",
+    "typeId": "math.probability-subsets",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 70
+    },
+    "stem": "Для множеств $A$ и $B$ известно, что $B \\subset A$, $n(A) = 9$ и $n(B) = 4$. Найдите вероятность того, что два случайно выбранных из множества $A$ элемента принадлежат множеству $A \\setminus B$.",
+    "image": {
+      "svg": "<svg viewBox=\"0 0 230 125\" width=\"230\" height=\"125\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\">\n    <ellipse cx=\"112\" cy=\"66\" rx=\"92\" ry=\"46\" fill=\"currentColor\" fill-opacity=\"0.03\" stroke=\"currentColor\" stroke-width=\"1.7\"/>\n    <ellipse cx=\"82\" cy=\"68\" rx=\"44\" ry=\"26\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.6\"/>\n    <text x=\"202\" y=\"26\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"700\" font-size=\"14\">A</text>\n    <text x=\"82\" y=\"34\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"700\" font-size=\"14\">B</text>\n    <text x=\"82\" y=\"68\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"13\">(4)</text>\n    <text x=\"162\" y=\"68\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"13\">(5)</text>\n  </svg>",
+      "alt": "Диаграмма Эйлера–Венна: множество B (4 элемента) внутри множества A (5 элементов вне B)"
+    },
+    "format": "single",
+    "options": [
+      "$\\frac{5}{18}$",
+      "$\\frac{4}{15}$",
+      "$\\frac{4}{21}$",
+      "$\\frac{5}{12}$",
+      "$\\frac{7}{24}$"
+    ],
+    "answer": 0,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Комбинаторика, вероятность и статистика",
+    "explanation": "В множестве $A \\setminus B$ содержится $9 - 4 = 5$ элементов. Число благоприятных исходов $n(M) = C_5^2 = 10$, число всех исходов $n = C_9^2 = 36$. Искомая вероятность $P(M) = \\frac{10}{36} = \\frac{5}{18}$."
+  },
+  {
+    "id": "math-1503-71",
+    "subject": "math",
+    "typeId": "math.coords-quadrant",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 71
+    },
+    "stem": "Расстояние от точки $A$, расположенной в IV четверти, до оси абсцисс равно $4$, а до оси ординат — $6$. Найдите координаты точки $A$.",
+    "format": "single",
+    "options": [
+      "$(-4;\\ 6)$",
+      "$(2;\\ 3)$",
+      "$(6;\\ -4)$",
+      "$(4;\\ 6)$",
+      "$(3;\\ 2)$"
+    ],
+    "answer": 2,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Метод координат",
+    "explanation": "В IV четверти $x > 0$, $y \\lt 0$. Расстояние до оси абсцисс $4$ означает ординату $-4$, а расстояние до оси ординат $6$ — абсциссу $6$. Таким образом, координаты точки $A(6;\\ -4)$."
+  },
+  {
+    "id": "math-1503-72",
+    "subject": "math",
+    "typeId": "math.right-tri-trig",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 72
+    },
+    "stem": "В треугольнике $ABC$ угол $\\angle C = 90^\\circ$. Вычислите $\\cos\\alpha \\cdot \\operatorname{tg}\\beta$.",
+    "image": {
+      "svg": "<svg viewBox=\"0 0 210 165\" width=\"210\" height=\"165\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\">\n    <polygon points=\"40,136 164,136 164,28\" fill=\"currentColor\" fill-opacity=\"0.04\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <polyline points=\"154,136 154,126 164,126\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n    <path d=\"M 64,136 A 24,24 0 0,0 58,120\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.3\"/>\n    <path d=\"M 148,42 A 22,22 0 0,0 164,50\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.3\"/>\n    <text x=\"168\" y=\"17\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">A</text>\n    <text x=\"28\" y=\"140\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">B</text>\n    <text x=\"175\" y=\"140\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">C</text>\n    <text x=\"102\" y=\"149\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">a</text>\n    <text x=\"176\" y=\"82\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">b</text>\n    <text x=\"92\" y=\"72\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">c</text>\n    <text x=\"73\" y=\"126\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"13\">α</text>\n    <text x=\"150\" y=\"58\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"13\">β</text>\n  </svg>",
+      "alt": "Прямоугольный треугольник ABC (угол C=90°) со сторонами a, b, c и углами α и β"
+    },
+    "format": "single",
+    "options": [
+      "$\\frac{bc}{a^2}$",
+      "$\\frac{a^2}{bc}$",
+      "$\\frac{ac}{b^2}$",
+      "$\\frac{ab}{c^2}$",
+      "$\\frac{a}{bc}$"
+    ],
+    "answer": 1,
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Планиметрия",
+    "explanation": "Из треугольника $\\cos\\alpha = \\frac{a}{c}$ и $\\operatorname{tg}\\beta = \\frac{a}{b}$, откуда $\\cos\\alpha \\cdot \\operatorname{tg}\\beta = \\frac{a}{c} \\cdot \\frac{a}{b} = \\frac{a^2}{bc}$."
+  },
+  {
+    "id": "math-1503-73",
+    "subject": "math",
+    "typeId": "math.trig-half-angle",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 73
+    },
+    "stem": "Если $\\cos 20^\\circ = a$, выразите $\\sin 10^\\circ$ через $a$.",
+    "format": "single",
+    "options": [
+      "$\\sqrt{\\frac{1 + a}{2}}$",
+      "$\\frac{a}{2}$",
+      "$\\frac{1 - a}{2}$",
+      "$\\sqrt{\\frac{1 - a}{2}}$",
+      "$\\frac{1 + a}{2}$"
+    ],
+    "answer": 3,
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Тригонометрия",
+    "explanation": "По формуле половинного угла $\\sin^2\\alpha = \\frac{1 - \\cos 2\\alpha}{2}$: $\\sin^2 10^\\circ = \\frac{1 - \\cos 20^\\circ}{2} \\Rightarrow \\sin 10^\\circ = \\sqrt{\\frac{1 - a}{2}}$."
+  },
+  {
+    "id": "math-1503-74",
+    "subject": "math",
+    "typeId": "math.prism-lateral",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 74
+    },
+    "stem": "Найдите площадь боковой поверхности прямой призмы, периметр основания которой равен $15$, а боковое ребро равно $9$.",
+    "format": "short",
+    "answer": "135",
+    "points": 1,
+    "difficulty": 1,
+    "topic": "Стереометрия",
+    "explanation": "По формуле боковой поверхности прямой призмы $S_{\\text{бок}} = P_{\\text{осн}} \\cdot H = 15 \\cdot 9 = 135$."
+  },
+  {
+    "id": "math-1503-75",
+    "subject": "math",
+    "typeId": "math.train-motion",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 75
+    },
+    "stem": "Расстояние между концом первого туннеля длиной $500$ м и началом второго туннеля длиной $300$ м равно $15$ км. Через сколько минут поезд длиной $200$ м, движущийся со скоростью $64$ км/ч, полностью выйдет из II туннеля с момента входа в I туннель?",
+    "image": {
+      "svg": "<svg viewBox=\"0 0 320 105\" width=\"320\" height=\"105\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\">\n    <line x1=\"12\" y1=\"68\" x2=\"308\" y2=\"68\" stroke=\"currentColor\" stroke-width=\"1.6\"/>\n    <!-- Train -->\n    <rect x=\"20\" y=\"50\" width=\"48\" height=\"16\" rx=\"3\" fill=\"currentColor\" fill-opacity=\"0.16\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n    <polygon points=\"68,50 78,66 68,66\" fill=\"currentColor\" fill-opacity=\"0.25\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n    <!-- Tunnel 1 -->\n    <path d=\"M 96,68 L 96,42 Q 124,26 152,42 L 152,68 Z\" fill=\"currentColor\" fill-opacity=\"0.1\" stroke=\"currentColor\" stroke-width=\"1.6\"/>\n    <!-- Tunnel 2 -->\n    <path d=\"M 232,68 L 232,42 Q 260,26 288,42 L 288,68 Z\" fill=\"currentColor\" fill-opacity=\"0.1\" stroke=\"currentColor\" stroke-width=\"1.6\"/>\n    <text x=\"48\" y=\"86\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"12\">200 м</text>\n    <text x=\"124\" y=\"22\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"11\">I туннель</text>\n    <text x=\"124\" y=\"57\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"12\">500 м</text>\n    <text x=\"192\" y=\"54\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"700\" font-size=\"12\">15 км</text>\n    <line x1=\"156\" y1=\"62\" x2=\"228\" y2=\"62\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"3,2\"/>\n    <text x=\"260\" y=\"22\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"11\">II туннель</text>\n    <text x=\"260\" y=\"57\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"12\">300 м</text>\n  </svg>",
+      "alt": "Схема: поезд длиной 200 м, I туннель 500 м, расстояние 15 км, II туннель 300 м"
+    },
+    "format": "short",
+    "answer": "15",
+    "accept": [
+      "15 мин"
+    ],
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Числа, дроби и проценты",
+    "explanation": "С момента входа в I туннель до полного выхода из II туннеля последний вагон поезда проходит $200 + 500 + 15000 + 300 = 16000$ м $= 16$ км. Со скоростью $64$ км/ч этот путь занимает $16 : 64 = 0{,}25$ ч $= 15$ мин."
+  },
+  {
+    "id": "math-1503-76",
+    "subject": "math",
+    "typeId": "math.log-equation",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 76
+    },
+    "stem": "Найдите произведение корней уравнения $\\log_2(\\log_2^2 x - 3\\log_2 x + 4) = 3$.",
+    "format": "short",
+    "answer": "8",
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Степени и логарифмы",
+    "explanation": "Положим $\\log_2 x = t$. Уравнение переходит в $\\log_2^2 x - 3\\log_2 x + 4 = 8 \\Rightarrow t^2 - 3t - 4 = 0$, откуда $t_1 = -1$, $t_2 = 4$. Тогда $x_1 = \\frac{1}{2}$, $x_2 = 16$, и их произведение $x_1 \\cdot x_2 = \\frac{1}{2} \\cdot 16 = 8$."
+  },
+  {
+    "id": "math-1503-77",
+    "subject": "math",
+    "typeId": "math.quad-ineq",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 77
+    },
+    "stem": "Найдите сумму целых решений неравенства $x^2 - 6x - 7 \\lt 0$.",
+    "format": "short",
+    "answer": "21",
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Неравенства",
+    "explanation": "Корни $x_1 = -1$, $x_2 = 7$, разложение $(x + 1)(x - 7) \\lt 0$. Методом интервалов получаем $x \\in (-1;\\ 7)$. Сумма целых решений: $0 + 1 + 2 + 3 + 4 + 5 + 6 = 21$."
+  },
+  {
+    "id": "math-1503-78",
+    "subject": "math",
+    "typeId": "math.log-eval",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 78
+    },
+    "stem": "Найдите значение выражения $\\log_2 \\sqrt{14 + 2\\log_3 \\sqrt{7 + \\lg 100}}$.",
+    "format": "short",
+    "answer": "2",
+    "points": 1,
+    "difficulty": 2,
+    "topic": "Степени и логарифмы",
+    "explanation": "$\\lg 100 = 2 \\Rightarrow \\sqrt{7 + 2} = 3 \\Rightarrow \\log_3 3 = 1 \\Rightarrow \\sqrt{14 + 2 \\cdot 1} = \\sqrt{16} = 4 \\Rightarrow \\log_2 4 = 2$."
+  },
+  {
+    "id": "math-1503-79",
+    "subject": "math",
+    "typeId": "math.cone-rotation",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 79
+    },
+    "stem": "Найдите площадь боковой поверхности фигуры, полученной вращением прямоугольного треугольника с катетами $6$ см и $8$ см вокруг большего катета.",
+    "image": {
+      "svg": "<svg viewBox=\"0 0 220 190\" width=\"220\" height=\"190\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\">\n    <ellipse cx=\"110\" cy=\"148\" rx=\"64\" ry=\"17\" fill=\"currentColor\" fill-opacity=\"0.05\" stroke=\"currentColor\" stroke-width=\"1.7\"/>\n    <line x1=\"110\" y1=\"24\" x2=\"46\" y2=\"148\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <line x1=\"110\" y1=\"24\" x2=\"174\" y2=\"148\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <line x1=\"110\" y1=\"24\" x2=\"110\" y2=\"148\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4,3\"/>\n    <line x1=\"110\" y1=\"148\" x2=\"174\" y2=\"148\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-dasharray=\"4,3\"/>\n    <text x=\"103\" y=\"92\" text-anchor=\"end\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"12\">b = 8 см</text>\n    <text x=\"142\" y=\"157\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"12\">a = 6 см</text>\n    <text x=\"152\" y=\"78\" text-anchor=\"start\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"system-ui, sans-serif\" font-style=\"normal\" font-weight=\"400\" font-size=\"12\">l = ?</text>\n  </svg>",
+      "alt": "Конус, образованный вращением прямоугольного треугольника с катетами 6 см и 8 см вокруг катета 8 см"
+    },
+    "format": "short",
+    "answer": "60π",
+    "accept": [
+      "60pi",
+      "60 pi",
+      "60π см²"
+    ],
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Стереометрия",
+    "explanation": "При вращении вокруг большего катета получается конус с радиусом основания $R = 6$ см и высотой $H = 8$ см. Образующая конуса $l = \\sqrt{6^2 + 8^2} = 10$ см. Площадь боковой поверхности $S_{\\text{бок}} = \\pi R l = \\pi \\cdot 6 \\cdot 10 = 60\\pi\\text{ см}^2$."
+  },
+  {
+    "id": "math-1503-80",
+    "subject": "math",
+    "typeId": "math.percent-word",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 80
+    },
+    "stem": "Самир работает в магазине фильтров для воды, каждый из которых стоит $250$ манат. Его фиксированный оклад составляет $1000$ манат, и дополнительно он получает бонус в размере $4\\%$ от продажной цены каждого фильтра. В январе его зарплата составила $1400$ манат, а в феврале — $1560$ манат. На сколько больше фильтров он продал в феврале, чем в январе?",
+    "format": "short",
+    "answer": "16",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Числа, дроби и проценты",
+    "explanation": "Бонус с одного фильтра: $250 \\cdot \\frac{4}{100} = 10$ манат. Разница в заработке между февралём и январём $1560 - 1400 = 160$ манат получена за счёт бонусов, поэтому продано больше на $160 : 10 = 16$ фильтров."
+  },
+  {
+    "id": "math-1503-81",
+    "subject": "math",
+    "typeId": "math.linear-system-word",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 81
+    },
+    "stem": "Принтер печатает одну цветную страницу за $50$ секунд, а одну чёрно-белую страницу — за $30$ секунд. Если при непрерывной работе в течение получаса на принтере было напечатано $40$ страниц, сколько из них цветные?",
+    "format": "single",
+    "options": [
+      "$30$",
+      "$25$",
+      "$35$",
+      "$20$",
+      "$40$"
+    ],
+    "answer": 0,
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Уравнения и системы уравнений",
+    "explanation": "Пусть напечатано $x$ цветных и $y$ чёрно-белых страниц. Полчаса $= 1800$ с. Составим систему: $x + y = 40$ и $50x + 30y = 1800$. Разделив второе уравнение на $10$, получаем $5x + 3y = 180$. Вычитая $3x + 3y = 120$, находим $2x = 60 \\Rightarrow x = 30$."
+  },
+  {
+    "id": "math-1503-82",
+    "subject": "math",
+    "typeId": "math.circle-tangent-secant",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 82
+    },
+    "stem": "Из точки $A$, лежащей вне окружности, к ней проведены касательная $AB$ и секущая $AD$ (точки $C$ и $D$ лежат на окружности). Если $\\angle BAD = 90^\\circ$, $AB = \\sqrt{5}$ см и $AC = 1$ см, найдите радиус окружности (в см).",
+    "image": {
+      "svg": "<svg viewBox=\"0 0 210 185\" width=\"210\" height=\"185\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\">\n    <circle cx=\"88\" cy=\"98\" r=\"56\" fill=\"currentColor\" fill-opacity=\"0.03\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <circle cx=\"88\" cy=\"98\" r=\"2.5\" fill=\"currentColor\"/>\n    <line x1=\"66\" y1=\"42\" x2=\"146\" y2=\"42\" stroke=\"currentColor\" stroke-width=\"1.7\"/>\n    <line x1=\"132\" y1=\"42\" x2=\"132\" y2=\"148\" stroke=\"currentColor\" stroke-width=\"1.7\"/>\n    <polyline points=\"123,42 123,51 132,51\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n    <circle cx=\"88\" cy=\"42\" r=\"2.2\" fill=\"currentColor\"/>\n    <circle cx=\"132\" cy=\"63.4\" r=\"2.2\" fill=\"currentColor\"/>\n    <circle cx=\"132\" cy=\"132.6\" r=\"2.2\" fill=\"currentColor\"/>\n    <text x=\"88\" y=\"29\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">B</text>\n    <text x=\"140\" y=\"31\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">A</text>\n    <text x=\"144\" y=\"65\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">C</text>\n    <text x=\"144\" y=\"134\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">D</text>\n    <text x=\"76\" y=\"100\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"13\">O</text>\n  </svg>",
+      "alt": "Окружность с центром O, касательной AB и секущей AD (C и D на окружности), угол BAD прямой"
+    },
+    "format": "short",
+    "answer": "3",
+    "accept": [
+      "3 см"
+    ],
+    "points": 2,
+    "difficulty": 3,
+    "topic": "Планиметрия",
+    "explanation": "По свойству касательной и секущей $AB^2 = AC \\cdot AD \\Rightarrow 5 = 1 \\cdot (1 + CD) \\Rightarrow CD = 4$ см. Опустив перпендикуляр $OM$ из центра на хорду $CD$, получим $CM = MD = 2$ см. Четырёхугольник $OBAM$ — прямоугольник, поэтому $OM = AB = \\sqrt{5}$ см. Из прямоугольного $\\triangle OMD$: $R = OD = \\sqrt{OM^2 + MD^2} = \\sqrt{5 + 4} = 3$ см."
+  },
+  {
+    "id": "math-1503-83",
+    "subject": "math",
+    "typeId": "math.ships-similarity",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 83
+    },
+    "stem": "Корабли в точках $A$ и $B$ моря движутся по прямым $AE$ и $BD$, пересекающимся в точке $C$ (отрезки $AD$ и $BE$ перпендикулярны прямой $DE$). Если $DE = 12$ км, $BD = 20$ км и $AD = 9$ км, найдите расстояние от точки пересечения траекторий $C$ до пункта $D$ (в км).",
+    "image": {
+      "svg": "<svg viewBox=\"0 0 240 170\" width=\"240\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\">\n    <line x1=\"24\" y1=\"136\" x2=\"212\" y2=\"136\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <line x1=\"46\" y1=\"136\" x2=\"46\" y2=\"82\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-dasharray=\"4,3\"/>\n    <line x1=\"184\" y1=\"136\" x2=\"184\" y2=\"32\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-dasharray=\"4,3\"/>\n    <line x1=\"46\" y1=\"82\" x2=\"184\" y2=\"136\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <line x1=\"46\" y1=\"136\" x2=\"184\" y2=\"32\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n    <polyline points=\"55,136 55,127 46,127\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n    <polyline points=\"175,136 175,127 184,127\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/>\n    <circle cx=\"46\" cy=\"82\" r=\"2.8\" fill=\"currentColor\"/>\n    <circle cx=\"184\" cy=\"32\" r=\"2.8\" fill=\"currentColor\"/>\n    <circle cx=\"94\" cy=\"100.8\" r=\"2.5\" fill=\"currentColor\"/>\n    <text x=\"34\" y=\"80\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">A</text>\n    <text x=\"196\" y=\"30\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">B</text>\n    <text x=\"94\" y=\"86\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">C</text>\n    <text x=\"46\" y=\"150\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">D</text>\n    <text x=\"184\" y=\"150\" text-anchor=\"middle\" dominant-baseline=\"central\" fill=\"currentColor\" font-family=\"Georgia, serif\" font-style=\"italic\" font-weight=\"400\" font-size=\"14\">E</text>\n  </svg>",
+      "alt": "Прямоугольные треугольники ADC и EBC (прямые углы при D и E), траектории AE и BD пересекаются в точке C"
+    },
+    "format": "short",
+    "answer": "7,2",
+    "accept": [
+      "7.2",
+      "7,2 км",
+      "7.2 км"
+    ],
+    "points": 2,
+    "difficulty": 3,
+    "topic": "Планиметрия",
+    "explanation": "В прямоугольном треугольнике $BED$ по теореме Пифагора $BE = \\sqrt{BD^2 - DE^2} = \\sqrt{20^2 - 12^2} = 16$ км. Положим $DC = x$, тогда $BC = 20 - x$. Из подобия треугольников $\\triangle ADC \\sim \\triangle EBC$: $\\frac{AD}{EB} = \\frac{DC}{BC} \\Rightarrow \\frac{9}{16} = \\frac{x}{20 - x} \\Rightarrow x = 7{,}2$ км."
+  },
+  {
+    "id": "math-1503-84",
+    "subject": "math",
+    "typeId": "math.linear-eq-table",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 84
+    },
+    "stem": "В авиакомпании цена билета в одну сторону составляет $150$ манат, а билета туда и обратно — $180$ манат. В таблице указано количество билетов, купленных Асифом и Нурай (оба купили не менее одного билета каждого вида). <table><thead><tr><th>Вид билета</th><th>Асиф</th><th>Нурай</th></tr></thead><tbody><tr><td>Билет в одну сторону</td><td>$18 - x$</td><td>$x + 4$</td></tr><tr><td>Билет туда и обратно</td><td>$x$</td><td>$15 - x$</td></tr></tbody></table>Если уплаченные ими общие суммы равны, найдите количество билетов в одну сторону, купленных Нурай.",
+    "format": "short",
+    "answer": "14",
+    "points": 2,
+    "difficulty": 2,
+    "topic": "Уравнения и системы уравнений",
+    "explanation": "Сумма Асифа: $(18 - x)\\cdot 150 + 180x$. Сумма Нурай: $(x + 4)\\cdot 150 + (15 - x)\\cdot 180$. Приравнивая выражения: $18\\cdot 150 + 30x = 150x + 600 + 15\\cdot 180 - 180x \\Rightarrow 60x = 600 \\Rightarrow x = 10$. Количество билетов в одну сторону у Нурай: $x + 4 = 10 + 4 = 14$."
+  },
+  {
+    "id": "math-1503-85",
+    "subject": "math",
+    "typeId": "math.arith-prog-sum",
+    "source": "original",
+    "origin": {
+      "pdf": "Attestat_all_15.03.2026_1773569675.pdf",
+      "number": 85
+    },
+    "stem": "В первый день Агиль положил в пустую копилку $1$ монету по $50$ гяпиков, $2$ монеты по $20$ гяпиков и $3$ монеты по $10$ гяпиков. В каждый последующий день он увеличивал количество монет каждого вида на $1$ по сравнению с предыдущим днём. Через сколько дней в копилке накопится всего $48$ манат?",
+    "format": "short",
+    "answer": "10",
+    "accept": [
+      "10 дней"
+    ],
+    "points": 2,
+    "difficulty": 3,
+    "topic": "Прогрессии",
+    "explanation": "В 1-й день положено $a_1 = 50 + 2\\cdot 20 + 3\\cdot 10 = 120$ гяпиков, во 2-й день $200$ гяпиков, в 3-й — $280$ гяпиков ($d = 80$ гяпиков). Используя формулу суммы $S_n = \\frac{2a_1 + d(n - 1)}{2}\\cdot n = 4800$, получаем $\\frac{240 + 80(n - 1)}{2}\\cdot n = 4800 \\Rightarrow n^2 + 2n - 120 = 0 \\Rightarrow n = 10$ дней."
+  }
+]

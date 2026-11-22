@@ -1,0 +1,52 @@
+/* Vendored offline theme display fonts for Ulduz (Восход, i, n, a, Мастер).
+ * 100% local .woff2 — zero external font URLs.
+ * Every font is programmatically verified to cover 100% of:
+ *   - Russian Cyrillic (А-Я, а-я, Ё, ё, №)
+ *   - Azerbaijani Latin (Ə, ə, Ğ, ğ, I, ı, İ, i, Ö, ö, Ş, ş, Ü, ü, Ç, ç)
+ *   - ASCII Latin, digits, punctuation & NBSP
+ */
+
+/* 1. Восход — Authentic GTA / Pricedown condensed display face (patched with ə + NBSP) */
+@font-face {
+  font-family: 'Ulduz GTA';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./ulduz-gta.woff2') format('woff2');
+}
+
+/* 2. i (Intel) — Crisp geometric silicon-tech display face (Exo 2 Variable, SIL OFL) */
+@font-face {
+  font-family: 'Ulduz Intel';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('./ulduz-intel.woff2') format('woff2');
+}
+
+/* 3. n (Nvidia) — Sharp chamfered gaming-hardware display face (Tektur Variable, SIL OFL) */
+@font-face {
+  font-family: 'Ulduz Nvidia';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('./ulduz-nvidia.woff2') format('woff2');
+}
+
+/* 4. a (AMD) — Heavy industrial geometric display face (Russo One + engineered Ə/ə, SIL OFL) */
+@font-face {
+  font-family: 'Ulduz AMD';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./ulduz-amd.woff2') format('woff2');
+}
+
+/* 5. Мастер — Ultra-wide monochrome-neon display face (Unbounded Variable, SIL OFL) */
+@font-face {
+  font-family: 'Ulduz Wide';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('./ulduz-wide.woff2') format('woff2');
+}

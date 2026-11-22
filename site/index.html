@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="voshod" data-color-scheme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+  <meta name="description" content="Ulduz — интерактивный тренажёр для подготовки к выпускному экзамену ГЭЦ Азербайджана (DİM Buraxılış / Аттестат) по математике, русскому, английскому и азербайджанскому языкам." />
+  <meta name="theme-color" id="theme-color-meta" content="#180C3A" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Ulduz" />
+  <title>Ulduz — Тренажёр экзамена ДИМ (Аттестат)</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/icons/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png" />
+
+  <!-- Apply initial theme, color-scheme, theme-color & lang before first paint to avoid flash -->
+  <script>
+    (function () {
+      var META = {
+        voshod: { scheme: 'dark', tc: '#180C3A', bar: 'black-translucent' },
+        intel:  { scheme: 'light', tc: '#F1F6FC', bar: 'default' },
+        nvidia: { scheme: 'dark', tc: '#090C09', bar: 'black-translucent' },
+        amd:    { scheme: 'dark', tc: '#0E0E10', bar: 'black-translucent' },
+        master: { scheme: 'dark', tc: '#030303', bar: 'black-translucent' }
+      };
+      try {
+        var raw = localStorage.getItem('ulduz_state_v1');
+        var parsed = raw ? JSON.parse(raw) : null;
+        var theme = parsed && META[parsed.theme] ? parsed.theme : 'voshod';
+        var cfg = META[theme];
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.setAttribute('data-color-scheme', cfg.scheme);
+        var tc = document.getElementById('theme-color-meta');
+        if (tc) tc.setAttribute('content', cfg.tc);
+        var bar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+        if (bar) bar.setAttribute('content', cfg.bar);
+        if (parsed && (parsed.lang === 'az' || parsed.lang === 'ru')) {
+          document.documentElement.lang = parsed.lang;
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'voshod');
+        document.documentElement.setAttribute('data-color-scheme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- Local vendored typography, theme display fonts & KaTeX (100% offline) -->
+  <link rel="stylesheet" href="./vendor/fonts/fonts.css" />
+  <link rel="stylesheet" href="./vendor/fonts/theme-fonts.css" />
+  <link rel="stylesheet" href="./vendor/katex/katex.min.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/themes.css" />
+</head>
+<body>
+  <a href="#app-main" class="skip-link" id="skip-link">Перейти к основному содержимому</a>
+
+  <!-- Ambient Theme Backdrop Layer (pixel sunrise / silicon grid / carbon / forge / monochrome neon horizon) -->
+  <div class="theme-backdrop" aria-hidden="true">
+    <div class="theme-backdrop__scene"></div>
+    <div class="theme-backdrop__sun"></div>
+    <div class="theme-backdrop__clouds"></div>
+    <div class="theme-backdrop__grid"></div>
+  </div>
+
+  <div class="app-shell">
+    <header id="app-header" class="app-header"></header>
+    <main id="app-main" class="app-main" tabindex="-1"></main>
+    <footer id="app-footer" class="app-footer"></footer>
+    <nav id="mobile-bottom-nav" class="mobile-bottom-nav" aria-label="Основная навигация"></nav>
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <div id="theme-modal-host"></div>
+  </div>
+
+  <!-- Local vendored KaTeX runtime -->
+  <script src="./vendor/katex/katex.min.js"></script>
+  <script src="./vendor/katex/auto-render.min.js"></script>
+  <!-- Application entry point (ES Modules, no build step) -->
+  <script type="module" src="./js/app/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "ulduz",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ulduz — DİM 11th-grade exam trainer (web/PWA + Tauri v2 Android & iOS)",
+  "scripts": {
+    "tauri": "tauri",
+    "icons": "tauri icon site/assets/icons/icon-1024.png",
+    "android:init": "tauri android init",
+    "android:dev": "tauri android dev",
+    "android:build": "tauri android build --apk --target aarch64",
+    "android:build:all": "tauri android build --apk --target aarch64 --target armv7",
+    "ios:init": "tauri ios init",
+    "ios:build": "tauri ios build",
+    "test:rust": "cargo test --manifest-path src-tauri/Cargo.toml",
+    "lint:rust": "cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets -- -D warnings",
+    "selftest": "node tools/selftest.mjs --count 1000 --exams 20",
+    "e2e": "node tools/e2e.mjs"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.12.6"
+  }
+}

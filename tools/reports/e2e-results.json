@@ -1,0 +1,168 @@
+{
+  "timestamp": "2026-11-22T18:11:21.202Z",
+  "baseUrl": "http://127.0.0.1:8123/",
+  "passed": 26,
+  "failed": 0,
+  "total": 26,
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "results": [
+    {
+      "group": "P0#4",
+      "name": "shortEquals accepts comma-decimal lists & equivalents",
+      "ok": true,
+      "detail": "7/7 shortEquals cases verified"
+    },
+    {
+      "group": "Mobile#Manifest",
+      "name": "site/manifest.json valid JSON, icons exist, icon-1024.png is valid 1024x1024 PNG, theme fonts & SVGs exist",
+      "ok": true,
+      "detail": "manifest.json OK, icon-1024.png 1024x1024 (149066B), all 5 theme fonts + 3 SVGs present"
+    },
+    {
+      "group": "Mobile#Lazy",
+      "name": "Cold Home (#/) & Stats (#/stats) fetch 0 subject bundles; #/subject/math fetches ONLY math",
+      "ok": true,
+      "detail": "Cold #/ & #/stats: 0 subject bundles; #/subject/math: ONLY [math]; default theme=voshod (#180C3A)"
+    },
+    {
+      "group": "P2#13",
+      "name": "Fresh Home has no 0/0%/0 metric wall, has H1, and migrates legacy light/dark to voshod",
+      "ok": true,
+      "detail": "H1=\"Подготовка к выпускному экзамену ДИМ\", statsStrip=0, legacy->voshod OK, header & mobile badges hidden"
+    },
+    {
+      "group": "P0#1",
+      "name": "Option A is NOT selected on load (aria-checked=\"false\") & MCQ strike-through works",
+      "ok": true,
+      "detail": "Option A unselected, button + right-click strike-through OK, focus preserved"
+    },
+    {
+      "group": "P0#3",
+      "name": "Pressing Enter on focused <button> / <a> activates it instead of submitting task",
+      "ok": true,
+      "detail": "Focused button & link Enter handled natively without submitting task"
+    },
+    {
+      "group": "P0#2/Mobile#Inputmode",
+      "name": "Enter in .short-input checks & stays, math inputmode=\"decimal\", context-smart char bar, clear button",
+      "ok": true,
+      "detail": "inputmode=\"decimal\", checked & stayed on №1; math chars=[− , / ;]"
+    },
+    {
+      "group": "P1#10",
+      "name": "Practice collapsible filter bar, topic auto-sync on ?type=, Math SVG & Cone SVG screenshots",
+      "ok": true,
+      "detail": "Collapsed by default, auto-synced topic=\"Стереометрия\", Cone & Geometry SVGs verified"
+    },
+    {
+      "group": "P2#14",
+      "name": "Ulduz 8-Ray Mastery Star illuminates on correct answer + <kbd> hides after check",
+      "ok": true,
+      "detail": "8 rays present, lit 0 -> 1 on correct answer, option <kbd> hidden after check"
+    },
+    {
+      "group": "P1#9/10",
+      "name": "Practice all 5 formats (single, short, open, match, order) across math/ru/en/az + focus preservation",
+      "ok": true,
+      "detail": "order/match/short/open/single verified across math/ru/en/az; sentence anchor (5) pulsed; dark color-scheme & scrollbar styled"
+    },
+    {
+      "group": "P1#8",
+      "name": "Live #header-mistakes-badge & #mobile-mistakes-badge update on 1st mistake without reload",
+      "ok": true,
+      "detail": "Header & mobile mistakes badges live updated: hidden -> 1 -> 2 without reload"
+    },
+    {
+      "group": "P0#6/P2#13",
+      "name": "Mistakes sequential drill mode + 5s Undo toast (mistakes & bookmarks)",
+      "ok": true,
+      "detail": "Drill mode (1/2) + Undo toast verified for both Mistakes and Bookmarks"
+    },
+    {
+      "group": "P0#6/P1#9/10",
+      "name": "Exam Math: Untimed mode, Focused Top Bar, Pause, Flag, F5 Reload, Active Count Accuracy, Cross-Subject Warning, 2-Step Discard",
+      "ok": true,
+      "detail": "Untimed, Focused Bar, Drawer, Pause, Flag, F5 Reload, Accurate Count (1/25), Conflict Warning, 2-Step Discard ALL PASS"
+    },
+    {
+      "group": "Mobile#Back",
+      "name": "window.__ULDUZ_HANDLE_BACK__() priority chain: #theme-modal -> drawer -> exam confirm -> Practice->Subject->Home -> false",
+      "ok": true,
+      "detail": "Priority chain verified: #theme-modal(true) -> drawer(true) -> exam confirm(true) -> dismiss(true) -> Practice->Subject->Home(true) -> Home(false)"
+    },
+    {
+      "group": "P0#5/P1#10/11",
+      "name": "Exam RU: Reading Split-View (1120px + Mobile 390px), Escape dismiss, Pending Self-Grade Banner -> Sync Results/Mistakes/Stats, Untouched Skipped Dont Flood Mistakes",
+      "ok": true,
+      "detail": "1120px split (546px/506px), 390px tabs, 1 mistake (no flood), self-grade synced Results+Stats+Mistakes+Badge"
+    },
+    {
+      "group": "Exam#all",
+      "name": "Multi-subject Exam (#/exam/all) builds 85 tasks and shows per-subject results",
+      "ok": true,
+      "detail": "85-task RU sector exam built & scored with 3 per-subject cards"
+    },
+    {
+      "group": "P2#13/P1#11",
+      "name": "Stats subject accent colors, desktop + mobile stacked history cards (0px clip), export/reset/import",
+      "ok": true,
+      "detail": "4 distinct subject accents, mobile stacked cards (0px overflow), export/reset/import restored 2 exams"
+    },
+    {
+      "group": "P1#10",
+      "name": "Originals live solved counter, hash sync, reload persistence",
+      "ok": true,
+      "detail": "Hash synced (#/originals/math?pdf=0903&n=3), counter 0/25 -> 1/25 live, checked state persisted across reload"
+    },
+    {
+      "group": "Originals#230",
+      "name": "All 230 originals across math/ru/en/az render cleanly (0 KaTeX errors, 0 broken SVGs)",
+      "ok": true,
+      "detail": "230/230 rendered cleanly (math:50, ru:60, en:60, az:60) — 0 KaTeX/SVG errors"
+    },
+    {
+      "group": "Themes#Unlocks",
+      "name": "#theme-modal initial lock states + all 4 unlock triggers (10 math->i, 5ru+5en->n, 10az->a, 100/100 exam->Мастер + toast)",
+      "ok": true,
+      "detail": "All 4 unlocks (10 math->i, 5ru+5en->n, 10az->a, 100/100 sync->Мастер) + 4 celebration toasts + 1-tap Apply PASS"
+    },
+    {
+      "group": "Themes#5-Matrix",
+      "name": "All 5 themes: scoped fonts loaded, distinct button layouts, distinct animations, 0px overflow (1440/390/360) & RU+AZ visual capture",
+      "ok": true,
+      "detail": "voshod(Ulduz GTA:OK,layout:OK,anim:OK) | intel(Ulduz Intel:OK,layout:OK,anim:OK) | nvidia(Ulduz Nvidia:OK,layout:OK,anim:OK) | amd(Ulduz AMD:OK,layout:OK,anim:OK) | master(Ulduz Wide:OK,layout:OK,anim:OK)"
+    },
+    {
+      "group": "P1#7",
+      "name": "RU -> AZ toggle syncs <html lang>, <title>, and localizes UI chrome across all 7 routes + #theme-modal",
+      "ok": true,
+      "detail": "All 7 routes + #theme-modal + mobile nav clean in AZ; lang=\"az\", title=\"Ulduz — DİM Buraxılış İmtahanı Trenajoru (Attestat)\""
+    },
+    {
+      "group": "P1#11/P2#12/13",
+      "name": "Zero horizontal overflow, zero UI emojis, zero banned eyebrows, bottom nav visibility across 5 viewports (360/390/393/820/1440)",
+      "ok": true,
+      "detail": "8 routes × 5 viewports × 2 themes (80 checks): 0px overflow, bottom nav <768px only, 0 emojis, 0 eyebrows, valid headings"
+    },
+    {
+      "group": "P1#11/Mobile#Targets",
+      "name": "Mobile 360x800 & 390x844: >=48px Material 3 touch targets, bottom nav tabs & sticky footer",
+      "ok": true,
+      "detail": "All mobile touch targets >= 48px at 360px & 390px, bottom nav & sticky footer verified"
+    },
+    {
+      "group": "P1#9/Themes#Contrast",
+      "name": "WCAG AA contrast (>= 4.5:1) for --text-primary, --text-muted, placeholders, .skip-link & .btn--primary across ALL 5 themes",
+      "ok": true,
+      "detail": "voshod(txt=16.8,muted=9.2,btn=10.3,skip=10.3) | intel(txt=17.2,muted=6.8,btn=5.8,skip=5.8) | nvidia(txt=16.7,muted=7.3,btn=8.0,skip=8.0) | amd(txt=17.2,muted=7.1,btn=5.0,skip=5.0) | master(txt=19.8,muted=8.1,btn=20.6,skip=20.6)"
+    },
+    {
+      "group": "Runtime",
+      "name": "0 console errors, 0 pageerrors, 0 failed HTTP requests",
+      "ok": true,
+      "detail": "0 console errors, 0 pageerrors, 0 failed HTTP requests"
+    }
+  ]
+}

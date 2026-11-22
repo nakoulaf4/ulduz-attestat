@@ -1,0 +1,37 @@
+# Dependencies & local build artifacts
+node_modules/
+dist/
+work/
+.impeccable/
+
+# Source exam PDFs (large third-party booklets kept out of git)
+*.pdf
+
+# Android / iOS build outputs & signing secrets
+*.apk
+*.aab
+*.ipa
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+
+# Rust / Tauri build artifacts
+src-tauri/target/
+src-tauri/gen/schemas/
+src-tauri/gen/android/.gradle/
+src-tauri/gen/android/build/
+src-tauri/gen/android/app/build/
+src-tauri/gen/android/app/src/main/jniLibs/
+src-tauri/gen/android/app/src/main/assets/
+src-tauri/gen/android/local.properties
+src-tauri/gen/apple/build/
+src-tauri/gen/apple/DerivedData/
+src-tauri/gen/apple/Externals/
+
+# OS & editor files
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
