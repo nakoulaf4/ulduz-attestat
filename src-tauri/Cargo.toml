@@ -1,6 +1,6 @@
 [package]
 name = "ulduz"
-version = "1.0.0"
+version = "2.0.0"
 description = "Ulduz — DİM 11th-grade Attestat exam trainer (Azerbaijan)"
 authors = ["Ulduz Contributors"]
 edition = "2021"

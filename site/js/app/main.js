@@ -1,8 +1,10 @@
-// Ulduz — Main Application Shell, Hash Router, Mobile Tab Bar, 5-Theme Gallery & Native Bridge.
+// Ulduz — Obsidian Atelier Main Shell, FLIP Nav Indicator, View Transitions, 3-Tier FX & Studio Drawer.
 
 import {
   getTheme,
   setTheme,
+  getFxMode,
+  setFxMode,
   getUnseenThemesCount,
   getLang,
   setLang,
@@ -11,6 +13,8 @@ import {
 } from '../core/storage.js';
 import { getThemeDef, applyThemeToDocument } from '../core/themes.js';
 import { isNativeApp, haptic, installNativeBackHandler } from '../core/native.js';
+import { fxEngine, VALID_FX_MODES, syncNavIndicator } from './fx-engine.js';
+import { oaFireFxPulse, oaKineticDecode } from './ui-kit.js';
 import { t } from './i18n.js';
 import { icon, ulduzBrandStarSvg } from './icons.js';
 import { escapeHtml } from './math.js';
@@ -28,6 +32,12 @@ let activeKeyHandler = null;
 let activeRouteCache = 'home';
 let toastTimer = null;
 
+const FX_ICON_MAP = {
+  minimal: 'circle-dot',
+  tactile: 'sparkles',
+  webgl: 'waves',
+};
+
 function parseHash() {
   const raw = window.location.hash || '#/';
   const clean = raw.startsWith('#') ? raw.slice(1) : raw;
@@ -40,7 +50,7 @@ function parseHash() {
 
 function navigate(hashUrl) {
   if (window.location.hash === hashUrl) {
-    handleRoute();
+    void handleRoute(true);
   } else {
     window.location.hash = hashUrl;
   }
@@ -48,6 +58,40 @@ function navigate(hashUrl) {
 
 function applyThemeToDom(themeId, animate = false) {
   applyThemeToDocument(themeId, { animate });
+}
+
+function applyFxToApp(mode, { announce = false } = {}) {
+  const applied = setFxMode(mode);
+  fxEngine.setMode(applied);
+  syncFxTriggerUi(applied);
+  window.dispatchEvent(new CustomEvent('ulduz:fx-change', { detail: { mode: applied } }));
+  if (applied !== 'minimal') {
+    oaFireFxPulse('nav', { intensity: 0.9 });
+  }
+  if (announce) {
+    showToast({
+      message: t('fxSwitchedToast', { name: t(`fxName_${applied}`) }),
+      duration: 2600,
+    });
+  }
+}
+
+function syncFxTriggerUi(mode = getFxMode()) {
+  const btn = document.getElementById('btn-fx-toggle');
+  if (btn) {
+    const full = t(`fxName_${mode}`);
+    const short = t(`fxShort_${mode}`);
+    btn.title = t('fxToggleTitle', { name: full });
+    btn.setAttribute('aria-label', t('fxToggleAria', { name: full }));
+    btn.dataset.fxCurrent = mode;
+    btn.innerHTML = `${icon(FX_ICON_MAP[mode] || 'sparkles', { size: 15 })}<span class="fx-trigger__label">${escapeHtml(short)}</span>`;
+  }
+  // Also sync any inline FX pills (e.g. Home quick preview strip)
+  document.querySelectorAll('[data-action="select-fx-inline"]').forEach((el) => {
+    const active = el.dataset.fxId === mode;
+    el.classList.toggle('is-active', active);
+    el.setAttribute('aria-pressed', String(active));
+  });
 }
 
 function applyLangToDom() {
@@ -66,7 +110,7 @@ export function setFocusedExamMode(active) {
 }
 
 /**
- * Refresh live mistakes counter badges (desktop + mobile) and newly-unlocked theme indicator dot.
+ * Refresh live mistakes counter badges (desktop + mobile) and newly-unlocked mode indicator dot.
  */
 export function updateHeaderBadges() {
   const cnt = getActiveMistakesCount();
@@ -85,7 +129,7 @@ export function updateHeaderBadges() {
 }
 
 /**
- * Show a calm bottom toast with an optional action button (Undo / Apply Theme).
+ * Show a sleek obsidian toast with an optional action button (Undo / Apply Mode).
  */
 export function showToast({ message, actionLabel = null, onAction = null, duration = 5000, tone = '' }) {
   const region = document.getElementById('toast-region');
@@ -133,6 +177,7 @@ function renderShellHeader(activeRouteName) {
   const headerEl = document.getElementById('app-header');
   if (!headerEl) return;
   const themeDef = getThemeDef(getTheme());
+  const fxMode = getFxMode();
   const unseenThemes = getUnseenThemesCount();
   const lang = getLang();
   const mistakesCount = getActiveMistakesCount();
@@ -159,6 +204,18 @@ function renderShellHeader(activeRouteName) {
       <div class="header-actions">
         <button
           type="button"
+          class="btn-icon-pill fx-trigger hide-xs"
+          id="btn-fx-toggle"
+          data-fx-current="${escapeHtml(fxMode)}"
+          title="${escapeHtml(t('fxToggleTitle', { name: t(`fxName_${fxMode}`) }))}"
+          aria-label="${escapeHtml(t('fxToggleAria', { name: t(`fxName_${fxMode}`) }))}"
+        >
+          ${icon(FX_ICON_MAP[fxMode] || 'sparkles', { size: 15 })}
+          <span class="fx-trigger__label">${escapeHtml(t(`fxShort_${fxMode}`))}</span>
+        </button>
+
+        <button
+          type="button"
           class="btn-icon-pill"
           id="btn-lang-toggle"
           title="${escapeHtml(t('langToggleTitle'))}"
@@ -174,13 +231,29 @@ function renderShellHeader(activeRouteName) {
           aria-haspopup="dialog"
           aria-expanded="${isThemeModalOpen()}"
         >
-          ${icon('palette', { size: 16 })}
+          ${icon('aperture', { size: 15 })}
           <span class="theme-trigger__name">${escapeHtml(themeDef.shortLabel)}</span>
           <span class="theme-trigger__dot" id="theme-unseen-dot" ${unseenThemes <= 0 ? 'hidden' : ''} aria-hidden="true"></span>
         </button>
       </div>
     </div>
   `;
+
+  // Morph active neon indicator bar via FLIP & re-sync cleanly once display font swaps in
+  requestAnimationFrame(() => {
+    syncNavIndicator(headerEl.querySelector('.main-nav'));
+  });
+  document.fonts?.ready?.then(() => {
+    const nav = document.querySelector('#app-header .main-nav');
+    if (nav) syncNavIndicator(nav);
+  });
+
+  document.getElementById('btn-fx-toggle')?.addEventListener('click', () => {
+    haptic('selection');
+    const cur = getFxMode();
+    const nextIdx = (VALID_FX_MODES.indexOf(cur) + 1) % VALID_FX_MODES.length;
+    applyFxToApp(VALID_FX_MODES[nextIdx], { announce: true });
+  });
 
   document.getElementById('btn-theme-toggle')?.addEventListener('click', () => {
     haptic('selection');
@@ -190,6 +263,10 @@ function renderShellHeader(activeRouteName) {
         renderShellHeader(activeRouteCache);
         renderMobileBottomNav(activeRouteCache);
         updateHeaderBadges();
+        oaFireFxPulse('milestone', { intensity: 1 });
+      },
+      onFxChanged(nextFx) {
+        applyFxToApp(nextFx, { announce: false });
       },
     });
     updateHeaderBadges();
@@ -201,7 +278,7 @@ function renderShellHeader(activeRouteName) {
     setLang(next);
     applyLangToDom();
     if (isThemeModalOpen()) closeThemeModal({ restoreFocus: false });
-    handleRoute(false);
+    void handleRoute(false);
   });
 }
 
@@ -246,10 +323,36 @@ function renderShellFooter() {
   if (!footerEl) return;
   footerEl.innerHTML = `
     <div class="footer-inner">
-      <span class="footer-brand-note">${ulduzBrandStarSvg({ size: 16 })} <span>${escapeHtml(t('footerNote'))}</span></span>
+      <span class="footer-brand-note">${ulduzBrandStarSvg({ size: 15 })} <span>${escapeHtml(t('footerNote'))}</span></span>
       <span class="footer-keys hide-sm">${escapeHtml(t('footerKeysLabel'))} <kbd>1–5</kbd> ${escapeHtml(t('footerKeySelect'))} · <kbd>Enter</kbd> ${escapeHtml(t('footerKeySubmit'))} · <kbd>F</kbd> ${escapeHtml(t('footerKeyFlag'))}</span>
     </div>
   `;
+}
+
+async function mountRouteView(mainEl, routeName, ctx) {
+  switch (routeName) {
+    case 'subject':
+      await renderSubjectView(mainEl, ctx);
+      break;
+    case 'practice':
+      await renderPracticeView(mainEl, ctx);
+      break;
+    case 'exam':
+      await renderExamView(mainEl, ctx);
+      break;
+    case 'originals':
+      await renderOriginalsView(mainEl, ctx);
+      break;
+    case 'mistakes':
+      await renderMistakesView(mainEl, ctx);
+      break;
+    case 'stats':
+      await renderStatsView(mainEl, ctx);
+      break;
+    default:
+      await renderHomeView(mainEl, ctx);
+      break;
+  }
 }
 
 async function handleRoute(resetScroll = true) {
@@ -277,6 +380,9 @@ async function handleRoute(resetScroll = true) {
     showToast,
     setFocusedExamMode,
     updateHeaderBadges,
+    setFxMode(nextFx) {
+      applyFxToApp(nextFx, { announce: false });
+    },
     setKeyHandler(fn) {
       activeKeyHandler = fn;
     },
@@ -293,52 +399,46 @@ async function handleRoute(resetScroll = true) {
   else if (rootSeg === 'mistakes') routeName = 'mistakes';
   else if (rootSeg === 'stats') routeName = 'stats';
 
+  const routeChanged = routeName !== activeRouteCache;
   activeRouteCache = routeName;
   renderShellHeader(routeName);
   renderMobileBottomNav(routeName);
   renderShellFooter();
 
-  // Only show loading placeholder for routes that may dynamically import subject chunks
   if (routeName !== 'home' && routeName !== 'stats' && routeName !== 'mistakes') {
     mainEl.innerHTML = `<div class="page-container"><div class="loading-card">${escapeHtml(t('loading'))}</div></div>`;
   }
 
-  try {
-    switch (routeName) {
-      case 'subject':
-        await renderSubjectView(mainEl, ctx);
-        break;
-      case 'practice':
-        await renderPracticeView(mainEl, ctx);
-        break;
-      case 'exam':
-        await renderExamView(mainEl, ctx);
-        break;
-      case 'originals':
-        await renderOriginalsView(mainEl, ctx);
-        break;
-      case 'mistakes':
-        await renderMistakesView(mainEl, ctx);
-        break;
-      case 'stats':
-        await renderStatsView(mainEl, ctx);
-        break;
-      default:
-        await renderHomeView(mainEl, ctx);
-        break;
-    }
-  } catch (err) {
-    console.error('[ulduz] route error:', err);
-    mainEl.innerHTML = `
-      <div class="page-container">
-        <div class="empty-card">
-          <h2>${escapeHtml(t('routeErrorTitle'))}</h2>
-          <p class="text-secondary">${escapeHtml(String(err?.message ?? err))}</p>
-          <a href="#/" class="btn btn--primary">${escapeHtml(t('backToHome'))}</a>
+  const runRender = async () => {
+    try {
+      await mountRouteView(mainEl, routeName, ctx);
+    } catch (err) {
+      console.error('[ulduz] route error:', err);
+      mainEl.innerHTML = `
+        <div class="page-container">
+          <div class="empty-card">
+            <h2>${escapeHtml(t('routeErrorTitle'))}</h2>
+            <p class="text-secondary">${escapeHtml(String(err?.message ?? err))}</p>
+            <a href="#/" class="btn btn--primary">${escapeHtml(t('backToHome'))}</a>
+          </div>
         </div>
-      </div>
-    `;
+      `;
+    }
+  };
+
+  await runRender();
+
+  // Crisp GPU-composited route entry animation (non-blocking, works identically in all browsers/WebViews)
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  if (routeChanged && !reduced) {
+    mainEl.classList.remove('is-route-entering');
+    void mainEl.offsetWidth;
+    mainEl.classList.add('is-route-entering');
   }
+
+  // Subtle light-slit heading decode in WebGL mode
+  const h1 = mainEl.querySelector('h1:not(.sr-only)');
+  if (h1 && routeChanged) oaKineticDecode(h1, { duration: 240 });
 
   updateHeaderBadges();
 }
@@ -354,16 +454,22 @@ document.addEventListener('keydown', (e) => {
   if (activeKeyHandler) activeKeyHandler(e);
 });
 
+window.addEventListener('resize', () => {
+  const nav = document.querySelector('#app-header .main-nav');
+  if (nav) syncNavIndicator(nav);
+}, { passive: true });
+
 // Live reactive badge sync on every state mutation
 window.addEventListener('ulduz:state-change', updateHeaderBadges);
 
-// Celebratory toast whenever a new theme is unlocked!
+// Celebratory monochrome supernova toast whenever a new mode is unlocked!
 window.addEventListener('ulduz:theme-unlocked', (e) => {
   const ids = e?.detail?.themeIds;
   if (!Array.isArray(ids) || ids.length === 0) return;
   const latestId = ids[ids.length - 1];
   const def = getThemeDef(latestId);
   haptic('success');
+  oaFireFxPulse('unlock', { intensity: 1.25 });
   updateHeaderBadges();
   showToast({
     message: t('themeUnlockedToast', { name: def.shortLabel }),
@@ -376,6 +482,7 @@ window.addEventListener('ulduz:theme-unlocked', (e) => {
       renderShellHeader(activeRouteCache);
       renderMobileBottomNav(activeRouteCache);
       updateHeaderBadges();
+      oaFireFxPulse('unlock', { intensity: 1.1 });
     },
   });
 });
@@ -390,7 +497,7 @@ function registerPwaServiceWorker() {
   if (window.location.protocol !== 'https:' && window.location.protocol !== 'http:') return;
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(() => {
-      // Silently ignore when SW cannot register (e.g., restricted origin)
+      // Silently ignore when SW cannot register
     });
   });
 }
@@ -399,16 +506,18 @@ function registerPwaServiceWorker() {
 async function boot() {
   applyThemeToDom(getTheme(), false);
   applyLangToDom();
+  fxEngine.init(getFxMode());
 
   if (isNativeApp()) {
     const hydrated = await hydrateFromNativeStorage();
     if (hydrated) {
       applyThemeToDom(getTheme(), false);
       applyLangToDom();
+      fxEngine.setMode(getFxMode());
     }
   }
 
-  window.addEventListener('hashchange', () => handleRoute(true));
+  window.addEventListener('hashchange', () => { void handleRoute(true); });
   await handleRoute(true);
   registerPwaServiceWorker();
 }

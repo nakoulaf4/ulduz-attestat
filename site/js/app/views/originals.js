@@ -112,29 +112,44 @@ export async function renderOriginalsView(container, { params, query, navigate, 
             </div>
           </div>
         ` : `
-          <!-- Task Number Strip (single horizontal scrollable row on mobile) -->
+          <!-- Single-Row Horizontal Scroll Strip with Date Dividers (zero ambiguous duplicate rows!) -->
           <div class="originals-strip" role="navigation" aria-label="${escapeHtml(t('originalsStripAria'))}">
-            ${list.map((tk, i) => {
-              const prevSolved = solvedMap[tk.id];
-              const sess = sessionAnswers.get(tk.id);
-              let statusCls = '';
-              if (prevSolved?.correct) statusCls = 'is-correct';
-              else if (prevSolved && !prevSolved.correct) statusCls = 'is-wrong';
-              else if (sess?.checked) statusCls = 'is-answered';
+            ${(() => {
+              let lastTag = '';
+              return list.map((tk, i) => {
+                const prevSolved = solvedMap[tk.id];
+                const sess = sessionAnswers.get(tk.id);
+                let statusCls = '';
+                if (prevSolved?.correct) statusCls = 'is-correct';
+                else if (prevSolved && !prevSolved.correct) statusCls = 'is-wrong';
+                else if (sess?.checked) statusCls = 'is-answered';
 
-              const labelNum = tk.origin?.number ?? (i + 1);
-              return `
-                <button
-                  type="button"
-                  class="strip-num-btn mono-code ${i === currentIdx ? 'is-current' : ''} ${statusCls}"
-                  data-action="pick-orig-idx"
-                  data-index="${i}"
-                  aria-current="${i === currentIdx ? 'step' : 'false'}"
-                  aria-label="${escapeHtml(t('originalsTaskLabel', { num: labelNum }))}"
-                  title="${escapeHtml(t('originalsTaskLabel', { num: labelNum }))}"
-                >${escapeHtml(labelNum)}</button>
-              `;
-            }).join('')}
+                const pdfStr = String(tk.origin?.pdf ?? tk.id ?? '');
+                const dateTag = pdfStr.includes('09.03') || pdfStr.includes('0903')
+                  ? '09.03'
+                  : pdfStr.includes('15.03') || pdfStr.includes('1503')
+                  ? '15.03'
+                  : '';
+                let dividerHtml = '';
+                if (pdfFilter === 'all' && dateTag && dateTag !== lastTag) {
+                  lastTag = dateTag;
+                  dividerHtml = `<span class="originals-strip__sep mono-code" aria-hidden="true">${dateTag}</span>`;
+                }
+
+                const labelNum = tk.origin?.number ?? (i + 1);
+                return `${dividerHtml}
+                  <button
+                    type="button"
+                    class="strip-num-btn mono-code ${i === currentIdx ? 'is-current' : ''} ${statusCls}"
+                    data-action="pick-orig-idx"
+                    data-index="${i}"
+                    aria-current="${i === currentIdx ? 'step' : 'false'}"
+                    aria-label="${escapeHtml(t('originalsTaskLabel', { num: labelNum }))}${dateTag ? ` (${dateTag})` : ''}"
+                    title="${escapeHtml(t('originalsTaskLabel', { num: labelNum }))}${dateTag ? ` · ${dateTag}` : ''}"
+                  >${escapeHtml(labelNum)}</button>
+                `;
+              }).join('');
+            })()}
           </div>
 
           <div id="originals-task-mount"></div>

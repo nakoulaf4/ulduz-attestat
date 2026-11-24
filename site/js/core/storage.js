@@ -4,11 +4,13 @@ import { isNativeApp, loadNativeProgress, saveNativeProgress } from './native.js
 import {
   DEFAULT_THEME_ID,
   normalizeThemeId,
+  normalizeUnlockedList,
   isThemeUnlocked,
   evaluateThemeUnlocks,
   applyThemeToDocument,
   isPerfectFullExamSummary,
 } from './themes.js';
+import { DEFAULT_FX_MODE, normalizeFxMode } from '../app/fx-engine.js';
 
 const STORAGE_KEY = 'ulduz_state_v1';
 const NATIVE_SYNC_DEBOUNCE_MS = 400;
@@ -21,7 +23,8 @@ function todayKey() {
 function defaultState() {
   return {
     version: 1,
-    theme: DEFAULT_THEME_ID, // 'voshod' default; unlockables: 'intel' | 'nvidia' | 'amd' | 'master'
+    theme: DEFAULT_THEME_ID, // 'atelier' default; unlockables: 'prism' | 'pulse' | 'monolith' | 'eclipse'
+    fxMode: DEFAULT_FX_MODE, // 'minimal' | 'tactile' | 'webgl'
     unlockedThemes: [DEFAULT_THEME_ID],
     unseenThemes: [],
     achievements: {
@@ -165,10 +168,9 @@ export function loadState() {
         ...base,
         ...parsed,
         theme: normalizeThemeId(parsed.theme),
-        unlockedThemes: Array.isArray(parsed.unlockedThemes)
-          ? [...new Set([DEFAULT_THEME_ID, ...parsed.unlockedThemes])]
-          : [DEFAULT_THEME_ID],
-        unseenThemes: Array.isArray(parsed.unseenThemes) ? [...new Set(parsed.unseenThemes)] : [],
+        fxMode: normalizeFxMode(parsed.fxMode),
+        unlockedThemes: normalizeUnlockedList(parsed.unlockedThemes),
+        unseenThemes: Array.isArray(parsed.unseenThemes) ? [...new Set(parsed.unseenThemes.map((id) => normalizeThemeId(id)).filter((id) => id !== DEFAULT_THEME_ID))] : [],
         achievements: { ...base.achievements, ...(parsed.achievements ?? {}) },
         streak: { ...base.streak, ...(parsed.streak ?? {}) },
         stats: {
@@ -575,6 +577,18 @@ export function markUnseenThemesSeen() {
   }
 }
 
+export function getFxMode() {
+  return normalizeFxMode(loadState().fxMode);
+}
+
+export function setFxMode(mode) {
+  const st = loadState();
+  const norm = normalizeFxMode(mode);
+  st.fxMode = norm;
+  saveState();
+  return norm;
+}
+
 export function getLang() {
   return loadState().lang || 'ru';
 }
@@ -587,9 +601,11 @@ export function setLang(lang) {
 
 export function resetAllProgress() {
   const lang = getLang();
+  const fxMode = getFxMode();
   memoryState = defaultState();
   memoryState.theme = DEFAULT_THEME_ID;
   memoryState.lang = lang;
+  memoryState.fxMode = fxMode;
   saveState();
   applyThemeToDocument(DEFAULT_THEME_ID, { animate: false });
 }

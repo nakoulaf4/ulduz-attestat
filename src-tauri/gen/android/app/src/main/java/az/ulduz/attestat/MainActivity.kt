@@ -1,15 +1,20 @@
 package az.ulduz.attestat
 
+import android.graphics.Color
 import android.os.Bundle
 import android.webkit.WebView
 import androidx.activity.OnBackPressedCallback
+import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 
 class MainActivity : TauriActivity() {
   private var appWebView: WebView? = null
 
   override fun onCreate(savedInstanceState: Bundle?) {
-    enableEdgeToEdge()
+    enableEdgeToEdge(
+      statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
+      navigationBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
+    )
     super.onCreate(savedInstanceState)
 
     val backCallback = object : OnBackPressedCallback(true) {
@@ -40,6 +45,7 @@ class MainActivity : TauriActivity() {
 
   override fun onWebViewCreate(webView: WebView) {
     super.onWebViewCreate(webView)
+    webView.setBackgroundColor(Color.parseColor("#030304"))
     appWebView = webView
   }
 }

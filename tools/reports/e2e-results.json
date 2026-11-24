@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-22T18:11:21.202Z",
+  "timestamp": "2026-11-24T19:08:36.064Z",
   "baseUrl": "http://127.0.0.1:8123/",
   "passed": 26,
   "failed": 0,
@@ -18,7 +18,7 @@
       "group": "Mobile#Manifest",
       "name": "site/manifest.json valid JSON, icons exist, icon-1024.png is valid 1024x1024 PNG, theme fonts & SVGs exist",
       "ok": true,
-      "detail": "manifest.json OK, icon-1024.png 1024x1024 (149066B), all 5 theme fonts + 3 SVGs present"
+      "detail": "manifest.json OK, icon-1024.png 1024x1024 (61158B), all 5 theme fonts + 3 SVGs present"
     },
     {
       "group": "Mobile#Lazy",
@@ -28,9 +28,9 @@
     },
     {
       "group": "P2#13",
-      "name": "Fresh Home has no 0/0%/0 metric wall, has H1, and migrates legacy light/dark to voshod",
+      "name": "Fresh Home has Ulduz Light Compass, 3 live FX pills, no 0/0%/0 metric wall, and migrates legacy themes to atelier",
       "ok": true,
-      "detail": "H1=\"Подготовка к выпускному экзамену ДИМ\", statsStrip=0, legacy->voshod OK, header & mobile badges hidden"
+      "detail": "H1=\"Подготовка к выпускному экзамену ДИМ\", Compass OK, 3 FX modes (minimal/tactile/webgl) OK, legacy->atelier OK"
     },
     {
       "group": "P0#1",
@@ -96,7 +96,7 @@
       "group": "P0#5/P1#10/11",
       "name": "Exam RU: Reading Split-View (1120px + Mobile 390px), Escape dismiss, Pending Self-Grade Banner -> Sync Results/Mistakes/Stats, Untouched Skipped Dont Flood Mistakes",
       "ok": true,
-      "detail": "1120px split (546px/506px), 390px tabs, 1 mistake (no flood), self-grade synced Results+Stats+Mistakes+Badge"
+      "detail": "1120px split (507px/549px), 390px tabs, 1 mistake (no flood), self-grade synced Results+Stats+Mistakes+Badge"
     },
     {
       "group": "Exam#all",
@@ -126,13 +126,13 @@
       "group": "Themes#Unlocks",
       "name": "#theme-modal initial lock states + all 4 unlock triggers (10 math->i, 5ru+5en->n, 10az->a, 100/100 exam->Мастер + toast)",
       "ok": true,
-      "detail": "All 4 unlocks (10 math->i, 5ru+5en->n, 10az->a, 100/100 sync->Мастер) + 4 celebration toasts + 1-tap Apply PASS"
+      "detail": "All 4 monochrome unlocks (prism/pulse/monolith/eclipse) + 3 FX studio cards + 1-tap Apply PASS"
     },
     {
       "group": "Themes#5-Matrix",
       "name": "All 5 themes: scoped fonts loaded, distinct button layouts, distinct animations, 0px overflow (1440/390/360) & RU+AZ visual capture",
       "ok": true,
-      "detail": "voshod(Ulduz GTA:OK,layout:OK,anim:OK) | intel(Ulduz Intel:OK,layout:OK,anim:OK) | nvidia(Ulduz Nvidia:OK,layout:OK,anim:OK) | amd(Ulduz AMD:OK,layout:OK,anim:OK) | master(Ulduz Wide:OK,layout:OK,anim:OK)"
+      "detail": "atelier(Ulduz Wide:OK,layout:OK,anim:OK) | prism(Ulduz Intel:OK,layout:OK,anim:OK) | pulse(Ulduz Nvidia:OK,layout:OK,anim:OK) | monolith(Ulduz AMD:OK,layout:OK,anim:OK) | eclipse(Ulduz Wide:OK,layout:OK,anim:OK)"
     },
     {
       "group": "P1#7",
@@ -156,7 +156,7 @@
       "group": "P1#9/Themes#Contrast",
       "name": "WCAG AA contrast (>= 4.5:1) for --text-primary, --text-muted, placeholders, .skip-link & .btn--primary across ALL 5 themes",
       "ok": true,
-      "detail": "voshod(txt=16.8,muted=9.2,btn=10.3,skip=10.3) | intel(txt=17.2,muted=6.8,btn=5.8,skip=5.8) | nvidia(txt=16.7,muted=7.3,btn=8.0,skip=8.0) | amd(txt=17.2,muted=7.1,btn=5.0,skip=5.0) | master(txt=19.8,muted=8.1,btn=20.6,skip=20.6)"
+      "detail": "atelier(txt=19.0,muted=6.9,btn=20.4,skip=20.4) | prism(txt=18.8,muted=6.9,btn=20.4,skip=20.4) | pulse(txt=19.1,muted=7.0,btn=20.4,skip=20.4) | monolith(txt=18.7,muted=6.9,btn=20.4,skip=20.4) | eclipse(txt=19.3,muted=7.1,btn=20.4,skip=20.4)"
     },
     {
       "group": "Runtime",

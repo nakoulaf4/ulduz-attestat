@@ -339,7 +339,7 @@ mod tests {
     #[test]
     fn app_info_reports_version_and_engine() {
         let info = app_info();
-        assert_eq!(info.version, "1.0.0");
+        assert_eq!(info.version, env!("CARGO_PKG_VERSION"));
         assert_eq!(info.engine, "rust-tauri-v2");
         assert!(!info.platform.is_empty());
     }

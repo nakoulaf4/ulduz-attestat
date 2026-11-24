@@ -1,6 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.ulduz" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
+    <!-- Base application theme — Obsidian Atelier dark launch surface. -->
+    <style name="Theme.ulduz" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">#030304</item>
+        <item name="android:statusBarColor">#030304</item>
+        <item name="android:navigationBarColor">#030304</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>

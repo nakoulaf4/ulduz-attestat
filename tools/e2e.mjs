@@ -135,12 +135,26 @@ function readPngDimensions(filePath) {
 const BANNED_EMOJIS = ['🌙', '☀️', '☀', '🔥', '📚', '📄', '📖', '❓', '🔊', '💡', '📋'];
 
 const THEME_SPECS = [
-  { id: 'voshod', label: 'Восход', font: 'Ulduz GTA', scheme: 'dark', themeColor: '#180C3A' },
-  { id: 'intel', label: 'i', font: 'Ulduz Intel', scheme: 'light', themeColor: '#F1F6FC' },
-  { id: 'nvidia', label: 'n', font: 'Ulduz Nvidia', scheme: 'dark', themeColor: '#090C09' },
-  { id: 'amd', label: 'a', font: 'Ulduz AMD', scheme: 'dark', themeColor: '#0E0E10' },
-  { id: 'master', label: 'Мастер', font: 'Ulduz Wide', scheme: 'dark', themeColor: '#030303' },
+  { id: 'atelier',  label: 'Obsidian',     font: 'Ulduz Wide',   scheme: 'dark', themeColor: '#030304' },
+  { id: 'prism',    label: 'Prism [i]',    font: 'Ulduz Intel',  scheme: 'dark', themeColor: '#040406' },
+  { id: 'pulse',    label: 'Pulse [n]',    font: 'Ulduz Nvidia', scheme: 'dark', themeColor: '#020203' },
+  { id: 'monolith', label: 'Monolith [a]', font: 'Ulduz AMD',    scheme: 'dark', themeColor: '#050506' },
+  { id: 'eclipse',  label: 'Eclipse',      font: 'Ulduz Wide',   scheme: 'dark', themeColor: '#000000' },
 ];
+
+const LEGACY_TEST_MAP = {
+  light: 'atelier',
+  dark: 'atelier',
+  voshod: 'atelier',
+  intel: 'prism',
+  nvidia: 'pulse',
+  amd: 'monolith',
+  master: 'eclipse',
+};
+
+function normTestTheme(t) {
+  return LEGACY_TEST_MAP[t] || t || 'atelier';
+}
 
 async function gotoHash(page, hash, waitSel = '#app-main') {
   const target = hash.startsWith('#') ? `${BASE_URL}${hash}` : `${BASE_URL}#${hash}`;
@@ -149,18 +163,19 @@ async function gotoHash(page, hash, waitSel = '#app-main') {
   await page.waitForTimeout(180);
 }
 
-async function resetAppState(page, { theme = 'voshod', lang = 'ru', unlockedThemes = null } = {}) {
-  const normalized = theme === 'light' ? 'intel' : theme === 'dark' ? 'voshod' : theme;
-  const unlocked = unlockedThemes ?? (normalized === 'voshod' ? ['voshod'] : ['voshod', normalized]);
+async function resetAppState(page, { theme = 'atelier', fxMode = 'tactile', lang = 'ru', unlockedThemes = null } = {}) {
+  const normalized = normTestTheme(theme);
+  const unlocked = (unlockedThemes ?? (normalized === 'atelier' ? ['atelier'] : ['atelier', normalized])).map(normTestTheme);
   await page.goto(BASE_URL, { waitUntil: 'networkidle' });
-  await page.evaluate(({ th, lg, unl }) => {
+  await page.evaluate(({ th, fx, lg, unl }) => {
     localStorage.clear();
     localStorage.setItem('ulduz_state_v1', JSON.stringify({
       version: 1,
       theme: th,
-      unlockedThemes: unl,
+      fxMode: fx,
+      unlockedThemes: [...new Set(['atelier', ...unl])],
       unseenThemes: [],
-      achievements: { perfectFullExam: unl.includes('master') },
+      achievements: { perfectFullExam: unl.includes('eclipse') },
       lang: lg,
       streak: { days: 0, lastDate: null, todayCount: 0 },
       stats: { totalAttempted: 0, totalCorrect: 0, bySubject: {}, byTopic: {}, byType: {} },
@@ -172,13 +187,13 @@ async function resetAppState(page, { theme = 'voshod', lang = 'ru', unlockedThem
       originalsSessions: {},
       activePractice: {},
     }));
-  }, { th: normalized, lg: lang, unl: unlocked });
+  }, { th: normalized, fx: fxMode, lg: lang, unl: unlocked });
   await page.reload({ waitUntil: 'networkidle' });
   await page.waitForTimeout(160);
 }
 
 async function setTheme(page, theme) {
-  const targetId = theme === 'light' ? 'intel' : theme === 'dark' ? 'voshod' : theme;
+  const targetId = normTestTheme(theme);
   const cur = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
   if (cur === targetId) return;
 
@@ -256,17 +271,18 @@ async function main() {
 
     const requiredThemeAssets = [
       'vendor/fonts/theme-fonts.css',
-      'vendor/fonts/ulduz-gta.woff2',
       'vendor/fonts/ulduz-intel.woff2',
       'vendor/fonts/ulduz-nvidia.woff2',
       'vendor/fonts/ulduz-amd.woff2',
       'vendor/fonts/ulduz-wide.woff2',
-      'assets/themes/voshod-scene.svg',
-      'assets/themes/voshod-clouds-layer.svg',
-      'assets/themes/voshod-sun.svg',
+      'css/tokens.css',
+      'css/primitives.css',
+      'css/styles.css',
       'css/themes.css',
       'js/core/themes.js',
       'js/core/native.js',
+      'js/app/fx-engine.js',
+      'js/app/ui-kit.js',
       'js/app/theme-modal.js',
       'sw.js',
     ];
@@ -308,15 +324,17 @@ async function main() {
       await lazyPage.waitForSelector('.subjects-grid', { timeout: 10000 });
       await lazyPage.waitForTimeout(180);
 
-      // Verify fresh first launch defaults to voshod!
+      // Verify fresh first launch defaults to Obsidian Atelier ('atelier', dark, #030304, fx=tactile)!
       const bootTheme = await lazyPage.evaluate(() => ({
         theme: document.documentElement.getAttribute('data-theme'),
         scheme: document.documentElement.getAttribute('data-color-scheme'),
+        fx: document.documentElement.getAttribute('data-fx'),
         themeColor: document.getElementById('theme-color-meta')?.getAttribute('content'),
       }));
-      assert(bootTheme.theme === 'voshod', `Fresh boot theme expected "voshod", got "${bootTheme.theme}"`);
+      assert(bootTheme.theme === 'atelier', `Fresh boot theme expected "atelier", got "${bootTheme.theme}"`);
       assert(bootTheme.scheme === 'dark', `Fresh boot color-scheme expected "dark", got "${bootTheme.scheme}"`);
-      assert(bootTheme.themeColor === '#180C3A', `Fresh boot theme-color expected "#180C3A", got "${bootTheme.themeColor}"`);
+      assert(bootTheme.fx === 'tactile', `Fresh boot fx expected "tactile", got "${bootTheme.fx}"`);
+      assert(bootTheme.themeColor === '#030304', `Fresh boot theme-color expected "#030304", got "${bootTheme.themeColor}"`);
 
       const subjRe = /\/js\/subjects\/(math|ru|en|az)\//;
       const onHome = requestedUrls.filter((u) => subjRe.test(u));
@@ -370,28 +388,50 @@ async function main() {
     // SECTION C: Home Fresh User + Screenshots (Восход & Intel Desktop+Mobile)
     // -----------------------------------------------------------------
     console.log('\n[3] Home Fresh User, Legacy Theme Migration & Baseline Screenshots');
-    await test('P2#13', 'Fresh Home has no 0/0%/0 metric wall, has H1, and migrates legacy light/dark to voshod', async () => {
-      // First confirm legacy 'light' / 'dark' in localStorage migrates cleanly to 'voshod'
+    await test('P2#13', 'Fresh Home has Ulduz Light Compass, 3 live FX pills, no 0/0%/0 metric wall, and migrates legacy themes to atelier', async () => {
+      // Confirm legacy 'light' / 'voshod' in localStorage migrates cleanly to 'atelier'
       await page.goto(BASE_URL, { waitUntil: 'networkidle' });
       await page.evaluate(() => {
-        localStorage.setItem('ulduz_state_v1', JSON.stringify({ version: 1, theme: 'light', lang: 'ru' }));
+        localStorage.setItem('ulduz_state_v1', JSON.stringify({ version: 1, theme: 'voshod', lang: 'ru' }));
       });
       await page.reload({ waitUntil: 'networkidle' });
       await page.waitForTimeout(160);
       const migratedTheme = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
-      assert(migratedTheme === 'voshod', `Legacy theme "light" did not migrate to "voshod", got "${migratedTheme}"`);
+      assert(migratedTheme === 'atelier', `Legacy theme "voshod" did not migrate to "atelier", got "${migratedTheme}"`);
 
-      await resetAppState(page, { theme: 'voshod', lang: 'ru' });
+      await resetAppState(page, { theme: 'atelier', fxMode: 'tactile', lang: 'ru' });
       await gotoHash(page, '#/');
 
       const statsStripCount = await page.locator('.home-stats-strip').count();
       const h1Text = (await page.locator('h1').first().textContent())?.trim();
       assert(statsStripCount === 0, `Expected 0 .home-stats-strip for fresh user, got ${statsStripCount}`);
       assert(h1Text && h1Text.length > 5, 'Home H1 missing');
+
+      // Test Interactive Ulduz 8-Ray Light Compass beacon focus -> updates center telemetry
+      await page.locator('[data-compass-subject="math"]').focus();
+      await page.waitForTimeout(140);
+      const coreTitle = (await page.locator('#compass-core-title').textContent())?.trim();
+      assert(coreTitle && coreTitle.includes('Математ'), `Compass center readout did not update on Math beacon focus: "${coreTitle}"`);
+
+      // Test all 3 live FX modes via Home inline strip (minimal -> webgl -> tactile)
+      for (const fx of ['minimal', 'webgl', 'tactile']) {
+        await page.locator(`[data-action="select-fx-inline"][data-fx-id="${fx}"]`).click();
+        await page.waitForTimeout(120);
+        const curFx = await page.evaluate(() => ({
+          attr: document.documentElement.getAttribute('data-fx'),
+          canvas2dHidden: document.getElementById('oa-fx-canvas')?.hidden,
+          glHidden: document.getElementById('oa-fx-webgl')?.hidden,
+        }));
+        assert(curFx.attr === fx, `FX attr expected "${fx}", got "${curFx.attr}"`);
+        if (fx === 'minimal') assert(curFx.canvas2dHidden && curFx.glHidden, 'minimal should hide canvases');
+        if (fx === 'tactile') assert(!curFx.canvas2dHidden && curFx.glHidden, 'tactile should show 2D canvas & hide WebGL');
+        if (fx === 'webgl') assert(!curFx.canvas2dHidden && !curFx.glHidden, 'webgl should show WebGL + 2D overlay');
+      }
+
       const headerBadgeHidden = await page.locator('#header-mistakes-badge').evaluate((el) => el.hidden);
       const mobileBadgeHidden = await page.locator('#mobile-mistakes-badge').evaluate((el) => el.hidden);
       assert(headerBadgeHidden === true && mobileBadgeHidden === true, 'Mistakes badges should be hidden when 0 mistakes');
-      return `H1="${h1Text}", statsStrip=0, legacy->voshod OK, header & mobile badges hidden`;
+      return `H1="${h1Text}", Compass OK, 3 FX modes (minimal/tactile/webgl) OK, legacy->atelier OK`;
     });
 
     await page.screenshot({ path: path.join(SHOTS_DIR, 'home-voshod-desktop.png'), fullPage: false });
@@ -1286,38 +1326,40 @@ async function main() {
         return log;
       });
 
-      assert(!unlockLog.after9Math.includes('intel'), 'intel unlocked prematurely at 9 math');
-      assert(unlockLog.after10Math.includes('intel'), 'intel did NOT unlock at 10 math');
-      assert(unlockLog.toastAfterIntel.includes('i'), `Missing unlock toast for i: "${unlockLog.toastAfterIntel}"`);
+      assert(!unlockLog.after9Math.includes('prism'), 'prism unlocked prematurely at 9 math');
+      assert(unlockLog.after10Math.includes('prism'), 'prism did NOT unlock at 10 math');
+      assert(unlockLog.toastAfterIntel.includes('Prism'), `Missing unlock toast for Prism: "${unlockLog.toastAfterIntel}"`);
 
-      assert(!unlockLog.after5Ru4En.includes('nvidia'), 'nvidia unlocked prematurely at 5 RU + 4 EN');
-      assert(unlockLog.after5Ru5En.includes('nvidia'), 'nvidia did NOT unlock at 5 RU + 5 EN');
-      assert(unlockLog.toastAfterNvidia.includes('n'), `Missing unlock toast for n: "${unlockLog.toastAfterNvidia}"`);
+      assert(!unlockLog.after5Ru4En.includes('pulse'), 'pulse unlocked prematurely at 5 RU + 4 EN');
+      assert(unlockLog.after5Ru5En.includes('pulse'), 'pulse did NOT unlock at 5 RU + 5 EN');
+      assert(unlockLog.toastAfterNvidia.includes('Pulse'), `Missing unlock toast for Pulse: "${unlockLog.toastAfterNvidia}"`);
 
-      assert(unlockLog.after10Az.includes('amd'), 'amd did NOT unlock at 10 AZ');
-      assert(unlockLog.toastAfterAmd.includes('a'), `Missing unlock toast for a: "${unlockLog.toastAfterAmd}"`);
+      assert(unlockLog.after10Az.includes('monolith'), 'monolith did NOT unlock at 10 AZ');
+      assert(unlockLog.toastAfterAmd.includes('Monolith'), `Missing unlock toast for Monolith: "${unlockLog.toastAfterAmd}"`);
 
-      assert(!unlockLog.after90Exam.includes('master'), 'master unlocked prematurely at 90/100');
-      assert(unlockLog.after100ExamSync.includes('master') && unlockLog.perfectFlag, 'master did NOT unlock on 100/100 self-grade sync');
-      assert(unlockLog.toastAfterMaster.includes('Мастер') && unlockLog.toastHasApplyBtn, `Missing unlock toast / Apply CTA for Мастер`);
+      assert(!unlockLog.after90Exam.includes('eclipse'), 'eclipse unlocked prematurely at 90/100');
+      assert(unlockLog.after100ExamSync.includes('eclipse') && unlockLog.perfectFlag, 'eclipse did NOT unlock on 100/100 self-grade sync');
+      assert(unlockLog.toastAfterMaster.includes('Eclipse') && unlockLog.toastHasApplyBtn, `Missing unlock toast / Apply CTA for Eclipse`);
       assert(unlockLog.events.length === 4, `Expected 4 unlock events, got ${unlockLog.events.length}`);
 
-      // Click 1-tap Apply in celebration toast -> switches straight to Мастер!
+      // Click 1-tap Apply in celebration toast -> switches straight to Eclipse!
       await page.locator('.toast--unlock [data-action="toast-undo"]').click();
       await page.waitForTimeout(180);
-      assert((await page.evaluate(() => document.documentElement.getAttribute('data-theme'))) === 'master', 'Toast Apply button did not activate Мастер');
+      assert((await page.evaluate(() => document.documentElement.getAttribute('data-theme'))) === 'eclipse', 'Toast Apply button did not activate Eclipse');
 
-      // Open #theme-modal again -> verify all 5 unlocked & capture screenshot!
+      // Open #theme-modal again -> verify 3 FX cards + all 5 unlocked monochrome cards!
       await page.locator('#btn-theme-toggle').click();
       await page.locator('#theme-modal').waitFor();
       await page.waitForTimeout(160);
       const unlockedCards = await page.locator('#theme-modal .theme-card.is-unlocked').count();
+      const fxCards = await page.locator('#theme-modal .fx-mode-card').count();
       assert(unlockedCards === 5, `Expected 5 unlocked cards in modal, got ${unlockedCards}`);
+      assert(fxCards === 3, `Expected 3 live FX cards in Studio modal, got ${fxCards}`);
       await page.screenshot({ path: path.join(THEME_SHOTS_DIR, 'modal-unlocked-desktop.png'), fullPage: false });
       await page.locator('#theme-modal [data-action="close-theme-modal"]').click();
       await page.waitForTimeout(120);
 
-      return 'All 4 unlocks (10 math->i, 5ru+5en->n, 10az->a, 100/100 sync->Мастер) + 4 celebration toasts + 1-tap Apply PASS';
+      return 'All 4 monochrome unlocks (prism/pulse/monolith/eclipse) + 3 FX studio cards + 1-tap Apply PASS';
     });
 
     await test('Themes#5-Matrix', 'All 5 themes: scoped fonts loaded, distinct button layouts, distinct animations, 0px overflow (1440/390/360) & RU+AZ visual capture', async () => {
@@ -1418,24 +1460,28 @@ async function main() {
         assert(pracAudit.passageFont.includes('Source Serif 4'), `${spec.id} leaked display font onto .passage-panel__body: "${pracAudit.passageFont}"`);
         assert(pracAudit.overflow <= 0, `${spec.id} desktop practice overflow: ${pracAudit.overflow}px`);
 
-        // Distinct per-theme layout + animation proofs
-        if (spec.id === 'voshod') {
-          assert(homeAudit.cloudsAnim.includes('voshodCloudDrift'), `voshod missing voshodCloudDrift: ${homeAudit.cloudsAnim}`);
-          assert(pracAudit.primaryRadius === '999px', `voshod primary footer pill radius expected 999px, got ${pracAudit.primaryRadius}`);
-        } else if (spec.id === 'intel') {
-          assert(homeAudit.gridAnim.includes('intelWaferPulse'), `intel missing intelWaferPulse: ${homeAudit.gridAnim}`);
-          assert(pracAudit.footerDisplay === 'grid', `intel task footer expected grid layout, got ${pracAudit.footerDisplay}`);
-        } else if (spec.id === 'nvidia') {
-          assert(homeAudit.btnClipPath.includes('polygon'), `nvidia button expected chamfered polygon clip-path, got ${homeAudit.btnClipPath}`);
-          assert(homeAudit.ctaJustify === 'flex-end', `nvidia cta row expected flex-end, got ${homeAudit.ctaJustify}`);
-        } else if (spec.id === 'amd') {
-          assert(Number(pracAudit.rightOrder) === -1, `amd task-footer-right expected order:-1 (primary LEFT), got ${pracAudit.rightOrder}`);
-          assert(homeAudit.btnClipPath.includes('polygon'), `amd button expected angled polygon clip-path, got ${homeAudit.btnClipPath}`);
-        } else if (spec.id === 'master') {
-          assert(homeAudit.welcomeAlign === 'center', `master home-welcome expected text-align:center, got ${homeAudit.welcomeAlign}`);
-          assert(homeAudit.welcomeAnim.includes('masterBeam'), `master missing masterBeam animation: ${homeAudit.welcomeAnim}`);
-          assert(homeAudit.gridAnim.includes('masterHorizon'), `master missing masterHorizon animation: ${homeAudit.gridAnim}`);
-          assert(pracAudit.footerJustify === 'center', `master task footer expected centered layout, got ${pracAudit.footerJustify}`);
+        // Distinct per-mode layout + animation proofs (all 5 pure monochrome neon modes!)
+        if (spec.id === 'atelier') {
+          const wideSpan = await page.evaluate(() => getComputedStyle(document.querySelector('.subject-card--wide') || document.body).gridColumnStart);
+          assert(homeAudit.theme === 'atelier', `atelier attr check failed`);
+          assert(wideSpan !== '', 'atelier asymmetric grid check');
+        } else if (spec.id === 'prism') {
+          assert(homeAudit.gridAnim.includes('prismGridPulse'), `prism missing prismGridPulse: ${homeAudit.gridAnim}`);
+          assert(pracAudit.footerDisplay === 'grid', `prism task footer expected grid layout, got ${pracAudit.footerDisplay}`);
+        } else if (spec.id === 'pulse') {
+          assert(homeAudit.btnClipPath.includes('polygon'), `pulse button expected chamfered polygon clip-path, got ${homeAudit.btnClipPath}`);
+          assert(
+            ['flex-end', 'flow-end', 'end'].includes(homeAudit.ctaJustify),
+            `pulse cta row expected flex-end/flow-end, got ${homeAudit.ctaJustify}`
+          );
+        } else if (spec.id === 'monolith') {
+          assert(Number(pracAudit.rightOrder) === -1, `monolith task-footer-right expected order:-1 (primary LEFT), got ${pracAudit.rightOrder}`);
+          assert(homeAudit.btnClipPath.includes('polygon'), `monolith button expected angled polygon clip-path, got ${homeAudit.btnClipPath}`);
+        } else if (spec.id === 'eclipse') {
+          assert(homeAudit.welcomeAlign === 'center', `eclipse home-welcome expected text-align:center, got ${homeAudit.welcomeAlign}`);
+          assert(homeAudit.welcomeAnim.includes('masterBeam'), `eclipse missing masterBeam animation: ${homeAudit.welcomeAnim}`);
+          assert(homeAudit.gridAnim.includes('masterHorizon'), `eclipse missing masterHorizon animation: ${homeAudit.gridAnim}`);
+          assert(pracAudit.footerJustify === 'center', `eclipse task footer expected centered layout, got ${pracAudit.footerJustify}`);
         }
 
         await page.screenshot({ path: path.join(THEME_SHOTS_DIR, `theme-${spec.id}-practice-desktop.png`), fullPage: false });
@@ -1457,13 +1503,13 @@ async function main() {
         host.id = 'qa-font-specimen';
         host.style.cssText = 'position:fixed;inset:0;z-index:9999;background:#0D1117;color:#FFF8EE;padding:28px 32px;display:flex;flex-direction:column;gap:16px;overflow:auto;';
         const specs = [
-          { name: 'Восход — Ulduz GTA', font: "'Ulduz GTA'", bg: '#180C3A', fg: '#FFE985', border: '#FFB13B' },
-          { name: 'i — Ulduz Intel', font: "'Ulduz Intel'", bg: '#F1F6FC', fg: '#0B1B33', border: '#0068B5' },
-          { name: 'n — Ulduz Nvidia', font: "'Ulduz Nvidia'", bg: '#090C09', fg: '#9CE600', border: '#76B900' },
-          { name: 'a — Ulduz AMD', font: "'Ulduz AMD'", bg: '#0E0E10', fg: '#FAFAFA', border: '#ED1C24' },
-          { name: 'Мастер — Ulduz Wide', font: "'Ulduz Wide'", bg: '#030303', fg: '#FFFFFF', border: '#FFFFFF' },
+          { name: 'Obsidian — Ulduz Wide', font: "'Ulduz Wide'", bg: '#030304', fg: '#FFFFFF', border: '#FFFFFF' },
+          { name: 'Prism [i] — Ulduz Intel', font: "'Ulduz Intel'", bg: '#040406', fg: '#FAFAFC', border: 'rgba(255,255,255,0.55)' },
+          { name: 'Pulse [n] — Ulduz Nvidia', font: "'Ulduz Nvidia'", bg: '#020203', fg: '#FAFAFC', border: 'rgba(255,255,255,0.55)' },
+          { name: 'Monolith [a] — Ulduz AMD', font: "'Ulduz AMD'", bg: '#050506', fg: '#FAFAFC', border: 'rgba(255,255,255,0.55)' },
+          { name: 'Eclipse · Мастер — Ulduz Wide', font: "'Ulduz Wide'", bg: '#000000', fg: '#FFFFFF', border: '#FFFFFF' },
         ];
-        const sample = 'Восход • Azərbaycan: Əə Ğğ Iı İi Öö Şş Üü Çç • Ёё № 100% Мастер';
+        const sample = 'Obsidian • Azərbaycan: Əə Ğğ Iı İi Öö Şş Üü Çç • Ёё № 100% Мастер';
         host.innerHTML = specs.map((s) => `
           <div style="background:${s.bg};color:${s.fg};border:2px solid ${s.border};border-radius:10px;padding:16px 20px;">
             <div style="font:600 12px 'Inter Variable',sans-serif;opacity:0.78;margin-bottom:6px;">${s.name}</div>
@@ -1477,12 +1523,12 @@ async function main() {
       await page.screenshot({ path: path.join(THEME_SHOTS_DIR, 'all-5-fonts-az-ru-specimen.png'), fullPage: false });
       await page.evaluate(() => document.getElementById('qa-font-specimen')?.remove());
 
-      // Also capture AZ localization Home screenshot on Восход (desktop + mobile)
-      await setTheme(page, 'voshod');
+      // Also capture AZ localization Home screenshot on Obsidian Atelier
+      await setTheme(page, 'atelier');
       await page.setViewportSize({ width: 1440, height: 900 });
       await page.locator('#btn-lang-toggle').click();
       await page.waitForTimeout(180);
-      await page.screenshot({ path: path.join(THEME_SHOTS_DIR, 'theme-voshod-home-az-desktop.png'), fullPage: false });
+      await page.screenshot({ path: path.join(THEME_SHOTS_DIR, 'theme-atelier-home-az-desktop.png'), fullPage: false });
       await page.locator('#btn-lang-toggle').click();
       await page.waitForTimeout(150);
 
@@ -1561,7 +1607,7 @@ async function main() {
     //            Mobile Bottom Nav Visibility, 48px Touch Targets & WCAG AA Contrast across ALL 5 Themes
     // -----------------------------------------------------------------
     console.log('\n[11] 5-Viewport Matrix, Mobile Bottom Nav, 48px Touch Targets & 5-Theme WCAG AA Contrast');
-    await resetAppState(page, { theme: 'voshod', lang: 'ru', unlockedThemes: ['voshod', 'intel', 'nvidia', 'amd', 'master'] });
+    await resetAppState(page, { theme: 'atelier', lang: 'ru', unlockedThemes: ['atelier', 'prism', 'pulse', 'monolith', 'eclipse'] });
 
     await test('P1#11/P2#12/13', 'Zero horizontal overflow, zero UI emojis, zero banned eyebrows, bottom nav visibility across 5 viewports (360/390/393/820/1440)', async () => {
       const viewports = [
@@ -1574,7 +1620,7 @@ async function main() {
       const routes = ['#/', '#/subject/math', '#/practice/math', '#/practice/ru?type=ru.reading-closed', '#/exam/math', '#/originals/math', '#/mistakes', '#/stats'];
       const issues = [];
 
-      for (const theme of ['voshod', 'intel']) {
+      for (const theme of ['atelier', 'eclipse']) {
         await setTheme(page, theme);
         for (const vp of viewports) {
           await page.setViewportSize({ width: vp.width, height: vp.height });

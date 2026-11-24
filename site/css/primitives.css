@@ -1,0 +1,699 @@
+/* ==========================================================================
+   Ulduz — Obsidian Atelier Composable Primitive Kit
+   Template foundation: any new screen or widget composed from .oa-* primitives
+   and [data-specular] / [data-magnetic] / [data-ripple] attributes inherits the
+   full monochrome-neon aesthetic, pointer-reactive light, and reduced-motion safety.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Pointer-Reactive Specular Hairline Surface ([data-specular])
+   -------------------------------------------------------------------------- */
+
+.oa-surface,
+[data-specular] {
+  position: relative;
+  --mx: 50%;
+  --my: 0%;
+  --specular-on: 0;
+}
+
+/* Crisp 1px specular border reflection tracking pointer/touch coordinates */
+[data-specular]::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: calc(var(--specular-on) * var(--oa-specular-alpha, 0.42));
+  background: radial-gradient(
+    var(--oa-specular-radius, 260px) circle at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.92),
+    rgba(255, 255, 255, 0.24) 38%,
+    transparent 72%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  transition: opacity var(--dur-med) var(--ease-out);
+}
+
+html[data-fx="minimal"] [data-specular]::before {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. Magnetic Inner Surface Physics ([data-magnetic])
+   Outer element stays stationary (no edge flicker); inner layer shifts softly.
+   -------------------------------------------------------------------------- */
+
+[data-magnetic] {
+  position: relative;
+}
+
+[data-magnetic] > .oa-mag-inner,
+[data-magnetic] > span,
+[data-magnetic] > svg {
+  transition: transform 240ms var(--ease-out);
+}
+
+/* --------------------------------------------------------------------------
+   3. Touch / Click Photon Ring Ripple Host ([data-ripple])
+   -------------------------------------------------------------------------- */
+
+[data-ripple] {
+  position: relative;
+  overflow: hidden;
+}
+
+.oa-ripple-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.82);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, transparent 72%);
+  transform: translate(-50%, -50%) scale(0.08);
+  opacity: 0.92;
+  z-index: 3;
+}
+
+.btn--primary .oa-ripple-ring,
+.btn--accent .oa-ripple-ring {
+  border-color: rgba(5, 5, 7, 0.65);
+  background: radial-gradient(circle, rgba(5, 5, 7, 0.16) 0%, transparent 70%);
+}
+
+/* --------------------------------------------------------------------------
+   4. Reusable Obsidian Atelier Buttons (.btn / .oa-btn)
+   -------------------------------------------------------------------------- */
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-ui-label);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out),
+    transform var(--dur-instant) var(--ease-out);
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn--primary:disabled,
+.btn--accent:disabled {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.055);
+  color: rgba(255, 255, 255, 0.44);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: none;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.975);
+}
+
+.btn--primary,
+.btn--accent {
+  background: var(--oa-neon);
+  color: var(--oa-on-neon);
+  border-color: var(--oa-neon);
+  box-shadow: var(--shadow-neon-btn);
+}
+
+.btn--primary::after,
+.btn--accent::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.55) 50%, transparent 75%);
+  transform: translateX(-130%);
+  pointer-events: none;
+  transition: transform 520ms var(--ease-out);
+}
+
+.btn--primary:hover:not(:disabled),
+.btn--accent:hover:not(:disabled) {
+  background: var(--oa-neon-hover);
+  border-color: var(--oa-neon);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.24), 0 4px 14px rgba(0, 0, 0, 0.78);
+}
+
+.btn--primary:hover:not(:disabled)::after,
+.btn--accent:hover:not(:disabled)::after {
+  transform: translateX(130%);
+}
+
+.btn--secondary {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.66);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: var(--border-subtle);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.btn--warn-soft {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border: 1px dashed rgba(255, 255, 255, 0.55);
+}
+
+.btn--warn-soft:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  border-style: solid;
+  border-color: #FFFFFF;
+}
+
+.btn--danger {
+  background: var(--bg-elevated);
+  color: #FFFFFF;
+  border: 1px dashed #FFFFFF;
+}
+
+.btn--danger:hover:not(:disabled) {
+  background: #FFFFFF;
+  color: #050507;
+  border-style: solid;
+}
+
+.btn--lg {
+  min-height: 48px;
+  padding: 0 24px;
+  font-size: 0.9rem;
+}
+
+.btn--sm {
+  min-height: 36px;
+  padding: 0 13px;
+  font-size: 0.78rem;
+  gap: 6px;
+}
+
+.btn--xs {
+  min-height: 32px;
+  padding: 0 11px;
+  font-size: 0.74rem;
+  gap: 5px;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  min-height: 38px;
+  padding: 0 8px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-instant) var(--ease-out);
+}
+
+.btn-icon:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.btn-icon:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.btn-icon--sm {
+  min-width: 34px;
+  min-height: 34px;
+  font-size: 0.78rem;
+}
+
+.btn-icon-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  min-width: 36px;
+  padding: 0 12px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-instant) var(--ease-out);
+}
+
+.btn-icon-pill:hover {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.56);
+}
+
+.btn-icon-pill:active {
+  transform: scale(0.96);
+}
+
+.btn-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 0 11px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-ui-label);
+  font-size: 0.74rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.btn-chip:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.btn-chip.is-bookmarked,
+.btn-chip.is-flagged {
+  background: #FFFFFF;
+  color: #050507;
+  border-color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   5. Badges, Segmented Controls & Luminous Filament Progress Bars
+   -------------------------------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  font-family: var(--font-ui-label);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.badge--subtle {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.badge--gold,
+.badge--grade-gold {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.42);
+  color: #FFFFFF;
+}
+
+.badge--warn,
+.badge--grade-wrong {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px dashed rgba(255, 255, 255, 0.56);
+  color: var(--text-primary);
+}
+
+.badge--grade-correct,
+.badge--grade-excellent,
+.badge--grade-good {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #050507;
+}
+
+.badge--grade-partial,
+.badge--grade-satisfactory,
+.badge--grade-college {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px dotted rgba(255, 255, 255, 0.75);
+  color: #FFFFFF;
+}
+
+.badge--grade-below {
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.46);
+  color: var(--text-secondary);
+}
+
+.badge--subject {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+/* Segmented Controls */
+.setup-pills,
+.difficulty-Segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+}
+
+.seg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.seg-btn:hover:not(:disabled) {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.seg-btn.is-active {
+  background: #FFFFFF;
+  color: #050507;
+  font-weight: 600;
+  border-color: #FFFFFF;
+}
+
+.seg-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Luminous Hairline Progress Filament */
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  position: relative;
+  height: 100%;
+  border-radius: inherit;
+  background: #FFFFFF;
+  transition: width 460ms var(--ease-out);
+}
+
+.progress-bar--partial .progress-bar__fill {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.progress-bar--wrong .progress-bar__fill {
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.85) 0 6px,
+    rgba(255, 255, 255, 0.25) 6px 10px
+  );
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.breadcrumbs a {
+  color: var(--text-secondary);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.breadcrumbs a:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.breadcrumbs [aria-current="page"] {
+  color: var(--text-primary);
+}
+
+/* Shared Section Headers & Layout Rhythm (always more space above than below) */
+.section-block {
+  margin-top: 44px;
+}
+
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-header--split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px 20px;
+}
+
+.section-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.24;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+.section-subtitle {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+.page-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.page-lead {
+  margin: 10px 0 0;
+  font-size: 0.98rem;
+  max-width: 64ch;
+  text-wrap: pretty;
+}
+
+/* Utility & Readout Helpers */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.mono-code {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.meta-sep {
+  opacity: 0.42;
+  margin: 0 3px;
+}
+
+.subject-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.subject-dot--ru {
+  background: transparent;
+  border: 1.5px solid #FFFFFF;
+}
+
+.subject-dot--en {
+  border-radius: 1px;
+  transform: rotate(45deg);
+}
+
+.subject-dot--az {
+  border-radius: 1px;
+}
+
+/* Shared Empty & Loading Monoliths */
+.empty-card,
+.loading-card {
+  padding: 36px 26px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  text-align: center;
+}
+
+.empty-card h2 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+}
+
+.empty-card p {
+  margin: 0 auto;
+  max-width: 52ch;
+}
+
+.empty-card__actions {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.notice-banner {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. Reusable Atelier Reveal Choreography (always visible by default!)
+   -------------------------------------------------------------------------- */
+
+.oa-stagger-item {
+  animation: oaSurfaceRise 360ms var(--ease-out) both;
+  animation-delay: calc(min(var(--stagger-i, 0), 6) * 42ms);
+}
+
+@keyframes oaSurfaceRise {
+  from {
+    opacity: 0.01;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyboard badge */
+kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1;
+}

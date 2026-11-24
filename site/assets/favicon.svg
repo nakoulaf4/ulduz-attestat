@@ -1,18 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <defs>
-    <linearGradient id="ulduzGrad" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#F59E0B"/>
-      <stop offset="50%" stop-color="#D97706"/>
-      <stop offset="100%" stop-color="#1D4ED8"/>
-    </linearGradient>
-    <linearGradient id="ulduzGold" x1="16" y1="12" x2="48" y2="52" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#FDE68A"/>
-      <stop offset="100%" stop-color="#D97706"/>
-    </linearGradient>
-  </defs>
-  <!-- Outer 8-pointed star (Rub el Hizb / Azerbaijani Ulduz motif) -->
-  <path d="M32 3L39.8 14.2L52.5 11.5L49.8 24.2L61 32L49.8 39.8L52.5 52.5L39.8 49.8L32 61L24.2 49.8L11.5 52.5L14.2 39.8L3 32L14.2 24.2L11.5 11.5L24.2 14.2L32 3Z" fill="url(#ulduzGrad)"/>
-  <!-- Inner 8-pointed star -->
-  <path d="M32 12L37.1 20.9L46.1 17.9L43.1 26.9L52 32L43.1 37.1L46.1 46.1L37.1 43.1L32 52L26.9 43.1L17.9 46.1L20.9 37.1L12 32L20.9 26.9L17.9 17.9L26.9 20.9L32 12Z" fill="url(#ulduzGold)"/>
-  <circle cx="32" cy="32" r="6" fill="#FFFFFF"/>
+  <rect width="64" height="64" rx="16" fill="#050507"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" stroke="#FFFFFF" stroke-opacity="0.24" stroke-width="1.5"/>
+  <!-- Outer precision compass ring -->
+  <circle cx="32" cy="32" r="24" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="2 3"/>
+  <!-- Pure incandescent 8-pointed Ulduz star -->
+  <path d="M32 6L38.2 17.4L50.4 13.6L46.6 25.8L58 32L46.6 38.2L50.4 50.4L38.2 46.6L32 58L25.8 46.6L13.6 50.4L17.4 38.2L6 32L17.4 25.8L13.6 13.6L25.8 17.4L32 6Z" fill="#FFFFFF"/>
+  <!-- Obsidian inner aperture -->
+  <circle cx="32" cy="32" r="9.5" fill="#050507"/>
+  <circle cx="32" cy="32" r="4.2" fill="#FFFFFF"/>
 </svg>

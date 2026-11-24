@@ -19,6 +19,7 @@ import { mountTaskView, hasResponse } from '../task-view.js';
 import { t, subjectTitle, subjectShort, examDesc } from '../i18n.js';
 import { icon } from '../icons.js';
 import { escapeHtml, prepareRichHtml, hydrateMath } from '../math.js';
+import { oaAnimateCounter, oaFireFxPulse } from '../ui-kit.js';
 
 function formatClock(totalSeconds) {
   const s = Math.max(0, Math.floor(totalSeconds));
@@ -435,7 +436,7 @@ export async function renderExamView(container, { params, query, navigate, setKe
 
           ${renderActiveExamConflictBanner()}
 
-          <section class="exam-setup-card">
+          <section class="exam-setup-card" data-specular>
             <div class="exam-setup-card__head">
               <h1 class="exam-setup-title">${escapeHtml(t('examAllTitle'))}</h1>
               <p class="page-lead text-secondary">${escapeHtml(t('examAllSubtitle'))}</p>
@@ -1042,7 +1043,7 @@ export async function renderExamView(container, { params, query, navigate, setKe
         ` : ''}
 
         <!-- Results Hero Card (H1 first, grade & time quietly below — zero eyebrows above H1, zero nested stat cards) -->
-        <section class="results-hero">
+        <section class="results-hero" data-specular>
           <div class="results-gauge-wrap">
             <svg class="score-ring score-ring--${grade.color}" viewBox="0 0 128 128" width="144" height="144" aria-hidden="true">
               <circle class="score-ring__bg" cx="64" cy="64" r="54" stroke-width="10" fill="none" />
@@ -1210,6 +1211,15 @@ export async function renderExamView(container, { params, query, navigate, setKe
     `;
 
     hydrateMath(container);
+
+    // Kinetic odometer score count-up & mastery pulse on high score
+    const scoreStrong = container.querySelector('.results-gauge__text strong');
+    if (scoreStrong) {
+      oaAnimateCounter(scoreStrong, scaledScore, { duration: 640, decimals: scaledScore % 1 !== 0 ? 1 : 0 });
+    }
+    if (scaledMax > 0 && (scaledScore / scaledMax) >= 0.85) {
+      oaFireFxPulse('milestone', { intensity: 1.3 });
+    }
 
     // Mount expanded task card if any
     if (expandedReviewIndex !== null) {

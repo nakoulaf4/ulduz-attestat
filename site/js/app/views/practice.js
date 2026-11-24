@@ -13,6 +13,7 @@ import { mountTaskView } from '../task-view.js';
 import { t, subjectTitle } from '../i18n.js';
 import { icon, ulduzStarSvg } from '../icons.js';
 import { escapeHtml, plainReadableText } from '../math.js';
+import { oaFireFxPulse } from '../ui-kit.js';
 
 function pickWeightedType(types, rng) {
   if (!types || types.length === 0) return null;
@@ -158,8 +159,9 @@ export async function renderPracticeView(container, { params, query, navigate, s
       diffLabel,
     ].filter(Boolean);
 
+    const hasPassage = Boolean(cur?.task?.passage?.html);
     container.innerHTML = `
-      <div class="page-container">
+      <div class="page-container ${hasPassage ? '' : 'page-container--narrow'}">
         <h1 class="sr-only">${escapeHtml(t('practiceHeadingSr', { subject: localizedSubject }))}</h1>
 
         <!-- Top Navigation & Ulduz Sprint Stats -->
@@ -305,6 +307,9 @@ export async function renderPracticeView(container, { params, query, navigate, s
         if (res.correct) {
           sessionCorrect += 1;
           sessionStreak += 1;
+          if (sessionStreak > 0 && sessionStreak % 8 === 0) {
+            oaFireFxPulse('milestone', { intensity: 1.35 });
+          }
         } else {
           sessionStreak = 0;
         }

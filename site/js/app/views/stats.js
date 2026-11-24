@@ -13,6 +13,7 @@ import { isNativeApp, exportNativeProgress, haptic } from '../../core/native.js'
 import { t, subjectTitle, subjectShort, formatDateTime } from '../i18n.js';
 import { icon, ulduzStarSvg } from '../icons.js';
 import { escapeHtml } from '../math.js';
+import { oaAnimateCounter } from '../ui-kit.js';
 
 export async function renderStatsView(container, { setKeyHandler }) {
   if (setKeyHandler) setKeyHandler(null);
@@ -51,15 +52,15 @@ export async function renderStatsView(container, { setKeyHandler }) {
         <!-- Hairline Summary Strip (calm, zero boxed KPI boilerplate) -->
         <div class="stats-summary-strip">
           <div class="stats-summary-cell">
-            <span class="stats-summary-cell__val tabular-nums">${totalAttempted}</span>
+            <span class="stats-summary-cell__val tabular-nums" data-count-to="${totalAttempted}">${totalAttempted}</span>
             <span class="stats-summary-cell__lbl">${escapeHtml(t('statsKpiSolved'))}</span>
           </div>
           <div class="stats-summary-cell">
-            <span class="stats-summary-cell__val tabular-nums">${accuracy}%</span>
+            <span class="stats-summary-cell__val tabular-nums" data-count-to="${accuracy}" data-count-suffix="%">${accuracy}%</span>
             <span class="stats-summary-cell__lbl">${escapeHtml(t('statsKpiAccuracy', { correct: totalCorrect }))}</span>
           </div>
           <div class="stats-summary-cell">
-            <span class="stats-summary-cell__val tabular-nums">${exams.length}</span>
+            <span class="stats-summary-cell__val tabular-nums" data-count-to="${exams.length}">${exams.length}</span>
             <span class="stats-summary-cell__lbl">${escapeHtml(t('statsKpiExams'))}</span>
           </div>
           <div class="stats-summary-cell">
@@ -82,7 +83,7 @@ export async function renderStatsView(container, { setKeyHandler }) {
               const sb = bySubject[m.id] ?? { attempted: 0, correct: 0, earned: 0, max: 0 };
               const acc = sb.attempted > 0 ? Math.round((sb.correct / sb.attempted) * 100) : 0;
               return `
-                <article class="stat-subj-card subject-card--${m.id}">
+                <article class="stat-subj-card subject-card--${m.id}" data-specular>
                   <div class="stat-subj-card__head">
                     <span class="stat-subj-card__icon" aria-hidden="true">${escapeHtml(m.icon)}</span>
                     <div>
@@ -223,6 +224,10 @@ export async function renderStatsView(container, { setKeyHandler }) {
         </section>
       </div>
     `;
+
+    container.querySelectorAll('.stats-summary-cell__val[data-count-to]').forEach((el) => {
+      oaAnimateCounter(el, Number(el.dataset.countTo || 0), { duration: 480, suffix: el.dataset.countSuffix || '' });
+    });
 
     container.querySelector('[data-action="export-json"]')?.addEventListener('click', async () => {
       const json = exportProgressJson();

@@ -229,7 +229,7 @@ export async function renderMistakesView(container, { query, setKeyHandler, show
             ${list.map((entry) => {
               const tk = entry.task;
               return `
-                <article class="mistake-card subject-card--${escapeHtml(tk.subject)}">
+                <article class="mistake-card subject-card--${escapeHtml(tk.subject)}" data-specular>
                   <div class="mistake-card__head">
                     <span class="mistake-card__subj">
                       <span class="subject-dot subject-dot--${escapeHtml(tk.subject)}" aria-hidden="true"></span>

@@ -1,15 +1,17 @@
 /* ==========================================================================
-   Ulduz 5 Unlockable Themes System
-   1. voshod  — Восход (Default · Pixel-Art Sunrise + GTA Arcade)
-   2. intel   — i (Intel Silicon Edition · Crisp Light Wafer Lab)
-   3. nvidia  — n (NVIDIA RTX Edition · Stealth Carbon & Volt Green)
-   4. amd     — a (AMD Radeon Edition · Forged Obsidian & Signal Crimson)
-   5. master  — Мастер (Prestige Endgame · Pure Black-and-White Neon + Wide)
+   Ulduz — 5 Unlockable Pure Monochrome Modes + Obsidian Studio & FX Drawer
+   All 5 modes operate inside the pure black-and-white neon dark universe,
+   varying architectural geometry, button placement, display typography, and motion.
+   1. atelier  — Obsidian (Default · Asymmetric Atelier + Wide Display)
+   2. prism    — Prism [i] (Precision 2px Chamfers + Crosshair Grid + Symmetric 2-Col Dock)
+   3. pulse    — Pulse [n] (Angled Kinetic Cuts + Right-Aligned High-Velocity Dock)
+   4. monolith — Monolith [a] (L-Corner Laser Brackets + Left-First Expanded Split Dock)
+   5. eclipse  — Eclipse · Мастер (Centered Ceremonial Command Deck + Rotating Plasma Halo)
 
    Scoped Typography Contract:
    - Display/HUD fonts apply ONLY to headings, brand, nav, buttons, badges, timers.
-   - Reading passages, long question stems, explanations, rubrics, inputs & KaTeX
-     ALWAYS stay in Inter Variable, Source Serif 4 Variable, JetBrains Mono & KaTeX.
+   - Reading passages, stems, explanations, rubrics, inputs & KaTeX ALWAYS stay in
+     Inter Variable, Source Serif 4 Variable, JetBrains Mono & KaTeX.
    ========================================================================== */
 
 @property --master-angle {
@@ -18,60 +20,7 @@
   inherits: false;
 }
 
-/* --------------------------------------------------------------------------
-   0. Shared Ambient Backdrop, Header Trigger & Scoped Display Typography
-   -------------------------------------------------------------------------- */
-
-.theme-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-  transition: opacity 280ms var(--ease-out);
-}
-.theme-backdrop__scene,
-.theme-backdrop__sun,
-.theme-backdrop__clouds,
-.theme-backdrop__grid {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-body.is-exam-focused .theme-backdrop {
-  opacity: 0.42;
-}
-
-/* Header Theme Picker Trigger */
-.theme-trigger {
-  position: relative;
-  gap: 6px;
-  padding: 0 11px;
-  max-width: 132px;
-}
-.theme-trigger__name {
-  font-family: var(--font-display, var(--font-sans));
-  font-size: 0.84rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.theme-trigger__dot {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent-gold-fill, var(--accent-primary));
-  box-shadow: 0 0 0 2px var(--bg-surface);
-  animation: unseenPulse 2s ease-in-out infinite;
-}
-
-/* Scoped Display Font Mapping (never touches reading prose, stems, explanations, or KaTeX) */
+/* Scoped Display Font Mapping */
 [data-theme] .brand-name,
 [data-theme] .home-title,
 [data-theme] .page-title,
@@ -83,7 +32,7 @@ body.is-exam-focused .theme-backdrop {
 [data-theme] .feature-banner h3,
 [data-theme] .variant-card h3,
 [data-theme] .theme-modal__title {
-  font-family: var(--font-display, var(--font-serif));
+  font-family: var(--font-display);
 }
 
 [data-theme] .nav-link,
@@ -94,10 +43,10 @@ body.is-exam-focused .theme-backdrop {
 [data-theme] .exam-topbar__title,
 [data-theme] .exam-timer__clock,
 [data-theme] .results-gauge__text strong {
-  font-family: var(--font-ui-label, var(--font-sans));
+  font-family: var(--font-ui-label);
 }
 
-/* Preserve maximum exam legibility on all content prose & math */
+/* Preserve maximum academic legibility on all exam prose & reading passages */
 [data-theme] .task-card__stem,
 [data-theme] .option-btn__text,
 [data-theme] .explanation-card__prose,
@@ -117,1031 +66,369 @@ body.is-exam-focused .theme-backdrop {
   font-family: var(--font-mono);
 }
 
-/* Unlock Celebration Toast */
-.toast--unlock {
-  background: var(--bg-elevated);
-  color: var(--text-primary);
-  border: 1.5px solid var(--accent-primary);
-  box-shadow: var(--shadow-lg), 0 0 24px var(--accent-primary-soft);
-}
-.toast--unlock .toast__action {
-  background: var(--accent-primary);
-  color: var(--on-primary);
-  border-color: transparent;
+/* Mode Switch Ignition Animation */
+html.is-theme-switching .app-shell {
+  animation: oaModeIgnite 420ms var(--ease-out) both;
 }
 
 /* ==========================================================================
-   THEME 1: ВОСХОД (Default · Pixel-Art Sunrise + GTA Arcade)
+   MODE 1: OBSIDIAN (atelier · Default Flagship)
+   Asymmetric Obsidian Atelier · Wide Display · Precision 1px Luminous Hairlines
    ========================================================================== */
 
-[data-theme="voshod"] {
-  color-scheme: dark;
-  --font-display: 'Ulduz GTA', 'Inter Variable', sans-serif;
-  --font-ui-label: 'Ulduz GTA', 'Inter Variable', sans-serif;
-
-  --bg-canvas: #180C3A;
-  --bg-surface: #1B0E42;
-  --bg-subtle: #2A165C;
-  --bg-elevated: #231250;
-  --text-primary: #FFF8EE;
-  --text-secondary: #E8D6BE;
-  --text-muted: #CFB79B;          /* >= 7.1:1 on #2A165C, >= 8.8:1 on #1B0E42 */
-  --border-subtle: rgba(255, 177, 59, 0.28);
-  --border-strong: rgba(255, 177, 59, 0.56);
-
-  --accent-primary: #FFB13B;      /* Glowing Pixel Sun Gold */
-  --accent-primary-hover: #FFC866;
-  --accent-primary-soft: rgba(255, 177, 59, 0.18);
-  --accent-gold: #FF9F2E;
-  --accent-gold-fill: #FFB13B;
-  --accent-gold-text: #FFE27A;
-  --accent-gold-soft: rgba(255, 159, 46, 0.20);
-  --selection-bg: rgba(255, 177, 59, 0.32);
-
-  --subj-math: #7DD3FC;
-  --subj-math-soft: rgba(125, 211, 252, 0.16);
-  --subj-ru: #FDA4AF;
-  --subj-ru-soft: rgba(253, 164, 175, 0.16);
-  --subj-en: #DDD6FE;
-  --subj-en-soft: rgba(221, 214, 254, 0.16);
-  --subj-az: #5EEAD4;
-  --subj-az-soft: rgba(94, 234, 212, 0.16);
-
-  --state-correct: #6EE7B7;
-  --state-correct-border: #34D399;
-  --state-correct-soft: rgba(52, 211, 153, 0.15);
-  --state-partial: #FCD34D;
-  --state-partial-border: #FFB13B;
-  --state-partial-soft: rgba(255, 177, 59, 0.16);
-  --state-wrong: #FF8A8A;
-  --state-wrong-border: #F87171;
-  --state-wrong-soft: rgba(248, 113, 113, 0.16);
-
-  --on-primary: #180B2E;          /* 9.9:1 on #FFB13B */
-  --on-accent: #180B2E;
-  --on-correct: #06281E;
-  --on-wrong: #2E0606;
-
-  --shadow-sm: 0 3px 0 rgba(14, 7, 36, 0.72), 0 6px 16px rgba(14, 7, 36, 0.35);
-  --shadow-md: 0 4px 0 rgba(14, 7, 36, 0.78), 0 12px 28px rgba(14, 7, 36, 0.45);
-  --shadow-lg: 0 6px 0 rgba(14, 7, 36, 0.85), 0 20px 44px rgba(14, 7, 36, 0.62);
-  --r-sm: 4px;
-  --r-md: 6px;
-  --r-lg: 10px;
-  --r-xl: 12px;
+[data-theme="atelier"] {
+  --font-display: 'Ulduz Wide', 'Inter Variable', sans-serif;
+  --font-ui-label: 'Ulduz Wide', 'Inter Variable', sans-serif;
 }
 
-/* Pixel-Art Sunrise Layered Backdrop (canonical tilted sun in voshod-scene.svg + seamless parallax clouds) */
-[data-theme="voshod"] .theme-backdrop__scene {
-  background-color: #180C3A;
-  background-image:
-    linear-gradient(
-      to bottom,
-      rgba(20, 9, 48, 0.44) 0%,
-      rgba(20, 9, 48, 0.48) 42%,
-      rgba(16, 8, 40, 0.80) 74%,
-      rgba(14, 7, 36, 0.95) 100%
-    ),
-    url('../assets/themes/voshod-scene.svg'),
-    linear-gradient(
-      180deg,
-      #E87838 0%,
-      #D55E3A 22%,
-      #B54346 40%,
-      #6E255F 60%,
-      #2B1356 80%,
-      #140932 100%
-    );
-  background-size: cover, cover, cover;
-  background-position: center top, center top, center;
-  background-repeat: no-repeat;
-  image-rendering: pixelated;
-  animation: voshodSceneBreath 9s ease-in-out infinite;
+[data-theme="atelier"] .home-title,
+[data-theme="atelier"] .page-title,
+[data-theme="atelier"] .subject-hero__title,
+[data-theme="atelier"] .exam-setup-title,
+[data-theme="atelier"] .results-hero__title {
+  font-size: clamp(1.62rem, 3.1vw, 2.38rem);
+  letter-spacing: -0.02em;
 }
-
-[data-theme="voshod"] .theme-backdrop__sun {
-  display: none;
+[data-theme="atelier"] .section-title {
+  font-size: clamp(1.12rem, 1.8vw, 1.38rem);
 }
-
-[data-theme="voshod"] .home-welcome,
-[data-theme="voshod"] .stats-summary-strip,
-[data-theme="voshod"] .data-manage-strip {
-  padding: 20px 22px 22px;
-  border-radius: var(--r-xl);
-  background: rgba(24, 12, 58, 0.86);
-  border: 1px solid rgba(255, 177, 59, 0.28);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+[data-theme="atelier"] .btn {
+  font-size: 0.8rem;
 }
-[data-theme="voshod"] .page-container > .section-header {
-  padding: 16px 20px;
-  border-radius: var(--r-xl);
-  background: rgba(24, 12, 58, 0.84);
-  border: 1px solid rgba(255, 177, 59, 0.26);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+[data-theme="atelier"] .btn--sm {
+  font-size: 0.74rem;
 }
-[data-theme="voshod"] .section-block > .section-header {
-  padding: 12px 16px;
-  border-radius: var(--r-lg);
-  background: rgba(24, 12, 58, 0.78);
-  border: 1px solid rgba(255, 177, 59, 0.22);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-[data-theme="voshod"] .breadcrumbs {
-  display: inline-flex;
-  padding: 5px 12px;
-  border-radius: var(--r-pill);
-  background: rgba(24, 12, 58, 0.82);
-  border: 1px solid rgba(255, 177, 59, 0.26);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-}
-
-[data-theme="voshod"] .theme-backdrop__clouds {
-  top: auto;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: clamp(140px, 28vh, 260px);
-  background-image: url('../assets/themes/voshod-clouds-layer.svg');
-  background-repeat: repeat-x;
-  background-size: 384px 100%;
-  background-position: 0 bottom;
-  opacity: 0.52;
-  image-rendering: pixelated;
-  animation: voshodCloudDrift 36s linear infinite;
-}
-
-[data-theme="voshod"] .app-header,
-[data-theme="voshod"] .exam-topbar,
-[data-theme="voshod"] .mobile-bottom-nav,
-[data-theme="voshod"] .app-footer {
-  background: rgba(24, 12, 58, 0.90);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-[data-theme="voshod"] .subject-card,
-[data-theme="voshod"] .task-card,
-[data-theme="voshod"] .passage-panel,
-[data-theme="voshod"] .subject-hero,
-[data-theme="voshod"] .exam-setup-card,
-[data-theme="voshod"] .results-hero,
-[data-theme="voshod"] .stat-subj-card,
-[data-theme="voshod"] .mistake-card,
-[data-theme="voshod"] .variant-card,
-[data-theme="voshod"] .empty-card {
-  background: rgba(27, 14, 66, 0.90);
-  border-color: rgba(255, 177, 59, 0.30);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-/* Authentic GTA Display Heading Outline / Shadow & Clean Line-Height for Cyrillic/AZ */
-[data-theme="voshod"] .brand-name {
-  font-weight: 400;
-  font-size: 1.4rem;
-  letter-spacing: 0.03em;
-  color: #FFE985;
-  text-shadow: 0 2px 0 #120829, 2px 2px 0 #120829;
-}
-[data-theme="voshod"] .home-title,
-[data-theme="voshod"] .page-title,
-[data-theme="voshod"] .subject-hero__title,
-[data-theme="voshod"] .exam-setup-title,
-[data-theme="voshod"] .results-hero__title {
-  font-weight: 400;
-  letter-spacing: 0.025em;
-  line-height: 1.15;
-  color: #FFF8EE;
-  text-shadow: 0 3px 0 #120829, 2px 3px 0 #120829;
-}
-[data-theme="voshod"] .section-title,
-[data-theme="voshod"] .subject-card__title,
-[data-theme="voshod"] .feature-banner h3,
-[data-theme="voshod"] .variant-card h3 {
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-}
-[data-theme="voshod"] .btn,
-[data-theme="voshod"] .nav-link,
-[data-theme="voshod"] .mobile-bottom-nav__label,
-[data-theme="voshod"] .badge,
-[data-theme="voshod"] .btn-chip {
-  font-weight: 400;
-  letter-spacing: 0.03em;
-}
-[data-theme="voshod"] .btn {
-  font-size: 1rem;
-}
-[data-theme="voshod"] .btn--sm {
-  font-size: 0.92rem;
-}
-[data-theme="voshod"] .mobile-bottom-nav__label {
-  font-size: 0.78rem;
-}
-
-/* Восход Distinct Button Layout: Arcade-Mission Stepped Banner Dock */
-[data-theme="voshod"] .btn--primary,
-[data-theme="voshod"] .btn--accent {
-  background: linear-gradient(180deg, #FFE27A 0%, #FFB13B 55%, #E87838 100%);
-  color: #180B2E;
-  border: 2px solid #FFE985;
-  box-shadow: 3px 3px 0 #120829, inset 0 2px 0 rgba(255, 250, 224, 0.55);
-  transition: transform 110ms var(--ease-out), box-shadow 110ms var(--ease-out), filter 150ms var(--ease-out);
-}
-[data-theme="voshod"] .btn--primary:hover:not(:disabled),
-[data-theme="voshod"] .btn--accent:hover:not(:disabled) {
-  filter: brightness(1.06);
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 #120829, inset 0 2px 0 rgba(255, 250, 224, 0.65);
-}
-[data-theme="voshod"] .btn--primary:active:not(:disabled),
-[data-theme="voshod"] .btn--accent:active:not(:disabled) {
-  transform: translate(2px, 2px) !important;
-  box-shadow: 1px 1px 0 #120829;
-}
-[data-theme="voshod"] .btn--secondary {
-  background: rgba(42, 22, 92, 0.94);
-  border: 1.5px solid rgba(255, 177, 59, 0.55);
-  box-shadow: 2px 2px 0 #120829;
-}
-[data-theme="voshod"] .home-welcome__cta-row {
-  align-items: stretch;
-}
-[data-theme="voshod"] .home-welcome__cta-row .btn--primary {
-  min-width: 248px;
-  padding-inline: 24px;
-}
-@media (max-width: 767px) {
-  [data-theme="voshod"] .home-welcome__cta-row .btn--primary {
-    width: 100%;
-  }
-}
-[data-theme="voshod"] .task-card__footer {
-  justify-content: space-between;
-}
-[data-theme="voshod"] .task-footer-right .btn--primary,
-[data-theme="voshod"] .task-footer-right .btn--accent {
-  min-width: 172px;
-  border-radius: 999px;
-}
-[data-theme="voshod"] .subject-card__actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-[data-theme="voshod"] .subject-card__primary-btn {
-  grid-column: 1 / -1;
-  margin-right: 0;
-  background: linear-gradient(180deg, rgba(255, 177, 59, 0.24), rgba(232, 120, 56, 0.18));
-  border-color: rgba(255, 177, 59, 0.62);
-  color: #FFE985;
-}
-
-/* Восход Custom Animations */
-[data-theme="voshod"] .subject-card {
-  animation: voshodCardIn 320ms var(--ease-out) both;
-}
-[data-theme="voshod"] .subject-card:nth-child(2) { animation-delay: 45ms; }
-[data-theme="voshod"] .subject-card:nth-child(3) { animation-delay: 90ms; }
-[data-theme="voshod"] .subject-card:nth-child(4) { animation-delay: 135ms; }
-
-[data-theme="voshod"] .explanation-card--correct {
-  animation: voshodArcadeFlash 520ms var(--ease-out);
+[data-theme="atelier"] .nav-link {
+  font-size: 0.76rem;
 }
 
 /* ==========================================================================
-   THEME 2: i — Intel Silicon Edition (Crisp Light Wafer Lab)
+   MODE 2: PRISM [i] (prism · Unlocked: 10 Math Correct)
+   Sharp 2px Architectural Chamfers · Precision Crosshair Grid · Symmetric 2-Col Dock
    ========================================================================== */
 
-[data-theme="intel"] {
-  color-scheme: light;
+[data-theme="prism"] {
   --font-display: 'Ulduz Intel', 'Inter Variable', sans-serif;
   --font-ui-label: 'Ulduz Intel', 'Inter Variable', sans-serif;
 
-  --bg-canvas: #F1F6FC;
-  --bg-surface: #FFFFFF;
-  --bg-subtle: #E3EDF8;
-  --bg-elevated: #FFFFFF;
-  --text-primary: #0B1B33;
-  --text-secondary: #2C4361;
-  --text-muted: #465C7A;          /* >= 5.7:1 on #E3EDF8, >= 6.8:1 on #FFFFFF */
-  --border-subtle: #C9DAEE;
-  --border-strong: #92B3D8;
-
-  --accent-primary: #0068B5;      /* Intel Cobalt (5.7:1 with #FFFFFF) */
-  --accent-primary-hover: #005291;
-  --accent-primary-soft: #E0F2FE;
-  --accent-gold: #0284C7;
-  --accent-gold-fill: #00A8E8;
-  --accent-gold-text: #0369A1;
-  --accent-gold-soft: #E0F2FE;
-  --selection-bg: rgba(0, 168, 232, 0.22);
-
-  --subj-math: #0068B5;
-  --subj-math-soft: #DBEAFE;
-  --subj-ru: #BE123C;
-  --subj-ru-soft: #FFE4E6;
-  --subj-en: #4F46E5;
-  --subj-en-soft: #E0E7FF;
-  --subj-az: #0F766E;
-  --subj-az-soft: #CCFBF1;
-
-  --state-correct: #15803D;
-  --state-correct-border: #16A34A;
-  --state-correct-soft: #F0FDF4;
-  --state-partial: #B45309;
-  --state-partial-border: #D97706;
-  --state-partial-soft: #FFFBEB;
-  --state-wrong: #B91C1C;
-  --state-wrong-border: #DC2626;
-  --state-wrong-soft: #FEF2F2;
-
-  --on-primary: #FFFFFF;
-  --on-accent: #FFFFFF;
-  --on-correct: #FFFFFF;
-  --on-wrong: #FFFFFF;
-
-  --shadow-sm: 0 1px 2px rgba(11, 27, 51, 0.06);
-  --shadow-md: 0 6px 18px rgba(0, 104, 181, 0.10);
-  --shadow-lg: 0 14px 32px rgba(11, 27, 51, 0.14);
-
-  /* Razor-Sharp Silicon Die Corners */
-  --r-sm: 3px;
-  --r-md: 4px;
-  --r-lg: 6px;
-  --r-xl: 8px;
+  --oa-void: #040406;
+  --oa-surface: #0B0B0F;
+  --oa-surface-2: #121218;
+  --r-sm: 2px;
+  --r-md: 3px;
+  --r-lg: 4px;
+  --r-xl: 6px;
 }
 
-/* Silicon Wafer Micro-Grid Backdrop */
-[data-theme="intel"] .theme-backdrop__grid {
+[data-theme="prism"] .theme-backdrop__grid {
   background-image:
-    linear-gradient(to right, rgba(0, 104, 181, 0.065) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 104, 181, 0.065) 1px, transparent 1px),
-    radial-gradient(circle at 84% 12%, rgba(0, 199, 253, 0.14), transparent 46%);
-  background-size: 28px 28px, 28px 28px, 100% 100%;
-  animation: intelWaferPulse 9s ease-in-out infinite;
+    radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.22) 1px, transparent 1.5px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px, 48px 48px, 48px 48px;
+  animation: prismGridPulse 9s ease-in-out infinite;
 }
 
-/* Chip-Pin Header Nav Underline */
-[data-theme="intel"] .nav-link {
-  border-radius: 3px;
-  border-bottom: 2px solid transparent;
-}
-[data-theme="intel"] .nav-link.is-active {
-  background: rgba(0, 168, 232, 0.10);
-  border-bottom-color: #00A8E8;
-  color: #005291;
-}
-
-/* Intel Distinct Button Layout: Symmetrical Precision 2-Column Structured Bar */
-[data-theme="intel"] .btn--primary {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(180deg, #0077CE 0%, #0068B5 100%);
-  border: 1px solid #005291;
-}
-[data-theme="intel"] .btn--primary::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(110deg, transparent 22%, rgba(0, 199, 253, 0.42) 50%, transparent 78%);
-  transform: translateX(-130%);
-  pointer-events: none;
-}
-[data-theme="intel"] .btn--primary:hover:not(:disabled)::after,
-[data-theme="intel"] .btn--primary:focus-visible::after {
-  animation: intelCircuitSweep 620ms var(--ease-out);
-}
-[data-theme="intel"] .home-welcome__cta-row {
-  display: grid;
-  grid-template-columns: minmax(0, 280px) auto;
-  align-items: center;
-  gap: 12px 16px;
-}
-@media (max-width: 639px) {
-  [data-theme="intel"] .home-welcome__cta-row {
-    grid-template-columns: 1fr;
-  }
-}
-[data-theme="intel"] .subject-hero__actions {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-}
-[data-theme="intel"] .subject-card__actions {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 6px;
-}
-[data-theme="intel"] .subject-card__primary-btn {
-  margin-right: 0;
-}
-[data-theme="intel"] .task-card__footer {
+/* Distinct Button Layout: Symmetric 2-Column Precision Task Footer */
+[data-theme="prism"] .task-card__footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 10px;
 }
-[data-theme="intel"] .task-footer-left {
+[data-theme="prism"] .task-footer-left {
   justify-content: flex-start;
 }
-[data-theme="intel"] .task-footer-right {
+[data-theme="prism"] .task-footer-right {
   justify-content: flex-end;
 }
-[data-theme="intel"] .task-footer-right .btn {
+[data-theme="prism"] .task-footer-right .btn {
+  min-width: 170px;
+}
+
+[data-theme="prism"] .subject-card__actions {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 6px;
+}
+[data-theme="prism"] .subject-card__primary-btn {
+  margin-right: 0;
   width: 100%;
 }
 
-/* Intel Custom Animations */
-[data-theme="intel"] .subject-card,
-[data-theme="intel"] .task-card {
-  animation: intelChipSnap 240ms var(--ease-out) both;
-}
-[data-theme="intel"] .explanation-card--correct {
-  animation: intelTelemetryRing 550ms var(--ease-out);
+/* Precision top laser accent on task card */
+[data-theme="prism"] .task-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #FFFFFF 50%, transparent);
+  opacity: 0.72;
+  pointer-events: none;
 }
 
 /* ==========================================================================
-   THEME 3: n — NVIDIA RTX Edition (Stealth Carbon & Volt Green)
+   MODE 3: PULSE [n] (pulse · Unlocked: 5 RU + 5 EN Correct)
+   Stealth Carbon · Chamfered Polygon CTAs · Right-Aligned High-Velocity Dock
    ========================================================================== */
 
-[data-theme="nvidia"] {
-  color-scheme: dark;
+[data-theme="pulse"] {
   --font-display: 'Ulduz Nvidia', 'Inter Variable', sans-serif;
   --font-ui-label: 'Ulduz Nvidia', 'Inter Variable', sans-serif;
 
-  --bg-canvas: #090C09;
-  --bg-surface: #121712;
-  --bg-subtle: #1A221A;
-  --bg-elevated: #161D16;
-  --text-primary: #F2F7F0;
-  --text-secondary: #BDD0B7;
-  --text-muted: #94AB8E;          /* >= 6.5:1 on #1A221A, >= 7.6:1 on #121712 */
-  --border-subtle: #253422;
-  --border-strong: #3E5A36;
-
-  --accent-primary: #76B900;      /* NVIDIA Volt Green */
-  --accent-primary-hover: #9CE600;
-  --accent-primary-soft: rgba(118, 185, 0, 0.16);
-  --accent-gold: #8DD400;
-  --accent-gold-fill: #76B900;
-  --accent-gold-text: #B8FF2E;
-  --accent-gold-soft: rgba(118, 185, 0, 0.16);
-  --selection-bg: rgba(118, 185, 0, 0.30);
-
-  --subj-math: #9CE600;
-  --subj-math-soft: rgba(156, 230, 0, 0.14);
-  --subj-ru: #FB7185;
-  --subj-ru-soft: rgba(251, 113, 133, 0.14);
-  --subj-en: #38BDF8;
-  --subj-en-soft: rgba(56, 189, 248, 0.14);
-  --subj-az: #34D399;
-  --subj-az-soft: rgba(52, 211, 153, 0.14);
-
-  --state-correct: #9CE600;
-  --state-correct-border: #76B900;
-  --state-correct-soft: rgba(118, 185, 0, 0.15);
-  --state-partial: #FACC15;
-  --state-partial-border: #EAB308;
-  --state-partial-soft: rgba(234, 179, 8, 0.14);
-  --state-wrong: #F87171;
-  --state-wrong-border: #EF4444;
-  --state-wrong-soft: rgba(239, 68, 68, 0.15);
-
-  --on-primary: #071002;          /* 8.7:1 on #76B900 */
-  --on-accent: #071002;
-  --on-correct: #071002;
-  --on-wrong: #3B0606;
-
-  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.45);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.52);
-  --shadow-lg: 0 18px 42px rgba(0, 0, 0, 0.65);
+  --oa-void: #020203;
+  --oa-surface: #09090B;
+  --oa-surface-2: #111114;
   --r-sm: 3px;
+  --r-md: 4px;
+  --r-lg: 8px;
+  --r-xl: 10px;
+}
+
+[data-theme="pulse"] .btn--primary,
+[data-theme="pulse"] .btn--accent {
+  border-radius: 0;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+/* Distinct Button Layout: Right-Docked Tactical Velocity Bar */
+[data-theme="pulse"] .home-welcome__cta-row {
+  justify-content: flex-end;
+}
+[data-theme="pulse"] .subject-card__actions {
+  justify-content: flex-end;
+}
+[data-theme="pulse"] .subject-card__primary-btn {
+  order: 3;
+  margin-right: 0;
+  margin-left: auto;
+  background: #FFFFFF;
+  color: #050507;
+  border-color: #FFFFFF;
+}
+[data-theme="pulse"] .task-card__footer {
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+[data-theme="pulse"] .explanation-card--correct {
+  animation: pulseVoltFlash 480ms var(--ease-out);
+}
+
+/* ==========================================================================
+   MODE 4: MONOLITH [a] (monolith · Unlocked: 10 AZ Correct)
+   Brutal-Luxe Slabs · L-Corner White Laser Brackets · Left-First Split Dock
+   ========================================================================== */
+
+[data-theme="monolith"] {
+  --font-display: 'Ulduz AMD', 'Inter Variable', sans-serif;
+  --font-ui-label: 'Ulduz AMD', 'Inter Variable', sans-serif;
+
+  --oa-void: #050506;
+  --oa-surface: #0C0C0E;
+  --oa-surface-2: #151519;
+  --r-sm: 2px;
   --r-md: 4px;
   --r-lg: 6px;
   --r-xl: 8px;
 }
 
-/* Carbon-Hex Stealth Backdrop */
-[data-theme="nvidia"] .theme-backdrop__grid {
+/* Architectural L-Corner White Laser Brackets on Hero & Task Monoliths */
+[data-theme="monolith"] .task-card,
+[data-theme="monolith"] .subject-hero {
   background-image:
-    radial-gradient(circle at 18% 0%, rgba(118, 185, 0, 0.13), transparent 44%),
-    repeating-linear-gradient(
-      60deg,
-      rgba(118, 185, 0, 0.032) 0,
-      rgba(118, 185, 0, 0.032) 1px,
-      transparent 1px,
-      transparent 18px
-    ),
-    repeating-linear-gradient(
-      -60deg,
-      rgba(118, 185, 0, 0.032) 0,
-      rgba(118, 185, 0, 0.032) 1px,
-      transparent 1px,
-      transparent 18px
-    );
-}
-
-/* NVIDIA Distinct Button Layout: Chamfered Diagonal-Cut + Right-Anchored Command Cluster */
-[data-theme="nvidia"] .btn--primary,
-[data-theme="nvidia"] .btn--accent,
-[data-theme="nvidia"] .btn--secondary {
-  position: relative;
-  overflow: hidden;
-  border-radius: 0;
-  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-}
-[data-theme="nvidia"] .btn--primary::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.46) 50%, transparent 80%);
-  transform: translateX(-140%);
-  pointer-events: none;
-}
-[data-theme="nvidia"] .btn--primary:hover:not(:disabled)::after {
-  animation: rtxSheen 560ms var(--ease-out);
-}
-
-[data-theme="nvidia"] .home-welcome__cta-row,
-[data-theme="nvidia"] .subject-card__actions,
-[data-theme="nvidia"] .subject-hero__actions,
-[data-theme="nvidia"] .task-card__footer,
-[data-theme="nvidia"] .exam-setup-card__foot {
-  justify-content: flex-end;
-}
-[data-theme="nvidia"] .task-card__footer {
-  gap: 8px;
-}
-[data-theme="nvidia"] .task-footer-left {
-  margin-right: auto;
-}
-[data-theme="nvidia"] .subject-card,
-[data-theme="nvidia"] .task-card {
-  position: relative;
-  overflow: hidden;
-  box-shadow: inset 3px 0 0 #76B900, var(--shadow-sm);
-}
-[data-theme="nvidia"] .option-btn.is-selected {
-  box-shadow: inset 3px 0 0 #9CE600;
-  animation: rtxFrameLock 340ms var(--ease-out);
-}
-[data-theme="nvidia"] .badge {
-  border-radius: 2px;
-  transform: skewX(-6deg);
-}
-[data-theme="nvidia"] .badge > * {
-  transform: skewX(6deg);
-}
-
-/* Ray-Traced Volt Green Progress Sweep */
-[data-theme="nvidia"] .progress-bar__fill {
-  background: linear-gradient(90deg, #5A8F00 0%, #76B900 55%, #B8FF2E 100%);
-  background-size: 200% 100%;
-  animation: rtxProgressSweep 3.2s linear infinite;
-}
-
-/* ==========================================================================
-   THEME 4: a — AMD Radeon Edition (Forged Obsidian & Signal Crimson)
-   ========================================================================== */
-
-[data-theme="amd"] {
-  color-scheme: dark;
-  --font-display: 'Ulduz AMD', 'Inter Variable', sans-serif;
-  --font-ui-label: 'Ulduz AMD', 'Inter Variable', sans-serif;
-
-  --bg-canvas: #0E0E10;
-  --bg-surface: #17161B;
-  --bg-subtle: #23212A;
-  --bg-elevated: #1D1B22;
-  --text-primary: #FAFAFA;
-  --text-secondary: #D0CBD6;
-  --text-muted: #A6A0B0;          /* >= 6.1:1 on #23212A, >= 7.2:1 on #17161B */
-  --border-subtle: #312D3A;
-  --border-strong: #4F475B;
-
-  /* #DC1720 gives >= 5.2:1 with #FFFFFF on buttons; #FF6B70 gives >= 6.4:1 as text on #17161B */
-  --accent-primary: #DC1720;
-  --accent-primary-hover: #ED1C24;
-  --accent-primary-soft: rgba(237, 28, 36, 0.18);
-  --accent-ember: #FF541C;
-  --accent-link: #FF6B70;
-  --accent-gold: #FF541C;
-  --accent-gold-fill: #FF541C;
-  --accent-gold-text: #FF8E66;
-  --accent-gold-soft: rgba(255, 84, 28, 0.18);
-  --selection-bg: rgba(237, 28, 36, 0.34);
-
-  --subj-math: #60A5FA;
-  --subj-math-soft: rgba(96, 165, 250, 0.16);
-  --subj-ru: #FF6B70;
-  --subj-ru-soft: rgba(255, 107, 112, 0.16);
-  --subj-en: #C084FC;
-  --subj-en-soft: rgba(192, 132, 252, 0.16);
-  --subj-az: #2DD4BF;
-  --subj-az-soft: rgba(45, 212, 191, 0.16);
-
-  --state-correct: #4ADE80;
-  --state-correct-border: #22C55E;
-  --state-correct-soft: rgba(34, 197, 94, 0.14);
-  --state-partial: #FBBF24;
-  --state-partial-border: #F59E0B;
-  --state-partial-soft: rgba(245, 158, 11, 0.14);
-  --state-wrong: #FF787D;
-  --state-wrong-border: #ED1C24;
-  --state-wrong-soft: rgba(237, 28, 36, 0.16);
-
-  --on-primary: #FFFFFF;          /* 5.2:1 on #DC1720 */
-  --on-accent: #180804;
-  --on-correct: #052E16;
-  --on-wrong: #3B0606;
-
-  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.48);
-  --shadow-md: 0 10px 26px rgba(0, 0, 0, 0.56);
-  --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.72);
-  --r-sm: 2px;
-  --r-md: 2px;
-  --r-lg: 4px;
-  --r-xl: 4px;
-}
-
-/* Ensure links & active nav indicators on dark graphite use accessible #FF6B70 (>=6.4:1); keep .skip-link #FFFFFF */
-[data-theme="amd"] a:not(.btn):not(.skip-link):not(.nav-link):not(.brand-link):not(.task-type-row):not(.subject-card__title-link):not(.mobile-bottom-nav__item),
-[data-theme="amd"] .nav-link.is-active,
-[data-theme="amd"] .mobile-bottom-nav__item.is-active,
-[data-theme="amd"] .mobile-bottom-nav__item.is-active .mobile-bottom-nav__pill,
-[data-theme="amd"] .match-num,
-[data-theme="amd"] .match-letter,
-[data-theme="amd"] .num,
-[data-theme="amd"] .open-rubric-title,
-[data-theme="amd"] .grid-num-btn.is-answered,
-[data-theme="amd"] .order-pos {
-  color: #FF6B70;
-}
-
-/* Forged Obsidian Diagonal Architectural Backdrop */
-[data-theme="amd"] .theme-backdrop__grid {
-  background-image:
-    radial-gradient(circle at 86% 88%, rgba(237, 28, 36, 0.14), transparent 44%),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(255, 84, 28, 0.03) 0,
-      rgba(255, 84, 28, 0.03) 2px,
-      transparent 2px,
-      transparent 24px
-    );
-}
-
-/* Crimson L-Corner Architectural Brackets on Hero & Task Cards */
-[data-theme="amd"] .task-card,
-[data-theme="amd"] .subject-hero {
-  position: relative;
-  border-color: #3B3544;
-  background-image:
-    linear-gradient(to right, #ED1C24 0, #ED1C24 22px, transparent 22px),
-    linear-gradient(to bottom, #ED1C24 0, #ED1C24 22px, transparent 22px),
-    linear-gradient(to left, #FF541C 0, #FF541C 22px, transparent 22px),
-    linear-gradient(to top, #FF541C 0, #FF541C 22px, transparent 22px);
-  background-size: 22px 2px, 2px 22px, 22px 2px, 2px 22px;
+    linear-gradient(to right, #FFFFFF 0, #FFFFFF 22px, transparent 22px),
+    linear-gradient(to bottom, #FFFFFF 0, #FFFFFF 22px, transparent 22px),
+    linear-gradient(to left, #FFFFFF 0, #FFFFFF 22px, transparent 22px),
+    linear-gradient(to top, #FFFFFF 0, #FFFFFF 22px, transparent 22px);
+  background-size: 22px 1.5px, 1.5px 22px, 22px 1.5px, 1.5px 22px;
   background-position: 0 0, 0 0, 100% 100%, 100% 100%;
   background-repeat: no-repeat;
 }
 
-/* AMD Distinct Button Layout: Reversed Asymmetric Kinetic Split Dock (Primary FIRST / LEFT!) */
-[data-theme="amd"] .btn--primary {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #DC1720 0%, #B8111A 100%);
-  border: 1px solid #FF541C;
+[data-theme="monolith"] .btn--primary,
+[data-theme="monolith"] .btn--accent {
+  border-radius: 0;
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
 }
-[data-theme="amd"] .btn--primary::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(115deg, transparent 25%, rgba(255, 160, 110, 0.42) 50%, transparent 75%);
-  transform: translateX(-140%);
-  pointer-events: none;
-}
-[data-theme="amd"] .btn--primary:hover:not(:disabled)::after {
-  animation: amdSlashWipe 480ms var(--ease-out);
-}
-[data-theme="amd"] .btn:active:not(:disabled) {
-  transform: scale(0.97) translateY(1px);
-}
 
-/* Flip task footer so Primary Check/Next sits FIRST ON THE LEFT stretched wide! */
-[data-theme="amd"] .task-card__footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-}
-[data-theme="amd"] .task-footer-right {
+/* Distinct Button Layout: Reversed Left-First Expanded Kinetic Split Dock */
+[data-theme="monolith"] .task-footer-right {
   order: -1;
   flex: 1.4 1 180px;
 }
-[data-theme="amd"] .task-footer-right .btn {
+[data-theme="monolith"] .task-footer-right .btn {
   width: 100%;
 }
-[data-theme="amd"] .task-footer-left {
+[data-theme="monolith"] .task-footer-left {
   order: 1;
   justify-content: flex-end;
   margin-left: auto;
 }
-[data-theme="amd"] .exam-setup-card__foot [data-action="begin-exam"] {
+[data-theme="monolith"] .exam-setup-card__foot [data-action="begin-exam"] {
   order: -1;
   flex: 1.3 1 200px;
 }
-[data-theme="amd"] .subject-card__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-[data-theme="amd"] .subject-card__primary-btn {
+[data-theme="monolith"] .subject-card__primary-btn {
   order: -1;
-  flex: 1.5 1 130px;
+  flex: 1.4 1 130px;
   margin-right: 0;
-  background: #DC1720;
-  border-color: #FF541C;
-  color: #FFFFFF;
-}
-
-/* AMD Thermal Ember Glow & Crimson Spark Sweep */
-[data-theme="amd"] .subject-card:hover {
-  border-color: #ED1C24;
-  animation: amdEmberPulse 1.6s ease-in-out infinite;
-}
-[data-theme="amd"] .explanation-card--correct {
-  animation: amdSparkSweep 520ms var(--ease-out);
+  background: #FFFFFF;
+  color: #050507;
+  border-color: #FFFFFF;
 }
 
 /* ==========================================================================
-   THEME 5: МАСТЕР — Prestige Pure Black-and-White Neon + Wide Display Font
-   (ZERO Color Saturation · Signature Monochrome-Neon Animations)
+   MODE 5: ECLIPSE · МАСТЕР (eclipse · Unlocked: 100% Full DİM Exam)
+   Pure #000 Abyss · Rotating Conic Plasma Halo · Centered Ceremonial Command Deck
    ========================================================================== */
 
-[data-theme="master"] {
-  color-scheme: dark;
+[data-theme="eclipse"] {
   --font-display: 'Ulduz Wide', 'Inter Variable', sans-serif;
   --font-ui-label: 'Ulduz Wide', 'Inter Variable', sans-serif;
 
-  --bg-canvas: #030303;
-  --bg-surface: #0A0A0A;
-  --bg-subtle: #141414;
-  --bg-elevated: #111111;
-  --text-primary: #FFFFFF;
-  --text-secondary: #D4D4D4;
-  --text-muted: #A6A6A6;          /* >= 7.7:1 on #141414, >= 8.4:1 on #0A0A0A */
-  --border-subtle: rgba(255, 255, 255, 0.24);
-  --border-strong: rgba(255, 255, 255, 0.56);
-
-  /* 100% Pure Monochrome Neon — Zero Hue */
-  --accent-primary: #FFFFFF;
-  --accent-primary-hover: #E5E5E5;
-  --accent-primary-soft: rgba(255, 255, 255, 0.14);
-  --accent-gold: #FFFFFF;
-  --accent-gold-fill: #FFFFFF;
-  --accent-gold-text: #FFFFFF;
-  --accent-gold-soft: rgba(255, 255, 255, 0.14);
-  --selection-bg: rgba(255, 255, 255, 0.28);
-
-  --subj-math: #FFFFFF;
-  --subj-math-soft: rgba(255, 255, 255, 0.13);
-  --subj-ru: #E8E8E8;
-  --subj-ru-soft: rgba(255, 255, 255, 0.11);
-  --subj-en: #F5F5F5;
-  --subj-en-soft: rgba(255, 255, 255, 0.15);
-  --subj-az: #DCDCDC;
-  --subj-az-soft: rgba(255, 255, 255, 0.10);
-
-  --state-correct: #FFFFFF;
-  --state-correct-border: #FFFFFF;
-  --state-correct-soft: rgba(255, 255, 255, 0.13);
-  --state-partial: #D4D4D4;
-  --state-partial-border: #A3A3A3;
-  --state-partial-soft: rgba(255, 255, 255, 0.08);
-  --state-wrong: #E5E5E5;
-  --state-wrong-border: #8A8A8A;
-  --state-wrong-soft: rgba(255, 255, 255, 0.07);
-
-  --on-primary: #030303;          /* 20.5:1 on #FFFFFF */
-  --on-accent: #030303;
-  --on-correct: #030303;
-  --on-wrong: #030303;
-
-  --shadow-sm: 0 0 0 1px rgba(255, 255, 255, 0.10), 0 4px 16px rgba(0, 0, 0, 0.72);
-  --shadow-md: 0 0 18px rgba(255, 255, 255, 0.10), 0 10px 30px rgba(0, 0, 0, 0.80);
-  --shadow-lg: 0 0 28px rgba(255, 255, 255, 0.14), 0 18px 48px rgba(0, 0, 0, 0.90);
+  --oa-void: #000000;
+  --oa-surface: #070709;
+  --oa-surface-2: #101014;
   --r-sm: 6px;
-  --r-md: 10px;
-  --r-lg: 14px;
-  --r-xl: 18px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 22px;
 }
 
-/* Monochrome-only grayscale filter on brand favicon mark inside Мастер for 100% zero saturation */
-[data-theme="master"] .brand-logo {
-  filter: grayscale(1) brightness(1.45) contrast(1.25);
+[data-theme="eclipse"] .home-title,
+[data-theme="eclipse"] .page-title,
+[data-theme="eclipse"] .subject-hero__title,
+[data-theme="eclipse"] .exam-setup-title,
+[data-theme="eclipse"] .results-hero__title {
+  font-size: clamp(1.62rem, 3.1vw, 2.38rem);
+  letter-spacing: -0.015em;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.16);
 }
-
-/* Wide Display Typography Tuning (prevents horizontal overflow at 360px/390px!) */
-[data-theme="master"] .brand-name {
-  font-size: 1rem;
-  letter-spacing: 0.04em;
+[data-theme="eclipse"] .section-title {
+  font-size: clamp(1.12rem, 1.8vw, 1.38rem);
 }
-[data-theme="master"] .home-title,
-[data-theme="master"] .page-title,
-[data-theme="master"] .subject-hero__title,
-[data-theme="master"] .exam-setup-title,
-[data-theme="master"] .results-hero__title {
-  font-size: clamp(1.32rem, 3.5vw, 1.72rem);
-  letter-spacing: -0.01em;
-  line-height: 1.24;
-  text-shadow: 0 0 22px rgba(255, 255, 255, 0.24);
-}
-[data-theme="master"] .section-title {
-  font-size: clamp(1rem, 2.4vw, 1.22rem);
-}
-[data-theme="master"] .btn {
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-}
-[data-theme="master"] .btn--sm {
-  font-size: 0.74rem;
-}
-[data-theme="master"] .nav-link {
+[data-theme="eclipse"] .btn {
   font-size: 0.78rem;
 }
-[data-theme="master"] .mobile-bottom-nav__label {
-  font-size: 0.62rem;
-  letter-spacing: 0;
-}
-[data-theme="master"] .badge {
-  font-size: 0.7rem;
+[data-theme="eclipse"] .btn--sm {
+  font-size: 0.72rem;
 }
 
-/* Drifting Monochrome Starlight / Grid Horizon Shimmer */
-[data-theme="master"] .theme-backdrop__grid {
-  background-image:
-    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.11), transparent 58%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-  background-size: 100% 100%, 40px 40px, 40px 40px;
-  animation: masterHorizon 20s linear infinite;
+[data-theme="eclipse"] .theme-backdrop__grid {
+  background:
+    radial-gradient(circle at 50% 24%, rgba(255, 255, 255, 0.055) 0%, transparent 48%),
+    radial-gradient(ellipse 90% 40% at 50% 100%, rgba(255, 255, 255, 0.04) 0%, transparent 72%);
+  animation: masterHorizon 14s ease-in-out infinite;
 }
 
-/* Мастер Distinct Button Layout: Centered Ceremonial Command-Deck */
-[data-theme="master"] .home-welcome {
-  position: relative;
+/* Ceremonial Stage with Rotating Pure-White Perimeter Plasma Beam (keeps subjects above fold!) */
+[data-theme="eclipse"] .home-welcome.atelier-stage {
+  grid-template-columns: minmax(0, 1.24fr) 288px;
   align-items: center;
   text-align: center;
-  padding: 28px 20px;
+  padding: 24px 28px;
   border-radius: var(--r-xl);
   border: 1px solid transparent;
   background:
-    linear-gradient(#090909, #090909) padding-box,
+    linear-gradient(#070709, #070709) padding-box,
     conic-gradient(
       from var(--master-angle),
-      rgba(255, 255, 255, 0.14) 0deg,
-      rgba(255, 255, 255, 0.95) 45deg,
-      rgba(255, 255, 255, 0.14) 95deg,
-      rgba(255, 255, 255, 0.14) 180deg,
-      rgba(255, 255, 255, 0.85) 225deg,
-      rgba(255, 255, 255, 0.14) 275deg
+      rgba(255, 255, 255, 0.12) 0deg,
+      rgba(255, 255, 255, 0.96) 45deg,
+      rgba(255, 255, 255, 0.12) 95deg,
+      rgba(255, 255, 255, 0.12) 180deg,
+      rgba(255, 255, 255, 0.88) 225deg,
+      rgba(255, 255, 255, 0.12) 275deg
     ) border-box;
-  box-shadow: 0 0 36px rgba(255, 255, 255, 0.09);
+  box-shadow: var(--shadow-lg);
   animation: masterBeam 6s linear infinite;
 }
-[data-theme="master"] .home-welcome__text {
+
+@media (max-width: 959px) {
+  [data-theme="eclipse"] .home-welcome.atelier-stage {
+    grid-template-columns: 1fr;
+    padding: 22px 16px;
+  }
+}
+
+[data-theme="eclipse"] .home-welcome__text {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-[data-theme="master"] .home-welcome__cta-row,
-[data-theme="master"] .home-stats-strip,
-[data-theme="master"] .subject-card__actions,
-[data-theme="master"] .subject-hero__actions {
+[data-theme="eclipse"] .home-stats-strip {
+  width: 100%;
+  max-width: 580px;
+}
+[data-theme="eclipse"] .home-stat {
+  align-items: center;
+  padding-right: 0;
+}
+[data-theme="eclipse"] .atelier-compass-wrap {
+  width: 248px;
+  height: 248px;
+}
+[data-theme="eclipse"] .home-welcome__cta-row,
+[data-theme="eclipse"] .home-stats-strip,
+[data-theme="eclipse"] .subject-card__actions,
+[data-theme="eclipse"] .subject-hero__actions,
+[data-theme="eclipse"] .task-card__footer,
+[data-theme="eclipse"] .task-footer-left,
+[data-theme="eclipse"] .task-footer-right {
   justify-content: center;
 }
+[data-theme="eclipse"] .subject-card__primary-btn {
+  margin-right: 0;
+}
 
-/* Elevated Glowing Monochrome Neon Primary CTA with Perimeter Beam */
-[data-theme="master"] .btn--primary,
-[data-theme="master"] .btn--accent {
-  background: #FFFFFF;
-  color: #030303;
-  border: 1.5px solid #FFFFFF;
+[data-theme="eclipse"] .btn--primary,
+[data-theme="eclipse"] .btn--accent {
   border-radius: var(--r-pill);
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.34), 0 4px 18px rgba(0, 0, 0, 0.7);
-  transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
-}
-[data-theme="master"] .btn--primary:hover:not(:disabled),
-[data-theme="master"] .btn--accent:hover:not(:disabled) {
-  background: #FFFFFF;
-  box-shadow: 0 0 28px rgba(255, 255, 255, 0.56), 0 6px 24px rgba(0, 0, 0, 0.78);
 }
 
-/* Symmetrically Centered Ceremonial Task Footer */
-[data-theme="master"] .task-card__footer {
-  justify-content: center;
-  gap: 10px 14px;
-}
-[data-theme="master"] .task-footer-left,
-[data-theme="master"] .task-footer-right {
-  justify-content: center;
-}
-
-/* Centered Balanced Header Nav */
 @media (min-width: 768px) {
-  [data-theme="master"] .header-inner {
+  [data-theme="eclipse"] .header-inner {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
   }
-  [data-theme="master"] .brand-link { justify-self: start; }
-  [data-theme="master"] .main-nav { justify-self: center; }
-  [data-theme="master"] .header-actions { justify-self: end; }
+  [data-theme="eclipse"] .brand-link { justify-self: start; }
+  [data-theme="eclipse"] .main-nav { justify-self: center; }
+  [data-theme="eclipse"] .header-actions { justify-self: end; }
 }
 
-/* Floating Luminous Monochrome Pill Mobile Bottom Dock */
-@media (max-width: 767px) {
-  [data-theme="master"] .mobile-bottom-nav {
-    left: 12px;
-    right: 12px;
-    bottom: calc(8px + env(safe-area-inset-bottom, 0px));
-    min-height: 56px;
-    padding: 4px 8px;
-    border-radius: 999px;
-    background: rgba(10, 10, 10, 0.94);
-    border: 1px solid rgba(255, 255, 255, 0.40);
-    box-shadow: 0 0 24px rgba(255, 255, 255, 0.14), 0 10px 28px rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-  [data-theme="master"] .mobile-bottom-nav__item.is-active .mobile-bottom-nav__pill {
-    background: #FFFFFF;
-    color: #030303;
-    box-shadow: 0 0 14px rgba(255, 255, 255, 0.45);
-  }
-  [data-theme="master"] .mobile-nav-badge {
-    background: #FFFFFF;
-    color: #030303;
-    box-shadow: 0 0 0 2px #0A0A0A;
-  }
-  [data-theme="master"] .task-card__footer {
-    bottom: calc(70px + env(safe-area-inset-bottom, 0px));
-  }
-  [data-theme="master"] body.is-exam-focused .task-card__footer {
-    bottom: 0;
-  }
-  [data-theme="master"] .toast-region {
-    bottom: calc(82px + env(safe-area-inset-bottom, 0px));
-  }
-}
-
-/* Neon-Tube Ignition Flicker-Settle on Theme Switch & Task Reveal */
-html[data-theme="master"].is-theme-switching .app-shell,
-[data-theme="master"] .task-card {
-  animation: masterNeonIgnite 460ms var(--ease-out) both;
-}
-
-/* Concentric Pure-White Neon Shockwave Ripple on Correct Answer */
-[data-theme="master"] .explanation-card--correct {
-  position: relative;
-  border-color: #FFFFFF;
-  box-shadow: 0 0 22px rgba(255, 255, 255, 0.24);
-  animation: masterRipple 680ms var(--ease-out);
-}
-
-/* Luminous White Plasma Shimmer across Progress Fills & Focused Inputs */
-[data-theme="master"] .progress-bar__fill {
-  background: linear-gradient(90deg, #B8B8B8 0%, #FFFFFF 45%, #D8D8D8 100%);
+[data-theme="eclipse"] .progress-bar__fill {
+  background: linear-gradient(90deg, #B4B4BE 0%, #FFFFFF 45%, #D4D4DE 100%);
   background-size: 200% 100%;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.45);
   animation: masterPlasma 2.8s linear infinite;
 }
-[data-theme="master"] .short-input-row:focus-within,
-[data-theme="master"] .open-textarea:focus-visible {
-  border-color: #FFFFFF;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.22), 0 0 18px rgba(255, 255, 255, 0.25);
+
+/* Pause all ambient mode animations cleanly when user selects 'minimal' FX tier */
+html[data-fx="minimal"][data-theme="prism"] .theme-backdrop__grid,
+html[data-fx="minimal"][data-theme="eclipse"] .theme-backdrop__grid,
+html[data-fx="minimal"][data-theme="eclipse"] .home-welcome.atelier-stage,
+html[data-fx="minimal"][data-theme="eclipse"] .progress-bar__fill {
+  animation: none !important;
 }
 
 /* ==========================================================================
-   Theme Gallery Modal / Mobile Bottom-Sheet (#theme-modal)
+   OBSIDIAN ATELIER STUDIO & FX ENGINE DRAWER (#theme-modal)
    ========================================================================== */
+
+body.is-modal-open {
+  overflow: hidden;
+}
 
 .theme-modal-backdrop {
   position: fixed;
   inset: 0;
   z-index: 80;
-  background: rgba(6, 8, 16, 0.68);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.76);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   animation: fadeIn 180ms var(--ease-out);
 }
 
@@ -1151,17 +438,17 @@ html[data-theme="master"].is-theme-switching .app-shell,
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: min(860px, calc(100vw - 24px));
-  max-height: min(86vh, 780px);
+  width: min(900px, calc(100vw - 24px));
+  max-height: min(88vh, 820px);
   display: flex;
   flex-direction: column;
-  background: var(--bg-surface);
+  background: #0A0A0D;
   color: var(--text-primary);
-  border: 1px solid var(--border-strong);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: var(--r-xl);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
-  animation: themeModalIn 220ms var(--ease-out);
+  animation: themeModalIn 240ms var(--ease-out);
 }
 
 .theme-modal__handle {
@@ -1173,40 +460,156 @@ html[data-theme="master"].is-theme-switching .app-shell,
   align-items: flex-start;
   justify-content: space-between;
   gap: 14px;
-  padding: 18px 20px 14px;
+  padding: 20px 22px 16px;
   border-bottom: 1px solid var(--border-subtle);
 }
 .theme-modal__title {
   margin: 0;
-  font-size: 1.3rem;
-  line-height: 1.2;
+  font-size: 1.24rem;
+  line-height: 1.22;
 }
 .theme-modal__sub {
-  margin: 4px 0 0;
+  margin: 5px 0 0;
   font-size: 0.85rem;
-  max-width: 64ch;
+  max-width: 66ch;
   text-wrap: pretty;
 }
-.theme-modal__close {
-  flex-shrink: 0;
-}
 .theme-modal__body {
-  padding: 16px 20px 20px;
+  padding: 18px 22px 22px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 
+/* 3-Tier Interactive FX Switcher Inside Studio Drawer */
+.fx-studio-section {
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--oa-line-faint);
+}
+.fx-studio-section__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.96rem;
+  color: #FFFFFF;
+}
+.fx-studio-section__sub {
+  margin: 4px 0 12px;
+  font-size: 0.83rem;
+}
+
+.fx-mode-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.fx-studio-mobile-desc {
+  display: none;
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.46;
+}
+
+.fx-mode-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 13px 14px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+.fx-mode-card:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+}
+/* Incandescent Obsidian Rim (zero midnight flashlight glare!) */
+.fx-mode-card.is-active {
+  border: 1.5px solid #FFFFFF;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.04) 100%);
+  color: #FFFFFF;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 8px 24px rgba(0, 0, 0, 0.65);
+}
+.fx-mode-card__top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.fx-mode-card__icon {
+  display: inline-flex;
+}
+.fx-mode-card__name {
+  font-family: var(--font-ui-label);
+  font-size: 0.82rem;
+}
+.fx-mode-card__tag {
+  margin-left: auto;
+  font-size: 0.7rem;
+  padding: 2px 7px;
+  border-radius: var(--r-pill);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  color: var(--text-secondary);
+}
+.fx-mode-card.is-active .fx-mode-card__tag {
+  background: #FFFFFF;
+  color: #050507;
+  border-color: #FFFFFF;
+  font-weight: 700;
+}
+.fx-mode-card__desc {
+  margin: 0;
+  font-size: 0.79rem;
+  line-height: 1.44;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 720px) {
+  .fx-mode-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .fx-mode-card {
+    padding: 10px 8px;
+    align-items: center;
+    text-align: center;
+    min-height: 54px;
+  }
+  .fx-mode-card__top {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .fx-mode-card__name {
+    font-size: 0.72rem;
+  }
+  .fx-mode-card__tag,
+  .fx-mode-card__desc {
+    display: none;
+  }
+  .fx-studio-mobile-desc {
+    display: block;
+  }
+}
+
+/* 5 Monochrome Mode Cards */
 .theme-cards-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
-@media (min-width: 680px) {
+@media (max-width: 680px) {
   .theme-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .theme-card--master {
-    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1214,43 +617,79 @@ html[data-theme="master"].is-theme-switching .app-shell,
   display: flex;
   flex-direction: column;
   border-radius: var(--r-lg);
-  border: 1.5px solid var(--border-subtle);
-  background: var(--bg-canvas);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-subtle);
   overflow: hidden;
-  transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+  transition: border-color var(--dur-fast) var(--ease-out);
 }
 .theme-card.is-active {
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 2px var(--accent-primary-soft);
+  border-color: #FFFFFF;
 }
 .theme-card.is-locked {
-  opacity: 0.94;
+  border-style: dashed;
 }
 
-/* Miniature Live Theme Swatches (each card rendered in its own authentic palette & silhouette) */
 .theme-swatch {
   position: relative;
   height: 76px;
-  padding: 10px 14px;
+  padding: 12px 16px;
+  background: #040406;
+  border-bottom: 1px solid var(--oa-line-faint);
   overflow: hidden;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.theme-swatch--eclipse {
+  background: #000000;
+}
+.theme-swatch__beam {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16) 50%, transparent);
+}
+.theme-swatch__crosshair {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+.theme-swatch__brackets {
+  position: absolute;
+  inset: 8px;
+  background-image:
+    linear-gradient(to right, #FFFFFF 0, #FFFFFF 14px, transparent 14px),
+    linear-gradient(to bottom, #FFFFFF 0, #FFFFFF 14px, transparent 14px),
+    linear-gradient(to left, #FFFFFF 0, #FFFFFF 14px, transparent 14px),
+    linear-gradient(to top, #FFFFFF 0, #FFFFFF 14px, transparent 14px);
+  background-size: 14px 1.5px, 1.5px 14px, 14px 1.5px, 1.5px 14px;
+  background-position: 0 0, 0 0, 100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+}
+.theme-swatch__orbit {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 58px;
+  height: 58px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.22);
 }
 .theme-swatch__inner {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
 }
 .theme-swatch__word {
-  font-size: 1.32rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: 0.02em;
+  color: #FFFFFF;
 }
 .theme-swatch__bars {
   display: flex;
@@ -1259,120 +698,31 @@ html[data-theme="master"].is-theme-switching .app-shell,
 }
 .theme-swatch__btn {
   display: inline-block;
-  height: 14px;
+  height: 12px;
   border-radius: 3px;
 }
-.theme-swatch__btn--p { width: 46px; }
-.theme-swatch__btn--s { width: 26px; opacity: 0.65; }
-
-/* Swatch 1: Восход */
-.theme-swatch--voshod {
-  background: linear-gradient(180deg, #E87838 0%, #B54346 46%, #4B1964 78%, #180C3A 100%);
-  color: #FFE985;
-}
-.theme-swatch--voshod .theme-swatch__sun {
-  position: absolute;
-  right: 22%;
-  top: 6px;
-  width: 50px;
-  height: 50px;
-  background: url('../assets/themes/voshod-sun.svg') center / contain no-repeat;
-  opacity: 0.92;
-}
-.theme-swatch--voshod .theme-swatch__clouds {
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 30px;
-  background: url('../assets/themes/voshod-clouds-layer.svg') center bottom / cover no-repeat;
-  opacity: 0.9;
-}
-.theme-swatch--voshod .theme-swatch__word {
-  font-weight: 400;
-  text-shadow: 0 2px 0 #120829, 2px 2px 0 #120829;
-}
-.theme-swatch--voshod .theme-swatch__btn--p {
-  background: #FFB13B;
-  box-shadow: 2px 2px 0 #120829;
-  border-radius: 999px;
-}
-.theme-swatch--voshod .theme-swatch__btn--s { background: #2A1554; border: 1px solid #FFB13B; }
-
-/* Swatch 2: Intel (i) */
-.theme-swatch--intel {
-  background:
-    linear-gradient(to right, rgba(0, 104, 181, 0.10) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 104, 181, 0.10) 1px, transparent 1px),
-    #F1F6FC;
-  background-size: 16px 16px;
-  color: #0068B5;
-  border-bottom-color: #C9DAEE;
-}
-.theme-swatch--intel .theme-swatch__bars {
-  display: grid;
-  grid-template-columns: 36px 36px;
-  gap: 4px;
-}
-.theme-swatch--intel .theme-swatch__btn--p { width: 36px; background: #0068B5; border-radius: 3px; }
-.theme-swatch--intel .theme-swatch__btn--s { width: 36px; background: #00A8E8; border-radius: 3px; }
-
-/* Swatch 3: NVIDIA (n) */
-.theme-swatch--nvidia {
-  background: linear-gradient(135deg, #090C09 0%, #151F14 70%, rgba(118, 185, 0, 0.28) 100%);
-  color: #9CE600;
-}
-.theme-swatch--nvidia .theme-swatch__btn--p {
-  background: #76B900;
-  border-radius: 0;
-  clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
-}
-.theme-swatch--nvidia .theme-swatch__btn--s {
-  background: #273824;
-  border: 1px solid #76B900;
-  border-radius: 0;
-}
-
-/* Swatch 4: AMD (a) */
-.theme-swatch--amd {
-  background: linear-gradient(135deg, #0E0E10 0%, #1C1921 68%, rgba(237, 28, 36, 0.32) 100%);
-  color: #FAFAFA;
-}
-.theme-swatch--amd .theme-swatch__btn--p {
-  background: #ED1C24;
-  border-radius: 1px;
-  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
-}
-.theme-swatch--amd .theme-swatch__btn--s { background: #2D2A36; border: 1px solid #FF541C; border-radius: 1px; }
-
-/* Swatch 5: Мастер (Pure B&W Neon) */
-.theme-swatch--master {
-  background:
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.14), transparent 68%),
-    #030303;
-  color: #FFFFFF;
-}
-.theme-swatch--master .theme-swatch__inner {
-  justify-content: center;
-  flex-direction: column;
-  gap: 8px;
-}
-.theme-swatch--master .theme-swatch__word {
-  font-size: 1.05rem;
-  text-shadow: 0 0 14px rgba(255, 255, 255, 0.65);
-}
-.theme-swatch--master .theme-swatch__btn--p {
-  width: 72px;
-  height: 11px;
+.theme-swatch__btn--p {
+  width: 38px;
   background: #FFFFFF;
+}
+.theme-swatch__btn--s {
+  width: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: transparent;
+}
+.theme-swatch__bars--eclipse .theme-swatch__btn--p {
   border-radius: 999px;
-  box-shadow: 0 0 14px rgba(255, 255, 255, 0.72);
+}
+.theme-swatch__bars--pulse .theme-swatch__btn--p {
+  clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
 }
 
 .theme-card__content {
-  padding: 13px 14px 14px;
+  padding: 14px 16px 16px;
   display: flex;
   flex-direction: column;
-  gap: 9px;
-  flex: 1;
+  gap: 10px;
+  flex: 1 1 auto;
 }
 .theme-card__top {
   display: flex;
@@ -1380,73 +730,54 @@ html[data-theme="master"].is-theme-switching .app-shell,
   justify-content: space-between;
   gap: 8px;
 }
-.theme-card__titles {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-}
 .theme-card__name {
   margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.2;
+  font-size: 0.96rem;
+  color: #FFFFFF;
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 .theme-card__sub {
-  font-size: 0.78rem;
-  font-weight: 500;
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
 }
 .theme-card__desc {
   margin: 0;
-  font-size: 0.84rem;
-  line-height: 1.45;
-  text-wrap: pretty;
+  font-size: 0.82rem;
+  line-height: 1.46;
 }
 .theme-card__rule {
-  padding: 10px 12px;
-  border-radius: var(--r-md);
-  background: var(--bg-subtle);
-  border: 1px solid var(--border-subtle);
+  padding: 10px 0 0;
+  border-top: 1px solid var(--oa-line-faint);
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-.theme-card__rule .progress-bar {
-  background: var(--bg-canvas);
-  border: 1px solid var(--border-subtle);
-}
 .theme-card__rule-text {
-  font-size: 0.81rem;
-  font-weight: 600;
+  font-size: 0.78rem;
   color: var(--text-primary);
-}
-.theme-card__progress {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 }
 .theme-card__progress-row {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 4px 6px;
-  font-size: 0.78rem;
+  gap: 6px;
+  font-size: 0.74rem;
   color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+.theme-card__rule .progress-bar {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 .theme-card__foot {
   margin-top: auto;
-  padding-top: 2px;
-  display: flex;
-}
-.theme-card__apply,
-.theme-card__go {
-  width: 100%;
+  padding-top: 4px;
 }
 
-/* Mobile Bottom-Sheet Presentation for Theme Gallery (< 768px) */
-@media (max-width: 767px) {
+@media (max-width: 680px) {
   .theme-modal {
     left: 0;
     right: 0;
@@ -1454,160 +785,68 @@ html[data-theme="master"].is-theme-switching .app-shell,
     bottom: 0;
     transform: none;
     width: 100%;
-    max-height: calc(90vh - env(safe-area-inset-top, 0px));
-    border-radius: 20px 20px 0 0;
+    max-height: 88dvh;
+    border-radius: var(--r-xl) var(--r-xl) 0 0;
     border-bottom: none;
-    border-left: none;
-    border-right: none;
     padding-bottom: env(safe-area-inset-bottom, 0px);
-    animation: themeSheetUp 240ms var(--ease-out);
+    animation: themeSheetUp 260ms var(--ease-out);
   }
   .theme-modal__handle {
     display: block;
     width: 40px;
     height: 4px;
     border-radius: 999px;
-    background: var(--border-strong);
-    margin: 10px auto 2px;
-    flex-shrink: 0;
-  }
-  .theme-modal__head {
-    padding: 10px 16px 12px;
-  }
-  .theme-modal__body {
-    padding: 12px 16px 20px;
-  }
-  .theme-trigger {
-    max-width: 118px;
-    padding: 0 9px;
+    background: rgba(255, 255, 255, 0.28);
+    margin: 10px auto 0;
   }
 }
 
 /* ==========================================================================
-   Theme Keyframes (All Strictly Gated Under prefers-reduced-motion: reduce)
+   Mode Keyframes
    ========================================================================== */
 
-@keyframes unseenPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.22); opacity: 0.72; }
+@keyframes oaModeIgnite {
+  0% { opacity: 0.72; }
+  45% { opacity: 0.94; }
+  100% { opacity: 1; }
 }
 
-@keyframes themeModalIn {
-  from { opacity: 0; transform: translate(-50%, -47%) scale(0.97); }
-  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-}
-
-@keyframes themeSheetUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-
-/* Восход Animations */
-@keyframes voshodCloudDrift {
-  from { background-position: 0 bottom; }
-  to { background-position: -384px bottom; }
-}
-@keyframes voshodSceneBreath {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.06); }
-}
-@keyframes voshodCardIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes voshodArcadeFlash {
-  0% { box-shadow: 0 0 0 0 rgba(255, 233, 133, 0.65); }
-  45% { box-shadow: 0 0 0 6px rgba(255, 177, 59, 0.25); }
-  100% { box-shadow: 0 0 0 0 transparent; }
-}
-
-/* Intel Animations */
-@keyframes intelCircuitSweep {
-  from { transform: translateX(-130%); }
-  to { transform: translateX(130%); }
-}
-@keyframes intelChipSnap {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes intelWaferPulse {
-  0%, 100% { opacity: 0.85; }
+@keyframes prismGridPulse {
+  0%, 100% { opacity: 0.72; }
   50% { opacity: 1; }
 }
-@keyframes intelTelemetryRing {
-  0% { box-shadow: 0 0 0 0 rgba(0, 168, 232, 0.52); }
-  50% { box-shadow: 0 0 0 5px rgba(0, 199, 253, 0.20); }
-  100% { box-shadow: 0 0 0 0 transparent; }
+
+@keyframes pulseVoltFlash {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.55); }
+  100% { box-shadow: 0 0 0 14px rgba(255, 255, 255, 0); }
 }
 
-/* NVIDIA Animations */
-@keyframes rtxSheen {
-  from { transform: translateX(-140%); }
-  to { transform: translateX(140%); }
-}
-@keyframes rtxFrameLock {
-  0% { box-shadow: inset 3px 0 0 #B8FF2E, 0 0 0 0 rgba(118, 185, 0, 0.55); }
-  55% { box-shadow: inset 3px 0 0 #9CE600, 0 0 0 4px rgba(118, 185, 0, 0.16); }
-  100% { box-shadow: inset 3px 0 0 #9CE600, 0 0 0 0 transparent; }
-}
-@keyframes rtxProgressSweep {
-  from { background-position: 200% 0; }
-  to { background-position: 0% 0; }
-}
-
-/* AMD Animations */
-@keyframes amdSlashWipe {
-  from { transform: translateX(-140%); }
-  to { transform: translateX(140%); }
-}
-@keyframes amdEmberPulse {
-  0%, 100% { box-shadow: 0 0 0 1px rgba(237, 28, 36, 0.35), 0 6px 20px rgba(237, 28, 36, 0.14); }
-  50% { box-shadow: 0 0 0 1px rgba(255, 84, 28, 0.72), 0 6px 26px rgba(237, 28, 36, 0.28); }
-}
-@keyframes amdSparkSweep {
-  0% { box-shadow: 0 0 0 0 rgba(255, 84, 28, 0.55); }
-  50% { box-shadow: 0 0 0 5px rgba(237, 28, 36, 0.22); }
-  100% { box-shadow: 0 0 0 0 transparent; }
-}
-
-/* Мастер Pure Monochrome-Neon Signature Animations */
 @keyframes masterBeam {
   from { --master-angle: 0deg; }
   to { --master-angle: 360deg; }
 }
-@keyframes masterNeonIgnite {
-  0% { opacity: 0.4; filter: brightness(0.75); }
-  32% { opacity: 1; filter: brightness(1.12); }
-  52% { opacity: 0.86; filter: brightness(0.95); }
-  100% { opacity: 1; filter: brightness(1); }
-}
-@keyframes masterRipple {
-  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.72), 0 0 24px rgba(255, 255, 255, 0.32); }
-  60% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.12), 0 0 28px rgba(255, 255, 255, 0.28); }
-  100% { box-shadow: 0 0 0 0 transparent, 0 0 22px rgba(255, 255, 255, 0.24); }
-}
+
 @keyframes masterHorizon {
-  from { background-position: 0 0, 0 0, 0 0; }
-  to { background-position: 0 0, 0 40px, 0 40px; }
-}
-@keyframes masterPlasma {
-  from { background-position: 200% 0; }
-  to { background-position: 0% 0; }
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 1; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .theme-backdrop__scene,
-  .theme-backdrop__sun,
-  .theme-backdrop__clouds,
-  .theme-backdrop__grid,
-  .theme-trigger__dot,
-  [data-theme="voshod"] .subject-card,
-  [data-theme="intel"] .subject-card,
-  [data-theme="intel"] .task-card,
-  [data-theme="nvidia"] .progress-bar__fill,
-  [data-theme="master"] .home-welcome,
-  [data-theme="master"] .task-card,
-  [data-theme="master"] .progress-bar__fill {
-    animation: none !important;
-  }
+@keyframes masterPlasma {
+  from { background-position: 0% 50%; }
+  to { background-position: 200% 50%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes themeModalIn {
+  from { opacity: 0; transform: translate(-50%, -48%) scale(0.97); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes themeSheetUp {
+  from { transform: translateY(24px); opacity: 0.6; }
+  to { transform: translateY(0); opacity: 1; }
 }

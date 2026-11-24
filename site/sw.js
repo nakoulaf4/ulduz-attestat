@@ -1,21 +1,19 @@
 // Lightweight Offline PWA Service Worker for Ulduz (active on Web/PWA only; skipped in Tauri native app).
-const CACHE_NAME = 'ulduz-pwa-v2';
+const CACHE_NAME = 'ulduz-pwa-v3';
 
 const APP_SHELL = [
   './',
   './index.html',
   './manifest.json',
+  './css/tokens.css',
+  './css/primitives.css',
   './css/styles.css',
   './css/themes.css',
   './assets/favicon.svg',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
-  './assets/themes/voshod-scene.svg',
-  './assets/themes/voshod-clouds-layer.svg',
-  './assets/themes/voshod-sun.svg',
   './vendor/fonts/fonts.css',
   './vendor/fonts/theme-fonts.css',
-  './vendor/fonts/ulduz-gta.woff2',
   './vendor/fonts/ulduz-intel.woff2',
   './vendor/fonts/ulduz-nvidia.woff2',
   './vendor/fonts/ulduz-amd.woff2',
@@ -25,6 +23,8 @@ const APP_SHELL = [
   './vendor/katex/auto-render.min.js',
   './js/core/themes.js',
   './js/core/native.js',
+  './js/app/fx-engine.js',
+  './js/app/ui-kit.js',
   './js/app/theme-modal.js',
   './js/app/main.js',
 ];
@@ -53,7 +53,7 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
 
-  // Cache-first for immutable vendored fonts, KaTeX & icons/theme SVGs
+  // Cache-first for immutable vendored fonts, KaTeX & icons
   if (url.pathname.includes('/vendor/') || url.pathname.includes('/assets/')) {
     event.respondWith(
       caches.match(req).then((cached) => {

@@ -1,8 +1,20 @@
-// 5 Unlockable Themes Registry, Unlock Conditions & Live Progress Calculators.
-// Themes: Восход (default), i (Intel), n (NVIDIA), a (AMD), Мастер (Prestige B&W Neon).
+// 5 Unlockable Pure Monochrome Black-and-White Neon Modes (Obsidian Atelier Architecture).
+// Every mode stays 100% pure B&W dark neon while transforming layout geometry, button placement,
+// display font voice, architectural framing, and signature motion choreography.
+// Legacy theme IDs ('voshod'|'intel'|'nvidia'|'amd'|'master'|'light'|'dark') migrate cleanly.
 
-export const DEFAULT_THEME_ID = 'voshod';
-export const VALID_THEME_IDS = ['voshod', 'intel', 'nvidia', 'amd', 'master'];
+export const DEFAULT_THEME_ID = 'atelier';
+export const VALID_THEME_IDS = ['atelier', 'prism', 'pulse', 'monolith', 'eclipse'];
+
+const LEGACY_THEME_MAP = {
+  voshod: 'atelier',
+  intel: 'prism',
+  nvidia: 'pulse',
+  amd: 'monolith',
+  master: 'eclipse',
+  light: 'atelier',
+  dark: 'atelier',
+};
 
 /**
  * Determine whether a completed exam summary qualifies as a perfect full DİM exam
@@ -42,16 +54,16 @@ function getBestFullExamProgress(state) {
 
 export const THEMES = [
   {
-    id: 'voshod',
-    shortLabel: 'Восход',
-    name: 'Восход',
-    subtitleKey: 'themeSub_voshod',
-    descKey: 'themeDesc_voshod',
-    ruleKey: 'themeRule_voshod',
+    id: 'atelier',
+    shortLabel: 'Obsidian',
+    name: 'Obsidian',
+    subtitleKey: 'themeSub_atelier',
+    descKey: 'themeDesc_atelier',
+    ruleKey: 'themeRule_atelier',
     colorScheme: 'dark',
-    themeColor: '#180C3A',
+    themeColor: '#030304',
     appleBarStyle: 'black-translucent',
-    displayFont: "'Ulduz GTA', 'Inter Variable', sans-serif",
+    displayFont: "'Ulduz Wide', 'Inter Variable', sans-serif",
     unlockedByDefault: true,
     quickHref: () => '#/',
     getProgress() {
@@ -63,22 +75,22 @@ export const THEMES = [
     },
   },
   {
-    id: 'intel',
-    shortLabel: 'i',
-    name: 'i',
-    subtitleKey: 'themeSub_intel',
-    descKey: 'themeDesc_intel',
-    ruleKey: 'themeRule_intel',
-    colorScheme: 'light',
-    themeColor: '#F1F6FC',
-    appleBarStyle: 'default',
+    id: 'prism',
+    shortLabel: 'Prism [i]',
+    name: 'Prism [i]',
+    subtitleKey: 'themeSub_prism',
+    descKey: 'themeDesc_prism',
+    ruleKey: 'themeRule_prism',
+    colorScheme: 'dark',
+    themeColor: '#040406',
+    appleBarStyle: 'black-translucent',
     displayFont: "'Ulduz Intel', 'Inter Variable', sans-serif",
     unlockedByDefault: false,
     quickHref: () => '#/practice/math',
     getProgress(state) {
       const done = Number(state?.stats?.bySubject?.math?.correct ?? 0);
       const target = 10;
-      const unlocked = Boolean(state?.unlockedThemes?.includes('intel')) || done >= target;
+      const unlocked = Boolean(state?.unlockedThemes?.includes('prism')) || done >= target;
       const clamped = unlocked ? target : Math.min(done, target);
       return {
         unlocked,
@@ -88,14 +100,14 @@ export const THEMES = [
     },
   },
   {
-    id: 'nvidia',
-    shortLabel: 'n',
-    name: 'n',
-    subtitleKey: 'themeSub_nvidia',
-    descKey: 'themeDesc_nvidia',
-    ruleKey: 'themeRule_nvidia',
+    id: 'pulse',
+    shortLabel: 'Pulse [n]',
+    name: 'Pulse [n]',
+    subtitleKey: 'themeSub_pulse',
+    descKey: 'themeDesc_pulse',
+    ruleKey: 'themeRule_pulse',
     colorScheme: 'dark',
-    themeColor: '#090C09',
+    themeColor: '#020203',
     appleBarStyle: 'black-translucent',
     displayFont: "'Ulduz Nvidia', 'Inter Variable', sans-serif",
     unlockedByDefault: false,
@@ -106,7 +118,7 @@ export const THEMES = [
     getProgress(state) {
       const ruDone = Number(state?.stats?.bySubject?.ru?.correct ?? 0);
       const enDone = Number(state?.stats?.bySubject?.en?.correct ?? 0);
-      const unlocked = Boolean(state?.unlockedThemes?.includes('nvidia')) || (ruDone >= 5 && enDone >= 5);
+      const unlocked = Boolean(state?.unlockedThemes?.includes('pulse')) || (ruDone >= 5 && enDone >= 5);
       const ruClamped = unlocked ? 5 : Math.min(ruDone, 5);
       const enClamped = unlocked ? 5 : Math.min(enDone, 5);
       return {
@@ -120,14 +132,14 @@ export const THEMES = [
     },
   },
   {
-    id: 'amd',
-    shortLabel: 'a',
-    name: 'a',
-    subtitleKey: 'themeSub_amd',
-    descKey: 'themeDesc_amd',
-    ruleKey: 'themeRule_amd',
+    id: 'monolith',
+    shortLabel: 'Monolith [a]',
+    name: 'Monolith [a]',
+    subtitleKey: 'themeSub_monolith',
+    descKey: 'themeDesc_monolith',
+    ruleKey: 'themeRule_monolith',
     colorScheme: 'dark',
-    themeColor: '#0E0E10',
+    themeColor: '#050506',
     appleBarStyle: 'black-translucent',
     displayFont: "'Ulduz AMD', 'Inter Variable', sans-serif",
     unlockedByDefault: false,
@@ -135,7 +147,7 @@ export const THEMES = [
     getProgress(state) {
       const done = Number(state?.stats?.bySubject?.az?.correct ?? 0);
       const target = 10;
-      const unlocked = Boolean(state?.unlockedThemes?.includes('amd')) || done >= target;
+      const unlocked = Boolean(state?.unlockedThemes?.includes('monolith')) || done >= target;
       const clamped = unlocked ? target : Math.min(done, target);
       return {
         unlocked,
@@ -145,21 +157,21 @@ export const THEMES = [
     },
   },
   {
-    id: 'master',
-    shortLabel: 'Мастер',
-    name: 'Мастер',
-    subtitleKey: 'themeSub_master',
-    descKey: 'themeDesc_master',
-    ruleKey: 'themeRule_master',
+    id: 'eclipse',
+    shortLabel: 'Eclipse',
+    name: 'Eclipse · Мастер',
+    subtitleKey: 'themeSub_eclipse',
+    descKey: 'themeDesc_eclipse',
+    ruleKey: 'themeRule_eclipse',
     colorScheme: 'dark',
-    themeColor: '#030303',
+    themeColor: '#000000',
     appleBarStyle: 'black-translucent',
     displayFont: "'Ulduz Wide', 'Inter Variable', sans-serif",
     unlockedByDefault: false,
     quickHref: () => '#/exam/math',
     getProgress(state) {
       const { hasPerfect, bestPct, bestScore, bestMax } = getBestFullExamProgress(state);
-      const unlocked = Boolean(state?.unlockedThemes?.includes('master')) || hasPerfect;
+      const unlocked = Boolean(state?.unlockedThemes?.includes('eclipse')) || hasPerfect;
       return {
         unlocked,
         pct: unlocked ? 100 : Math.min(99, Math.round(bestPct)),
@@ -178,11 +190,23 @@ export const THEMES = [
 export const THEME_MAP = Object.fromEntries(THEMES.map((th) => [th.id, th]));
 
 /**
- * Normalize legacy ('light'/'dark'/null/unknown) theme values to valid 5-theme IDs (default: 'voshod').
+ * Normalize legacy ('voshod'|'intel'|'nvidia'|'amd'|'master'|'light'|'dark') & unknown values
+ * into valid Obsidian Atelier monochrome mode IDs (default: 'atelier').
  */
 export function normalizeThemeId(raw) {
-  if (typeof raw === 'string' && THEME_MAP[raw]) return raw;
+  if (typeof raw !== 'string') return DEFAULT_THEME_ID;
+  if (THEME_MAP[raw]) return raw;
+  if (LEGACY_THEME_MAP[raw]) return LEGACY_THEME_MAP[raw];
   return DEFAULT_THEME_ID;
+}
+
+export function normalizeUnlockedList(list) {
+  if (!Array.isArray(list)) return [DEFAULT_THEME_ID];
+  const out = new Set([DEFAULT_THEME_ID]);
+  for (const item of list) {
+    out.add(normalizeThemeId(item));
+  }
+  return [...out];
 }
 
 export function getThemeDef(themeId) {
@@ -190,7 +214,8 @@ export function getThemeDef(themeId) {
 }
 
 export function isThemeUnlocked(themeId, state) {
-  const def = THEME_MAP[themeId];
+  const norm = normalizeThemeId(themeId);
+  const def = THEME_MAP[norm];
   if (!def) return false;
   if (def.unlockedByDefault) return true;
   return Boolean(def.getProgress(state).unlocked);
@@ -198,20 +223,15 @@ export function isThemeUnlocked(themeId, state) {
 
 /**
  * Synchronize state.unlockedThemes & state.achievements against current stats/exams.
- * Returns array of newly unlocked theme IDs (excluding default 'voshod').
- * @param {object} state
- * @param {{ markUnseen?: boolean }} [opts]
+ * Returns array of newly unlocked mode IDs (excluding default 'atelier').
  */
 export function evaluateThemeUnlocks(state, { markUnseen = true } = {}) {
   if (!state || typeof state !== 'object') return [];
   state.achievements ??= { perfectFullExam: false };
-  if (!Array.isArray(state.unlockedThemes)) state.unlockedThemes = [DEFAULT_THEME_ID];
-  if (!state.unlockedThemes.includes(DEFAULT_THEME_ID)) {
-    state.unlockedThemes.unshift(DEFAULT_THEME_ID);
-  }
+  state.unlockedThemes = normalizeUnlockedList(state.unlockedThemes);
   if (!Array.isArray(state.unseenThemes)) state.unseenThemes = [];
+  else state.unseenThemes = [...new Set(state.unseenThemes.map((id) => normalizeThemeId(id)).filter((id) => id !== DEFAULT_THEME_ID))];
 
-  // Re-verify perfect full exam achievement from exam history
   if (!state.achievements.perfectFullExam && Array.isArray(state.exams)) {
     if (state.exams.some((ex) => isPerfectFullExamSummary(ex))) {
       state.achievements.perfectFullExam = true;
@@ -237,7 +257,7 @@ export function evaluateThemeUnlocks(state, { markUnseen = true } = {}) {
 let switchAnimTimer = null;
 
 /**
- * Apply theme attributes & mobile status-bar meta tags directly to the DOM.
+ * Apply monochrome mode attributes & mobile status-bar meta tags directly to the DOM.
  */
 export function applyThemeToDocument(themeId, { animate = false } = {}) {
   if (typeof document === 'undefined') return;

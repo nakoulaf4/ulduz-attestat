@@ -7,6 +7,7 @@ import { haptic } from '../core/native.js';
 import { t, formatPoints, formatFormatBadge } from './i18n.js';
 import { icon } from './icons.js';
 import { escapeHtml, prepareRichHtml, hydrateMath, renderTaskImageHtml } from './math.js';
+import { oaFireFxPulse } from './ui-kit.js';
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 const AZ_CHARS = ['ə', 'ğ', 'ı', 'İ', 'ö', 'ş', 'ü', 'ç'];
@@ -235,11 +236,27 @@ export function mountTaskView(container, opts) {
       return;
     }
     if (!hasResponse(task, currentResponse)) return;
+    const anchorBtn = container.querySelector('[data-action="check-answer"], [data-action="pick-self-score"].is-selected');
+    const anchorRect = anchorBtn?.getBoundingClientRect();
     isChecked = true;
     const res = checkAnswer(task, currentResponse);
     haptic(res.correct ? 'success' : res.earned > 0 ? 'warning' : 'error');
+    oaFireFxPulse(res.correct ? 'correct' : 'wrong', {
+      x: anchorRect ? anchorRect.left + anchorRect.width / 2 : null,
+      y: anchorRect ? anchorRect.top + anchorRect.height / 2 : null,
+      intensity: res.correct ? 1.15 : 0.75,
+    });
     if (onCheck) onCheck(res, currentResponse);
     render();
+    if (!res.correct) {
+      const card = container.querySelector('.task-card');
+      if (card) {
+        card.classList.remove('is-recoil');
+        void card.offsetWidth;
+        card.classList.add('is-recoil');
+        setTimeout(() => card.classList.remove('is-recoil'), 320);
+      }
+    }
     const expEl = container.querySelector('.explanation-card');
     expEl?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
@@ -274,8 +291,9 @@ export function mountTaskView(container, opts) {
     const origPdfShort = task.origin?.pdf
       ? String(task.origin.pdf).replace(/^Attestat_all_|_\d+\.pdf$/g, '').replace(/\.2026$/, '')
       : '';
+    const sameNum = taskNumber !== null && String(taskNumber) === String(task.origin?.number ?? '');
     const originalTag = task.source === 'original'
-      ? `<span class="meta-sep" aria-hidden="true">·</span><span class="task-meta-origin">${escapeHtml(t('sourceOriginal'))}${origPdfShort ? ` ${escapeHtml(origPdfShort)}` : ''}${task.origin?.number ? ` №${escapeHtml(task.origin.number)}` : ''}</span>`
+      ? `<span class="meta-sep" aria-hidden="true">·</span><span class="task-meta-origin">${escapeHtml(t('sourceOriginal'))}${origPdfShort ? ` ${escapeHtml(origPdfShort)}` : ''}${!sameNum && task.origin?.number ? ` №${escapeHtml(task.origin.number)}` : ''}</span>`
       : '';
 
     const passageTitleText = task.passage?.title ? prepareRichHtml(task.passage.title) : escapeHtml(t('passageHeading'));
@@ -322,7 +340,7 @@ export function mountTaskView(container, opts) {
       ${mobileTabsHtml}
       <div class="task-workspace ${hasPassage ? 'task-workspace--split' : ''}">
         ${passagePanelHtml}
-        <section class="task-card subject-accent--${escapeHtml(task.subject)} ${hasPassage && mobilePassageTab === 'text' ? 'is-hidden-mobile' : ''}" aria-label="${escapeHtml(t('taskCardAria'))}">
+        <section class="task-card subject-accent--${escapeHtml(task.subject)} ${hasPassage && mobilePassageTab === 'text' ? 'is-hidden-mobile' : ''}" data-specular aria-label="${escapeHtml(t('taskCardAria'))}">
           <!-- Calm 2-part Meta Header -->
           <header class="task-card__header">
             <div class="task-card__meta-left">

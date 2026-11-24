@@ -2,7 +2,10 @@
 node_modules/
 dist/
 work/
-.impeccable/
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/critique/
+.impeccable/tmp/
 
 # Source exam PDFs (large third-party booklets kept out of git)
 *.pdf

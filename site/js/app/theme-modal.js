@@ -1,23 +1,73 @@
-// Accessible Theme Gallery Modal / Mobile Bottom-Sheet (#theme-modal).
-// Displays all 5 unlockable themes with live miniature theme swatches, progress bars & 1-tap apply.
+// Accessible Obsidian Atelier Studio Drawer / Mobile Bottom-Sheet (#theme-modal).
+// Houses TWO live interactive controls:
+//   1. 3-Way Interactive FX Engine Switcher (Minimal / Tactile 60 FPS / Ultra WebGL)
+//   2. 5 Unlockable Pure Monochrome Modes (Obsidian, Prism [i], Pulse [n], Monolith [a], Eclipse · Мастер)
+// Includes proper initial focus, keyboard Tab focus trap, and body scroll lock.
 
 import { THEMES, getThemeDef } from '../core/themes.js';
-import { loadState, getTheme, setTheme, markUnseenThemesSeen } from '../core/storage.js';
+import { loadState, getTheme, setTheme, getFxMode, markUnseenThemesSeen } from '../core/storage.js';
 import { haptic } from '../core/native.js';
 import { t } from './i18n.js';
 import { icon } from './icons.js';
 import { escapeHtml } from './math.js';
 
 let modalOpen = false;
-let modalCallbacks = { navigate: null, onThemeChanged: null };
+let modalCallbacks = { navigate: null, onThemeChanged: null, onFxChanged: null };
+let trapKeyHandler = null;
+
+const FX_MODES_META = [
+  { id: 'minimal', iconName: 'circle-dot' },
+  { id: 'tactile', iconName: 'sparkles' },
+  { id: 'webgl', iconName: 'waves' },
+];
+
+const SWATCH_SPECIMEN = {
+  atelier:  'Аа · Əə · 01',
+  prism:    'XY · 2px · [i]',
+  pulse:    'V2 · CUT · [n]',
+  monolith: 'SLAB · [a]',
+  eclipse:  '100% · ★',
+};
 
 export function isThemeModalOpen() {
   return modalOpen;
 }
 
+function uninstallFocusTrap() {
+  if (trapKeyHandler) {
+    document.removeEventListener('keydown', trapKeyHandler);
+    trapKeyHandler = null;
+  }
+}
+
+function installFocusTrap(modalEl) {
+  uninstallFocusTrap();
+  if (!modalEl) return;
+  trapKeyHandler = (e) => {
+    if (e.key !== 'Tab' || !modalOpen) return;
+    const focusables = [...modalEl.querySelectorAll(
+      'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )].filter((el) => el.offsetParent !== null);
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first || !modalEl.contains(document.activeElement)) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else if (document.activeElement === last || !modalEl.contains(document.activeElement)) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+  document.addEventListener('keydown', trapKeyHandler);
+}
+
 export function closeThemeModal({ restoreFocus = true } = {}) {
   const host = document.getElementById('theme-modal-host');
   modalOpen = false;
+  uninstallFocusTrap();
   document.body.classList.remove('is-modal-open');
   if (host) host.innerHTML = '';
   if (restoreFocus) {
@@ -26,28 +76,33 @@ export function closeThemeModal({ restoreFocus = true } = {}) {
 }
 
 function renderMiniPreviewSwatch(theme) {
-  // Miniature authentic preview of each theme's backdrop, display font & distinct button layout
-  const sunAccent = theme.id === 'voshod'
-    ? '<span class="theme-swatch__sun" aria-hidden="true"></span><span class="theme-swatch__clouds" aria-hidden="true"></span>'
-    : theme.id === 'master'
+  const accent = theme.id === 'eclipse'
     ? '<span class="theme-swatch__beam" aria-hidden="true"></span>'
+    : theme.id === 'prism'
+    ? '<span class="theme-swatch__crosshair" aria-hidden="true"></span>'
+    : theme.id === 'monolith'
+    ? '<span class="theme-swatch__brackets" aria-hidden="true"></span>'
+    : theme.id === 'atelier'
+    ? '<span class="theme-swatch__orbit" aria-hidden="true"></span>'
     : '';
 
-  const btnBar = theme.id === 'intel'
+  const btnBar = theme.id === 'prism'
     ? '<span class="theme-swatch__btn theme-swatch__btn--p"></span><span class="theme-swatch__btn theme-swatch__btn--s"></span>'
-    : theme.id === 'nvidia'
+    : theme.id === 'pulse'
     ? '<span class="theme-swatch__btn theme-swatch__btn--s"></span><span class="theme-swatch__btn theme-swatch__btn--p"></span>'
-    : theme.id === 'amd'
+    : theme.id === 'monolith'
     ? '<span class="theme-swatch__btn theme-swatch__btn--p"></span><span class="theme-swatch__btn theme-swatch__btn--s"></span>'
-    : theme.id === 'master'
+    : theme.id === 'eclipse'
     ? '<span class="theme-swatch__btn theme-swatch__btn--p"></span>'
-    : '<span class="theme-swatch__btn theme-swatch__btn--s"></span><span class="theme-swatch__btn theme-swatch__btn--p"></span>';
+    : '<span class="theme-swatch__btn theme-swatch__btn--p"></span><span class="theme-swatch__btn theme-swatch__btn--s"></span>';
+
+  const specimen = SWATCH_SPECIMEN[theme.id] || theme.shortLabel;
 
   return `
     <div class="theme-swatch theme-swatch--${escapeHtml(theme.id)}" aria-hidden="true">
-      ${sunAccent}
+      ${accent}
       <div class="theme-swatch__inner">
-        <span class="theme-swatch__word" style="font-family:${theme.displayFont}">${escapeHtml(theme.shortLabel)}</span>
+        <span class="theme-swatch__word" style="font-family:${theme.displayFont}">${escapeHtml(specimen)}</span>
         <div class="theme-swatch__bars theme-swatch__bars--${escapeHtml(theme.id)}">
           ${btnBar}
         </div>
@@ -62,6 +117,7 @@ function renderModalContent() {
 
   const state = loadState();
   const activeId = getTheme();
+  const activeFx = getFxMode();
   const unlockedTotal = THEMES.filter((th) => th.getProgress(state).unlocked).length;
 
   host.innerHTML = `
@@ -90,6 +146,41 @@ function renderModalContent() {
       </header>
 
       <div class="theme-modal__body">
+        <!-- Live 3-Tier Interactive Animation & FX Engine Selector -->
+        <div class="fx-studio-section">
+          <div class="fx-studio-section__head">
+            <h3 class="fx-studio-section__title">${escapeHtml(t('fxSectionTitle'))}</h3>
+            <p class="fx-studio-section__sub text-secondary">${escapeHtml(t('fxSectionSub'))}</p>
+          </div>
+          <div class="fx-mode-grid" role="radiogroup" aria-label="${escapeHtml(t('fxSectionTitle'))}">
+            ${FX_MODES_META.map(({ id, iconName }) => {
+              const selected = activeFx === id;
+              return `
+                <button
+                  type="button"
+                  role="radio"
+                  aria-checked="${selected}"
+                  class="fx-mode-card ${selected ? 'is-active' : ''}"
+                  data-action="select-fx"
+                  data-fx-id="${id}"
+                  data-ripple
+                >
+                  <div class="fx-mode-card__top">
+                    <span class="fx-mode-card__icon" aria-hidden="true">${icon(iconName, { size: 16 })}</span>
+                    <strong class="fx-mode-card__name">${escapeHtml(t(`fxName_${id}`))}</strong>
+                    <span class="fx-mode-card__tag mono-code">${escapeHtml(t(`fxTag_${id}`))}</span>
+                  </div>
+                  <p class="fx-mode-card__desc">${escapeHtml(t(`fxDesc_${id}`))}</p>
+                </button>
+              `;
+            }).join('')}
+          </div>
+          <p class="fx-studio-mobile-desc text-secondary" aria-live="polite">
+            ${escapeHtml(t(`fxDesc_${activeFx}`))}
+          </p>
+        </div>
+
+        <!-- 5 Unlockable Pure Monochrome Modes -->
         <div class="theme-cards-grid">
           ${THEMES.map((theme) => {
             const prog = theme.getProgress(state);
@@ -117,11 +208,11 @@ function renderModalContent() {
                   <div class="theme-card__top">
                     <div class="theme-card__titles">
                       <h3 class="theme-card__name" style="font-family:${theme.displayFont}">
-                        ${theme.id === 'master' ? `${icon('crown', { size: 15 })} ` : ''}${escapeHtml(theme.name)}
+                        ${theme.id === 'eclipse' ? `${icon('crown', { size: 14 })} ` : ''}${escapeHtml(theme.name)}
                       </h3>
                       <span class="theme-card__sub text-muted">${escapeHtml(t(theme.subtitleKey))}</span>
                     </div>
-                    <span class="badge ${isActive ? 'badge--grade-correct' : isUnlocked ? 'badge--subtle' : 'badge--gold'}">
+                    <span class="badge ${isActive ? 'badge--grade-correct' : isUnlocked ? 'badge--subtle' : 'badge--warn'}">
                       ${isActive
                         ? `${icon('check', { size: 12 })} ${escapeHtml(t('themeStatusActive'))}`
                         : isUnlocked
@@ -143,12 +234,12 @@ function renderModalContent() {
                     ${isUnlocked ? `
                       <button
                         type="button"
-                        class="btn ${isActive ? 'btn--secondary' : 'btn--primary'} btn--sm theme-card__apply"
+                        class="btn ${isActive ? 'btn--ghost theme-card__apply--active' : 'btn--primary'} btn--sm theme-card__apply"
                         data-action="apply-theme"
                         data-theme-id="${escapeHtml(theme.id)}"
-                        ${isActive ? 'aria-pressed="true"' : 'aria-pressed="false"'}
+                        aria-pressed="${isActive}"
                       >
-                        ${isActive ? `${icon('check', { size: 15 })} <span>${escapeHtml(t('themeStatusActive'))}</span>` : `<span>${escapeHtml(t('themeApplyBtn'))}</span>`}
+                        ${isActive ? `${icon('check', { size: 14 })} <span>${escapeHtml(t('themeStatusActive'))}</span>` : `<span>${escapeHtml(t('themeApplyBtn'))}</span>`}
                       </button>
                     ` : `
                       <a
@@ -171,10 +262,23 @@ function renderModalContent() {
     </section>
   `;
 
+  installFocusTrap(host.querySelector('#theme-modal'));
+
   host.querySelectorAll('[data-action="close-theme-modal"]').forEach((el) => {
     el.addEventListener('click', () => {
       haptic('light');
       closeThemeModal({ restoreFocus: true });
+    });
+  });
+
+  host.querySelectorAll('[data-action="select-fx"]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const fxId = btn.dataset.fxId;
+      if (!fxId) return;
+      haptic('selection');
+      if (modalCallbacks.onFxChanged) modalCallbacks.onFxChanged(fxId);
+      renderModalContent();
+      host.querySelector(`[data-action="select-fx"][data-fx-id="${fxId}"]`)?.focus({ preventScroll: true });
     });
   });
 
@@ -202,12 +306,12 @@ function renderModalContent() {
   });
 }
 
-export function openThemeModal({ navigate = null, onThemeChanged = null } = {}) {
-  modalCallbacks = { navigate, onThemeChanged };
+export function openThemeModal({ navigate = null, onThemeChanged = null, onFxChanged = null } = {}) {
+  modalCallbacks = { navigate, onThemeChanged, onFxChanged };
   markUnseenThemesSeen();
   modalOpen = true;
   document.body.classList.add('is-modal-open');
   renderModalContent();
   const host = document.getElementById('theme-modal-host');
-  host?.querySelector('[data-action="close-theme-modal"]')?.focus({ preventScroll: true });
+  host?.querySelector('.theme-modal__close')?.focus({ preventScroll: true });
 }
