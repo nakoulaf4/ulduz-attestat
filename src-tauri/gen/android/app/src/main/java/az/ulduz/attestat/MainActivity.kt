@@ -3,60 +3,20 @@ package az.ulduz.attestat
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
+import android.view.View
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
-import androidx.core.content.FileProvider
-import java.io.File
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : TauriActivity() {
   private var appWebView: WebView? = null
 
   private inner class UlduzAndroidBridge {
-    @JavascriptInterface
-    fun installApk(filePath: String): String {
-      return try {
-        val target = File(filePath).canonicalFile
-        val updatesRoot = File(cacheDir, "updates").canonicalFile
-        if (!target.exists() || !target.path.startsWith(updatesRoot.path + File.separator)) {
-          return "invalid_path"
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !packageManager.canRequestPackageInstalls()) {
-          runOnUiThread {
-            val permIntent = Intent(
-              Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,
-              Uri.parse("package:$packageName")
-            ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(permIntent)
-          }
-          return "permission_required"
-        }
-
-        val apkUri = FileProvider.getUriForFile(
-          this@MainActivity,
-          "$packageName.fileprovider",
-          target
-        )
-        runOnUiThread {
-          val installIntent = Intent(Intent.ACTION_VIEW).apply {
-            setDataAndType(apkUri, "application/vnd.android.package-archive")
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-          }
-          startActivity(installIntent)
-        }
-        "launched"
-      } catch (e: Exception) {
-        "error:${e.message ?: "install_failed"}"
-      }
-    }
-
     @JavascriptInterface
     fun openUrl(url: String): Boolean {
       return try {
@@ -80,6 +40,19 @@ class MainActivity : TauriActivity() {
       navigationBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
     )
     super.onCreate(savedInstanceState)
+
+    // Reserve exact native padding for status bar, camera notch/cutout (portrait & landscape)
+    // and system gesture navigation bar — fixes Xiaomi MIUI / HyperOS & Android 15+ overlap.
+    val contentView = findViewById<View>(android.R.id.content)
+    contentView.setBackgroundColor(Color.parseColor("#0C0C0E"))
+    ViewCompat.setOnApplyWindowInsetsListener(contentView) { v, insets ->
+      val bars = insets.getInsets(
+        WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
+      )
+      v.setPadding(bars.left, bars.top, bars.right, bars.bottom)
+      WindowInsetsCompat.CONSUMED
+    }
+    ViewCompat.requestApplyInsets(contentView)
 
     val backCallback = object : OnBackPressedCallback(true) {
       override fun handleOnBackPressed() {
@@ -110,6 +83,8 @@ class MainActivity : TauriActivity() {
   override fun onWebViewCreate(webView: WebView) {
     super.onWebViewCreate(webView)
     webView.setBackgroundColor(Color.parseColor("#0C0C0E"))
+    webView.settings.mediaPlaybackRequiresUserGesture = false
+    webView.settings.domStorageEnabled = true
     webView.addJavascriptInterface(UlduzAndroidBridge(), "UlduzAndroid")
     appWebView = webView
   }

@@ -116,10 +116,12 @@ function buildSubjectPaceBarsHtml(subjects, lang) {
   const active = subjects.filter((s) => s.timedCount > 0);
   if (active.length === 0) return '';
   const maxAvg = Math.max(...active.map((s) => s.avgSec), 10);
+  const coreIds = new Set(['math', 'ru', 'en', 'az']);
+  const visible = subjects.filter((s) => coreIds.has(s.id) || s.timedCount > 0);
 
   return `
     <div class="pace-bars-list">
-      ${subjects.map((s) => {
+      ${visible.map((s) => {
         const code = SUBJECT_CODES[s.id] || SUBJECT_CODES.math;
         const pct = s.timedCount > 0 ? Math.max(6, Math.round((s.avgSec / maxAvg) * 100)) : 0;
         return `
@@ -424,6 +426,10 @@ export async function renderStatsView(container, { setKeyHandler }) {
                   </div>
                   ${buildSignalMeterHtml(acc, code.color, { ariaLabel: subjectTitle(m.id) })}
                   <div class="stat-subj-card__foot">
+                    <a href="#/lesson/${m.id}" class="btn btn--ghost btn--xs">
+                      <span>${escapeHtml(t('btnLessons'))}</span>
+                      ${icon('video', { size: 13 })}
+                    </a>
                     <a href="#/practice/${m.id}" class="btn btn--ghost btn--xs">
                       <span>${escapeHtml(t('statsTrainLink'))}</span>
                       ${icon('arrow-right', { size: 13 })}

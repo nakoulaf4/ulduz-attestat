@@ -154,18 +154,19 @@ export async function renderExamView(container, { params, query, navigate, setKe
     let title = '';
 
     if (chosenTarget === 'all') {
-      const subjectIds =
-        sectorChoice === 'az-sector' ? ['az', 'math', 'en']
-          : sectorChoice === 'all-4' ? ['ru', 'az', 'math', 'en']
-          : ['ru', 'math', 'en'];
-
-      title = sectorChoice === 'az-sector'
-        ? t('examSectorAzTitle')
-        : sectorChoice === 'all-4'
-        ? t('examSectorAllTitle')
-        : t('examSectorRuTitle');
-
-      durationMin = subjectIds.length * 60;
+      const SECTOR_MAP = {
+        'ru-sector': { ids: ['ru', 'math', 'en'], titleKey: 'examSectorRuTitle', mins: 180 },
+        'az-sector': { ids: ['az', 'math', 'en'], titleKey: 'examSectorAzTitle', mins: 180 },
+        'all-4':     { ids: ['ru', 'az', 'math', 'en'], titleKey: 'examSectorAllTitle', mins: 240 },
+        'group-1':   { ids: ['math', 'physics', 'informatics'], titleKey: 'examSectorGroup1Title', mins: 180 },
+        'group-2':   { ids: ['math', 'geography', 'history'], titleKey: 'examSectorGroup2Title', mins: 180 },
+        'group-3':   { ids: ['ru', 'history', 'az'], titleKey: 'examSectorGroup3Title', mins: 180 },
+        'group-4':   { ids: ['biology', 'chemistry', 'physics'], titleKey: 'examSectorGroup4Title', mins: 180 },
+      };
+      const spec = SECTOR_MAP[sectorChoice] || SECTOR_MAP['ru-sector'];
+      const subjectIds = spec.ids;
+      title = t(spec.titleKey);
+      durationMin = spec.mins;
 
       for (const sid of subjectIds) {
         const mod = allSubjects[sid];
@@ -440,6 +441,8 @@ export async function renderExamView(container, { params, query, navigate, setKe
     if (setKeyHandler) setKeyHandler(null);
 
     if (isAllMode) {
+      const isBlockGroup = selectedSector.startsWith('group-');
+      if (isBlockGroup) selectedSource = 'generated';
       const sectorDurationMin = selectedSector === 'all-4' ? 240 : 180;
       container.innerHTML = `
         <div class="page-container page-container--narrow">
@@ -472,23 +475,41 @@ export async function renderExamView(container, { params, query, navigate, setKe
                   <strong>${escapeHtml(t('examSectorAllTitle'))}</strong>
                   <span>${escapeHtml(t('examSectorAllDesc'))}</span>
                 </button>
+                <button type="button" role="radio" aria-checked="${selectedSector === 'group-1'}" class="setup-option ${selectedSector === 'group-1' ? 'is-selected' : ''}" data-sector="group-1">
+                  <strong>${escapeHtml(t('examSectorGroup1Title'))}</strong>
+                  <span>${escapeHtml(t('examSectorGroup1'))}</span>
+                </button>
+                <button type="button" role="radio" aria-checked="${selectedSector === 'group-2'}" class="setup-option ${selectedSector === 'group-2' ? 'is-selected' : ''}" data-sector="group-2">
+                  <strong>${escapeHtml(t('examSectorGroup2Title'))}</strong>
+                  <span>${escapeHtml(t('examSectorGroup2'))}</span>
+                </button>
+                <button type="button" role="radio" aria-checked="${selectedSector === 'group-3'}" class="setup-option ${selectedSector === 'group-3' ? 'is-selected' : ''}" data-sector="group-3">
+                  <strong>${escapeHtml(t('examSectorGroup3Title'))}</strong>
+                  <span>${escapeHtml(t('examSectorGroup3'))}</span>
+                </button>
+                <button type="button" role="radio" aria-checked="${selectedSector === 'group-4'}" class="setup-option ${selectedSector === 'group-4' ? 'is-selected' : ''}" data-sector="group-4">
+                  <strong>${escapeHtml(t('examSectorGroup4Title'))}</strong>
+                  <span>${escapeHtml(t('examSectorGroup4'))}</span>
+                </button>
               </div>
             </div>
 
-            <div class="setup-field">
-              <span class="setup-label">${escapeHtml(t('examSetupSourceLabel'))}</span>
-              <div class="setup-pills" role="group" aria-label="${escapeHtml(t('examSetupSourceLabel'))}">
-                <button type="button" class="seg-btn ${selectedSource === 'generated' ? 'is-active' : ''}" data-source="generated" aria-pressed="${selectedSource === 'generated'}">
-                  ${icon('sparkles', { size: 14 })} <span>${escapeHtml(t('examSourceGen'))}</span>
-                </button>
-                <button type="button" class="seg-btn ${selectedSource === '0903' ? 'is-active' : ''}" data-source="0903" aria-pressed="${selectedSource === '0903'}">
-                  ${icon('file-text', { size: 14 })} <span>${escapeHtml(t('examSource0903'))}</span>
-                </button>
-                <button type="button" class="seg-btn ${selectedSource === '1503' ? 'is-active' : ''}" data-source="1503" aria-pressed="${selectedSource === '1503'}">
-                  ${icon('file-text', { size: 14 })} <span>${escapeHtml(t('examSource1503'))}</span>
-                </button>
+            ${!isBlockGroup ? `
+              <div class="setup-field">
+                <span class="setup-label">${escapeHtml(t('examSetupSourceLabel'))}</span>
+                <div class="setup-pills" role="group" aria-label="${escapeHtml(t('examSetupSourceLabel'))}">
+                  <button type="button" class="seg-btn ${selectedSource === 'generated' ? 'is-active' : ''}" data-source="generated" aria-pressed="${selectedSource === 'generated'}">
+                    ${icon('sparkles', { size: 14 })} <span>${escapeHtml(t('examSourceGen'))}</span>
+                  </button>
+                  <button type="button" class="seg-btn ${selectedSource === '0903' ? 'is-active' : ''}" data-source="0903" aria-pressed="${selectedSource === '0903'}">
+                    ${icon('file-text', { size: 14 })} <span>${escapeHtml(t('examSource0903'))}</span>
+                  </button>
+                  <button type="button" class="seg-btn ${selectedSource === '1503' ? 'is-active' : ''}" data-source="1503" aria-pressed="${selectedSource === '1503'}">
+                    ${icon('file-text', { size: 14 })} <span>${escapeHtml(t('examSource1503'))}</span>
+                  </button>
+                </div>
               </div>
-            </div>
+            ` : ''}
 
             <div class="setup-field">
               <span class="setup-label">${escapeHtml(t('examTimerModeLabel'))}</span>
@@ -595,20 +616,22 @@ export async function renderExamView(container, { params, query, navigate, setKe
             </div>
           </div>
 
-          <div class="setup-field">
-            <span class="setup-label">${escapeHtml(t('examSetupSourceLabel'))}</span>
-            <div class="setup-pills" role="group" aria-label="${escapeHtml(t('examSetupSourceLabel'))}">
-              <button type="button" class="seg-btn ${selectedSource === 'generated' ? 'is-active' : ''}" data-source="generated" aria-pressed="${selectedSource === 'generated'}">
-                ${icon('sparkles', { size: 14 })} <span>${escapeHtml(t('examSourceGen'))}</span>
-              </button>
-              <button type="button" class="seg-btn ${selectedSource === '0903' ? 'is-active' : ''}" data-source="0903" aria-pressed="${selectedSource === '0903'}" ${!has0903 ? `disabled title="${escapeHtml(t('examSourceUnavailable'))}"` : ''}>
-                ${icon('file-text', { size: 14 })} <span>${escapeHtml(t('examSource0903'))}</span>
-              </button>
-              <button type="button" class="seg-btn ${selectedSource === '1503' ? 'is-active' : ''}" data-source="1503" aria-pressed="${selectedSource === '1503'}" ${!has1503 ? `disabled title="${escapeHtml(t('examSourceUnavailable'))}"` : ''}>
-                ${icon('file-text', { size: 14 })} <span>${escapeHtml(t('examSource1503'))}</span>
-              </button>
+          ${(has0903 || has1503) ? `
+            <div class="setup-field">
+              <span class="setup-label">${escapeHtml(t('examSetupSourceLabel'))}</span>
+              <div class="setup-pills" role="group" aria-label="${escapeHtml(t('examSetupSourceLabel'))}">
+                <button type="button" class="seg-btn ${selectedSource === 'generated' ? 'is-active' : ''}" data-source="generated" aria-pressed="${selectedSource === 'generated'}">
+                  ${icon('sparkles', { size: 14 })} <span>${escapeHtml(t('examSourceGen'))}</span>
+                </button>
+                <button type="button" class="seg-btn ${selectedSource === '0903' ? 'is-active' : ''}" data-source="0903" aria-pressed="${selectedSource === '0903'}" ${!has0903 ? `disabled title="${escapeHtml(t('examSourceUnavailable'))}"` : ''}>
+                  ${icon('file-text', { size: 14 })} <span>${escapeHtml(t('examSource0903'))}</span>
+                </button>
+                <button type="button" class="seg-btn ${selectedSource === '1503' ? 'is-active' : ''}" data-source="1503" aria-pressed="${selectedSource === '1503'}" ${!has1503 ? `disabled title="${escapeHtml(t('examSourceUnavailable'))}"` : ''}>
+                  ${icon('file-text', { size: 14 })} <span>${escapeHtml(t('examSource1503'))}</span>
+                </button>
+              </div>
             </div>
-          </div>
+          ` : ''}
 
           <div class="setup-field">
             <span class="setup-label">${escapeHtml(t('examTimerModeLabel'))}</span>

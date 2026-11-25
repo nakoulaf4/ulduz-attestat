@@ -31,7 +31,7 @@ export function isNativeApp() {
 export function isAndroidNative() {
   return (
     typeof window !== 'undefined' &&
-    Boolean(window.UlduzAndroid && typeof window.UlduzAndroid.installApk === 'function')
+    Boolean(window.UlduzAndroid && typeof window.UlduzAndroid.openUrl === 'function')
   );
 }
 
@@ -167,74 +167,6 @@ export async function checkNativeUpdate(currentVersion) {
 }
 
 /**
- * Stream-download official Ulduz Android APK into `app_cache_dir()/updates/`.
- * Emits `ulduz://update-progress` events with `{ downloaded, total, pct }`.
- * @param {string} url
- * @param {string} filename
- * @returns {Promise<string | null>} local APK file path
- */
-export async function downloadNativeUpdateApk(url, filename) {
-  return invokeNativeStrict('download_update_apk', {
-    url: String(url || ''),
-    filename: String(filename || 'Ulduz-update.apk'),
-  });
-}
-
-/**
- * Subscribe to Tauri v2 native `ulduz://update-progress` events.
- * Returns an async `unlisten()` function. Safe no-op outside Tauri.
- * @param {(payload: { downloaded: number, total: number, pct: number }) => void} callback
- * @returns {Promise<() => void>}
- */
-export async function listenNativeUpdateProgress(callback) {
-  if (!isNativeApp() || typeof callback !== 'function') {
-    return () => {};
-  }
-  const internals = window.__TAURI_INTERNALS__;
-  if (typeof internals?.transformCallback !== 'function') {
-    return () => {};
-  }
-  try {
-    const handlerId = internals.transformCallback((event) => {
-      if (event && event.payload) {
-        callback(event.payload);
-      }
-    });
-    const eventId = await internals.invoke('plugin:event|listen', {
-      event: 'ulduz://update-progress',
-      target: { kind: 'Any' },
-      handler: handlerId,
-    });
-    return () => {
-      try {
-        void internals.invoke('plugin:event|unlisten', {
-          event: 'ulduz://update-progress',
-          eventId,
-        });
-      } catch {
-        // ignore cleanup errors
-      }
-    };
-  } catch {
-    return () => {};
-  }
-}
-
-/**
- * Launch Android PackageInstaller via FileProvider bridge in `MainActivity.kt`.
- * @param {string} filePath
- * @returns {'launched' | 'permission_required' | 'unsupported' | string}
- */
-export function installAndroidApk(filePath) {
-  if (!isAndroidNative()) return 'unsupported';
-  try {
-    return String(window.UlduzAndroid.installApk(String(filePath || '')));
-  } catch (err) {
-    return `error:${err?.message ?? err}`;
-  }
-}
-
-/**
  * Open an external HTTPS URL safely (Android native Intent or browser tab).
  * @param {string} url
  */
@@ -343,8 +275,8 @@ export function installNativeBackHandler({ navigate, parseHash }) {
     const rootSeg = segments[0] || '';
     const paramId = segments[1] || '';
 
-    // 3. Practice, Exam (setup/results), Originals -> Subject Hub (or Home for 'all')
-    if (rootSeg === 'practice' || rootSeg === 'exam' || rootSeg === 'originals') {
+    // 3. Practice, Exam (setup/results), Originals, Lesson -> Subject Hub (or Home for 'all')
+    if (rootSeg === 'practice' || rootSeg === 'exam' || rootSeg === 'originals' || rootSeg === 'lesson') {
       haptic('selection');
       if (paramId && paramId !== 'all') {
         navigate(`#/subject/${encodeURIComponent(paramId)}`);

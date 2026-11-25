@@ -4,7 +4,7 @@
 // 3. Full-width bottom 5-block interactive Color Decoder Bar + Primary Square-Keycap CTA
 // 4. Below-the-fold 3-column Archival Releases Grid (FAC 09.03, FAC 15.03, FAC ERR) with 196px Jagged Polar Spectra
 
-import { SUBJECTS_META } from '../../subjects/index.js';
+import { SUBJECTS_META, BURAXILISH_SUBJECTS_META, BLOCK_SUBJECTS_META } from '../../subjects/index.js';
 import { loadState, clearActiveExam, getActiveMistakesCount } from '../../core/storage.js';
 import { haptic } from '../../core/native.js';
 import { hasResponse } from '../task-view.js';
@@ -110,7 +110,7 @@ export async function renderHomeView(container, { setCleanup } = {}) {
 
             <!-- 4 Hairline-Divided Subject Catalog Entries (DİM 01 – DİM 04) -->
             <div class="fac-catalog-list" role="list">
-              ${SUBJECTS_META.map((meta, idx) => {
+              ${BURAXILISH_SUBJECTS_META.map((meta, idx) => {
                 const code = SUBJECT_CODES[meta.id] || SUBJECT_CODES.math;
                 const sb = state.stats.bySubject[meta.id] ?? { attempted: 0, correct: 0 };
                 const acc = sb.attempted > 0 ? Math.round((sb.correct / sb.attempted) * 100) : null;
@@ -136,7 +136,7 @@ export async function renderHomeView(container, { setCleanup } = {}) {
                       <div class="fac-catalog-row__sub mono-code">
                         <span class="fac-inline-grp">${escapeHtml(t('metaTypesCount', { n: meta.types ?? 0 }))} · ${escapeHtml(t('metaPdfCount', { n: meta.originals ?? 0 }))}</span>
                         <span class="hide-xs" aria-hidden="true">·</span>
-                        <span class="fac-inline-grp"><a href="#/practice/${meta.id}" class="fac-inline-act">${escapeHtml(t('btnPractice'))}</a> / <a href="#/originals/${meta.id}" class="fac-inline-act">${escapeHtml(t('btnOriginals'))}</a></span>
+                        <span class="fac-inline-grp"><a href="#/lesson/${meta.id}" class="fac-inline-act">${escapeHtml(t('btnLessons'))}</a> / <a href="#/practice/${meta.id}" class="fac-inline-act">${escapeHtml(t('btnPractice'))}</a> / <a href="#/originals/${meta.id}" class="fac-inline-act">${escapeHtml(t('btnOriginals'))}</a></span>
                       </div>
                     </div>
                     <div class="fac-catalog-row__pct mono-code tabular-nums">
@@ -212,7 +212,7 @@ export async function renderHomeView(container, { setCleanup } = {}) {
         <section class="fac-decoder-bar home-welcome__cta-row" aria-label="${escapeHtml(t('chooseSubject'))}">
           <div class="fac-decoder-bar__left">
             <div class="fac-decoder-swatches" role="group" aria-label="${escapeHtml(t('chooseSubject'))}">
-              ${SUBJECTS_META.map((meta) => {
+              ${BURAXILISH_SUBJECTS_META.map((meta) => {
                 const code = SUBJECT_CODES[meta.id] || SUBJECT_CODES.math;
                 return `
                   <a
@@ -246,6 +246,55 @@ export async function renderHomeView(container, { setCleanup } = {}) {
             <span>${escapeHtml(primaryCta.label)}</span>
             ${icon('arrow-right', { size: 17 })}
           </a>
+        </section>
+
+        <!-- DİM Block Subjects (Groups I–IV · 6 Disciplines with Exams, Written Lessons & RU YouTube Videos) -->
+        <section class="fac-blocks-section" aria-labelledby="fac-blocks-heading">
+          <div class="fac-blocks-head">
+            <div>
+              <h2 id="fac-blocks-heading" class="section-title">${escapeHtml(t('facBlocksHeading'))}</h2>
+              <p class="text-secondary">${escapeHtml(t('facBlocksSub'))}</p>
+            </div>
+            <a href="#/exam/all" class="btn btn--secondary btn--sm">
+              <span>${escapeHtml(t('btnExam'))} · I–IV</span>
+              ${icon('arrow-right', { size: 14 })}
+            </a>
+          </div>
+          <div class="fac-blocks-grid" role="list">
+            ${BLOCK_SUBJECTS_META.map((meta) => {
+              const code = SUBJECT_CODES[meta.id] || { catNo: 'DİM', num: '05', color: '#2663C9', onColor: '#FFFFFF' };
+              const sb = state.stats.bySubject[meta.id] ?? { attempted: 0, correct: 0 };
+              const acc = sb.attempted > 0 ? Math.round((sb.correct / sb.attempted) * 100) : null;
+              const title = subjectTitle(meta.id);
+              return `
+                <article class="fac-block-card" style="--row-c:${code.color}" role="listitem">
+                  <div class="fac-block-card__top">
+                    <span class="fac-block-card__plate mono-code" style="background:${code.color};color:${code.onColor}" aria-hidden="true">${code.num}</span>
+                    <div class="fac-block-card__titles">
+                      <span class="fac-block-card__code mono-code">${code.catNo} · ${escapeHtml(meta.groupLabel || '')}</span>
+                      <h3 class="fac-block-card__title">
+                        <a href="#/subject/${meta.id}">${escapeHtml(title)}</a>
+                      </h3>
+                    </div>
+                    <span class="fac-block-card__pct mono-code tabular-nums">${acc !== null ? `${acc}%` : '30'}</span>
+                  </div>
+                  <p class="fac-block-card__desc text-secondary">${escapeHtml(t(`subject${meta.id.charAt(0).toUpperCase() + meta.id.slice(1)}Desc`))}</p>
+                  <div class="fac-block-card__actions mono-code">
+                    <a href="#/lesson/${meta.id}" class="btn btn--secondary btn--xs">
+                      ${icon('video', { size: 13 })}
+                      <span>${escapeHtml(t('btnLessons'))}</span>
+                    </a>
+                    <a href="#/practice/${meta.id}" class="btn btn--ghost btn--xs">
+                      <span>${escapeHtml(t('btnPractice'))}</span>
+                    </a>
+                    <a href="#/exam/${meta.id}" class="btn btn--ghost btn--xs">
+                      <span>${escapeHtml(t('btnExam'))}</span>
+                    </a>
+                  </div>
+                </article>
+              `;
+            }).join('')}
+          </div>
         </section>
 
         <!-- Below the Fold: Factory Archival Releases Strip (FAC 09.03 | FAC 15.03 | FAC ERR) -->

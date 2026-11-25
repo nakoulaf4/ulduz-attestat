@@ -135,7 +135,18 @@
  *     Optional custom exam scoring (raw points → reported score). Default: sum of points.
  */
 
-export const SUBJECT_IDS = ['math', 'ru', 'en', 'az'];
+export const SUBJECT_IDS = [
+  'math',
+  'ru',
+  'en',
+  'az',
+  'physics',
+  'chemistry',
+  'biology',
+  'history',
+  'geography',
+  'informatics',
+];
 export const FORMATS = ['single', 'multi', 'short', 'match', 'order', 'open'];
 
 /** Fill defaulted fields of a generated task from its TaskType. Returns the same object. */

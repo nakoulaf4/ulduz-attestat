@@ -5,12 +5,23 @@
 import { buildFallbackSubject } from '../app/demo-tasks.js';
 import { loadOriginals } from '../core/contract.js';
 
-export const SUBJECTS_META = [
-  { id: 'math', title: 'Математика', short: 'Мат', icon: '∑', color: 'math', topics: 14, types: 53, originals: 50 },
-  { id: 'ru', title: 'Русский язык', short: 'Рус', icon: 'Я', color: 'ru', topics: 7, types: 14, originals: 60 },
-  { id: 'en', title: 'Английский язык', short: 'Eng', icon: 'En', color: 'en', topics: 8, types: 37, originals: 60 },
-  { id: 'az', title: 'Азербайджанский язык', short: 'Az', icon: 'Ə', color: 'az', topics: 8, types: 11, originals: 60 },
+export const BURAXILISH_SUBJECTS_META = [
+  { id: 'math', title: 'Математика', short: 'Мат', icon: '∑', color: 'math', group: 'buraxilish', topics: 14, types: 53, originals: 50 },
+  { id: 'ru', title: 'Русский язык', short: 'Рус', icon: 'Я', color: 'ru', group: 'buraxilish', topics: 7, types: 14, originals: 60 },
+  { id: 'en', title: 'Английский язык', short: 'Eng', icon: 'En', color: 'en', group: 'buraxilish', topics: 8, types: 37, originals: 60 },
+  { id: 'az', title: 'Азербайджанский язык', short: 'Az', icon: 'Ə', color: 'az', group: 'buraxilish', topics: 8, types: 11, originals: 60 },
 ];
+
+export const BLOCK_SUBJECTS_META = [
+  { id: 'physics', title: 'Физика', short: 'Физ', icon: 'Φ', color: 'physics', group: 'block', dimGroup: 'I', topics: 6, types: 11, originals: 0 },
+  { id: 'chemistry', title: 'Химия', short: 'Хим', icon: 'H₂', color: 'chemistry', group: 'block', dimGroup: 'I · IV', topics: 6, types: 11, originals: 0 },
+  { id: 'biology', title: 'Биология', short: 'Био', icon: 'Ω', color: 'biology', group: 'block', dimGroup: 'IV', topics: 6, types: 11, originals: 0 },
+  { id: 'history', title: 'История', short: 'Ист', icon: 'IX', color: 'history', group: 'block', dimGroup: 'II · III', topics: 6, types: 10, originals: 0 },
+  { id: 'geography', title: 'География', short: 'Гео', icon: 'N°', color: 'geography', group: 'block', dimGroup: 'II', topics: 6, types: 11, originals: 0 },
+  { id: 'informatics', title: 'Информатика', short: 'Инф', icon: '01', color: 'informatics', group: 'block', dimGroup: 'I RI', topics: 6, types: 11, originals: 0 },
+];
+
+export const SUBJECTS_META = [...BURAXILISH_SUBJECTS_META, ...BLOCK_SUBJECTS_META];
 
 const subjectCache = new Map();
 const pendingLoads = new Map();

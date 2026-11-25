@@ -715,12 +715,15 @@ async function verifySubject(subjectId, opts, research) {
     report.totalErrors += report.examResult.errors.length;
   }
 
-  // 3. Test originals JSON (site/data/original/<subjectId>.json)
+  // 3. Test originals JSON (required for the 4 Buraxılış PDF subjects; optional for block subjects)
+  const PDF_SUBJECTS = new Set(['math', 'ru', 'en', 'az']);
   const origData = await loadOriginalsFromDisk(subjectId);
   report.originalsResult.exists = origData.exists;
   report.originalsResult.validJson = origData.validJson;
   if (!origData.exists) {
-    report.originalsResult.errors.push(`Missing site/data/original/${subjectId}.json`);
+    if (PDF_SUBJECTS.has(subjectId)) {
+      report.originalsResult.errors.push(`Missing site/data/original/${subjectId}.json`);
+    }
   } else if (!origData.validJson) {
     report.originalsResult.errors.push(origData.error);
   } else {

@@ -1,18 +1,13 @@
 //! Native HTTPS networking for Ulduz:
-//! 1. GitHub Releases auto-update checker & streaming Android APK downloader.
+//! 1. GitHub Releases update checker (opens official GitHub Release page in browser).
 //! 2. CORS-free OpenAI-compatible AI gateway bridge (OpenCode Zen, Kilo Gateway, Custom).
 
-use futures_util::StreamExt;
 use serde::{Deserialize, Serialize};
-use std::fs::{self, File};
-use std::io::Write;
 use std::time::Duration;
-use tauri::{Emitter, Manager};
 
 pub const GITHUB_LATEST_RELEASE_URL: &str =
     "https://api.github.com/repos/nakoulaf4/ulduz-attestat/releases/latest";
 
-const MAX_APK_BYTES: u64 = 150 * 1024 * 1024;
 const MAX_AI_BODY_BYTES: usize = 512 * 1024;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -28,14 +23,6 @@ pub struct UpdateCheckResult {
     pub apk_url: Option<String>,
     pub apk_name: Option<String>,
     pub apk_size: Option<u64>,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct UpdateProgressEvent {
-    pub downloaded: u64,
-    pub total: u64,
-    pub pct: u8,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -89,44 +76,12 @@ pub fn validate_ai_endpoint_url(raw: &str) -> Result<String, String> {
     }
     let lower = trimmed.to_ascii_lowercase();
     let is_https = lower.starts_with("https://");
-    let is_local_http = lower.starts_with("http://127.0.0.1")
-        || lower.starts_with("http://localhost");
+    let is_local_http =
+        lower.starts_with("http://127.0.0.1") || lower.starts_with("http://localhost");
     if !is_https && !is_local_http {
         return Err("Only https:// (or localhost) AI gateway URLs are permitted".to_string());
     }
     Ok(trimmed.to_string())
-}
-
-/// Restrict APK update downloads strictly to GitHub Release HTTPS hosts.
-pub fn validate_github_apk_url(raw: &str) -> Result<String, String> {
-    let trimmed = raw.trim();
-    let lower = trimmed.to_ascii_lowercase();
-    let allowed = lower.starts_with("https://github.com/nakoulaf4/ulduz-attestat/releases/download/")
-        || lower.starts_with("https://objects.githubusercontent.com/")
-        || lower.starts_with("https://release-assets.githubusercontent.com/");
-    if !allowed {
-        return Err("APK update URL must originate from official Ulduz GitHub Releases".to_string());
-    }
-    Ok(trimmed.to_string())
-}
-
-/// Sanitize APK filename for safe storage inside `app_cache_dir()/updates/`.
-pub fn sanitize_apk_filename(raw: &str) -> String {
-    let tail = raw.rsplit(['/', '\\']).next().unwrap_or("").trim();
-    let cleaned: String = tail
-        .chars()
-        .filter(|c| c.is_ascii_alphanumeric() || matches!(c, '-' | '_' | '.'))
-        .take(80)
-        .collect();
-    let trimmed = cleaned.trim_matches(['.', '-', '_']);
-    if trimmed.is_empty() {
-        return "Ulduz-update.apk".to_string();
-    }
-    if trimmed.to_ascii_lowercase().ends_with(".apk") {
-        trimmed.to_string()
-    } else {
-        format!("{trimmed}.apk")
-    }
 }
 
 fn build_http_client(timeout_secs: u64) -> Result<reqwest::Client, String> {
@@ -137,7 +92,7 @@ fn build_http_client(timeout_secs: u64) -> Result<reqwest::Client, String> {
         .map_err(|e| format!("Failed to initialize HTTP client: {e}"))
 }
 
-/// Check GitHub Releases for a newer version of Ulduz and locate the Android ARM64 APK asset.
+/// Check GitHub Releases for a newer version of Ulduz and return official release metadata.
 #[tauri::command]
 pub async fn check_github_update(
     current_version: Option<String>,
@@ -167,7 +122,6 @@ pub async fn check_github_update(
     let latest_clean = tag.trim().trim_start_matches(['v', 'V']).to_string();
     let has_update = is_newer_version(&cur, &latest_clean);
 
-    // Prefer ARM64 APK, otherwise fall back to any .apk release asset.
     let apk_asset = release
         .assets
         .iter()
@@ -198,108 +152,6 @@ pub async fn check_github_update(
     })
 }
 
-/// Stream-download an official Ulduz Android APK into `app_cache_dir()/updates/` with live progress events.
-#[tauri::command]
-pub async fn download_update_apk(
-    app: tauri::AppHandle,
-    url: String,
-    filename: String,
-) -> Result<String, String> {
-    let valid_url = validate_github_apk_url(&url)?;
-    let safe_name = sanitize_apk_filename(&filename);
-
-    let updates_dir = app
-        .path()
-        .app_cache_dir()
-        .map_err(|e| format!("Failed to resolve app cache dir: {e}"))?
-        .join("updates");
-    fs::create_dir_all(&updates_dir)
-        .map_err(|e| format!("Failed to create updates directory: {e}"))?;
-
-    let target_path = updates_dir.join(&safe_name);
-    let part_path = updates_dir.join(format!("{safe_name}.part"));
-
-    let client = build_http_client(180)?;
-    let resp = client
-        .get(&valid_url)
-        .send()
-        .await
-        .map_err(|e| format!("APK download failed: {e}"))?;
-
-    if !resp.status().is_success() {
-        return Err(format!("APK server returned HTTP {}", resp.status().as_u16()));
-    }
-
-    let total = resp.content_length().unwrap_or(0);
-    if total > MAX_APK_BYTES {
-        return Err("APK file exceeds maximum allowed size".to_string());
-    }
-
-    let mut file = File::create(&part_path)
-        .map_err(|e| format!("Failed to create temp APK file: {e}"))?;
-    let mut downloaded: u64 = 0;
-    let mut last_emitted_pct: u8 = 255;
-
-    let mut stream = resp.bytes_stream();
-    while let Some(chunk_res) = stream.next().await {
-        let chunk = match chunk_res {
-            Ok(c) => c,
-            Err(e) => {
-                let _ = fs::remove_file(&part_path);
-                return Err(format!("Download interrupted: {e}"));
-            }
-        };
-        downloaded = downloaded.saturating_add(chunk.len() as u64);
-        if downloaded > MAX_APK_BYTES {
-            let _ = fs::remove_file(&part_path);
-            return Err("APK stream exceeded maximum allowed size".to_string());
-        }
-        if let Err(e) = file.write_all(&chunk) {
-            let _ = fs::remove_file(&part_path);
-            return Err(format!("Failed writing APK bytes: {e}"));
-        }
-
-        let pct: u8 = downloaded
-            .saturating_mul(100)
-            .checked_div(total)
-            .map(|v| v.min(100) as u8)
-            .unwrap_or(0);
-        if pct != last_emitted_pct && (pct == 100 || pct.saturating_sub(last_emitted_pct) >= 2 || last_emitted_pct == 255) {
-            last_emitted_pct = pct;
-            let _ = app.emit(
-                "ulduz://update-progress",
-                UpdateProgressEvent {
-                    downloaded,
-                    total,
-                    pct,
-                },
-            );
-        }
-    }
-
-    if let Err(e) = file.sync_all() {
-        let _ = fs::remove_file(&part_path);
-        return Err(format!("Failed flushing APK file: {e}"));
-    }
-    drop(file);
-
-    if let Err(e) = fs::rename(&part_path, &target_path) {
-        let _ = fs::remove_file(&part_path);
-        return Err(format!("Failed finalizing APK file: {e}"));
-    }
-
-    let _ = app.emit(
-        "ulduz://update-progress",
-        UpdateProgressEvent {
-            downloaded,
-            total: total.max(downloaded),
-            pct: 100,
-        },
-    );
-
-    Ok(target_path.to_string_lossy().into_owned())
-}
-
 /// Forward an OpenAI-compatible chat completion JSON POST request without WebView CORS limits.
 #[tauri::command]
 pub async fn ai_chat_completion(
@@ -319,7 +171,10 @@ pub async fn ai_chat_completion(
         .header("Accept", "application/json")
         .body(body);
 
-    if let Some(key) = api_key.map(|k| k.trim().to_string()).filter(|k| !k.is_empty()) {
+    if let Some(key) = api_key
+        .map(|k| k.trim().to_string())
+        .filter(|k| !k.is_empty())
+    {
         req = req.bearer_auth(key);
     }
 
@@ -347,7 +202,10 @@ pub async fn ai_list_models(
     let client = build_http_client(20)?;
     let mut req = client.get(&valid_url).header("Accept", "application/json");
 
-    if let Some(key) = api_key.map(|k| k.trim().to_string()).filter(|k| !k.is_empty()) {
+    if let Some(key) = api_key
+        .map(|k| k.trim().to_string())
+        .filter(|k| !k.is_empty())
+    {
         req = req.bearer_auth(key);
     }
 
@@ -371,39 +229,25 @@ mod tests {
 
     #[test]
     fn semver_parsing_and_comparison_work() {
-        assert_eq!(parse_semver_tuple("v3.1.0"), Some((3, 1, 0)));
-        assert_eq!(parse_semver_tuple("3.0.0-rc.1"), Some((3, 0, 0)));
+        assert_eq!(parse_semver_tuple("v3.2.0"), Some((3, 2, 0)));
+        assert_eq!(parse_semver_tuple("3.1.0-rc.1"), Some((3, 1, 0)));
         assert_eq!(parse_semver_tuple("invalid"), None);
 
-        assert!(is_newer_version("3.0.0", "3.1.0"));
+        assert!(is_newer_version("3.1.0", "3.2.0"));
         assert!(is_newer_version("v3.0.0", "v4.0.0"));
         assert!(is_newer_version("3.0.9", "3.0.10"));
-        assert!(!is_newer_version("3.1.0", "3.1.0"));
+        assert!(!is_newer_version("3.2.0", "3.2.0"));
         assert!(!is_newer_version("3.2.0", "3.1.9"));
     }
 
     #[test]
-    fn validates_ai_and_apk_urls_strictly() {
+    fn validates_ai_urls_strictly() {
         assert!(validate_ai_endpoint_url("https://opencode.ai/zen/v1/chat/completions").is_ok());
-        assert!(validate_ai_endpoint_url("https://api.kilo.ai/api/gateway/chat/completions").is_ok());
+        assert!(
+            validate_ai_endpoint_url("https://api.kilo.ai/api/gateway/chat/completions").is_ok()
+        );
         assert!(validate_ai_endpoint_url("http://127.0.0.1:11434/v1/chat/completions").is_ok());
         assert!(validate_ai_endpoint_url("http://evil.example.com/v1").is_err());
         assert!(validate_ai_endpoint_url("file:///etc/passwd").is_err());
-
-        assert!(validate_github_apk_url(
-            "https://github.com/nakoulaf4/ulduz-attestat/releases/download/v3.1.0/Ulduz-v3.1.0-android-arm64.apk"
-        )
-        .is_ok());
-        assert!(validate_github_apk_url("https://evil.example.com/app.apk").is_err());
-    }
-
-    #[test]
-    fn sanitizes_apk_filenames() {
-        assert_eq!(
-            sanitize_apk_filename("../../evil/Ulduz-v3.1.0.apk"),
-            "Ulduz-v3.1.0.apk"
-        );
-        assert_eq!(sanitize_apk_filename("..."), "Ulduz-update.apk");
-        assert_eq!(sanitize_apk_filename("Ulduz-3.1"), "Ulduz-3.1.apk");
     }
 }

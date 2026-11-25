@@ -35,6 +35,7 @@ import { renderMistakesView } from './views/mistakes.js';
 import { renderStatsView } from './views/stats.js';
 import { renderAiView } from './views/ai.js';
 import { renderSettingsView } from './views/settings.js';
+import { renderLessonView } from './views/lesson.js';
 
 let currentCleanup = null;
 let activeKeyHandler = null;
@@ -454,6 +455,8 @@ async function handleRoute(shouldScrollTop = true) {
       await renderExamView(mainEl, ctx);
     } else if (first === 'originals' && second) {
       await renderOriginalsView(mainEl, ctx);
+    } else if (first === 'lesson' && second) {
+      await renderLessonView(mainEl, ctx);
     } else if (first === 'mistakes') {
       await renderMistakesView(mainEl, ctx);
     } else if (first === 'stats') {

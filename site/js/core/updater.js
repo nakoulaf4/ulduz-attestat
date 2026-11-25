@@ -4,14 +4,11 @@ import {
   isNativeApp,
   isAndroidNative,
   checkNativeUpdate,
-  downloadNativeUpdateApk,
-  listenNativeUpdateProgress,
-  installAndroidApk,
   openExternalUrl,
 } from './native.js';
 import { getSettings, updateSettings } from './storage.js';
 
-export const APP_VERSION = '3.1.0';
+export const APP_VERSION = '3.2.0';
 export const GITHUB_REPO_URL = 'https://github.com/nakoulaf4/ulduz-attestat';
 export const GITHUB_RELEASES_API = 'https://api.github.com/repos/nakoulaf4/ulduz-attestat/releases/latest';
 const AUTO_CHECK_INTERVAL_MS = 6 * 60 * 60 * 1000; // 6 hours
@@ -126,38 +123,13 @@ export async function checkForAppUpdate({ force = false, silent = false } = {}) 
 }
 
 /**
- * Download and launch native Android APK installer (or open GitHub Releases on Desktop/Web/iOS).
+ * Open the official GitHub Release / APK download in the system browser (100% safe, zero dropper permissions).
  * @param {object} updateInfo
- * @param {{ onProgress?: (ev: { downloaded: number, total: number, pct: number }) => void }} [opts]
  */
-export async function downloadAndInstallUpdate(updateInfo, { onProgress } = {}) {
-  const releaseUrl = updateInfo?.releaseUrl || `${GITHUB_REPO_URL}/releases/latest`;
-
-  if (isNativeApp() && isAndroidNative() && updateInfo?.apkUrl) {
-    const unlisten = await listenNativeUpdateProgress((ev) => {
-      if (typeof onProgress === 'function') onProgress(ev);
-    });
-    try {
-      const localPath = await downloadNativeUpdateApk(
-        updateInfo.apkUrl,
-        updateInfo.apkName || `Ulduz-v${updateInfo.latestVersion || 'latest'}-android-arm64.apk`
-      );
-      if (!localPath) {
-        throw new Error('Failed to save APK file');
-      }
-      const status = installAndroidApk(localPath);
-      if (status === 'launched') {
-        return { status: 'launched', path: localPath };
-      }
-      if (status === 'permission_required') {
-        return { status: 'permission_required', path: localPath };
-      }
-      throw new Error(status || 'Install intent failed');
-    } finally {
-      unlisten();
-    }
-  }
-
-  openExternalUrl(releaseUrl);
-  return { status: 'opened_browser', url: releaseUrl };
+export async function downloadAndInstallUpdate(updateInfo) {
+  const targetUrl = (isAndroidNative() && updateInfo?.apkUrl)
+    ? updateInfo.apkUrl
+    : (updateInfo?.releaseUrl || `${GITHUB_REPO_URL}/releases/latest`);
+  openExternalUrl(targetUrl);
+  return { status: 'opened_browser', url: targetUrl };
 }

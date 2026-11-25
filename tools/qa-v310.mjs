@@ -238,21 +238,21 @@ async function main() {
       return `OpenCode(429)->Kilo Free OK, telemetry+taskContext injected, KaTeX hydrated`;
     });
 
-    await test('Auto-update check detects newer v3.2.0 release & renders top update banner', async () => {
-      mockLatestTag = 'v3.2.0';
+    await test('Auto-update check detects newer v3.9.0 release & renders top update banner', async () => {
+      mockLatestTag = 'v3.9.0';
       await gotoHash(page, '#/settings');
       await page.locator('[data-action="check-update"]').click();
       await page.locator('.settings-update-card').waitFor({ timeout: 5000 });
       const cardText = (await page.locator('.settings-update-card').textContent()) || '';
-      assert(cardText.includes('3.2.0'), `Update card missing version 3.2.0: "${cardText}"`);
+      assert(cardText.includes('3.9.0'), `Update card missing version 3.9.0: "${cardText}"`);
       assert(await page.locator('#update-banner-host .update-banner').isVisible(), 'Top update banner did not appear');
 
       // Dismiss banner cleanly
       await page.locator('[data-action="banner-dismiss-update"]').click();
       await page.waitForTimeout(120);
       assert(await page.locator('#update-banner-host .update-banner').count() === 0, 'Banner did not dismiss');
-      mockLatestTag = 'v3.1.0';
-      return 'Detected v3.2.0, showed update card & dismissible top banner';
+      mockLatestTag = 'v3.2.0';
+      return 'Detected v3.9.0, showed update card & dismissible top banner';
     });
 
     await test('Settings toggles (Key Hints & Reading Font Scale) persist and apply to DOM', async () => {

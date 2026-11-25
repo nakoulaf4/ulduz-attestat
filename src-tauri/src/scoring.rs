@@ -16,6 +16,7 @@ pub const MATH_RAW_MAX: f64 = 32.0;
 pub const RU_RAW_MAX: f64 = 40.0;
 pub const AZ_RAW_MAX: f64 = 40.0;
 pub const EN_RAW_MAX: f64 = 37.0;
+pub const BLOCK_RAW_MAX: f64 = 33.0;
 
 /// Target passing benchmark on the 100-point scale used across the trainer UI.
 pub const DEFAULT_PASS_THRESHOLD: f64 = 40.0;
@@ -27,18 +28,30 @@ pub enum Subject {
     Ru,
     Az,
     En,
+    Physics,
+    Chemistry,
+    Biology,
+    History,
+    Geography,
+    Informatics,
 }
 
 impl Subject {
-    /// Parse a subject identifier (`"math"`, `"ru"`, `"az"`, `"en"`), case-insensitively.
+    /// Parse a subject identifier (Buraxılış + Qəbul I–IV), case-insensitively.
     pub fn parse(raw: &str) -> Result<Self, String> {
         match raw.trim().to_ascii_lowercase().as_str() {
             "math" => Ok(Self::Math),
             "ru" => Ok(Self::Ru),
             "az" => Ok(Self::Az),
             "en" => Ok(Self::En),
+            "physics" => Ok(Self::Physics),
+            "chemistry" => Ok(Self::Chemistry),
+            "biology" => Ok(Self::Biology),
+            "history" => Ok(Self::History),
+            "geography" => Ok(Self::Geography),
+            "informatics" => Ok(Self::Informatics),
             other => Err(format!(
-                "Unsupported subject '{other}': expected one of math, ru, az, en"
+                "Unsupported subject '{other}': expected a valid DİM subject id"
             )),
         }
     }
@@ -49,6 +62,12 @@ impl Subject {
             Self::Ru => "ru",
             Self::Az => "az",
             Self::En => "en",
+            Self::Physics => "physics",
+            Self::Chemistry => "chemistry",
+            Self::Biology => "biology",
+            Self::History => "history",
+            Self::Geography => "geography",
+            Self::Informatics => "informatics",
         }
     }
 
@@ -59,6 +78,12 @@ impl Subject {
             Self::Ru => RU_RAW_MAX,
             Self::Az => AZ_RAW_MAX,
             Self::En => EN_RAW_MAX,
+            Self::Physics
+            | Self::Chemistry
+            | Self::Biology
+            | Self::History
+            | Self::Geography
+            | Self::Informatics => BLOCK_RAW_MAX,
         }
     }
 
@@ -68,6 +93,12 @@ impl Subject {
             Self::Math => 25.0 / 8.0,
             Self::Ru | Self::Az => 2.5,
             Self::En => 100.0 / 37.0,
+            Self::Physics
+            | Self::Chemistry
+            | Self::Biology
+            | Self::History
+            | Self::Geography
+            | Self::Informatics => 100.0 / BLOCK_RAW_MAX,
         }
     }
 
@@ -76,6 +107,12 @@ impl Subject {
             Self::Math => "round((25 / 8) * W, 1)",
             Self::Ru | Self::Az => "round(2.5 * W, 1)",
             Self::En => "round((100 / 37) * W, 1)",
+            Self::Physics
+            | Self::Chemistry
+            | Self::Biology
+            | Self::History
+            | Self::Geography
+            | Self::Informatics => "round((100 / 33) * W, 1)",
         }
     }
 }
@@ -324,10 +361,29 @@ mod tests {
 
     #[test]
     fn rejects_unknown_subject_and_non_finite_numbers() {
-        assert!(score_subject("physics", 10.0, 30.0).is_err());
+        assert!(score_subject("astrology", 10.0, 30.0).is_err());
         assert!(score_subject("math", f64::NAN, 32.0).is_err());
         assert!(score_subject("math", f64::INFINITY, 32.0).is_err());
         assert!(score_subject("math", 10.0, f64::NAN).is_err());
+    }
+
+    #[test]
+    fn block_subjects_score_on_100_point_dim_scale() {
+        for sid in [
+            "physics",
+            "chemistry",
+            "biology",
+            "history",
+            "geography",
+            "informatics",
+        ] {
+            let full = score_subject(sid, 33.0, 33.0).unwrap();
+            assert_eq!(full.scaled_score, 100.0);
+            assert_eq!(full.grade.code, "excellent");
+            let half = score_subject(sid, 16.5, 33.0).unwrap();
+            assert_eq!(half.scaled_score, 50.0);
+            assert!(half.passed);
+        }
     }
 
     #[test]

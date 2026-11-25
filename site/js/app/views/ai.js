@@ -117,7 +117,7 @@ export async function renderAiView(container, { query, setKeyHandler, setCleanup
   let telemetryOpen = false;
   let taskContext = null;
 
-  // Load optional task context passed from "Спросить ИИ" on a checked task
+  // Load optional task context passed from "Спросить ИИ" on a checked task or Lesson Studio
   if (query.get('from') === 'task') {
     try {
       const rawCtx = sessionStorage.getItem('ulduz_ai_task_ctx');
@@ -125,6 +125,15 @@ export async function renderAiView(container, { query, setKeyHandler, setCleanup
     } catch {
       taskContext = null;
     }
+  }
+  try {
+    const pendingPrompt = sessionStorage.getItem('ulduz_ai_pending_prompt');
+    if (pendingPrompt) {
+      draft = pendingPrompt;
+      sessionStorage.removeItem('ulduz_ai_pending_prompt');
+    }
+  } catch {
+    // ignore storage restrictions
   }
 
   if (setCleanup) {

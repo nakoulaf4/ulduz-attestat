@@ -13,10 +13,16 @@ export function normalizeFxMode(raw) {
 }
 
 export const SUBJECT_CODES = {
-  math: { catNo: 'DİM 01', num: '01', color: '#D63031', onColor: '#FFFFFF', short: 'МАТ' },
-  ru:   { catNo: 'DİM 02', num: '02', color: '#2663C9', onColor: '#FFFFFF', short: 'РУС' },
-  en:   { catNo: 'DİM 03', num: '03', color: '#DFB41D', onColor: '#0C0C0E', short: 'ENG' },
-  az:   { catNo: 'DİM 04', num: '04', color: '#2E9E5B', onColor: '#0C0C0E', short: 'AZ'  },
+  math:        { catNo: 'DİM 01', num: '01', color: '#D63031', onColor: '#FFFFFF', short: 'МАТ' },
+  ru:          { catNo: 'DİM 02', num: '02', color: '#2663C9', onColor: '#FFFFFF', short: 'РУС' },
+  en:          { catNo: 'DİM 03', num: '03', color: '#DFB41D', onColor: '#0C0C0E', short: 'ENG' },
+  az:          { catNo: 'DİM 04', num: '04', color: '#2E9E5B', onColor: '#0C0C0E', short: 'AZ'  },
+  physics:     { catNo: 'DİM 05', num: '05', color: '#2663C9', onColor: '#FFFFFF', short: 'ФИЗ' },
+  chemistry:   { catNo: 'DİM 06', num: '06', color: '#2E9E5B', onColor: '#0C0C0E', short: 'ХИМ' },
+  biology:     { catNo: 'DİM 07', num: '07', color: '#2E9E5B', onColor: '#0C0C0E', short: 'БИО' },
+  history:     { catNo: 'DİM 08', num: '08', color: '#D63031', onColor: '#FFFFFF', short: 'ИСТ' },
+  geography:   { catNo: 'DİM 09', num: '09', color: '#DFB41D', onColor: '#0C0C0E', short: 'ГЕО' },
+  informatics: { catNo: 'DİM 10', num: '10', color: '#2663C9', onColor: '#FFFFFF', short: 'ИНФ' },
 };
 
 function prefersReducedMotion() {

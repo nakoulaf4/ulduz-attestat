@@ -17,7 +17,6 @@ pub fn run() {
             storage::export_progress_file,
             storage::app_info,
             network::check_github_update,
-            network::download_update_apk,
             network::ai_chat_completion,
             network::ai_list_models,
         ])

@@ -936,6 +936,12 @@ export function mountTaskView(container, opts) {
             <h4 class="explanation-card__heading">${escapeHtml(t('explanationHeading'))}</h4>
             <div class="explanation-card__meta-actions">
               ${lastCheckedDurationSec > 0 ? `<span class="explanation-card__time mono-code tabular-nums">${icon('clock', { size: 13 })} ${escapeHtml(formatDurationShort(lastCheckedDurationSec, document.documentElement.lang === 'az' ? 'az' : 'ru'))}</span>` : ''}
+              ${tObj.subject && tObj.topic ? `
+                <a href="#/lesson/${escapeHtml(tObj.subject)}?topic=${encodeURIComponent(tObj.topic)}" class="btn btn--ghost btn--xs">
+                  ${icon('video', { size: 14 })}
+                  <span>${escapeHtml(t('taskLessonLinkBtn'))}</span>
+                </a>
+              ` : ''}
               <button type="button" class="btn btn--secondary btn--xs" data-action="ask-ai-task">
                 ${icon('bot', { size: 14 })}
                 <span>${escapeHtml(t('askAiAboutTaskBtn'))}</span>

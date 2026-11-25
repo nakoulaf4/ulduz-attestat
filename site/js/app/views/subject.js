@@ -87,10 +87,16 @@ export async function renderSubjectView(container, { params, query, navigate }) 
                 ${escapeHtml(t('topicMetaLine', { types: types.length, attempted: tStat.attempted, acc: tAcc }))}
               </span>
             </div>
-            <a href="#/practice/${escapeHtml(subjectId)}${diffQuery({ topic: topicName })}" class="btn btn--secondary btn--sm">
-              <span>${escapeHtml(t('topicTrainBtn'))}</span>
-              ${icon('arrow-right', { size: 15 })}
-            </a>
+            <div class="topic-group__actions">
+              <a href="#/lesson/${escapeHtml(subjectId)}?topic=${encodeURIComponent(topicName)}" class="btn btn--ghost btn--sm">
+                ${icon('video', { size: 14 })}
+                <span>${escapeHtml(t('topicLessonBtn'))}</span>
+              </a>
+              <a href="#/practice/${escapeHtml(subjectId)}${diffQuery({ topic: topicName })}" class="btn btn--secondary btn--sm">
+                <span>${escapeHtml(t('topicTrainBtn'))}</span>
+                ${icon('arrow-right', { size: 15 })}
+              </a>
+            </div>
           </div>
 
           <div class="task-types-surface">
@@ -135,7 +141,7 @@ export async function renderSubjectView(container, { params, query, navigate }) 
               <div class="subject-hero__icon" aria-hidden="true">${escapeHtml(subject.meta?.icon ?? '')}</div>
               <div>
                 <h1 class="subject-hero__title">${escapeHtml((SUBJECT_CODES[subjectId]?.catNo || 'DİM') + ' · ' + localizedSubjectTitle)}</h1>
-                <p class="subject-hero__meta text-muted tabular-nums">${escapeHtml(t('subjectMetaLine', { min: examCfg.durationMin, orig: originals.length }))}</p>
+                <p class="subject-hero__meta text-muted tabular-nums">${escapeHtml(originals.length > 0 ? t('subjectMetaLine', { min: examCfg.durationMin, orig: originals.length }) : t('subjectMetaBlockLine', { min: examCfg.durationMin }))}</p>
                 <p class="subject-hero__desc">${escapeHtml(localizedDesc)}</p>
               </div>
             </div>
@@ -160,14 +166,20 @@ export async function renderSubjectView(container, { params, query, navigate }) 
               ${icon('sparkles', { size: 16 })}
               <span>${escapeHtml(t('subjectMixedPractice'))}</span>
             </a>
+            <a href="#/lesson/${escapeHtml(subjectId)}" class="btn btn--secondary">
+              ${icon('video', { size: 16 })}
+              <span>${escapeHtml(t('subjectLessonsBtn'))}</span>
+            </a>
             <a href="#/exam/${escapeHtml(subjectId)}" class="btn btn--secondary">
               ${icon('clock', { size: 16 })}
               <span>${escapeHtml(t('subjectExamSim'))}</span>
             </a>
-            <a href="#/originals/${escapeHtml(subjectId)}" class="btn btn--ghost">
-              ${icon('file-text', { size: 16 })}
-              <span>${escapeHtml(t('btnOriginalsFull'))} (${originals.length})</span>
-            </a>
+            ${originals.length > 0 ? `
+              <a href="#/originals/${escapeHtml(subjectId)}" class="btn btn--ghost">
+                ${icon('file-text', { size: 16 })}
+                <span>${escapeHtml(t('btnOriginalsFull'))} (${originals.length})</span>
+              </a>
+            ` : ''}
             ${subjMistakes > 0 ? `
               <a href="#/mistakes?subject=${escapeHtml(subjectId)}" class="btn btn--warn-soft">
                 ${escapeHtml(t('subjectMistakesBtn', { n: subjMistakes }))}
@@ -203,43 +215,65 @@ export async function renderSubjectView(container, { params, query, navigate }) 
               </div>
             </article>
 
-            <article class="variant-card" data-specular>
-              <div class="variant-card__main">
-                <div class="variant-card__title-row">
-                  <span class="variant-card__code mono-code">FAC 09.03</span>
-                  <h3>${escapeHtml(t('variant0903Title'))}</h3>
+            ${originals.length > 0 ? `
+              <article class="variant-card" data-specular>
+                <div class="variant-card__main">
+                  <div class="variant-card__title-row">
+                    <span class="variant-card__code mono-code">FAC 09.03</span>
+                    <h3>${escapeHtml(t('variant0903Title'))}</h3>
+                  </div>
+                  <div class="variant-card__meta text-muted tabular-nums">
+                    ${icon('file-text', { size: 14 })}
+                    <span>${escapeHtml(t('variantPdfMeta', { n: orig0903.length }))}${orig0903.length > 0 ? ` · ${done0903}/${orig0903.length}` : ''}</span>
+                  </div>
+                  <p>${escapeHtml(t('variant0903Desc'))}</p>
+                  ${orig0903.length > 0 ? `<div class="progress-bar"><div class="progress-bar__fill" style="width:${Math.round((done0903 / orig0903.length) * 100)}%"></div></div>` : ''}
                 </div>
-                <div class="variant-card__meta text-muted tabular-nums">
-                  ${icon('file-text', { size: 14 })}
-                  <span>${escapeHtml(t('variantPdfMeta', { n: orig0903.length }))}${orig0903.length > 0 ? ` · ${done0903}/${orig0903.length}` : ''}</span>
+                <div class="variant-card__foot">
+                  <a href="#/originals/${escapeHtml(subjectId)}?pdf=0903" class="btn btn--secondary btn--sm">${escapeHtml(t('variantStepReview'))}</a>
+                  ${orig0903.length > 0 ? `<a href="#/exam/${escapeHtml(subjectId)}?source=0903" class="btn btn--ghost btn--sm">${escapeHtml(t('variantTimedExam'))}</a>` : ''}
                 </div>
-                <p>${escapeHtml(t('variant0903Desc'))}</p>
-                ${orig0903.length > 0 ? `<div class="progress-bar"><div class="progress-bar__fill" style="width:${Math.round((done0903 / orig0903.length) * 100)}%"></div></div>` : ''}
-              </div>
-              <div class="variant-card__foot">
-                <a href="#/originals/${escapeHtml(subjectId)}?pdf=0903" class="btn btn--secondary btn--sm">${escapeHtml(t('variantStepReview'))}</a>
-                ${orig0903.length > 0 ? `<a href="#/exam/${escapeHtml(subjectId)}?source=0903" class="btn btn--ghost btn--sm">${escapeHtml(t('variantTimedExam'))}</a>` : ''}
-              </div>
-            </article>
+              </article>
 
-            <article class="variant-card" data-specular>
-              <div class="variant-card__main">
-                <div class="variant-card__title-row">
-                  <span class="variant-card__code mono-code">FAC 15.03</span>
-                  <h3>${escapeHtml(t('variant1503Title'))}</h3>
+              <article class="variant-card" data-specular>
+                <div class="variant-card__main">
+                  <div class="variant-card__title-row">
+                    <span class="variant-card__code mono-code">FAC 15.03</span>
+                    <h3>${escapeHtml(t('variant1503Title'))}</h3>
+                  </div>
+                  <div class="variant-card__meta text-muted tabular-nums">
+                    ${icon('file-text', { size: 14 })}
+                    <span>${escapeHtml(t('variantPdfMeta', { n: orig1503.length }))}${orig1503.length > 0 ? ` · ${done1503}/${orig1503.length}` : ''}</span>
+                  </div>
+                  <p>${escapeHtml(t('variant1503Desc'))}</p>
+                  ${orig1503.length > 0 ? `<div class="progress-bar"><div class="progress-bar__fill" style="width:${Math.round((done1503 / orig1503.length) * 100)}%"></div></div>` : ''}
                 </div>
-                <div class="variant-card__meta text-muted tabular-nums">
-                  ${icon('file-text', { size: 14 })}
-                  <span>${escapeHtml(t('variantPdfMeta', { n: orig1503.length }))}${orig1503.length > 0 ? ` · ${done1503}/${orig1503.length}` : ''}</span>
+                <div class="variant-card__foot">
+                  <a href="#/originals/${escapeHtml(subjectId)}?pdf=1503" class="btn btn--secondary btn--sm">${escapeHtml(t('variantStepReview'))}</a>
+                  ${orig1503.length > 0 ? `<a href="#/exam/${escapeHtml(subjectId)}?source=1503" class="btn btn--ghost btn--sm">${escapeHtml(t('variantTimedExam'))}</a>` : ''}
                 </div>
-                <p>${escapeHtml(t('variant1503Desc'))}</p>
-                ${orig1503.length > 0 ? `<div class="progress-bar"><div class="progress-bar__fill" style="width:${Math.round((done1503 / orig1503.length) * 100)}%"></div></div>` : ''}
-              </div>
-              <div class="variant-card__foot">
-                <a href="#/originals/${escapeHtml(subjectId)}?pdf=1503" class="btn btn--secondary btn--sm">${escapeHtml(t('variantStepReview'))}</a>
-                ${orig1503.length > 0 ? `<a href="#/exam/${escapeHtml(subjectId)}?source=1503" class="btn btn--ghost btn--sm">${escapeHtml(t('variantTimedExam'))}</a>` : ''}
-              </div>
-            </article>
+              </article>
+            ` : `
+              <article class="variant-card" data-specular>
+                <div class="variant-card__main">
+                  <div class="variant-card__title-row">
+                    <span class="variant-card__code mono-code">LEC 01</span>
+                    <h3>${escapeHtml(t('variantLessonsTitle'))}</h3>
+                  </div>
+                  <div class="variant-card__meta text-muted tabular-nums">
+                    ${icon('video', { size: 14 })}
+                    <span>${escapeHtml(t('variantLessonsMeta', { n: topicGroups.size }))}</span>
+                  </div>
+                  <p>${escapeHtml(t('variantLessonsDesc'))}</p>
+                </div>
+                <div class="variant-card__foot">
+                  <a href="#/lesson/${escapeHtml(subjectId)}" class="btn btn--secondary btn--sm">
+                    <span>${escapeHtml(t('variantOpenLessons'))}</span>
+                    ${icon('arrow-right', { size: 15 })}
+                  </a>
+                </div>
+              </article>
+            `}
           </div>
         </section>
 
