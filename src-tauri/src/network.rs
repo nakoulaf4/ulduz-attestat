@@ -23,6 +23,9 @@ pub struct UpdateCheckResult {
     pub apk_url: Option<String>,
     pub apk_name: Option<String>,
     pub apk_size: Option<u64>,
+    pub ota_url: Option<String>,
+    pub ota_sha256_url: Option<String>,
+    pub ota_size: Option<u64>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -92,14 +95,27 @@ fn build_http_client(timeout_secs: u64) -> Result<reqwest::Client, String> {
         .map_err(|e| format!("Failed to initialize HTTP client: {e}"))
 }
 
-/// Check GitHub Releases for a newer version of Ulduz and return official release metadata.
+/// Check GitHub Releases for a newer version of Ulduz and return official release metadata
+/// (including both OTA web-bundle assets and APK release links).
 #[tauri::command]
 pub async fn check_github_update(
+    app: tauri::AppHandle,
     current_version: Option<String>,
 ) -> Result<UpdateCheckResult, String> {
-    let cur = current_version
+    let bundled = env!("CARGO_PKG_VERSION").to_string();
+    let active_ota_ver = tauri::Manager::path(&app)
+        .app_data_dir()
+        .ok()
+        .map(|d| crate::ota::compute_ota_status(&crate::ota::ota_root_in(&d), &bundled).effective_version);
+
+    let mut cur = current_version
         .filter(|s| !s.trim().is_empty())
-        .unwrap_or_else(|| env!("CARGO_PKG_VERSION").to_string());
+        .unwrap_or_else(|| bundled.clone());
+    if let Some(ref ota_v) = active_ota_ver {
+        if is_newer_version(&cur, ota_v) {
+            cur = ota_v.clone();
+        }
+    }
 
     let client = build_http_client(18)?;
     let resp = client
@@ -136,6 +152,15 @@ pub async fn check_github_update(
                 .find(|a| a.name.to_ascii_lowercase().ends_with(".apk"))
         });
 
+    let ota_zip_asset = release.assets.iter().find(|a| {
+        let n = a.name.to_ascii_lowercase();
+        n.ends_with("-web-ota.zip") || n.ends_with("web-ota.zip")
+    });
+    let ota_sha_asset = release.assets.iter().find(|a| {
+        let n = a.name.to_ascii_lowercase();
+        n.ends_with("-web-ota.sha256") || n.ends_with("web-ota.sha256")
+    });
+
     Ok(UpdateCheckResult {
         current_version: cur,
         latest_version: latest_clean,
@@ -149,6 +174,9 @@ pub async fn check_github_update(
         apk_url: apk_asset.map(|a| a.browser_download_url.clone()),
         apk_name: apk_asset.map(|a| a.name.clone()),
         apk_size: apk_asset.and_then(|a| a.size),
+        ota_url: ota_zip_asset.map(|a| a.browser_download_url.clone()),
+        ota_sha256_url: ota_sha_asset.map(|a| a.browser_download_url.clone()),
+        ota_size: ota_zip_asset.and_then(|a| a.size),
     })
 }
 

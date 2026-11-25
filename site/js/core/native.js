@@ -167,6 +167,78 @@ export async function checkNativeUpdate(currentVersion) {
 }
 
 /**
+ * Query active OTA bundle status from Rust backend (`{ bundledVersion, otaVersion, effectiveVersion, confirmed, active }`).
+ */
+export async function getNativeOtaStatus() {
+  return invokeNative('get_ota_status');
+}
+
+/**
+ * Download, SHA-256 verify, extract, and atomically activate an OTA web bundle from GitHub Releases.
+ * @param {{ version: string, zipUrl: string, sha256Url: string }} params
+ */
+export async function installNativeOtaUpdate({ version, zipUrl, sha256Url }) {
+  return invokeNativeStrict('install_ota_update', {
+    version: String(version || ''),
+    zipUrl: String(zipUrl || ''),
+    sha256Url: String(sha256Url || ''),
+  });
+}
+
+/**
+ * Confirm that the currently booted OTA bundle initialized cleanly (resets crash-rollback counter).
+ */
+export async function confirmNativeOtaBoot() {
+  try {
+    if (typeof window !== 'undefined' && typeof window.UlduzAndroid?.confirmOtaBoot === 'function') {
+      window.UlduzAndroid.confirmOtaBoot();
+    }
+  } catch {
+    // ignore
+  }
+  return invokeNative('confirm_ota_boot');
+}
+
+/**
+ * Remove any installed OTA overlay and fall back to the built-in APK bundle.
+ */
+export async function clearNativeOtaUpdate() {
+  return invokeNativeStrict('clear_ota_update');
+}
+
+/**
+ * Synchronously read active Android OTA version if running from an OTA bundle.
+ */
+export function getActiveOtaVersionSync() {
+  try {
+    if (typeof window !== 'undefined' && typeof window.UlduzAndroid?.getActiveOtaVersion === 'function') {
+      return String(window.UlduzAndroid.getActiveOtaVersion() || '').trim();
+    }
+  } catch {
+    // ignore
+  }
+  return '';
+}
+
+/**
+ * Reload the WebView to activate a newly installed OTA update immediately.
+ */
+export function reloadNativeApp() {
+  try {
+    if (typeof window !== 'undefined' && typeof window.UlduzAndroid?.reloadApp === 'function') {
+      return Boolean(window.UlduzAndroid.reloadApp());
+    }
+  } catch {
+    // fall through
+  }
+  if (typeof window !== 'undefined' && window.location) {
+    window.location.reload();
+    return true;
+  }
+  return false;
+}
+
+/**
  * Open an external HTTPS URL safely (Android native Intent or browser tab).
  * @param {string} url
  */

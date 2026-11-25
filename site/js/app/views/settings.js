@@ -27,6 +27,8 @@ import {
   openExternalUrl,
   setHapticsEnabled,
   haptic,
+  clearNativeOtaUpdate,
+  reloadNativeApp,
 } from '../../core/native.js';
 import {
   AI_PROVIDERS,
@@ -36,8 +38,10 @@ import {
   testGatewayConnection,
 } from '../../core/ai-gateway.js';
 import {
-  APP_VERSION,
   GITHUB_REPO_URL,
+  getRunningVersion,
+  isRunningOtaBundle,
+  getPendingOtaVersion,
   getCachedUpdateResult,
   checkForAppUpdate,
   downloadAndInstallUpdate,
@@ -93,8 +97,18 @@ export async function renderSettingsView(container, ctx) {
     const fxMode = getFxMode();
     const snap = buildStudentTelemetrySnapshot(state);
 
+    const runningVersion = getRunningVersion();
+    const otaActive = isRunningOtaBundle();
+    const pendingOta = getPendingOtaVersion();
+    const hasOtaAsset = isAndroidNative() && Boolean(updateInfo?.otaUrl && updateInfo?.otaSha256Url);
+    const installBtnLabel = pendingOta && updateInfo && pendingOta === updateInfo.latestVersion
+      ? t('updateReloadNowBtn')
+      : hasOtaAsset
+      ? t('updateApplyOtaBtn')
+      : (isAndroidNative() && updateInfo?.apkUrl ? t('updateDownloadInstallBtn') : t('updateOpenReleaseBtn'));
+
     const platformLabel = isAndroidNative()
-      ? 'Android Native (APK)'
+      ? (otaActive ? 'Android Native (OTA)' : 'Android Native (APK)')
       : isNativeApp()
       ? 'Tauri Native'
       : 'Web / PWA';
@@ -323,7 +337,7 @@ export async function renderSettingsView(container, ctx) {
               <div class="settings-version-strip mono-code">
                 <div>
                   <span class="text-muted">${escapeHtml(t('settingsVersionLabel'))}</span>
-                  <strong>v${escapeHtml(APP_VERSION)}</strong>
+                  <strong>v${escapeHtml(runningVersion)}${otaActive ? ' (OTA)' : ''}</strong>
                 </div>
                 <div>
                   <span class="text-muted">${escapeHtml(t('settingsPlatformLabel'))}</span>
@@ -360,6 +374,12 @@ export async function renderSettingsView(container, ctx) {
                   <span>GitHub Releases</span>
                   ${icon('arrow-right', { size: 13 })}
                 </button>
+                ${otaActive ? `
+                  <button type="button" class="btn btn--ghost btn--sm" data-action="clear-ota">
+                    ${icon('undo', { size: 14 })}
+                    <span>${escapeHtml(t('settingsResetOtaBtn'))}</span>
+                  </button>
+                ` : ''}
               </div>
 
               ${updateStatus ? `<div class="settings-update-status mono-code" role="status">${escapeHtml(updateStatus)}</div>` : ''}
@@ -368,7 +388,9 @@ export async function renderSettingsView(container, ctx) {
                 <div class="settings-update-card">
                   <div class="settings-update-card__head">
                     <strong>${escapeHtml(t('updateAvailableTitle', { version: updateInfo.latestVersion }))}</strong>
-                    ${updateInfo.apkSize ? `<span class="mono-code text-muted">${(updateInfo.apkSize / (1024 * 1024)).toFixed(1)} MB</span>` : ''}
+                    ${hasOtaAsset && updateInfo.otaSize
+                      ? `<span class="mono-code text-muted">${(updateInfo.otaSize / (1024 * 1024)).toFixed(1)} MB · OTA</span>`
+                      : (updateInfo.apkSize ? `<span class="mono-code text-muted">${(updateInfo.apkSize / (1024 * 1024)).toFixed(1)} MB</span>` : '')}
                   </div>
                   ${updateInfo.notes ? `<p class="text-secondary settings-update-card__notes">${escapeHtml(updateInfo.notes.slice(0, 320))}</p>` : ''}
                   ${downloadPct !== null ? `
@@ -380,7 +402,7 @@ export async function renderSettingsView(container, ctx) {
                   <div class="settings-update-card__actions">
                     <button type="button" class="btn btn--primary btn--sm" data-action="install-update" ${downloadBusy ? 'disabled' : ''}>
                       ${icon('download', { size: 15 })}
-                      <span>${escapeHtml(isAndroidNative() && updateInfo.apkUrl ? t('updateDownloadInstallBtn') : t('updateOpenReleaseBtn'))}</span>
+                      <span>${escapeHtml(installBtnLabel)}</span>
                     </button>
                   </div>
                 </div>
@@ -662,13 +684,17 @@ export async function renderSettingsView(container, ctx) {
       updateStatus = null;
       render();
       try {
-        const res = await checkForAppUpdate({ force: true, silent: false });
+        const autoApplyEnabled = getSettings().autoUpdateCheck !== false;
+        const res = await checkForAppUpdate({ force: true, silent: false, autoApply: autoApplyEnabled });
         updateInfo = res;
-        if (res?.hasUpdate) {
+        if (res?.otaInstalled) {
+          updateStatus = t('updateOtaInstalledReload', { version: res.latestVersion });
+          haptic('success');
+        } else if (res?.hasUpdate) {
           updateStatus = t('updateAvailableTitle', { version: res.latestVersion });
           haptic('success');
         } else {
-          updateStatus = t('updateUpToDate', { version: APP_VERSION });
+          updateStatus = t('updateUpToDate', { version: getRunningVersion() });
           haptic('light');
         }
       } catch (err) {
@@ -684,31 +710,31 @@ export async function renderSettingsView(container, ctx) {
       openExternalUrl(`${GITHUB_REPO_URL}/releases`);
     });
 
+    container.querySelector('[data-action="clear-ota"]')?.addEventListener('click', async () => {
+      try {
+        await clearNativeOtaUpdate();
+        updateStatus = t('settingsOtaCleared');
+        haptic('success');
+        render();
+        setTimeout(() => reloadNativeApp(), 400);
+      } catch (err) {
+        updateStatus = t('updateDownloadError', { err: err?.message || err });
+        haptic('error');
+        render();
+      }
+    });
+
     container.querySelector('[data-action="install-update"]')?.addEventListener('click', async () => {
       if (!updateInfo) return;
       downloadBusy = true;
-      downloadPct = isAndroidNative() && updateInfo.apkUrl ? 0 : null;
+      downloadPct = null;
       updateStatus = null;
       render();
       try {
-        const res = await downloadAndInstallUpdate(updateInfo, {
-          onProgress(ev) {
-            downloadPct = ev.pct;
-            const progHost = container.querySelector('.settings-update-progress');
-            if (progHost) {
-              progHost.innerHTML = `
-                ${buildSignalMeterHtml(downloadPct, '#D63031', { ariaLabel: t('updateDownloading', { pct: downloadPct }) })}
-                <span class="mono-code tabular-nums">${escapeHtml(t('updateDownloading', { pct: downloadPct }))}</span>
-              `;
-            }
-          },
-        });
-        if (res.status === 'launched') {
-          updateStatus = t('updateInstallLaunched');
+        const res = await downloadAndInstallUpdate(updateInfo);
+        if (res.status === 'ota_installed' || res.status === 'reloading') {
+          updateStatus = t('updateOtaInstalledReload', { version: res.version || updateInfo.latestVersion });
           haptic('success');
-        } else if (res.status === 'permission_required') {
-          updateStatus = t('updatePermissionRequired');
-          haptic('warning');
         } else {
           updateStatus = t('updateOpenedReleases');
         }

@@ -13,10 +13,19 @@ import {
   hydrateFromNativeStorage,
 } from '../core/storage.js';
 import { getThemeDef, applyThemeToDocument } from '../core/themes.js';
-import { isNativeApp, isAndroidNative, haptic, setHapticsEnabled, installNativeBackHandler } from '../core/native.js';
+import {
+  isNativeApp,
+  isAndroidNative,
+  haptic,
+  setHapticsEnabled,
+  installNativeBackHandler,
+  confirmNativeOtaBoot,
+  reloadNativeApp,
+} from '../core/native.js';
 import {
   checkForAppUpdate,
   getCachedUpdateResult,
+  getPendingOtaVersion,
   dismissUpdateVersion,
   isUpdateDismissed,
   downloadAndInstallUpdate,
@@ -94,10 +103,18 @@ function applyUserPrefsToDom() {
 function renderUpdateBanner(info = getCachedUpdateResult()) {
   const host = document.getElementById('update-banner-host');
   if (!host) return;
-  if (!info || !info.hasUpdate || isUpdateDismissed(info.latestVersion)) {
+  const pendingVer = getPendingOtaVersion();
+  if (!info || !info.hasUpdate || (isUpdateDismissed(info.latestVersion) && pendingVer !== info.latestVersion)) {
     host.innerHTML = '';
     return;
   }
+
+  const hasOta = isAndroidNative() && Boolean(info.otaUrl && info.otaSha256Url);
+  const actionLabel = pendingVer === info.latestVersion
+    ? t('updateReloadNowBtn')
+    : hasOta
+    ? t('updateApplyOtaBtn')
+    : (isAndroidNative() && info.apkUrl ? t('updateDownloadShortBtn') : t('updateOpenReleaseBtn'));
 
   host.innerHTML = `
     <div class="update-banner" role="region" aria-label="${escapeHtml(t('updateAvailableTitle', { version: info.latestVersion }))}">
@@ -109,7 +126,7 @@ function renderUpdateBanner(info = getCachedUpdateResult()) {
         <div class="update-banner__actions">
           <button type="button" class="btn btn--primary btn--xs" data-action="banner-install-update">
             ${icon('download', { size: 13 })}
-            <span>${escapeHtml(isAndroidNative() && info.apkUrl ? t('updateDownloadShortBtn') : t('updateOpenReleaseBtn'))}</span>
+            <span>${escapeHtml(actionLabel)}</span>
           </button>
           <a href="#/settings" class="btn btn--ghost btn--xs">${escapeHtml(t('navSettings'))}</a>
           <button type="button" class="btn-icon btn-icon--sm" data-action="banner-dismiss-update" aria-label="${escapeHtml(t('btnCancel'))}">
@@ -129,16 +146,12 @@ function renderUpdateBanner(info = getCachedUpdateResult()) {
     const btn = e.currentTarget;
     btn.disabled = true;
     try {
-      const res = await downloadAndInstallUpdate(info, {
-        onProgress(ev) {
-          const span = btn.querySelector('span');
-          if (span) span.textContent = `${ev.pct}%`;
-        },
-      });
-      if (res.status === 'permission_required') {
-        showToast({ message: t('updatePermissionRequired'), duration: 6000 });
-      } else if (res.status === 'launched') {
-        showToast({ message: t('updateInstallLaunched'), duration: 4000 });
+      const res = await downloadAndInstallUpdate(info);
+      if (res.status === 'ota_installed' || res.status === 'reloading') {
+        showToast({
+          message: t('updateOtaInstalledReload', { version: res.version || info.latestVersion }),
+          duration: 4000,
+        });
       }
     } catch (err) {
       showToast({ message: t('updateDownloadError', { err: err?.message || err }), duration: 5000 });
@@ -527,8 +540,40 @@ window.addEventListener('ulduz:update-available', (e) => {
   renderUpdateBanner(e.detail);
 });
 
+window.addEventListener('ulduz:ota-installed', (e) => {
+  const version = e.detail?.version || '';
+  haptic('success');
+  if (!document.body.classList.contains('is-exam-focused')) {
+    showToast({
+      message: t('updateOtaAutoReloadToast', { version }),
+      actionLabel: t('updateReloadNowBtn'),
+      onAction: () => reloadNativeApp(),
+      duration: 4000,
+    });
+    setTimeout(() => {
+      if (!document.body.classList.contains('is-exam-focused')) {
+        reloadNativeApp();
+      }
+    }, 1600);
+  } else {
+    renderUpdateBanner(e.detail?.result || getCachedUpdateResult());
+    showToast({
+      message: t('updateOtaReadyLaterToast', { version }),
+      actionLabel: t('updateReloadNowBtn'),
+      onAction: () => reloadNativeApp(),
+      duration: 12000,
+    });
+  }
+});
+
 window.addEventListener('hashchange', () => {
   void handleRoute(true);
+});
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    void checkForAppUpdate({ force: false, silent: true, autoApply: true });
+  }
 });
 
 async function boot() {
@@ -546,12 +591,13 @@ async function boot() {
     navigator.serviceWorker.register('./sw.js').catch(() => {});
   }
 
-  void handleRoute(false);
+  await handleRoute(false);
+  void confirmNativeOtaBoot();
 
-  // Silent background auto-update check (only runs when enabled & throttled every 6h)
+  // Automatic background GitHub OTA check & seamless install (throttled every 30 min)
   setTimeout(() => {
-    void checkForAppUpdate({ force: false, silent: true });
-  }, 2200);
+    void checkForAppUpdate({ force: false, silent: true, autoApply: true });
+  }, 1800);
 }
 
 void boot();

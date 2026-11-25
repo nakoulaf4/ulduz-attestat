@@ -1,6 +1,6 @@
 [package]
 name = "ulduz"
-version = "3.2.0"
+version = "3.3.0"
 description = "Ulduz — DİM 11th-grade Attestat exam trainer (Azerbaijan)"
 authors = ["Ulduz Contributors"]
 edition = "2021"
@@ -17,6 +17,11 @@ tauri = { version = "2", features = [] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json"] }
+sha2 = "0.10"
+zip = { version = "2", default-features = false, features = ["deflate"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt", "macros"] }
 
 [target.'cfg(any(target_os = "android", target_os = "ios"))'.dependencies]
 tauri-plugin-haptics = "2"

@@ -5,12 +5,17 @@
 # For more details, see
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Preserve WebView @JavascriptInterface methods (UlduzAndroidBridge) & OTA WebViewClient under R8
+-keepattributes *Annotation*
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
+-keep class az.ulduz.attestat.MainActivity$UlduzAndroidBridge {
+    public *;
+}
+-keep class az.ulduz.attestat.MainActivity$OtaWebViewClient {
+    *;
+}
 
 # Uncomment this to preserve the line number information for
 # debugging stack traces.

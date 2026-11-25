@@ -15,15 +15,15 @@ val tauriProperties = Properties().apply {
 }
 
 android {
-    compileSdk = 37
+    compileSdk = 36
     namespace = "az.ulduz.attestat"
     defaultConfig {
         manifestPlaceholders["usesCleartextTraffic"] = "false"
         applicationId = "az.ulduz.attestat"
         minSdk = 24
-        targetSdk = 37
-        versionCode = tauriProperties.getProperty("tauri.android.versionCode", "1").toInt()
-        versionName = tauriProperties.getProperty("tauri.android.versionName", "1.0")
+        targetSdk = 35
+        versionCode = maxOf(tauriProperties.getProperty("tauri.android.versionCode", "3030000").toInt(), 3030000)
+        versionName = tauriProperties.getProperty("tauri.android.versionName", "3.3.0")
     }
     buildTypes {
         getByName("debug") {

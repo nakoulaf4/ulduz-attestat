@@ -1,4 +1,5 @@
 pub mod network;
+pub mod ota;
 pub mod scoring;
 pub mod storage;
 
@@ -19,6 +20,10 @@ pub fn run() {
             network::check_github_update,
             network::ai_chat_completion,
             network::ai_list_models,
+            ota::get_ota_status,
+            ota::install_ota_update,
+            ota::confirm_ota_boot,
+            ota::clear_ota_update,
         ])
         .run(tauri::generate_context!())
         .expect("error while running Ulduz Tauri application");

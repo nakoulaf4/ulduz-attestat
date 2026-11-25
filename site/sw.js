@@ -1,5 +1,5 @@
 // Lightweight Offline PWA Service Worker for Ulduz (active on Web/PWA only; skipped in Tauri native app).
-const CACHE_NAME = 'ulduz-pwa-v7';
+const CACHE_NAME = 'ulduz-pwa-v8';
 
 const APP_SHELL = [
   './',
