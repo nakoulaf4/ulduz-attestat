@@ -1,5 +1,5 @@
 // Lightweight Offline PWA Service Worker for Ulduz (active on Web/PWA only; skipped in Tauri native app).
-const CACHE_NAME = 'ulduz-pwa-v5';
+const CACHE_NAME = 'ulduz-pwa-v6';
 
 const APP_SHELL = [
   './',
@@ -25,9 +25,14 @@ const APP_SHELL = [
   './vendor/katex/auto-render.min.js',
   './js/core/themes.js',
   './js/core/native.js',
+  './js/core/telemetry.js',
+  './js/core/ai-gateway.js',
+  './js/core/updater.js',
   './js/app/fx-engine.js',
   './js/app/ui-kit.js',
   './js/app/theme-modal.js',
+  './js/app/views/ai.js',
+  './js/app/views/settings.js',
   './js/app/main.js',
 ];
 

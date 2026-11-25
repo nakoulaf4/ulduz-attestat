@@ -195,11 +195,14 @@ export async function renderOriginalsView(container, { params, query, navigate, 
           sessionAnswers.set(task.id, updated);
           saveOriginalsEntry(subjectId, task.id, updated);
         },
-        onCheck(res, finalResp) {
+        onCheck(res, finalResp, meta) {
           const updated = { response: finalResp, checked: true };
           sessionAnswers.set(task.id, updated);
           saveOriginalsEntry(subjectId, task.id, updated);
-          recordTaskAttempt(task, finalResp, res);
+          recordTaskAttempt(task, finalResp, res, {
+            durationSec: meta?.durationSec,
+            source: 'original',
+          });
 
           // Live-update strip button AND solved counter (#10)
           const pill = container.querySelector(`[data-action="pick-orig-idx"][data-index="${currentIdx}"]`);

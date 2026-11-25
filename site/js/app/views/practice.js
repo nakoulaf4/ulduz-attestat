@@ -301,7 +301,7 @@ export async function renderPracticeView(container, { params, query, navigate, s
         cur.response = newResp;
         persistCurrent();
       },
-      onCheck(res, finalResp) {
+      onCheck(res, finalResp, meta) {
         cur.response = finalResp;
         cur.checked = true;
         sessionAttempted += 1;
@@ -314,7 +314,10 @@ export async function renderPracticeView(container, { params, query, navigate, s
         } else {
           sessionStreak = 0;
         }
-        recordTaskAttempt(cur.task, finalResp, res);
+        recordTaskAttempt(cur.task, finalResp, res, {
+          durationSec: meta?.durationSec,
+          source: 'practice',
+        });
         persistCurrent();
         // Live-update Ulduz Star & sprint pills without losing scroll position
         const pills = container.querySelector('.practice-session-pills');

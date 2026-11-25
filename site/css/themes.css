@@ -48,7 +48,10 @@
 [data-theme] .match-text,
 [data-theme] .order-text,
 [data-theme] .mistake-card__preview,
-[data-theme] .open-textarea {
+[data-theme] .open-textarea,
+[data-theme] .ai-msg__content,
+[data-theme] .ai-composer__input,
+[data-theme] .ai-reasoning-box__body {
   font-family: var(--font-sans);
 }
 [data-theme] .passage-panel__body,
@@ -242,6 +245,19 @@ html.is-theme-switching .app-shell {
 [data-theme="eclipse"] .task-footer-right,
 [data-theme="eclipse"] .subject-hero__actions {
   justify-content: center;
+}
+[data-theme="eclipse"] .pace-compare-cell__val--correct,
+[data-theme="eclipse"] .settings-ping-result.is-ok,
+[data-theme="eclipse"] .res-stat--correct b {
+  color: #166534;
+}
+[data-theme="eclipse"] .pace-compare-cell__val--wrong,
+[data-theme="eclipse"] .settings-ping-result.is-err,
+[data-theme="eclipse"] .res-stat--wrong b {
+  color: #991B1B;
+}
+[data-theme="eclipse"] .stats-svg__avg-line {
+  stroke: #92400E;
 }
 
 html[data-fx="minimal"][data-theme="prism"] .theme-backdrop__grid {

@@ -14,6 +14,49 @@ import { DEFAULT_FX_MODE, normalizeFxMode } from '../app/fx-engine.js';
 
 const STORAGE_KEY = 'ulduz_state_v1';
 const NATIVE_SYNC_DEBOUNCE_MS = 400;
+const MAX_RECENT_ATTEMPTS = 40;
+const MAX_AI_CHAT_MESSAGES = 30;
+
+export const DEFAULT_AI_SETTINGS = {
+  provider: 'opencode', // 'opencode' | 'kilo' | 'custom'
+  model: 'deepseek-v4.1-flash-free', // DeepSeek by default
+  kiloModel: 'kilo-auto/free',
+  opencodeApiKey: '',
+  kiloApiKey: '',
+  customBaseUrl: '',
+  customApiKey: '',
+  customModel: 'deepseek-chat',
+  autoFallback: true,
+  shareTelemetry: true,
+  systemStyle: 'coach', // 'coach' | 'strict' | 'concise'
+};
+
+export const DEFAULT_SETTINGS = {
+  autoUpdateCheck: true,
+  haptics: true,
+  showKeyHints: true,
+  passageFontScale: 1,
+  lastUpdateCheckAt: 0,
+  dismissedUpdateVersion: '',
+  ai: { ...DEFAULT_AI_SETTINGS },
+};
+
+function defaultTiming() {
+  return {
+    totalSec: 0,
+    totalTimedAttempts: 0,
+    bySubject: {}, // { math: { totalSec, count, correctSec, correctCount, wrongSec, wrongCount } }
+    byTopic: {},   // { 'math::Алгебра': { subject, topic, totalSec, count, maxSec, minSec } }
+    byFormat: {},  // { single: { format, totalSec, count } }
+  };
+}
+
+function defaultSettings() {
+  return {
+    ...DEFAULT_SETTINGS,
+    ai: { ...DEFAULT_AI_SETTINGS },
+  };
+}
 
 function todayKey() {
   const d = new Date();
@@ -44,6 +87,10 @@ function defaultState() {
       byTopic: {},   // { 'math::Алгебра': { subject, topic, attempted, correct, earned, max } }
       byType: {},    // { 'math.linear-eq': { subject, typeId, attempted, correct, earned, max } }
     },
+    timing: defaultTiming(),
+    recentAttempts: [],  // last 40 checked task attempts with durationSec & correctness
+    settings: defaultSettings(),
+    aiChat: [],          // persisted AI Tutor conversation (max 30 messages)
     solvedOriginals: {}, // { [taskId]: { correct, earned, max, response, at } }
     mistakes: {},        // { [taskId]: { task, response, wrongCount, lastWrongAt, resolved, resolvedAt } }
     bookmarks: {},       // { [taskId]: { task, addedAt } }
@@ -180,6 +227,27 @@ export function loadState() {
           byTopic: { ...(parsed.stats?.byTopic ?? {}) },
           byType: { ...(parsed.stats?.byType ?? {}) },
         },
+        timing: {
+          ...base.timing,
+          ...(parsed.timing ?? {}),
+          bySubject: { ...(parsed.timing?.bySubject ?? {}) },
+          byTopic: { ...(parsed.timing?.byTopic ?? {}) },
+          byFormat: { ...(parsed.timing?.byFormat ?? {}) },
+        },
+        recentAttempts: Array.isArray(parsed.recentAttempts)
+          ? parsed.recentAttempts.slice(-MAX_RECENT_ATTEMPTS)
+          : [],
+        settings: {
+          ...base.settings,
+          ...(parsed.settings ?? {}),
+          ai: {
+            ...base.settings.ai,
+            ...(parsed.settings?.ai ?? {}),
+          },
+        },
+        aiChat: Array.isArray(parsed.aiChat)
+          ? parsed.aiChat.slice(-MAX_AI_CHAT_MESSAGES)
+          : [],
         solvedOriginals: { ...(parsed.solvedOriginals ?? {}) },
         mistakes: { ...(parsed.mistakes ?? {}) },
         bookmarks: { ...(parsed.bookmarks ?? {}) },
@@ -241,12 +309,14 @@ function bumpStreak(st) {
 }
 
 /**
- * Record a checked task attempt (from Practice, Originals, Mistakes retry, or Exam).
+ * Record a checked task attempt (from Practice, Originals, Mistakes retry, or Exam),
+ * including optional per-task active solving duration (`opts.durationSec`).
  * @param {import('./contract.js').Task} task
  * @param {any} response
  * @param {{correct:boolean, earned:number, max:number}} result
+ * @param {{ durationSec?: number, source?: string }} [opts]
  */
-export function recordTaskAttempt(task, response, result) {
+export function recordTaskAttempt(task, response, result, opts = {}) {
   const st = loadState();
   bumpStreak(st);
 
@@ -262,10 +332,11 @@ export function recordTaskAttempt(task, response, result) {
   sb.max = Math.round((sb.max + result.max) * 100) / 100;
 
   // Topic bucket
-  const topicKey = `${subj}::${task.topic || 'Общее'}`;
+  const topicName = task.topic || 'Общее';
+  const topicKey = `${subj}::${topicName}`;
   const tb = (st.stats.byTopic[topicKey] ??= {
     subject: subj,
-    topic: task.topic || 'Общее',
+    topic: topicName,
     attempted: 0,
     correct: 0,
     earned: 0,
@@ -290,6 +361,76 @@ export function recordTaskAttempt(task, response, result) {
     if (result.correct) tyb.correct += 1;
     tyb.earned = Math.round((tyb.earned + result.earned) * 100) / 100;
     tyb.max = Math.round((tyb.max + result.max) * 100) / 100;
+  }
+
+  // Timing telemetry (clamped 1..1800s when provided)
+  const rawDur = Number(opts?.durationSec);
+  const durationSec = Number.isFinite(rawDur) && rawDur > 0
+    ? Math.max(1, Math.min(1800, Math.round(rawDur)))
+    : 0;
+  const fmt = task.format || 'single';
+
+  st.timing ??= defaultTiming();
+  if (durationSec > 0) {
+    st.timing.totalSec = (st.timing.totalSec || 0) + durationSec;
+    st.timing.totalTimedAttempts = (st.timing.totalTimedAttempts || 0) + 1;
+
+    const tSubj = (st.timing.bySubject[subj] ??= {
+      totalSec: 0,
+      count: 0,
+      correctSec: 0,
+      correctCount: 0,
+      wrongSec: 0,
+      wrongCount: 0,
+    });
+    tSubj.totalSec += durationSec;
+    tSubj.count += 1;
+    if (result.correct) {
+      tSubj.correctSec += durationSec;
+      tSubj.correctCount += 1;
+    } else {
+      tSubj.wrongSec += durationSec;
+      tSubj.wrongCount += 1;
+    }
+
+    const tTopic = (st.timing.byTopic[topicKey] ??= {
+      subject: subj,
+      topic: topicName,
+      totalSec: 0,
+      count: 0,
+      maxSec: 0,
+      minSec: durationSec,
+    });
+    tTopic.totalSec += durationSec;
+    tTopic.count += 1;
+    tTopic.maxSec = Math.max(tTopic.maxSec || 0, durationSec);
+    tTopic.minSec = Math.min(tTopic.minSec || durationSec, durationSec);
+
+    const tFmt = (st.timing.byFormat[fmt] ??= {
+      format: fmt,
+      totalSec: 0,
+      count: 0,
+    });
+    tFmt.totalSec += durationSec;
+    tFmt.count += 1;
+  }
+
+  // Recent attempts trajectory log (used by Stats oscillograph & AI tutor)
+  st.recentAttempts ??= [];
+  st.recentAttempts.push({
+    at: Date.now(),
+    subject: subj,
+    topic: topicName,
+    format: fmt,
+    correct: Boolean(result.correct),
+    earned: Number(result.earned || 0),
+    max: Number(result.max || 1),
+    durationSec,
+    source: opts?.source || task.source || 'generated',
+    taskId: task.id || '',
+  });
+  if (st.recentAttempts.length > MAX_RECENT_ATTEMPTS) {
+    st.recentAttempts = st.recentAttempts.slice(-MAX_RECENT_ATTEMPTS);
   }
 
   // Originals tracking
@@ -407,11 +548,19 @@ export function recordCompletedExam(examSummary, itemResults) {
   // Record ONLY answered/graded tasks into stats & mistakes (never flood mistakes with untouched skipped items)
   for (const item of itemResults) {
     if (item.status !== 'unanswered' && item.status !== 'pending') {
-      recordTaskAttempt(item.task, item.response, {
-        correct: item.correct,
-        earned: item.earned,
-        max: item.max,
-      });
+      recordTaskAttempt(
+        item.task,
+        item.response,
+        {
+          correct: item.correct,
+          earned: item.earned,
+          max: item.max,
+        },
+        {
+          durationSec: item.durationSec,
+          source: 'exam',
+        }
+      );
     }
   }
   st.exams.unshift(examSummary);
@@ -599,13 +748,69 @@ export function setLang(lang) {
   saveState();
 }
 
+export function getSettings() {
+  const st = loadState();
+  st.settings ??= defaultSettings();
+  st.settings.ai ??= { ...DEFAULT_AI_SETTINGS };
+  return st.settings;
+}
+
+export function updateSettings(patch = {}) {
+  const st = loadState();
+  st.settings ??= defaultSettings();
+  const nextAi = patch.ai ? { ...st.settings.ai, ...patch.ai } : st.settings.ai;
+  st.settings = {
+    ...st.settings,
+    ...patch,
+    ai: nextAi,
+  };
+  saveState();
+  return st.settings;
+}
+
+export function updateAiSettings(aiPatch = {}) {
+  return updateSettings({ ai: aiPatch });
+}
+
+export function getAiChatHistory() {
+  const st = loadState();
+  return Array.isArray(st.aiChat) ? st.aiChat : [];
+}
+
+export function saveAiChatHistory(messages) {
+  const st = loadState();
+  st.aiChat = Array.isArray(messages) ? messages.slice(-MAX_AI_CHAT_MESSAGES) : [];
+  saveState();
+  return st.aiChat;
+}
+
+export function clearAiChatHistory() {
+  const st = loadState();
+  st.aiChat = [];
+  saveState();
+}
+
+export function resetTimingStats() {
+  const st = loadState();
+  st.timing = defaultTiming();
+  st.recentAttempts = [];
+  saveState();
+}
+
 export function resetAllProgress() {
   const lang = getLang();
   const fxMode = getFxMode();
+  const prevSettings = getSettings();
+  const preservedSettings = {
+    ...defaultSettings(),
+    ...prevSettings,
+    ai: { ...DEFAULT_AI_SETTINGS, ...(prevSettings?.ai ?? {}) },
+  };
   memoryState = defaultState();
   memoryState.theme = DEFAULT_THEME_ID;
   memoryState.lang = lang;
   memoryState.fxMode = fxMode;
+  memoryState.settings = preservedSettings;
   saveState();
   applyThemeToDocument(DEFAULT_THEME_ID, { animate: false });
 }

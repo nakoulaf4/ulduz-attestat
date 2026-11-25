@@ -227,6 +227,7 @@ export async function renderExamView(container, { params, query, navigate, setKe
       sections,
       responses: {},
       flags: {},
+      taskDurations: {},
       currentIndex: 0,
       durationSec: durationMin * 60,
       remainingSec: durationMin * 60,
@@ -265,6 +266,14 @@ export async function renderExamView(container, { params, query, navigate, setKe
     timerHandle = setInterval(() => {
       if (!session || viewPhase !== 'running' || paused) return;
       session.elapsedSec = (session.elapsedSec ?? 0) + 1;
+
+      if (typeof document === 'undefined' || !document.hidden) {
+        const curTask = session.tasks?.[session.currentIndex || 0];
+        if (curTask?.id) {
+          session.taskDurations ??= {};
+          session.taskDurations[curTask.id] = (session.taskDurations[curTask.id] || 0) + 1;
+        }
+      }
 
       if (!session.untimed) {
         session.remainingSec = Math.max(0, (session.remainingSec ?? 0) - 1);
@@ -381,7 +390,13 @@ export async function renderExamView(container, { params, query, navigate, setKe
       counts: evaluation.counts,
     };
 
-    recordCompletedExam(summary, evaluation.itemResults);
+    const taskDurations = session.taskDurations || {};
+    const timedItemResults = evaluation.itemResults.map((item) => ({
+      ...item,
+      durationSec: Number(taskDurations[item.task?.id] || 0),
+    }));
+
+    recordCompletedExam(summary, timedItemResults);
     unansweredAddedToMistakes = false;
     examResults = {
       summary,

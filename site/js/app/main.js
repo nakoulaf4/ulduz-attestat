@@ -8,11 +8,19 @@ import {
   getUnseenThemesCount,
   getLang,
   setLang,
+  getSettings,
   getActiveMistakesCount,
   hydrateFromNativeStorage,
 } from '../core/storage.js';
 import { getThemeDef, applyThemeToDocument } from '../core/themes.js';
-import { isNativeApp, haptic, installNativeBackHandler } from '../core/native.js';
+import { isNativeApp, isAndroidNative, haptic, setHapticsEnabled, installNativeBackHandler } from '../core/native.js';
+import {
+  checkForAppUpdate,
+  getCachedUpdateResult,
+  dismissUpdateVersion,
+  isUpdateDismissed,
+  downloadAndInstallUpdate,
+} from '../core/updater.js';
 import { fxEngine, facFireImpulse } from './fx-engine.js';
 import { t } from './i18n.js';
 import { icon } from './icons.js';
@@ -25,6 +33,8 @@ import { renderExamView } from './views/exam.js';
 import { renderOriginalsView } from './views/originals.js';
 import { renderMistakesView } from './views/mistakes.js';
 import { renderStatsView } from './views/stats.js';
+import { renderAiView } from './views/ai.js';
+import { renderSettingsView } from './views/settings.js';
 
 let currentCleanup = null;
 let activeKeyHandler = null;
@@ -72,6 +82,69 @@ function applyLangToDom() {
   document.title = t('docTitle');
   const skip = document.getElementById('skip-link');
   if (skip) skip.textContent = t('skipToContent');
+}
+
+function applyUserPrefsToDom() {
+  const settings = getSettings();
+  setHapticsEnabled(settings.haptics !== false);
+  document.body.classList.toggle('is-hide-key-hints', settings.showKeyHints === false);
+}
+
+function renderUpdateBanner(info = getCachedUpdateResult()) {
+  const host = document.getElementById('update-banner-host');
+  if (!host) return;
+  if (!info || !info.hasUpdate || isUpdateDismissed(info.latestVersion)) {
+    host.innerHTML = '';
+    return;
+  }
+
+  host.innerHTML = `
+    <div class="update-banner" role="region" aria-label="${escapeHtml(t('updateAvailableTitle', { version: info.latestVersion }))}">
+      <div class="update-banner__inner">
+        <div class="update-banner__text">
+          <span class="update-banner__tag mono-code">v${escapeHtml(info.latestVersion)}</span>
+          <span>${escapeHtml(t('updateBannerText', { version: info.latestVersion }))}</span>
+        </div>
+        <div class="update-banner__actions">
+          <button type="button" class="btn btn--primary btn--xs" data-action="banner-install-update">
+            ${icon('download', { size: 13 })}
+            <span>${escapeHtml(isAndroidNative() && info.apkUrl ? t('updateDownloadShortBtn') : t('updateOpenReleaseBtn'))}</span>
+          </button>
+          <a href="#/settings" class="btn btn--ghost btn--xs">${escapeHtml(t('navSettings'))}</a>
+          <button type="button" class="btn-icon btn-icon--sm" data-action="banner-dismiss-update" aria-label="${escapeHtml(t('btnCancel'))}">
+            ${icon('x', { size: 14 })}
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  host.querySelector('[data-action="banner-dismiss-update"]')?.addEventListener('click', () => {
+    dismissUpdateVersion(info.latestVersion);
+    host.innerHTML = '';
+  });
+
+  host.querySelector('[data-action="banner-install-update"]')?.addEventListener('click', async (e) => {
+    const btn = e.currentTarget;
+    btn.disabled = true;
+    try {
+      const res = await downloadAndInstallUpdate(info, {
+        onProgress(ev) {
+          const span = btn.querySelector('span');
+          if (span) span.textContent = `${ev.pct}%`;
+        },
+      });
+      if (res.status === 'permission_required') {
+        showToast({ message: t('updatePermissionRequired'), duration: 6000 });
+      } else if (res.status === 'launched') {
+        showToast({ message: t('updateInstallLaunched'), duration: 4000 });
+      }
+    } catch (err) {
+      showToast({ message: t('updateDownloadError', { err: err?.message || err }), duration: 5000 });
+    } finally {
+      btn.disabled = false;
+    }
+  });
 }
 
 export function setFocusedExamMode(active) {
@@ -164,6 +237,9 @@ function renderShellHeader(activeRouteName) {
         <a href="#/" class="nav-link ${activeRouteName === 'home' ? 'is-active' : ''}" ${activeRouteName === 'home' ? 'aria-current="page"' : ''}>
           <span>${escapeHtml(t('navHome'))}</span>
         </a>
+        <a href="#/ai" class="nav-link ${activeRouteName === 'ai' ? 'is-active' : ''}" ${activeRouteName === 'ai' ? 'aria-current="page"' : ''}>
+          <span>${escapeHtml(t('navAi'))}</span>
+        </a>
         <a href="#/mistakes" class="nav-link ${activeRouteName === 'mistakes' ? 'is-active' : ''}" ${activeRouteName === 'mistakes' ? 'aria-current="page"' : ''}>
           <span>${escapeHtml(t('navMistakes'))}</span>
           <span class="nav-badge tabular-nums" id="header-mistakes-badge" ${mistakesCount <= 0 ? 'hidden' : ''}>${mistakesCount}</span>
@@ -194,6 +270,17 @@ function renderShellHeader(activeRouteName) {
           <span class="theme-trigger__name mono-code">${escapeHtml(themeDef.shortLabel)}</span>
           <span class="theme-trigger__mark" id="theme-unseen-dot" ${unseenThemes <= 0 ? 'hidden' : ''} aria-hidden="true"></span>
         </button>
+
+        <a
+          href="#/settings"
+          class="fac-top-btn fac-top-btn--settings ${activeRouteName === 'settings' ? 'is-active' : ''}"
+          id="btn-settings-link"
+          title="${escapeHtml(t('navSettings'))}"
+          aria-label="${escapeHtml(t('navSettings'))}"
+          ${activeRouteName === 'settings' ? 'aria-current="page"' : ''}
+        >
+          ${icon('settings', { size: 17 })}
+        </a>
       </div>
     </div>
   `;
@@ -229,28 +316,37 @@ function renderMobileBottomNav(activeRouteName) {
   const navEl = document.getElementById('mobile-bottom-nav');
   if (!navEl) return;
   const mistakesCount = getActiveMistakesCount();
-  const isCatalog = activeRouteName !== 'mistakes' && activeRouteName !== 'stats' && activeRouteName !== 'exam';
+  const isCatalog =
+    activeRouteName !== 'mistakes' &&
+    activeRouteName !== 'stats' &&
+    activeRouteName !== 'exam' &&
+    activeRouteName !== 'ai' &&
+    activeRouteName !== 'settings';
 
   navEl.setAttribute('aria-label', t('navAria'));
   navEl.innerHTML = `
     <a href="#/" class="mobile-bottom-nav__item ${isCatalog ? 'is-active' : ''}" ${activeRouteName === 'home' ? 'aria-current="page"' : ''}>
-      <span class="mobile-bottom-nav__icon" aria-hidden="true">${icon('book-open', { size: 18 })}</span>
+      <span class="mobile-bottom-nav__icon" aria-hidden="true">${icon('book-open', { size: 17 })}</span>
       <span class="mobile-bottom-nav__label">${escapeHtml(t('navHome'))}</span>
     </a>
+    <a href="#/ai" class="mobile-bottom-nav__item ${activeRouteName === 'ai' ? 'is-active' : ''}" ${activeRouteName === 'ai' ? 'aria-current="page"' : ''}>
+      <span class="mobile-bottom-nav__icon" aria-hidden="true">${icon('bot', { size: 17 })}</span>
+      <span class="mobile-bottom-nav__label">${escapeHtml(t('navAiShort'))}</span>
+    </a>
     <a href="#/exam/all" class="mobile-bottom-nav__item ${activeRouteName === 'exam' ? 'is-active' : ''}" ${activeRouteName === 'exam' ? 'aria-current="page"' : ''}>
-      <span class="mobile-bottom-nav__icon" aria-hidden="true">${icon('clock', { size: 18 })}</span>
+      <span class="mobile-bottom-nav__icon" aria-hidden="true">${icon('clock', { size: 17 })}</span>
       <span class="mobile-bottom-nav__label">${escapeHtml(t('navExam'))}</span>
     </a>
     <a href="#/mistakes" class="mobile-bottom-nav__item ${activeRouteName === 'mistakes' ? 'is-active' : ''}" ${activeRouteName === 'mistakes' ? 'aria-current="page"' : ''}>
       <span class="mobile-bottom-nav__icon" aria-hidden="true">
-        ${icon('alert-circle', { size: 18 })}
+        ${icon('alert-circle', { size: 17 })}
         <span class="mobile-nav-badge tabular-nums" id="mobile-mistakes-badge" ${mistakesCount <= 0 ? 'hidden' : ''}>${mistakesCount}</span>
       </span>
       <span class="mobile-bottom-nav__label">${escapeHtml(t('navMistakes'))}</span>
     </a>
     <a href="#/stats" class="mobile-bottom-nav__item ${activeRouteName === 'stats' ? 'is-active' : ''}" ${activeRouteName === 'stats' ? 'aria-current="page"' : ''}>
-      <span class="mobile-bottom-nav__icon" aria-hidden="true">${icon('bar-chart', { size: 18 })}</span>
-      <span class="mobile-bottom-nav__label">${escapeHtml(t('navStats'))}</span>
+      <span class="mobile-bottom-nav__icon" aria-hidden="true">${icon('bar-chart', { size: 17 })}</span>
+      <span class="mobile-bottom-nav__label">${escapeHtml(t('navStatsShort'))}</span>
     </a>
   `;
 
@@ -314,12 +410,15 @@ async function handleRoute(shouldScrollTop = true) {
   if (first === 'mistakes') activeNav = 'mistakes';
   else if (first === 'stats') activeNav = 'stats';
   else if (first === 'exam') activeNav = 'exam';
+  else if (first === 'ai') activeNav = 'ai';
+  else if (first === 'settings') activeNav = 'settings';
   else if (first) activeNav = first;
   activeRouteCache = activeNav;
 
   renderShellHeader(activeNav);
   renderMobileBottomNav(activeNav);
   renderShellFooter();
+  renderUpdateBanner();
 
   mainEl.innerHTML = `<div class="page-container"><div class="loading-box mono-code">${escapeHtml(t('loading'))}</div></div>`;
 
@@ -332,6 +431,15 @@ async function handleRoute(shouldScrollTop = true) {
     updateHeaderBadges,
     showToast,
     setFxMode: (mode) => applyFxToApp(mode, { announce: false }),
+    onShellRefresh: () => {
+      applyLangToDom();
+      applyUserPrefsToDom();
+      renderShellHeader(activeRouteCache);
+      renderMobileBottomNav(activeRouteCache);
+      renderShellFooter();
+      renderUpdateBanner();
+      updateHeaderBadges();
+    },
     setCleanup: (fn) => { currentCleanup = fn; },
   };
 
@@ -350,6 +458,10 @@ async function handleRoute(shouldScrollTop = true) {
       await renderMistakesView(mainEl, ctx);
     } else if (first === 'stats') {
       await renderStatsView(mainEl, ctx);
+    } else if (first === 'ai') {
+      await renderAiView(mainEl, ctx);
+    } else if (first === 'settings') {
+      await renderSettingsView(mainEl, ctx);
     } else {
       await renderHomeView(mainEl, ctx);
     }
@@ -408,6 +520,10 @@ window.addEventListener('ulduz:theme-unlocked', (e) => {
   });
 });
 
+window.addEventListener('ulduz:update-available', (e) => {
+  renderUpdateBanner(e.detail);
+});
+
 window.addEventListener('hashchange', () => {
   void handleRoute(true);
 });
@@ -419,6 +535,7 @@ async function boot() {
   await hydrateFromNativeStorage();
   applyThemeToDom(getTheme(), false);
   applyLangToDom();
+  applyUserPrefsToDom();
   fxEngine.init(getFxMode());
   installNativeBackHandler({ navigate, parseHash });
 
@@ -427,6 +544,11 @@ async function boot() {
   }
 
   void handleRoute(false);
+
+  // Silent background auto-update check (only runs when enabled & throttled every 6h)
+  setTimeout(() => {
+    void checkForAppUpdate({ force: false, silent: true });
+  }, 2200);
 }
 
 void boot();

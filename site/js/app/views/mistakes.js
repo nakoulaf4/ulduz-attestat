@@ -112,8 +112,11 @@ export async function renderMistakesView(container, { query, setKeyHandler, show
           mode: 'practice',
           taskNumber: isDrill ? drillIndex + 1 : null,
           totalTasks: isDrill ? totalInFlow : null,
-          onCheck(res, finalResp) {
-            recordTaskAttempt(found.task, finalResp, res);
+          onCheck(res, finalResp, meta) {
+            recordTaskAttempt(found.task, finalResp, res, {
+              durationSec: meta?.durationSec,
+              source: 'mistakes',
+            });
             const badge = container.querySelector('#mistake-live-status');
             if (badge && activeTab === 'mistakes') {
               if (res.correct) {

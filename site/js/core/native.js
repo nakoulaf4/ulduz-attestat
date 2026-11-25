@@ -1,6 +1,20 @@
 // Zero-dependency Tauri v2 Native Mobile Bridge (Android & iOS).
 // 100% silent no-op when running in regular desktop/mobile browsers or Node.js.
 
+let hapticsEnabled = true;
+
+/**
+ * Enable or disable native haptic feedback (controlled from Settings).
+ * @param {boolean} enabled
+ */
+export function setHapticsEnabled(enabled) {
+  hapticsEnabled = enabled !== false;
+}
+
+export function isHapticsEnabled() {
+  return hapticsEnabled;
+}
+
 /**
  * Returns true only when running inside a Tauri v2 WebView with IPC available.
  */
@@ -8,6 +22,16 @@ export function isNativeApp() {
   return (
     typeof window !== 'undefined' &&
     Boolean(window.__TAURI_INTERNALS__ && typeof window.__TAURI_INTERNALS__.invoke === 'function')
+  );
+}
+
+/**
+ * Returns true when Android native bridge (`MainActivity.kt` -> `window.UlduzAndroid`) is attached.
+ */
+export function isAndroidNative() {
+  return (
+    typeof window !== 'undefined' &&
+    Boolean(window.UlduzAndroid && typeof window.UlduzAndroid.installApk === 'function')
   );
 }
 
@@ -28,12 +52,26 @@ async function invokeNative(cmd, args) {
 }
 
 /**
+ * Invoke a Tauri v2 Rust command and propagate errors with clean messages.
+ * Returns null only when not running inside Tauri.
+ */
+async function invokeNativeStrict(cmd, args) {
+  if (!isNativeApp()) return null;
+  try {
+    return await window.__TAURI_INTERNALS__.invoke(cmd, args);
+  } catch (err) {
+    const msg = typeof err === 'string' ? err : (err?.message || String(err));
+    throw new Error(msg);
+  }
+}
+
+/**
  * Trigger crisp native haptic feedback via tauri-plugin-haptics v2.
- * Safe silent no-op in web browsers and desktop builds.
+ * Safe silent no-op in web browsers, desktop builds, or when disabled in Settings.
  * @param {'selection' | 'light' | 'medium' | 'success' | 'warning' | 'error'} kind
  */
 export function haptic(kind = 'selection') {
-  if (!isNativeApp()) return;
+  if (!hapticsEnabled || !isNativeApp()) return;
   switch (kind) {
     case 'selection':
       void invokeNative('plugin:haptics|selection_feedback');
@@ -116,6 +154,130 @@ export async function scoreExamDimNative(subject, rawEarned, rawMax) {
  */
 export async function getNativeAppInfo() {
   return invokeNative('app_info');
+}
+
+/**
+ * Check GitHub Releases for a newer version via Rust reqwest backend.
+ * @param {string} [currentVersion]
+ */
+export async function checkNativeUpdate(currentVersion) {
+  return invokeNativeStrict('check_github_update', {
+    currentVersion: currentVersion || null,
+  });
+}
+
+/**
+ * Stream-download official Ulduz Android APK into `app_cache_dir()/updates/`.
+ * Emits `ulduz://update-progress` events with `{ downloaded, total, pct }`.
+ * @param {string} url
+ * @param {string} filename
+ * @returns {Promise<string | null>} local APK file path
+ */
+export async function downloadNativeUpdateApk(url, filename) {
+  return invokeNativeStrict('download_update_apk', {
+    url: String(url || ''),
+    filename: String(filename || 'Ulduz-update.apk'),
+  });
+}
+
+/**
+ * Subscribe to Tauri v2 native `ulduz://update-progress` events.
+ * Returns an async `unlisten()` function. Safe no-op outside Tauri.
+ * @param {(payload: { downloaded: number, total: number, pct: number }) => void} callback
+ * @returns {Promise<() => void>}
+ */
+export async function listenNativeUpdateProgress(callback) {
+  if (!isNativeApp() || typeof callback !== 'function') {
+    return () => {};
+  }
+  const internals = window.__TAURI_INTERNALS__;
+  if (typeof internals?.transformCallback !== 'function') {
+    return () => {};
+  }
+  try {
+    const handlerId = internals.transformCallback((event) => {
+      if (event && event.payload) {
+        callback(event.payload);
+      }
+    });
+    const eventId = await internals.invoke('plugin:event|listen', {
+      event: 'ulduz://update-progress',
+      target: { kind: 'Any' },
+      handler: handlerId,
+    });
+    return () => {
+      try {
+        void internals.invoke('plugin:event|unlisten', {
+          event: 'ulduz://update-progress',
+          eventId,
+        });
+      } catch {
+        // ignore cleanup errors
+      }
+    };
+  } catch {
+    return () => {};
+  }
+}
+
+/**
+ * Launch Android PackageInstaller via FileProvider bridge in `MainActivity.kt`.
+ * @param {string} filePath
+ * @returns {'launched' | 'permission_required' | 'unsupported' | string}
+ */
+export function installAndroidApk(filePath) {
+  if (!isAndroidNative()) return 'unsupported';
+  try {
+    return String(window.UlduzAndroid.installApk(String(filePath || '')));
+  } catch (err) {
+    return `error:${err?.message ?? err}`;
+  }
+}
+
+/**
+ * Open an external HTTPS URL safely (Android native Intent or browser tab).
+ * @param {string} url
+ */
+export function openExternalUrl(url) {
+  if (typeof url !== 'string' || !/^https?:\/\//i.test(url.trim())) return false;
+  const clean = url.trim();
+  if (typeof window !== 'undefined' && window.UlduzAndroid && typeof window.UlduzAndroid.openUrl === 'function') {
+    try {
+      return Boolean(window.UlduzAndroid.openUrl(clean));
+    } catch {
+      // fall through
+    }
+  }
+  if (typeof window !== 'undefined' && typeof window.open === 'function') {
+    window.open(clean, '_blank', 'noopener,noreferrer');
+    return true;
+  }
+  return false;
+}
+
+/**
+ * Send OpenAI-compatible chat completion JSON POST via CORS-free Rust HTTP client.
+ * @param {{ url: string, apiKey?: string, body: string }} params
+ * @returns {Promise<{ status: number, body: string } | null>}
+ */
+export async function nativeAiChatCompletion({ url, apiKey = '', body }) {
+  return invokeNativeStrict('ai_chat_completion', {
+    url: String(url || ''),
+    apiKey: apiKey ? String(apiKey) : null,
+    body: String(body || '{}'),
+  });
+}
+
+/**
+ * Fetch OpenAI-compatible `/models` catalog JSON via CORS-free Rust HTTP client.
+ * @param {{ url: string, apiKey?: string }} params
+ * @returns {Promise<{ status: number, body: string } | null>}
+ */
+export async function nativeAiListModels({ url, apiKey = '' }) {
+  return invokeNativeStrict('ai_list_models', {
+    url: String(url || ''),
+    apiKey: apiKey ? String(apiKey) : null,
+  });
 }
 
 /**
@@ -202,8 +364,14 @@ export function installNativeBackHandler({ navigate, parseHash }) {
       }
     }
 
-    // 4b. Subject Hub, Mistakes list, Stats -> Home
-    if (rootSeg === 'subject' || rootSeg === 'mistakes' || rootSeg === 'stats') {
+    // 4b. Subject Hub, Mistakes list, Stats, AI Tutor, Settings -> Home
+    if (
+      rootSeg === 'subject' ||
+      rootSeg === 'mistakes' ||
+      rootSeg === 'stats' ||
+      rootSeg === 'ai' ||
+      rootSeg === 'settings'
+    ) {
       haptic('selection');
       navigate('#/');
       return true;

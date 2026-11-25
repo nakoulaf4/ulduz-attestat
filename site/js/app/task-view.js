@@ -2,8 +2,9 @@
 // Supports all 6 contract formats: 'single' | 'multi' | 'short' | 'match' | 'order' | 'open'.
 
 import { checkAnswer } from '../core/contract.js';
-import { isBookmarked, toggleBookmark } from '../core/storage.js';
+import { isBookmarked, toggleBookmark, getSettings } from '../core/storage.js';
 import { haptic } from '../core/native.js';
+import { formatDurationShort } from '../core/telemetry.js';
 import { t, formatPoints, formatFormatBadge } from './i18n.js';
 import { icon } from './icons.js';
 import { escapeHtml, prepareRichHtml, hydrateMath, renderTaskImageHtml } from './math.js';
@@ -199,11 +200,43 @@ export function mountTaskView(container, opts) {
   let mobilePassageTab = 'task'; // 'text' | 'task' (mobile 2-tab switcher; desktop always shows both)
   let savedPassageScrollTop = 0;
   let savedTaskWindowScroll = 0;
-  let passageFontScale = 1;
+  const savedFontScale = Number(getSettings()?.passageFontScale);
+  let passageFontScale = Number.isFinite(savedFontScale) && savedFontScale >= 0.85 && savedFontScale <= 1.35
+    ? savedFontScale
+    : 1;
   let isSpeaking = false;
   const eliminated = new Set(); // Paper-booklet MCQ distractor strike-through
   let activeMatchLeft = 0;      // Click-left-then-right pairing helper
   let orderSelectedPos = null;  // Click-to-swap order helper
+
+  // Per-task active solving stopwatch (pauses automatically when tab is hidden)
+  let activeElapsedMs = 0;
+  let segmentStartMs = Date.now();
+  let lastCheckedDurationSec = 0;
+
+  function sampleActiveDurationSec() {
+    if (typeof document === 'undefined' || !document.hidden) {
+      activeElapsedMs += Math.max(0, Date.now() - segmentStartMs);
+    }
+    segmentStartMs = Date.now();
+    return Math.max(1, Math.min(1800, Math.round(activeElapsedMs / 1000)));
+  }
+
+  const onVisibilityChange = () => {
+    if (typeof document === 'undefined') return;
+    if (!container.isConnected) {
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      return;
+    }
+    if (document.hidden) {
+      activeElapsedMs += Math.max(0, Date.now() - segmentStartMs);
+    } else {
+      segmentStartMs = Date.now();
+    }
+  };
+  if (typeof document !== 'undefined' && !isChecked) {
+    document.addEventListener('visibilitychange', onVisibilityChange);
+  }
 
   if (typeof window !== 'undefined' && window.speechSynthesis) {
     window.speechSynthesis.cancel();
@@ -239,6 +272,11 @@ export function mountTaskView(container, opts) {
     const anchorBtn = container.querySelector('[data-action="check-answer"], [data-action="pick-self-score"].is-selected');
     const anchorRect = anchorBtn?.getBoundingClientRect();
     isChecked = true;
+    const durationSec = sampleActiveDurationSec();
+    lastCheckedDurationSec = durationSec;
+    if (typeof document !== 'undefined') {
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+    }
     const res = checkAnswer(task, currentResponse);
     haptic(res.correct ? 'success' : res.earned > 0 ? 'warning' : 'error');
     oaFireFxPulse(res.correct ? 'correct' : 'wrong', {
@@ -246,7 +284,7 @@ export function mountTaskView(container, opts) {
       y: anchorRect ? anchorRect.top + anchorRect.height / 2 : null,
       intensity: res.correct ? 1.15 : 0.75,
     });
-    if (onCheck) onCheck(res, currentResponse);
+    if (onCheck) onCheck(res, currentResponse, { durationSec });
     render();
     if (!res.correct) {
       const card = container.querySelector('.task-card');
@@ -894,7 +932,16 @@ export function mountTaskView(container, opts) {
           ` : ''}
         </div>
         <div class="explanation-card__body">
-          <h4 class="explanation-card__heading">${escapeHtml(t('explanationHeading'))}</h4>
+          <div class="explanation-card__body-head">
+            <h4 class="explanation-card__heading">${escapeHtml(t('explanationHeading'))}</h4>
+            <div class="explanation-card__meta-actions">
+              ${lastCheckedDurationSec > 0 ? `<span class="explanation-card__time mono-code tabular-nums">${icon('clock', { size: 13 })} ${escapeHtml(formatDurationShort(lastCheckedDurationSec, document.documentElement.lang === 'az' ? 'az' : 'ru'))}</span>` : ''}
+              <button type="button" class="btn btn--secondary btn--xs" data-action="ask-ai-task">
+                ${icon('bot', { size: 14 })}
+                <span>${escapeHtml(t('askAiAboutTaskBtn'))}</span>
+              </button>
+            </div>
+          </div>
           <div class="explanation-card__prose">
             ${prepareRichHtml(tObj.explanation)}
           </div>
@@ -1318,6 +1365,37 @@ export function mountTaskView(container, opts) {
     });
     container.querySelector('[data-action="finish-exam-inline"]')?.addEventListener('click', () => {
       if (opts.onFinishExam) opts.onFinishExam();
+    });
+
+    container.querySelector('[data-action="ask-ai-task"]')?.addEventListener('click', () => {
+      haptic('selection');
+      try {
+        const plainUserAns = (() => {
+          if (currentResponse === null || currentResponse === undefined) return '';
+          if (task.format === 'single') {
+            const idx = Number(currentResponse);
+            return `${LETTERS[idx] ?? idx + 1}) ${task.options?.[idx] ?? ''}`;
+          }
+          if (task.format === 'multi' && Array.isArray(currentResponse)) {
+            return currentResponse.map((i) => `${LETTERS[i] ?? i + 1}) ${task.options?.[i] ?? ''}`).join('; ');
+          }
+          if (task.format === 'open') return currentResponse?.text || `self=${currentResponse?.self ?? ''}`;
+          return typeof currentResponse === 'object' ? JSON.stringify(currentResponse) : String(currentResponse);
+        })();
+        const plainCanonical = formatCanonicalAnswer(task).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+        sessionStorage.setItem('ulduz_ai_task_ctx', JSON.stringify({
+          subject: task.subject || 'math',
+          topic: task.topic || '',
+          stem: task.stem || '',
+          userAnswer: plainUserAns,
+          canonicalAnswer: plainCanonical,
+          explanation: task.explanation || '',
+          durationSec: lastCheckedDurationSec || 0,
+        }));
+      } catch {
+        // ignore storage errors
+      }
+      window.location.hash = '#/ai?from=task';
     });
   }
 
