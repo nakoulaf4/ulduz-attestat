@@ -1,210 +1,151 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-24T19:05:00.000Z",
-  "title": "Design System: Ulduz — Obsidian Atelier",
+  "generatedAt": "2026-11-25T11:32:00.000Z",
+  "title": "Design System: Ulduz — Factory Records Archival Catalog",
+  "world": "brand-identity-canon-saville-catalog-sleeve",
   "extensions": {
     "colorMeta": {
-      "obsidian-void": {
+      "fac-ground": {
         "role": "neutral",
-        "displayName": "Obsidian Void",
-        "canonical": "#030304",
-        "tonalRamp": ["#020203", "#030304", "#0A0A0D", "#15151B", "#262630", "#4A4A58", "#8E8E9E", "#E6E6EE"]
+        "displayName": "Matte Absorbent Black Stock",
+        "canonical": "#0C0C0E",
+        "tonalRamp": ["#060607", "#0C0C0E", "#111113", "#1A1A1E", "#2C2C32", "#52525A", "#90908B", "#EAEAE6"]
       },
-      "obsidian-surface": {
+      "fac-surface": {
         "role": "neutral",
-        "displayName": "Obsidian Surface",
-        "canonical": "#0A0A0D",
-        "tonalRamp": ["#040406", "#0A0A0D", "#111116", "#1C1C24", "#30303C", "#585866", "#9A9AA8", "#ECECF2"]
+        "displayName": "Recessed Sleeve Stock",
+        "canonical": "#111113",
+        "tonalRamp": ["#08080A", "#111113", "#17171A", "#232328", "#36363D", "#5E5E66", "#9A9A96", "#EAEAE6"]
       },
-      "obsidian-surface-2": {
-        "role": "neutral",
-        "displayName": "Obsidian Surface 2",
-        "canonical": "#111116",
-        "tonalRamp": ["#060608", "#111116", "#17171E", "#252530", "#3D3D4A", "#686878", "#A8A8B6", "#F0F0F6"]
-      },
-      "obsidian-elevated": {
-        "role": "neutral",
-        "displayName": "Obsidian Elevated",
-        "canonical": "#17171E",
-        "tonalRamp": ["#08080B", "#17171E", "#22222C", "#343442", "#4E4E5E", "#7A7A8B", "#B6B6C4", "#F4F4F8"]
-      },
-      "neon-white": {
+      "fac-ink": {
         "role": "primary",
-        "displayName": "Pure Optical White",
-        "canonical": "#FFFFFF",
-        "tonalRamp": ["#16161A", "#2C2C32", "#4B4B54", "#72727E", "#9E9EA8", "#C8C8D2", "#E6E6EE", "#FFFFFF"]
+        "displayName": "Warm Paper Plot Ink",
+        "canonical": "#EAEAE6",
+        "tonalRamp": ["#18181A", "#323234", "#545452", "#787874", "#9E9E98", "#C2C2BC", "#EAEAE6", "#FFFFFF"]
       },
-      "neon-hover": {
-        "role": "primary",
-        "displayName": "Specular Silver Hover",
-        "canonical": "#E6E6EE",
-        "tonalRamp": ["#141418", "#282830", "#44444F", "#6B6B78", "#9595A4", "#BEBECB", "#E6E6EE", "#FAFAFC"]
-      },
-      "ink-on-neon": {
+      "fac-muted": {
         "role": "neutral",
-        "displayName": "Ink on Neon",
-        "canonical": "#050507",
-        "tonalRamp": ["#030304", "#050507", "#101015", "#202029", "#3A3A47", "#646474", "#A2A2B0", "#EAEAF0"]
+        "displayName": "Industrial Steel Muted",
+        "canonical": "#90908B",
+        "tonalRamp": ["#161616", "#2B2B2A", "#464644", "#686864", "#90908B", "#B0B0AA", "#D0D0CA", "#EAEAE6"]
       },
-      "chalk-ink": {
-        "role": "neutral",
-        "displayName": "Chalk Ink",
-        "canonical": "#FAFAFC",
-        "tonalRamp": ["#16161B", "#2E2E36", "#4F4F5A", "#787886", "#A4A4B2", "#CECED8", "#ECECF2", "#FAFAFC"]
+      "fac-red": {
+        "role": "accent",
+        "displayName": "Saville Red (DİM 01 Math / Keycap)",
+        "canonical": "#D63031",
+        "tonalRamp": ["#2D0809", "#5C1112", "#8F1B1C", "#B82425", "#D63031", "#E4595A", "#F08E8E", "#FAD1D1"]
       },
-      "silver-ink": {
-        "role": "neutral",
-        "displayName": "Silver Ink",
-        "canonical": "#C8C8D2",
-        "tonalRamp": ["#141418", "#292931", "#464652", "#6C6C7B", "#9494A3", "#B4B4C2", "#C8C8D2", "#EAEAF2"]
+      "fac-blue": {
+        "role": "accent",
+        "displayName": "Saville Blue (DİM 02 Russian)",
+        "canonical": "#2663C9",
+        "tonalRamp": ["#081630", "#102C60", "#194391", "#2053B0", "#2663C9", "#4E82D8", "#88ACE6", "#CEDEF6"]
       },
-      "ash-muted": {
+      "fac-yellow": {
+        "role": "accent",
+        "displayName": "Saville Yellow (DİM 03 English / Caution)",
+        "canonical": "#DFB41D",
+        "tonalRamp": ["#2F2504", "#5E4B09", "#8F720E", "#BA9514", "#DFB41D", "#E8C64B", "#F1DA84", "#FAF0C8"]
+      },
+      "fac-green": {
+        "role": "accent",
+        "displayName": "Saville Green (DİM 04 Azerbaijani / Correct)",
+        "canonical": "#2E9E5B",
+        "tonalRamp": ["#092213", "#124426", "#1C683A", "#25854C", "#2E9E5B", "#52B579", "#8AD0A5", "#CBEBD7"]
+      },
+      "fac-cotton": {
         "role": "neutral",
-        "displayName": "Ash Muted",
-        "canonical": "#9898A6",
-        "tonalRamp": ["#121216", "#24242C", "#3E3E4A", "#5F5F6E", "#808090", "#9898A6", "#BFC0CC", "#E6E6EE"]
+        "displayName": "Cool Cotton-Rag Daylight Stock (FAC 05)",
+        "canonical": "#ECECEB",
+        "tonalRamp": ["#1C1C1E", "#38383C", "#5A5A60", "#84848A", "#B2B2B5", "#D6D6D4", "#ECECEB", "#F8F8F7"]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Hero H1 headlines and mode-specific architectural titles." },
-      "headline": { "displayName": "Headline", "purpose": "Section headers, modal titles, and result summaries." },
-      "title": { "displayName": "Title", "purpose": "Subject cards, feature banners, and variant tiles." },
-      "body": { "displayName": "Body", "purpose": "Question stems, answer options, explanations, and rubrics (max 72ch)." },
-      "prose-serif": { "displayName": "Prose Serif", "purpose": "Long-form RU/EN/AZ reading passages with sentence anchors." },
-      "label": { "displayName": "UI Label", "purpose": "Buttons, navigation capsules, badges, and interactive chips." },
-      "mono": { "displayName": "Mono Telemetry", "purpose": "Tabular exam counters, scores, timers, seeds, and FX mode labels." }
+      "display": { "displayName": "Catalog Poster Display", "purpose": "Monumental DİM 300 and edition sleeve titles (Tektur Variable)." },
+      "headline": { "displayName": "Archival Section Heading", "purpose": "Uppercase tracked catalog section dividers." },
+      "title": { "displayName": "Entry Title", "purpose": "Subject rows, release titles, and variant headings." },
+      "body": { "displayName": "Academic Prose", "purpose": "Question stems, options, explanations, and rubrics (Inter Variable, max 72ch)." },
+      "prose-serif": { "displayName": "Reading Passage Serif", "purpose": "Long-form RU/EN/AZ passages with clickable sentence markers (Source Serif 4)." },
+      "label": { "displayName": "Industrial Action Label", "purpose": "Zero-radius buttons, topbar cells, and bottom mobile tabs." },
+      "mono": { "displayName": "Catalog Telemetry", "purpose": "Tabular catalog numbers, colophons, timers, counters, and degree markers." }
     },
     "shadows": [
-      { "name": "shadow-sm", "value": "0 4px 14px rgba(0, 0, 0, 0.52)", "purpose": "Orbital compass beacons, chips, and compact hover depth." },
-      { "name": "shadow-md", "value": "0 12px 32px rgba(0, 0, 0, 0.68)", "purpose": "Floating header bar and hovered obsidian cards." },
-      { "name": "shadow-lg", "value": "0 24px 56px rgba(0, 0, 0, 0.84)", "purpose": "Light Compass dial, Studio Drawer modal, mobile pill dock, and toasts." },
-      { "name": "shadow-neon-btn", "value": "0 8px 26px rgba(255, 255, 255, 0.18), 0 4px 12px rgba(0, 0, 0, 0.72)", "purpose": "Primary pure-white CTA optical floor reflection." }
+      { "name": "shadow-sm", "value": "0 4px 12px rgba(0, 0, 0, 0.42)", "purpose": "Compact floating popovers." },
+      { "name": "shadow-md", "value": "0 12px 28px rgba(0, 0, 0, 0.58)", "purpose": "Floating notifications." },
+      { "name": "shadow-lg", "value": "0 24px 52px rgba(0, 0, 0, 0.74)", "purpose": "Right-docked archival slide-over drawers and undo toasts." }
     ],
     "motion": [
-      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Primary exponential deceleration for reveals, glides, and ripples." },
-      { "name": "ease-snappy", "value": "cubic-bezier(0.2, 0.9, 0.25, 1)", "purpose": "High-responsiveness spring-like snap without bounce overshoot." },
-      { "name": "ease-sharp", "value": "cubic-bezier(0.2, 0, 0, 1)", "purpose": "Fast exit fades and crisp focus state changes." },
-      { "name": "dur-instant", "value": "110ms", "purpose": "Press feedback and active scale response." },
-      { "name": "dur-fast", "value": "170ms", "purpose": "Hover borders, pill toggles, and button color shifts." },
-      { "name": "dur-med", "value": "260ms", "purpose": "Route entrances, FLIP nav glide, and modal sheet transitions." },
-      { "name": "dur-slow", "value": "420ms", "purpose": "Mode switch ignition and card stagger choreography." }
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Primary exponential deceleration for drawer slides, impulse waves, and row entrances." },
+      { "name": "ease-snappy", "value": "cubic-bezier(0.2, 0.9, 0.25, 1)", "purpose": "Instant button keycap expansion." },
+      { "name": "dur-instant", "value": "90ms", "purpose": "Tactile 1px press depression." },
+      { "name": "dur-fast", "value": "150ms", "purpose": "Hover border and swatch transitions." },
+      { "name": "dur-med", "value": "240ms", "purpose": "Slide-over drawer entrance and route fade." },
+      { "name": "dur-slow", "value": "380ms", "purpose": "Edition switch crossfade." }
     ],
     "breakpoints": [
       { "name": "xs", "value": "520px" },
       { "name": "sm", "value": "640px" },
       { "name": "md", "value": "768px" },
-      { "name": "lg", "value": "960px" },
-      { "name": "xl", "value": "1220px" }
+      { "name": "lg", "value": "1040px" },
+      { "name": "xl", "value": "1360px" }
     ]
   },
   "components": [
     {
-      "name": "Primary Optical Button",
+      "name": "Primary Keycap Action Button",
       "kind": "button",
       "refersTo": "button-primary-lg",
-      "description": "High-contrast pure white CTA with diagonal light sweep and tactile press compression.",
-      "html": "<button type=\"button\" class=\"ds-btn-primary\"><span>Полный экзамен ДИМ</span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
-      "css": ".ds-btn-primary { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 48px; padding: 0 24px; border-radius: var(--r-md, 10px); border: 1px solid #FFFFFF; background: #FFFFFF; color: #050507; font-family: var(--font-ui-label, 'Inter Variable', sans-serif); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.01em; cursor: pointer; overflow: hidden; box-shadow: 0 8px 26px rgba(255,255,255,0.18), 0 4px 12px rgba(0,0,0,0.72); transition: background-color 170ms cubic-bezier(0.16,1,0.3,1), box-shadow 260ms cubic-bezier(0.16,1,0.3,1), transform 110ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary:hover { background: #E6E6EE; box-shadow: 0 10px 30px rgba(255,255,255,0.24), 0 4px 14px rgba(0,0,0,0.78); } .ds-btn-primary:active { transform: scale(0.975); } .ds-btn-primary:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }"
+      "description": "Sharp 0px inverted paper-white CTA with full-height square-proportioned Saville crimson keycap on the right edge.",
+      "html": "<button type=\"button\" class=\"ds-fac-primary\"><span>ПОЛНЫЙ ЭКЗАМЕН ДИМ · 300</span><span aria-hidden=\"true\">→</span></button>",
+      "css": ".ds-fac-primary{position:relative;display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 52px 0 24px;border:1px solid #EAEAE6;border-radius:0;background:#EAEAE6;color:#0C0C0E;font:700 0.84rem/1.15 'Inter Variable',sans-serif;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background-color 150ms cubic-bezier(0.16,1,0.3,1);}.ds-fac-primary::after{content:'';position:absolute;top:0;right:0;bottom:0;width:32px;background:#D63031;transition:width 150ms cubic-bezier(0.16,1,0.3,1);}.ds-fac-primary:hover{background:#FFFFFF;}.ds-fac-primary:hover::after{width:36px;}"
     },
     {
-      "name": "Secondary Obsidian Button",
+      "name": "Hairline Secondary Button",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Machined obsidian surface button for secondary actions like Practice or Filter toggles.",
-      "html": "<button type=\"button\" class=\"ds-btn-secondary\">Тренировка</button>",
-      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 0 18px; border-radius: var(--r-md, 10px); border: 1px solid rgba(255,255,255,0.34); background: var(--oa-surface-2, #111116); color: var(--oa-ink, #FAFAFC); font-family: var(--font-ui-label, 'Inter Variable', sans-serif); font-size: 0.84rem; font-weight: 600; cursor: pointer; transition: background-color 170ms cubic-bezier(0.16,1,0.3,1), border-color 170ms cubic-bezier(0.16,1,0.3,1), transform 110ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-secondary:hover { background: rgba(255,255,255,0.11); border-color: rgba(255,255,255,0.66); } .ds-btn-secondary:active { transform: scale(0.975); } .ds-btn-secondary:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }"
+      "description": "Clean Saville 1px hairline outline button without resting accent stripes.",
+      "html": "<button type=\"button\" class=\"ds-fac-secondary\">НАЧАТЬ ЭКЗАМЕН →</button>",
+      "css": ".ds-fac-secondary{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 18px;border:1px solid rgba(234,234,230,0.4);border-radius:0;background:transparent;color:#EAEAE6;font:700 0.78rem/1.15 'Inter Variable',sans-serif;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background-color 150ms,border-color 150ms;}.ds-fac-secondary:hover{background:#17171A;border-color:#EAEAE6;}"
     },
     {
-      "name": "3-Tier Live FX Pill Strip",
-      "kind": "chip",
-      "refersTo": "fx-pill",
-      "description": "Compact monochrome selector switching between Тишина, 60 FPS Tactile, and WebGL Liquid Light.",
-      "html": "<div class=\"ds-fx-strip\" role=\"group\" aria-label=\"FX Engine\"><button type=\"button\" class=\"ds-fx-pill\">Тишина</button><button type=\"button\" class=\"ds-fx-pill is-active\" aria-pressed=\"true\">60 FPS</button><button type=\"button\" class=\"ds-fx-pill\">WebGL</button></div>",
-      "css": ".ds-fx-strip { display: inline-flex; align-items: center; gap: 3px; padding: 4px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); background: rgba(10,10,14,0.86); box-shadow: inset 0 1px 0 rgba(255,255,255,0.08); } .ds-fx-pill { display: inline-flex; align-items: center; justify-content: center; min-height: 32px; padding: 0 11px; border-radius: 999px; border: 1px solid transparent; background: transparent; color: #9898A6; font-family: var(--font-mono, ui-monospace, monospace); font-size: 0.74rem; font-weight: 500; cursor: pointer; transition: background-color 170ms ease, color 170ms ease; } .ds-fx-pill:hover { color: #FAFAFC; background: rgba(255,255,255,0.06); } .ds-fx-pill.is-active { background: #FFFFFF; color: #050507; font-weight: 700; } .ds-fx-pill:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }"
-    },
-    {
-      "name": "Obsidian Atelier Subject Card",
+      "name": "Subject Catalog Row with 40px Color Plate",
       "kind": "card",
-      "refersTo": "card-obsidian",
-      "description": "Asymmetric subject card with 1px top specular highlight, tabular progress filament, and monochrome action bar.",
-      "html": "<article class=\"ds-card\"><div class=\"ds-card-head\"><span class=\"ds-card-icon\">∑</span><div><h3 class=\"ds-card-title\">Математика</h3><p class=\"ds-card-desc\">Алгебра, геометрия, функции, тригонометрия и развёрнутые задачи.</p></div></div><div class=\"ds-card-meta\">14 тем · 53 типов · 50 PDF</div><div class=\"ds-progress\"><div class=\"ds-progress-fill\" style=\"width:89%\"></div></div></article>",
-      "css": ".ds-card { padding: 22px 24px; border-radius: var(--r-xl, 20px); border: 1px solid rgba(255,255,255,0.14); background: linear-gradient(180deg, rgba(255,255,255,0.025) 0%, transparent 45%), var(--oa-surface, #0A0A0D); color: #FAFAFC; box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 4px 14px rgba(0,0,0,0.52); display: flex; flex-direction: column; gap: 14px; transition: border-color 170ms ease, box-shadow 260ms ease; } .ds-card:hover { border-color: rgba(255,255,255,0.38); box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 12px 32px rgba(0,0,0,0.68); } .ds-card-head { display: flex; gap: 14px; align-items: flex-start; } .ds-card-icon { width: 42px; height: 42px; flex-shrink: 0; border-radius: 10px; border: 1px solid rgba(255,255,255,0.24); background: rgba(255,255,255,0.08); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.05rem; color: #FFFFFF; } .ds-card-title { margin: 0; font-size: 1.08rem; font-weight: 700; color: #FFFFFF; } .ds-card-desc { margin: 4px 0 0; font-size: 0.88rem; color: #C8C8D2; line-height: 1.48; } .ds-card-meta { font-family: var(--font-mono, monospace); font-size: 0.76rem; color: #9898A6; } .ds-progress { height: 4px; border-radius: 999px; background: rgba(255,255,255,0.12); overflow: hidden; } .ds-progress-fill { height: 100%; background: #FFFFFF; border-radius: 999px; box-shadow: 0 0 10px rgba(255,255,255,0.5); }"
+      "refersTo": "catalog-plate",
+      "description": "Hairline-divided subject entry pairing a solid 40x40px Saville industrial color plate with catalog number and tabular accuracy.",
+      "html": "<div class=\"ds-fac-row\"><span class=\"ds-fac-plate\">01</span><div class=\"ds-fac-body\"><div class=\"ds-fac-top\"><span class=\"ds-fac-code\">DİM 01</span><strong>Математика</strong></div><div class=\"ds-fac-sub\">53 типов · 50 PDF · ТРЕНИРОВКА / PDF</div></div><span class=\"ds-fac-pct\">89%</span></div>",
+      "css": ".ds-fac-row{display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:14px;padding:14px 8px 14px 0;border-top:1px solid rgba(234,234,230,0.18);border-bottom:1px solid rgba(234,234,230,0.18);background:#0C0C0E;color:#EAEAE6;font-family:'Inter Variable',sans-serif;}.ds-fac-plate{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;background:#D63031;color:#FFFFFF;font:800 0.82rem monospace;}.ds-fac-top{display:flex;align-items:baseline;gap:8px;}.ds-fac-code{font:700 0.72rem monospace;color:#90908B;}.ds-fac-sub{margin-top:4px;font:500 0.72rem monospace;color:#90908B;}.ds-fac-pct{font:700 0.96rem monospace;}"
     },
     {
-      "name": "Precision Short-Answer Field",
-      "kind": "input",
-      "refersTo": "input-short",
-      "description": "Compact 440px max-width monospace input well with luminous white focus ring.",
-      "html": "<div class=\"ds-input-row\"><input type=\"text\" class=\"ds-input\" inputmode=\"decimal\" placeholder=\"Введите ответ (напр. 12,5)\" aria-label=\"Краткий ответ\" /><span class=\"ds-input-unit\">DİM</span></div>",
-      "css": ".ds-input-row { display: flex; align-items: center; gap: 8px; max-width: 440px; padding: 4px 10px 4px 14px; border-radius: var(--r-md, 10px); border: 1px solid rgba(255,255,255,0.34); background: #060608; transition: border-color 170ms ease, box-shadow 170ms ease; } .ds-input-row:focus-within { border-color: #FFFFFF; box-shadow: 0 0 0 3px rgba(255,255,255,0.14); } .ds-input { flex: 1 1 auto; min-height: 44px; border: none; background: transparent; color: #FFFFFF; caret-color: #FFFFFF; font-family: var(--font-mono, monospace); font-size: 0.98rem; outline: none; } .ds-input::placeholder { color: #9898A6; } .ds-input-unit { font-family: var(--font-mono, monospace); font-size: 0.74rem; color: #9898A6; }"
+      "name": "10-Block Saville Signal Meter",
+      "kind": "badge",
+      "refersTo": "signal-meter",
+      "description": "Ten 9x9px square telemetry blocks encoding subject accuracy with a crimson peak indicator.",
+      "html": "<div class=\"ds-fac-meter\"><span class=\"lit\"></span><span class=\"lit\"></span><span class=\"lit\"></span><span class=\"lit\"></span><span class=\"lit\"></span><span class=\"lit\"></span><span class=\"lit\"></span><span class=\"lit\"></span><span class=\"peak\"></span><span></span></div>",
+      "css": ".ds-fac-meter{display:inline-flex;gap:4px;padding:8px;background:#0C0C0E;}.ds-fac-meter span{width:9px;height:9px;background:rgba(234,234,230,0.18);}.ds-fac-meter span.lit{background:#2663C9;}.ds-fac-meter span.peak{background:#D63031;}"
     },
     {
-      "name": "Floating Obsidian Pill Navigation",
+      "name": "Saville Technical Specification Colophon",
+      "kind": "card",
+      "refersTo": "signal-meter",
+      "description": "Compact key-value archival telemetry block replacing generic SaaS KPI cards.",
+      "html": "<div class=\"ds-fac-colophon\"><div><span>РЕШЕНО</span><b>48</b></div><div><span>ТОЧНОСТЬ</span><b>85%</b></div><div><span>ДНЕЙ ПОДРЯД</span><b>6 ДН.</b></div></div>",
+      "css": ".ds-fac-colophon{width:210px;padding:8px 0 8px 14px;border-left:1px solid rgba(234,234,230,0.18);background:#0C0C0E;color:#90908B;font:600 0.72rem/1.6 monospace;letter-spacing:0.08em;text-transform:uppercase;}.ds-fac-colophon>div{display:flex;justify-content:space-between;}.ds-fac-colophon b{color:#EAEAE6;}"
+    },
+    {
+      "name": "Hairline Archival Topbar Nav Cell",
       "kind": "nav",
-      "refersTo": "fx-pill-active",
-      "description": "Glass capsule navigation track with inverted pure-white active item.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><a href=\"#/\" class=\"ds-nav-link is-active\">Предметы</a><a href=\"#/mistakes\" class=\"ds-nav-link\">Ошибки</a><a href=\"#/stats\" class=\"ds-nav-link\">Статистика</a></nav>",
-      "css": ".ds-nav { display: inline-flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); background: rgba(10,10,13,0.9); } .ds-nav-link { display: inline-flex; align-items: center; min-height: 36px; padding: 0 15px; border-radius: 999px; color: #C8C8D2; text-decoration: none; font-family: var(--font-ui-label, sans-serif); font-size: 0.78rem; font-weight: 600; transition: color 170ms ease, background-color 170ms ease; } .ds-nav-link:hover { color: #FFFFFF; background: rgba(255,255,255,0.06); } .ds-nav-link.is-active { background: #FFFFFF; color: #050507; font-weight: 700; } .ds-nav-link:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }"
+      "refersTo": "nav-cell-active",
+      "description": "Full-height rectangular topbar navigation cells with inverted active state and solid 6px crimson end tab.",
+      "html": "<nav class=\"ds-fac-nav\"><a class=\"is-active\">КАТАЛОГ</a><a>ОШИБКИ</a><a>СТАТИСТИКА</a></nav>",
+      "css": ".ds-fac-nav{display:inline-flex;height:52px;border:1px solid rgba(234,234,230,0.18);background:#0C0C0E;font:700 0.74rem monospace;letter-spacing:0.12em;}.ds-fac-nav a{position:relative;display:inline-flex;align-items:center;padding:0 20px;border-right:1px solid rgba(234,234,230,0.18);color:#B8B8B2;cursor:pointer;}.ds-fac-nav a:last-child{border-right:none;}.ds-fac-nav a.is-active{background:#EAEAE6;color:#0C0C0E;padding-right:26px;}.ds-fac-nav a.is-active::after{content:'';position:absolute;top:0;right:0;bottom:0;width:6px;background:#D63031;}"
     },
     {
-      "name": "Ulduz 8-Ray Mastery Star",
-      "kind": "custom",
-      "refersTo": "card-obsidian",
-      "description": "Signature 8-ray geometric Azerbaijani star whose rays illuminate progressively from 0 to 8 with active streak or sprint solves.",
-      "html": "<div class=\"ds-star-badge\"><svg class=\"ds-star\" width=\"24\" height=\"24\" viewBox=\"0 0 32 32\" aria-hidden=\"true\"><polygon points=\"16,2 18,12 16,14 14,12\" fill=\"#FFFFFF\"/><polygon points=\"16,2 18,12 16,14 14,12\" fill=\"#FFFFFF\" transform=\"rotate(45 16 16)\"/><polygon points=\"16,2 18,12 16,14 14,12\" fill=\"#FFFFFF\" transform=\"rotate(90 16 16)\"/><polygon points=\"16,2 18,12 16,14 14,12\" fill=\"#FFFFFF\" transform=\"rotate(135 16 16)\"/><polygon points=\"16,2 18,12 16,14 14,12\" fill=\"#FFFFFF\" transform=\"rotate(180 16 16)\"/><polygon points=\"16,2 18,12 16,14 14,12\" fill=\"#FFFFFF\" transform=\"rotate(225 16 16)\"/><polygon points=\"16,2 18,12 16,14 14,12\" fill=\"rgba(255,255,255,0.18)\" transform=\"rotate(270 16 16)\"/><polygon points=\"16,2 18,12 16,14 14,12\" fill=\"rgba(255,255,255,0.18)\" transform=\"rotate(315 16 16)\"/><circle cx=\"16\" cy=\"16\" r=\"2.4\" fill=\"#FFFFFF\"/></svg><span class=\"ds-star-val\">6 / 8 дн.</span></div>",
-      "css": ".ds-star-badge { display: inline-flex; align-items: center; gap: 9px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.22); background: #0A0A0D; color: #FFFFFF; } .ds-star { filter: drop-shadow(0 0 6px rgba(255,255,255,0.42)); } .ds-star-val { font-family: var(--font-mono, monospace); font-size: 0.8rem; font-weight: 600; font-variant-numeric: tabular-nums; }"
+      "name": "Saville 5-Block Interactive Color Decoder",
+      "kind": "chip",
+      "refersTo": "catalog-plate",
+      "description": "Bottom sleeve industrial swatch array mapping Math Red, Russian Blue, English Yellow, Azerbaijani Green, and Paper White.",
+      "html": "<div class=\"ds-fac-decoder\"><span style=\"background:#D63031\"></span><span style=\"background:#2663C9\"></span><span style=\"background:#DFB41D\"></span><span style=\"background:#2E9E5B\"></span><span style=\"background:#EAEAE6\"></span></div>",
+      "css": ".ds-fac-decoder{display:inline-flex;gap:6px;padding:10px;background:#0C0C0E;}.ds-fac-decoder span{width:32px;height:32px;display:inline-block;cursor:pointer;}"
     }
-  ],
-  "narrative": {
-    "northStar": "The Obsidian Atelier",
-    "overview": "Ulduz is a nocturnal precision examination instrument carved out of deep matte obsidian and illuminated solely by pure white optical light. Rather than wrapping a study app in pastel gradients or gamified candy chrome, the entire interface treats late-night DİM exam preparation with the quiet gravity of a Swiss horological observatory: pitch-black spatial voids, razor-thin 1px luminous hairlines, sculpted asymmetric layouts, and responsive light that tracks the student's cursor and fingertips.\n\nEvery surface, control, and verification state operates inside a strict pure-monochrome black-and-white luminance hierarchy. Emotional lift and tactile delight come from spatial geometry, interactive optical physics (three live-selectable FX engines — Тишина, Свет 60 FPS, and Ультра WebGL), and five unlockable monochrome architectural modes (Obsidian, Prism [i], Pulse [n], Monolith [a], Eclipse · Мастер) that transform corner architecture, button docks, display typography, and ambient motion without ever breaking monochrome purity.\n\nThe system deliberately rejects rainbow accents, neon cyan/magenta clichés, boxed KPI tile grids, nested card-in-card chrome, and decorative UI emoji. Academic prose, mathematical KaTeX notation, and long reading passages stay calm and effortless to scan while the surrounding architectural shell responds like precision machined hardware.",
-    "keyCharacteristics": [
-      "Pure zero-hue monochrome luminance ladder (#030304 void -> #17171E elevated -> #FFFFFF pure optical light) verified at WCAG AA+/AAA contrast across all 5 modes.",
-      "Sculpted interactive Ulduz 8-Ray Light Compass and asymmetric 12-column subject runway (7fr/5fr, 5fr/7fr) replacing generic dashboard grids.",
-      "Three live-switchable FX engines (minimal, tactile 60fps Canvas-2D constellation + pointer specular rims, webgl GLSL liquid-mercury caustics & shockwaves) with automatic reduced-motion gating.",
-      "Scoped display typography across five unlockable modes (Ulduz Wide, Ulduz Intel, Ulduz Nvidia, Ulduz AMD) strictly isolated from Inter Variable, Source Serif 4 Variable, JetBrains Mono Variable, and KaTeX academic prose.",
-      "Native mobile-first ergonomics (>=48px touch targets <768px, floating pill bottom dock, edge-to-edge safe areas, zero horizontal overflow down to 360px)."
-    ],
-    "rules": [
-      {
-        "name": "The Zero-Hue Luminance Rule",
-        "body": "No chromatic accent hues (blue, green, red, gold, purple) may appear in chrome, modes, badges, or illustrations. Visual hierarchy and subject identity are expressed exclusively through luminance, typography, geometric glyph (∑, Я, En, Ə), and border weight.",
-        "section": "colors"
-      },
-      {
-        "name": "The Structural State Rule",
-        "body": "Answer verification and status communicate through border pattern, icon, and surface contrast rather than color: Correct uses solid #FFFFFF border + checkmark + luminous wash; Partial uses dotted rgba(255,255,255,0.72) border; Wrong uses dashed rgba(255,255,255,0.56) border + cross icon + horizontal recoil.",
-        "section": "colors"
-      },
-      {
-        "name": "The Scoped Voice Rule",
-        "body": "Mode display fonts apply strictly to brand marks, headings, navigation, buttons, timers, and badges. Reading passages, question stems, option copy, explanations, rubrics, text inputs, and KaTeX formulas MUST NEVER inherit a display font.",
-        "section": "typography"
-      },
-      {
-        "name": "The Specular Rim Rule",
-        "body": "Surfaces remain flat and razor-sharp at rest with 1px hairlines. Luminous borders intensify only along the pointer/touch vector via [data-specular]::before (disabled automatically in minimal FX mode and prefers-reduced-motion).",
-        "section": "elevation"
-      },
-      {
-        "name": "The Flat Hierarchy Rule",
-        "body": "Never nest rounded bordered cards inside cards. Secondary bands inside cards (such as .task-figure, .exam-rules-strip, .setup-pills, and mobile .task-card__footer) use hairline dividers, flush full-bleed bands, or subtle vertical surface tints instead of inner card containers.",
-        "section": "elevation"
-      }
-    ],
-    "dos": [
-      "Do compose every new screen from site/css/tokens.css, site/css/primitives.css, and site/js/app/ui-kit.js (oaBreadcrumbs, oaProgressFilament, oaFireFxPulse, oaAnimateCounter).",
-      "Do attach data-specular to primary cards/panels, data-ripple to interactive buttons/pills, and data-magnetic (with inner .oa-mag-inner wrapper) to hero/focal CTAs.",
-      "Do maintain >=4.5:1 contrast for muted/caption text (--oa-ink-muted #9898A6) and >=7:1 for primary text (--oa-ink #FAFAFC), with font sizes >=11.2px (0.7rem) across all DOM text.",
-      "Do keep reading passages in Source Serif 4 Variable, stems/options/explanations in Inter Variable, and numeric readouts in JetBrains Mono Variable with .tabular-nums.",
-      "Do verify every new route in both RU and AZ locales, at 1440x900 and 390x844 / 360x800, and across all 3 FX modes (minimal, tactile, webgl)."
-    ],
-    "donts": [
-      "Don't introduce colored accents (green/red/blue/gold/rainbow) into UI chrome, status pills, or new modes — communicate exclusively through luminance, stroke pattern (solid/dotted/dashed), iconography, and motion.",
-      "Don't nest rounded bordered cards inside cards, or wrap primary metrics in 4-box KPI grids when a hairline telemetry ruler or single-surface ledger fits cleaner.",
-      "Don't apply mode display fonts to question stems, answer choices, reading passages, explanations, or KaTeX math blocks.",
-      "Don't add pulsing status dots, decorative two-axis background grids on default obsidian views, or UI emoji icons — use monochrome SVG icons from site/js/app/icons.js.",
-      "Don't animate layout properties (width, height, top, left) or leave requestAnimationFrame loops running when document.hidden, data-fx=\"minimal\", or prefers-reduced-motion: reduce is active."
-    ]
-  }
+  ]
 }

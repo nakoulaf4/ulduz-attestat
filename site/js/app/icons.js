@@ -69,29 +69,29 @@ export function icon(name, { size = 16, className = '' } = {}) {
 }
 
 /**
- * Render the Ulduz 8-Ray Mastery Star SVG.
- * Illuminates rays 1..litRays in warm Ulduz Gold as the student builds focus sprints.
+ * Render the Ulduz 8-Ray Mastery Signal Mark (Factory Records radial precision reticle).
+ * Illuminates rays 1..litRays as the student builds focus sprints.
  * @param {number} litRays  0..8
  * @param {{ size?: number, className?: string, label?: string }} [opts]
  */
-export function ulduzStarSvg(litRays = 0, { size = 22, className = '', label = '' } = {}) {
+export function ulduzStarSvg(litRays = 0, { size = 20, className = '', label = '' } = {}) {
   const lit = Math.max(0, Math.min(8, Math.floor(Number(litRays) || 0)));
   const isComplete = lit >= 8;
   const rays = [];
   for (let i = 0; i < 8; i++) {
     const angle = i * 45;
     const isLit = i < lit;
-    // Bold geometric 8-point ray blade readable down to 16px
     rays.push(
-      `<polygon class="ulduz-star__ray ${isLit ? 'is-lit' : ''}" data-ray="${i + 1}" points="16,1.4 19.6,10.6 16,13.6 12.4,10.6" transform="rotate(${angle} 16 16)" />`
+      `<polygon class="ulduz-star__ray ${isLit ? 'is-lit' : ''}" data-ray="${i + 1}" points="16,2 17.2,11.4 16,12.6 14.8,11.4" transform="rotate(${angle} 16 16)" />`
     );
   }
   const aria = label
     ? `role="img" aria-label="${label}"`
     : 'aria-hidden="true"';
   return `<svg class="ulduz-star ${isComplete ? 'is-complete' : ''} ${className}" width="${size}" height="${size}" viewBox="0 0 32 32" ${aria}>
+    <circle class="ulduz-star__ring" cx="16" cy="16" r="11.5" fill="none" />
     ${rays.join('')}
-    <circle class="ulduz-star__core ${isComplete ? 'is-lit' : ''}" cx="16" cy="16" r="3.6" />
+    <circle class="ulduz-star__core ${isComplete ? 'is-lit' : ''}" cx="16" cy="16" r="2.6" />
   </svg>`;
 }
 

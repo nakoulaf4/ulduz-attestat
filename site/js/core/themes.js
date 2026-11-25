@@ -1,7 +1,6 @@
-// 5 Unlockable Pure Monochrome Black-and-White Neon Modes (Obsidian Atelier Architecture).
-// Every mode stays 100% pure B&W dark neon while transforming layout geometry, button placement,
-// display font voice, architectural framing, and signature motion choreography.
-// Legacy theme IDs ('voshod'|'intel'|'nvidia'|'amd'|'master'|'light'|'dark') migrate cleanly.
+// 5 Unlockable Archival Pressing Editions (Factory Records / Peter Saville Catalog Architecture).
+// Preserves internal IDs ('atelier'|'prism'|'pulse'|'monolith'|'eclipse') and legacy migration
+// ('voshod'|'intel'|'nvidia'|'amd'|'master'|'light'|'dark') so existing student saves remain 100% intact.
 
 export const DEFAULT_THEME_ID = 'atelier';
 export const VALID_THEME_IDS = ['atelier', 'prism', 'pulse', 'monolith', 'eclipse'];
@@ -16,10 +15,6 @@ const LEGACY_THEME_MAP = {
   dark: 'atelier',
 };
 
-/**
- * Determine whether a completed exam summary qualifies as a perfect full DİM exam
- * (100/100 on a full 25/30-task subject exam OR 300/300 on multi-subject exam).
- */
 export function isPerfectFullExamSummary(exam) {
   if (!exam || typeof exam !== 'object') return false;
   const totalTasks = Number(exam.counts?.total ?? 0);
@@ -55,36 +50,36 @@ function getBestFullExamProgress(state) {
 export const THEMES = [
   {
     id: 'atelier',
-    shortLabel: 'Obsidian',
-    name: 'Obsidian',
+    catNo: 'FAC 01',
+    shortLabel: 'FAC 01',
+    name: 'FAC 01 · Archive',
     subtitleKey: 'themeSub_atelier',
     descKey: 'themeDesc_atelier',
     ruleKey: 'themeRule_atelier',
     colorScheme: 'dark',
-    themeColor: '#030304',
+    themeColor: '#0C0C0E',
     appleBarStyle: 'black-translucent',
-    displayFont: "'Ulduz Wide', 'Inter Variable', sans-serif",
+    displayFont: "'Ulduz Nvidia', 'Inter Variable', sans-serif",
+    swatches: ['#0C0C0E', '#EAEAE6', '#D63031', '#2663C9', '#DFB41D', '#2E9E5B'],
     unlockedByDefault: true,
     quickHref: () => '#/',
     getProgress() {
-      return {
-        unlocked: true,
-        pct: 100,
-        items: [],
-      };
+      return { unlocked: true, pct: 100, items: [] };
     },
   },
   {
     id: 'prism',
-    shortLabel: 'Prism [i]',
-    name: 'Prism [i]',
+    catNo: 'FAC 02',
+    shortLabel: 'FAC 02',
+    name: 'FAC 02 · Blueprint [i]',
     subtitleKey: 'themeSub_prism',
     descKey: 'themeDesc_prism',
     ruleKey: 'themeRule_prism',
     colorScheme: 'dark',
-    themeColor: '#040406',
+    themeColor: '#080D18',
     appleBarStyle: 'black-translucent',
     displayFont: "'Ulduz Intel', 'Inter Variable', sans-serif",
+    swatches: ['#080D18', '#EDF3FF', '#3B82F6', '#60A5FA', '#DFB41D'],
     unlockedByDefault: false,
     quickHref: () => '#/practice/math',
     getProgress(state) {
@@ -101,15 +96,17 @@ export const THEMES = [
   },
   {
     id: 'pulse',
-    shortLabel: 'Pulse [n]',
-    name: 'Pulse [n]',
+    catNo: 'FAC 03',
+    shortLabel: 'FAC 03',
+    name: 'FAC 03 · Haçienda [n]',
     subtitleKey: 'themeSub_pulse',
     descKey: 'themeDesc_pulse',
     ruleKey: 'themeRule_pulse',
     colorScheme: 'dark',
-    themeColor: '#020203',
+    themeColor: '#0C0C0D',
     appleBarStyle: 'black-translucent',
     displayFont: "'Ulduz Nvidia', 'Inter Variable', sans-serif",
+    swatches: ['#0C0C0D', '#F2F2EE', '#F0C419', '#D63031', '#2E9E5B'],
     unlockedByDefault: false,
     quickHref(state) {
       const ruDone = Number(state?.stats?.bySubject?.ru?.correct ?? 0);
@@ -133,15 +130,17 @@ export const THEMES = [
   },
   {
     id: 'monolith',
-    shortLabel: 'Monolith [a]',
-    name: 'Monolith [a]',
+    catNo: 'FAC 04',
+    shortLabel: 'FAC 04',
+    name: 'FAC 04 · Crimson [a]',
     subtitleKey: 'themeSub_monolith',
     descKey: 'themeDesc_monolith',
     ruleKey: 'themeRule_monolith',
     colorScheme: 'dark',
-    themeColor: '#050506',
+    themeColor: '#0F0D0E',
     appleBarStyle: 'black-translucent',
     displayFont: "'Ulduz AMD', 'Inter Variable', sans-serif",
+    swatches: ['#0F0D0E', '#F0ECEB', '#E63946', '#DFB41D', '#2663C9'],
     unlockedByDefault: false,
     quickHref: () => '#/practice/az',
     getProgress(state) {
@@ -158,15 +157,17 @@ export const THEMES = [
   },
   {
     id: 'eclipse',
-    shortLabel: 'Eclipse',
-    name: 'Eclipse · Мастер',
+    catNo: 'FAC 05',
+    shortLabel: 'FAC 05',
+    name: 'FAC 05 · Master Press',
     subtitleKey: 'themeSub_eclipse',
     descKey: 'themeDesc_eclipse',
     ruleKey: 'themeRule_eclipse',
-    colorScheme: 'dark',
-    themeColor: '#000000',
-    appleBarStyle: 'black-translucent',
+    colorScheme: 'light',
+    themeColor: '#ECECEB',
+    appleBarStyle: 'default',
     displayFont: "'Ulduz Wide', 'Inter Variable', sans-serif",
+    swatches: ['#ECECEB', '#0C0C0E', '#D63031', '#2663C9', '#DFB41D', '#2E9E5B'],
     unlockedByDefault: false,
     quickHref: () => '#/exam/math',
     getProgress(state) {
@@ -189,10 +190,6 @@ export const THEMES = [
 
 export const THEME_MAP = Object.fromEntries(THEMES.map((th) => [th.id, th]));
 
-/**
- * Normalize legacy ('voshod'|'intel'|'nvidia'|'amd'|'master'|'light'|'dark') & unknown values
- * into valid Obsidian Atelier monochrome mode IDs (default: 'atelier').
- */
 export function normalizeThemeId(raw) {
   if (typeof raw !== 'string') return DEFAULT_THEME_ID;
   if (THEME_MAP[raw]) return raw;
@@ -221,10 +218,6 @@ export function isThemeUnlocked(themeId, state) {
   return Boolean(def.getProgress(state).unlocked);
 }
 
-/**
- * Synchronize state.unlockedThemes & state.achievements against current stats/exams.
- * Returns array of newly unlocked mode IDs (excluding default 'atelier').
- */
 export function evaluateThemeUnlocks(state, { markUnseen = true } = {}) {
   if (!state || typeof state !== 'object') return [];
   state.achievements ??= { perfectFullExam: false };
@@ -254,17 +247,11 @@ export function evaluateThemeUnlocks(state, { markUnseen = true } = {}) {
   return newlyUnlocked;
 }
 
-let switchAnimTimer = null;
-
-/**
- * Apply monochrome mode attributes & mobile status-bar meta tags directly to the DOM.
- */
 export function applyThemeToDocument(themeId, { animate = false } = {}) {
-  if (typeof document === 'undefined') return;
   const def = getThemeDef(themeId);
-  const root = document.documentElement;
-  root.setAttribute('data-theme', def.id);
-  root.setAttribute('data-color-scheme', def.colorScheme);
+  const html = document.documentElement;
+  html.setAttribute('data-theme', def.id);
+  html.setAttribute('data-color-scheme', def.colorScheme);
 
   const metaTc = document.getElementById('theme-color-meta');
   if (metaTc) metaTc.setAttribute('content', def.themeColor);
@@ -273,13 +260,10 @@ export function applyThemeToDocument(themeId, { animate = false } = {}) {
   if (appleBar) appleBar.setAttribute('content', def.appleBarStyle);
 
   if (animate) {
-    root.classList.remove('is-theme-switching');
-    void root.offsetWidth;
-    root.classList.add('is-theme-switching');
-    if (switchAnimTimer) clearTimeout(switchAnimTimer);
-    switchAnimTimer = setTimeout(() => {
-      root.classList.remove('is-theme-switching');
-      switchAnimTimer = null;
-    }, 520);
+    html.classList.remove('is-theme-switching');
+    void html.offsetWidth;
+    html.classList.add('is-theme-switching');
+    window.setTimeout(() => html.classList.remove('is-theme-switching'), 480);
   }
+  return def;
 }

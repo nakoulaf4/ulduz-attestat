@@ -141,6 +141,7 @@ export async function renderPracticeView(container, { params, query, navigate, s
       ${sessionAttempted > 0 ? `<span class="session-pill">${escapeHtml(t('labelAccuracy'))}: <b class="tabular-nums">${acc}%</b></span>` : ''}
       <span class="session-pill session-pill--star" title="${escapeHtml(t('practiceSprintAria', { rays: sprintRays }))}">
         ${ulduzStarSvg(sprintRays, { size: 18, label: t('practiceSprintAria', { rays: sprintRays }) })}
+        <span>${escapeHtml(t('practiceSprintShort'))}:</span>
         <b class="tabular-nums">${sprintRays}/8${completedSprints > 0 ? ` ×${completedSprints + 1}` : ''}</b>
       </span>
     `;

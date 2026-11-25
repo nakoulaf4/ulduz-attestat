@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
-  <meta name="description" content="Ulduz — интерактивный тренажёр для подготовки к выпускному экзамену ГЭЦ Азербайджана (DİM Buraxılış / Аттестат) по математике, русскому, английскому и азербайджанскому языкам." />
-  <meta name="theme-color" id="theme-color-meta" content="#030304" />
+  <meta name="description" content="Ulduz — офлайн-тренажёр для подготовки к выпускному экзамену ГЭЦ Азербайджана (DİM Buraxılış / Аттестат) по математике, русскому, английскому и азербайджанскому языкам." />
+  <meta name="theme-color" id="theme-color-meta" content="#0C0C0E" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -15,7 +15,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="./assets/icons/icon-192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png" />
 
-  <!-- Apply initial monochrome mode, FX tier, theme-color & lang before first paint (zero FOUC) -->
+  <!-- Apply initial archival edition, color-scheme, motion tier & lang before first paint (zero FOUC) -->
   <script>
     (function () {
       var LEGACY = {
@@ -28,11 +28,11 @@
         dark: 'atelier'
       };
       var META = {
-        atelier:  { tc: '#030304' },
-        prism:    { tc: '#040406' },
-        pulse:    { tc: '#020203' },
-        monolith: { tc: '#050506' },
-        eclipse:  { tc: '#000000' }
+        atelier:  { tc: '#0C0C0E', cs: 'dark'  },
+        prism:    { tc: '#080D18', cs: 'dark'  },
+        pulse:    { tc: '#0C0C0D', cs: 'dark'  },
+        monolith: { tc: '#0F0D0E', cs: 'dark'  },
+        eclipse:  { tc: '#ECECEB', cs: 'light' }
       };
       var FX = { minimal: 1, tactile: 1, webgl: 1 };
       try {
@@ -42,7 +42,7 @@
         var theme = META[rawTheme] ? rawTheme : (LEGACY[rawTheme] || 'atelier');
         var fx = parsed && FX[parsed.fxMode] ? parsed.fxMode : 'tactile';
         document.documentElement.setAttribute('data-theme', theme);
-        document.documentElement.setAttribute('data-color-scheme', 'dark');
+        document.documentElement.setAttribute('data-color-scheme', META[theme].cs);
         document.documentElement.setAttribute('data-fx', fx);
         var tc = document.getElementById('theme-color-meta');
         if (tc) tc.setAttribute('content', META[theme].tc);
@@ -61,7 +61,7 @@
   <link rel="stylesheet" href="./vendor/fonts/fonts.css" />
   <link rel="stylesheet" href="./vendor/fonts/theme-fonts.css" />
   <link rel="stylesheet" href="./vendor/katex/katex.min.css" />
-  <!-- Obsidian Atelier Design System: Tokens -> Primitives -> Layouts -> 5 Monochrome Modes -->
+  <!-- Factory Records Archival Catalog Design System: Tokens -> Primitives -> Layouts -> 5 Editions -->
   <link rel="stylesheet" href="./css/tokens.css" />
   <link rel="stylesheet" href="./css/primitives.css" />
   <link rel="stylesheet" href="./css/styles.css" />
@@ -70,15 +70,14 @@
 <body>
   <a href="#app-main" class="skip-link" id="skip-link">Перейти к основному содержимому</a>
 
-  <!-- Live Interactive Monochrome Light-Field & Architectural Grid Backdrop -->
+  <!-- Subtle Edition Structural Layer (dry matte ground by default; edition blueprint/stripe overlays) -->
   <div class="theme-backdrop" aria-hidden="true">
-    <canvas id="oa-fx-webgl" class="oa-fx-canvas oa-fx-canvas--webgl" aria-hidden="true" hidden></canvas>
-    <canvas id="oa-fx-canvas" class="oa-fx-canvas oa-fx-canvas--2d" aria-hidden="true"></canvas>
     <div class="theme-backdrop__grid"></div>
   </div>
 
   <div class="app-shell">
     <header id="app-header" class="app-header"></header>
+    <div id="fac-impulse-bar" class="fac-impulse-bar" aria-hidden="true"></div>
     <main id="app-main" class="app-main" tabindex="-1"></main>
     <footer id="app-footer" class="app-footer"></footer>
     <nav id="mobile-bottom-nav" class="mobile-bottom-nav" aria-label="Основная навигация"></nav>

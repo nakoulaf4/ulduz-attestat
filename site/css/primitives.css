@@ -1,96 +1,94 @@
 /* ==========================================================================
-   Ulduz — Obsidian Atelier Composable Primitive Kit
-   Template foundation: any new screen or widget composed from .oa-* primitives
-   and [data-specular] / [data-magnetic] / [data-ripple] attributes inherits the
-   full monochrome-neon aesthetic, pointer-reactive light, and reduced-motion safety.
+   Ulduz — Factory Records Archival Composable Primitives
+   Strict 0px zero-radius industrial buttons with right-edge Saville color tabs,
+   10-block horizontal signal meters, radial spectrum SVGs, and hairline controls.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Pointer-Reactive Specular Hairline Surface ([data-specular])
+   1. Saville 5-Block Industrial Color Strip & Signal Meters
    -------------------------------------------------------------------------- */
 
-.oa-surface,
-[data-specular] {
-  position: relative;
-  --mx: 50%;
-  --my: 0%;
-  --specular-on: 0;
+.fac-color-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.fac-color-strip__blk {
+  display: inline-block;
+  width: 22px;
+  height: 11px;
+  flex-shrink: 0;
+}
+.fac-color-strip--lg .fac-color-strip__blk {
+  width: 30px;
+  height: 14px;
 }
 
-/* Crisp 1px specular border reflection tracking pointer/touch coordinates */
-[data-specular]::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  pointer-events: none;
-  z-index: 2;
-  opacity: calc(var(--specular-on) * var(--oa-specular-alpha, 0.42));
-  background: radial-gradient(
-    var(--oa-specular-radius, 260px) circle at var(--mx) var(--my),
-    rgba(255, 255, 255, 0.92),
-    rgba(255, 255, 255, 0.24) 38%,
-    transparent 72%
-  );
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  transition: opacity var(--dur-med) var(--ease-out);
+.fac-sig-meter {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.fac-sig-block {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background: var(--fac-line);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+.fac-sig-block.is-lit {
+  background: var(--sig-c, var(--fac-ink));
+}
+.fac-sig-block.is-peak {
+  background: var(--fac-red);
 }
 
-html[data-fx="minimal"] [data-specular]::before {
-  display: none;
+/* Radial Factory Pulsar SVG */
+.fac-radial-svg {
+  display: block;
+  flex-shrink: 0;
+  max-width: 100%;
+  height: auto;
+}
+.fac-rad-grid {
+  fill: none;
+  stroke: var(--fac-line-faint);
+  stroke-width: 0.7;
+}
+.fac-rad-grid--outer {
+  stroke: var(--fac-line);
+  stroke-width: 0.85;
+}
+.fac-rad-axis {
+  stroke: var(--fac-line);
+  stroke-width: 0.75;
+}
+.fac-rad-echo {
+  fill: none;
+  stroke: var(--fac-line-strong);
+  stroke-width: 0.75;
+  stroke-linejoin: miter;
+}
+.fac-rad-wave {
+  fill: none;
+  stroke: var(--fac-ink);
+  stroke-width: 1.25;
+  stroke-linejoin: miter;
+}
+.fac-rad-core {
+  fill: var(--fac-ground);
+  stroke: var(--fac-line-strong);
+  stroke-width: 1;
+}
+.fac-rad-deg {
+  fill: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  letter-spacing: 0.08em;
 }
 
 /* --------------------------------------------------------------------------
-   2. Magnetic Inner Surface Physics ([data-magnetic])
-   Outer element stays stationary (no edge flicker); inner layer shifts softly.
-   -------------------------------------------------------------------------- */
-
-[data-magnetic] {
-  position: relative;
-}
-
-[data-magnetic] > .oa-mag-inner,
-[data-magnetic] > span,
-[data-magnetic] > svg {
-  transition: transform 240ms var(--ease-out);
-}
-
-/* --------------------------------------------------------------------------
-   3. Touch / Click Photon Ring Ripple Host ([data-ripple])
-   -------------------------------------------------------------------------- */
-
-[data-ripple] {
-  position: relative;
-  overflow: hidden;
-}
-
-.oa-ripple-ring {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  border: 1.5px solid rgba(255, 255, 255, 0.82);
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, transparent 72%);
-  transform: translate(-50%, -50%) scale(0.08);
-  opacity: 0.92;
-  z-index: 3;
-}
-
-.btn--primary .oa-ripple-ring,
-.btn--accent .oa-ripple-ring {
-  border-color: rgba(5, 5, 7, 0.65);
-  background: radial-gradient(circle, rgba(5, 5, 7, 0.16) 0%, transparent 70%);
-}
-
-/* --------------------------------------------------------------------------
-   4. Reusable Obsidian Atelier Buttons (.btn / .oa-btn)
+   2. Factory Records Industrial Buttons (0px Sharp Rectangles + Color Tabs)
    -------------------------------------------------------------------------- */
 
 .btn {
@@ -98,17 +96,18 @@ html[data-fx="minimal"] [data-specular]::before {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 9px;
   min-height: 42px;
   padding: 0 18px;
-  border-radius: var(--r-md);
-  border: 1px solid var(--border-subtle);
-  background: var(--bg-surface);
+  border-radius: 0;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-canvas);
   color: var(--text-primary);
   font-family: var(--font-ui-label);
-  font-size: 0.84rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   line-height: 1.15;
   text-decoration: none;
   white-space: nowrap;
@@ -118,7 +117,6 @@ html[data-fx="minimal"] [data-specular]::before {
     background-color var(--dur-fast) var(--ease-out),
     border-color var(--dur-fast) var(--ease-out),
     color var(--dur-fast) var(--ease-out),
-    box-shadow var(--dur-med) var(--ease-out),
     transform var(--dur-instant) var(--ease-out);
 }
 
@@ -127,7 +125,7 @@ html[data-fx="minimal"] [data-specular]::before {
 }
 
 .btn:disabled {
-  opacity: 0.42;
+  opacity: 0.4;
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -135,56 +133,63 @@ html[data-fx="minimal"] [data-specular]::before {
 .btn--primary:disabled,
 .btn--accent:disabled {
   opacity: 1;
-  background: rgba(255, 255, 255, 0.055);
-  color: rgba(255, 255, 255, 0.44);
-  border-color: rgba(255, 255, 255, 0.16);
-  box-shadow: none;
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  border-color: var(--border-subtle);
+}
+.btn--primary:disabled::after,
+.btn--accent:disabled::after {
+  opacity: 0.25;
 }
 
 .btn:active:not(:disabled) {
-  transform: scale(0.975);
+  transform: translateY(1px);
 }
 
+/* Primary Action: Inverted Paper White + Full-Height Square-Proportioned Saville Keycap */
 .btn--primary,
 .btn--accent {
-  background: var(--oa-neon);
-  color: var(--oa-on-neon);
-  border-color: var(--oa-neon);
-  box-shadow: var(--shadow-neon-btn);
+  background: var(--fac-ink);
+  color: var(--fac-ink-on-light);
+  border-color: var(--fac-ink);
+  padding-right: 40px;
 }
 
 .btn--primary::after,
 .btn--accent::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.55) 50%, transparent 75%);
-  transform: translateX(-130%);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 24px;
+  background: var(--fac-primary-tab);
+  transition: width var(--dur-fast) var(--ease-out);
   pointer-events: none;
-  transition: transform 520ms var(--ease-out);
 }
 
 .btn--primary:hover:not(:disabled),
 .btn--accent:hover:not(:disabled) {
-  background: var(--oa-neon-hover);
-  border-color: var(--oa-neon);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.24), 0 4px 14px rgba(0, 0, 0, 0.78);
+  background: var(--accent-primary-hover);
+  border-color: var(--accent-primary-hover);
 }
 
 .btn--primary:hover:not(:disabled)::after,
 .btn--accent:hover:not(:disabled)::after {
-  transform: translateX(130%);
+  width: 28px;
 }
 
+/* Secondary Action: Clean Saville Hairline Box (Zero Resting Stripes — Pure Architectural Outline) */
 .btn--secondary {
-  background: var(--bg-subtle);
+  background: transparent;
   color: var(--text-primary);
   border-color: var(--border-strong);
 }
 
 .btn--secondary:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.11);
-  border-color: rgba(255, 255, 255, 0.66);
+  background: var(--bg-subtle);
+  border-color: var(--fac-line-bright);
+  color: var(--text-primary);
 }
 
 .btn--ghost {
@@ -192,54 +197,75 @@ html[data-fx="minimal"] [data-specular]::before {
   color: var(--text-secondary);
   border-color: var(--border-subtle);
 }
-
 .btn--ghost:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.07);
+  background: var(--bg-surface);
   border-color: var(--border-strong);
   color: var(--text-primary);
 }
 
 .btn--warn-soft {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(223, 180, 29, 0.1);
   color: var(--text-primary);
-  border: 1px dashed rgba(255, 255, 255, 0.55);
+  border-color: var(--fac-yellow);
 }
-
 .btn--warn-soft:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.15);
-  border-style: solid;
-  border-color: #FFFFFF;
+  background: var(--fac-yellow);
+  color: #0C0C0E;
 }
 
 .btn--danger {
-  background: var(--bg-elevated);
-  color: #FFFFFF;
-  border: 1px dashed #FFFFFF;
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--fac-red);
+  padding-right: 26px;
 }
-
+.btn--danger::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  background: var(--fac-red);
+}
 .btn--danger:hover:not(:disabled) {
-  background: #FFFFFF;
-  color: #050507;
-  border-style: solid;
+  background: var(--fac-red);
+  color: #FFFFFF;
 }
 
 .btn--lg {
-  min-height: 48px;
+  min-height: 50px;
   padding: 0 24px;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
+}
+.btn--lg.btn--primary,
+.btn--lg.btn--accent {
+  padding-right: 52px;
+}
+.btn--lg.btn--primary::after,
+.btn--lg.btn--accent::after {
+  width: 32px;
 }
 
 .btn--sm {
   min-height: 36px;
   padding: 0 13px;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   gap: 6px;
+}
+.btn--sm.btn--primary,
+.btn--sm.btn--accent {
+  padding-right: 32px;
+}
+.btn--sm.btn--primary::after,
+.btn--sm.btn--accent::after {
+  width: 18px;
 }
 
 .btn--xs {
   min-height: 32px;
-  padding: 0 11px;
-  font-size: 0.74rem;
+  padding: 0 10px;
+  font-size: 0.72rem;
   gap: 5px;
 }
 
@@ -250,7 +276,7 @@ html[data-fx="minimal"] [data-specular]::before {
   min-width: 38px;
   min-height: 38px;
   padding: 0 8px;
-  border-radius: var(--r-sm);
+  border-radius: 0;
   border: 1px solid var(--border-subtle);
   background: var(--bg-surface);
   color: var(--text-secondary);
@@ -258,58 +284,17 @@ html[data-fx="minimal"] [data-specular]::before {
   transition:
     background-color var(--dur-fast) var(--ease-out),
     border-color var(--dur-fast) var(--ease-out),
-    color var(--dur-fast) var(--ease-out),
-    transform var(--dur-instant) var(--ease-out);
+    color var(--dur-fast) var(--ease-out);
 }
-
 .btn-icon:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: var(--border-strong);
+  background: var(--bg-subtle);
+  border-color: var(--fac-line-bright);
   color: var(--text-primary);
 }
-
-.btn-icon:active:not(:disabled) {
-  transform: scale(0.94);
-}
-
 .btn-icon--sm {
   min-width: 34px;
   min-height: 34px;
-  font-size: 0.78rem;
-}
-
-.btn-icon-pill {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-height: 36px;
-  min-width: 36px;
-  padding: 0 12px;
-  border-radius: var(--r-pill);
-  border: 1px solid var(--border-subtle);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text-primary);
-  font-family: var(--font-mono);
   font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  transition:
-    background-color var(--dur-fast) var(--ease-out),
-    border-color var(--dur-fast) var(--ease-out),
-    color var(--dur-fast) var(--ease-out),
-    transform var(--dur-instant) var(--ease-out);
-}
-
-.btn-icon-pill:hover {
-  background: rgba(255, 255, 255, 0.11);
-  border-color: rgba(255, 255, 255, 0.56);
-}
-
-.btn-icon-pill:active {
-  transform: scale(0.96);
 }
 
 .btn-chip {
@@ -318,382 +303,223 @@ html[data-fx="minimal"] [data-specular]::before {
   gap: 6px;
   min-height: 34px;
   padding: 0 11px;
-  border-radius: var(--r-pill);
+  border-radius: 0;
   border: 1px solid var(--border-subtle);
   background: transparent;
   color: var(--text-secondary);
-  font-family: var(--font-ui-label);
+  font-family: var(--font-mono);
   font-size: 0.74rem;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   cursor: pointer;
   transition:
     background-color var(--dur-fast) var(--ease-out),
     border-color var(--dur-fast) var(--ease-out),
     color var(--dur-fast) var(--ease-out);
 }
-
 .btn-chip:hover {
   border-color: var(--border-strong);
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--bg-surface);
 }
-
 .btn-chip.is-bookmarked,
 .btn-chip.is-flagged {
-  background: #FFFFFF;
-  color: #050507;
-  border-color: #FFFFFF;
+  background: var(--fac-yellow);
+  color: #0C0C0E;
+  border-color: var(--fac-yellow);
 }
 
 /* --------------------------------------------------------------------------
-   5. Badges, Segmented Controls & Luminous Filament Progress Bars
+   3. Badges, Segmented Controls & Industrial Progress Bars
    -------------------------------------------------------------------------- */
 
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 3px 9px;
-  border-radius: var(--r-pill);
+  padding: 3px 8px;
+  border-radius: 0;
   border: 1px solid var(--border-subtle);
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text-primary);
-  font-family: var(--font-ui-label);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 600;
-  line-height: 1.3;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
   white-space: nowrap;
 }
-
+.badge--accent {
+  background: var(--fac-ink);
+  color: var(--fac-ink-on-light);
+  border-color: var(--fac-ink);
+}
 .badge--subtle {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--border-subtle);
-  color: var(--text-secondary);
-}
-
-.badge--gold,
-.badge--grade-gold {
-  background: rgba(255, 255, 255, 0.11);
-  border-color: rgba(255, 255, 255, 0.42);
-  color: #FFFFFF;
-}
-
-.badge--warn,
-.badge--grade-wrong {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px dashed rgba(255, 255, 255, 0.56);
-  color: var(--text-primary);
-}
-
-.badge--grade-correct,
-.badge--grade-excellent,
-.badge--grade-good {
-  background: #FFFFFF;
-  border-color: #FFFFFF;
-  color: #050507;
-}
-
-.badge--grade-partial,
-.badge--grade-satisfactory,
-.badge--grade-college {
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px dotted rgba(255, 255, 255, 0.75);
-  color: #FFFFFF;
-}
-
-.badge--grade-below {
   background: transparent;
-  border: 1px dashed rgba(255, 255, 255, 0.46);
+  border-color: var(--border-subtle);
+  color: var(--text-muted);
+}
+.badge--warn {
+  background: var(--fac-red);
+  color: #FFFFFF;
+  border-color: var(--fac-red);
+}
+.badge--ok {
+  background: var(--fac-green);
+  color: #0C0C0E;
+  border-color: var(--fac-green);
+}
+.badge--neutral {
+  background: var(--bg-subtle);
   color: var(--text-secondary);
 }
 
-.badge--subject {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  border-color: var(--border-strong);
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-primary);
-}
-
-/* Segmented Controls */
-.setup-pills,
-.difficulty-Segmented {
+.seg-group {
   display: inline-flex;
   flex-wrap: wrap;
-  gap: 6px;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  border: none;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-canvas);
 }
-
 .seg-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  min-height: 38px;
+  min-height: 36px;
   padding: 0 14px;
-  border-radius: var(--r-pill);
-  border: 1px solid var(--border-subtle);
-  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0;
+  border: none;
+  border-right: 1px solid var(--border-subtle);
+  background: transparent;
   color: var(--text-secondary);
-  font-size: 0.82rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition:
-    background-color var(--dur-fast) var(--ease-out),
-    color var(--dur-fast) var(--ease-out),
-    border-color var(--dur-fast) var(--ease-out);
-}
-
-.seg-btn:hover:not(:disabled) {
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.seg-btn.is-active {
-  background: #FFFFFF;
-  color: #050507;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
   font-weight: 600;
-  border-color: #FFFFFF;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.seg-btn:last-child {
+  border-right: none;
+}
+.seg-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-surface);
+}
+.seg-btn.is-active {
+  background: var(--fac-ink);
+  color: var(--fac-ink-on-light);
 }
 
-.seg-btn:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
-
-/* Luminous Hairline Progress Filament */
 .progress-bar {
   position: relative;
   width: 100%;
   height: 4px;
-  border-radius: var(--r-pill);
-  background: rgba(255, 255, 255, 0.14);
+  border-radius: 0;
+  background: var(--fac-line);
   overflow: hidden;
 }
-
 .progress-bar__fill {
-  position: relative;
   height: 100%;
-  border-radius: inherit;
-  background: #FFFFFF;
-  transition: width 460ms var(--ease-out);
+  border-radius: 0;
+  background: var(--fac-ink);
+  transition: width 360ms var(--ease-out);
 }
+.progress-bar--correct .progress-bar__fill { background: var(--fac-green); }
+.progress-bar--partial .progress-bar__fill { background: var(--fac-yellow); }
+.progress-bar--wrong .progress-bar__fill   { background: var(--fac-red); }
 
-.progress-bar--partial .progress-bar__fill {
-  background: rgba(255, 255, 255, 0.72);
-}
+/* --------------------------------------------------------------------------
+   4. Breadcrumbs, Empty States, Keycaps & Helpers
+   -------------------------------------------------------------------------- */
 
-.progress-bar--wrong .progress-bar__fill {
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.85) 0 6px,
-    rgba(255, 255, 255, 0.25) 6px 10px
-  );
-}
-
-/* Breadcrumbs */
 .breadcrumbs {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   margin-bottom: 18px;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--text-muted);
 }
-
 .breadcrumbs a {
   color: var(--text-secondary);
-  transition: color var(--dur-fast) var(--ease-out);
-}
-
-.breadcrumbs a:hover {
-  color: #FFFFFF;
   text-decoration: none;
 }
-
-.breadcrumbs [aria-current="page"] {
+.breadcrumbs a:hover {
   color: var(--text-primary);
+  text-decoration: underline;
 }
 
-/* Shared Section Headers & Layout Rhythm (always more space above than below) */
-.section-block {
-  margin-top: 44px;
-}
-
-.section-header {
-  margin-bottom: 20px;
-}
-
-.section-header--split {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 14px 20px;
-}
-
-.section-title {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: var(--text-h2);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.24;
-  color: var(--text-primary);
-  text-wrap: balance;
-}
-
-.section-subtitle {
-  margin: 6px 0 0;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  max-width: 62ch;
-  text-wrap: pretty;
-}
-
-.page-title {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: var(--text-h1);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
-  text-wrap: balance;
-}
-
-.page-lead {
-  margin: 10px 0 0;
-  font-size: 0.98rem;
-  max-width: 64ch;
-  text-wrap: pretty;
-}
-
-/* Utility & Readout Helpers */
-.tabular-nums {
-  font-variant-numeric: tabular-nums;
-}
-
-.mono-code {
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
-}
-
-.text-secondary {
-  color: var(--text-secondary);
-}
-
-.text-muted {
-  color: var(--text-muted);
-}
-
-.meta-sep {
-  opacity: 0.42;
-  margin: 0 3px;
-}
-
-.subject-dot {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  flex-shrink: 0;
-}
-
-.subject-dot--ru {
-  background: transparent;
-  border: 1.5px solid #FFFFFF;
-}
-
-.subject-dot--en {
-  border-radius: 1px;
-  transform: rotate(45deg);
-}
-
-.subject-dot--az {
-  border-radius: 1px;
-}
-
-/* Shared Empty & Loading Monoliths */
-.empty-card,
-.loading-card {
-  padding: 36px 26px;
-  border-radius: var(--r-lg);
+.empty-card {
+  padding: 40px 24px;
   border: 1px solid var(--border-subtle);
   background: var(--bg-surface);
   text-align: center;
-}
-
-.empty-card h2 {
-  margin: 0 0 8px;
-  font-family: var(--font-display);
-  font-size: var(--text-h2);
-}
-
-.empty-card p {
-  margin: 0 auto;
-  max-width: 52ch;
-}
-
-.empty-card__actions {
-  margin-top: 20px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
-
-.notice-banner {
-  margin-bottom: 20px;
-  padding: 12px 16px;
-  border-radius: var(--r-md);
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  background: rgba(255, 255, 255, 0.08);
+.empty-card__icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-canvas);
   color: var(--text-primary);
-  font-size: 0.9rem;
-}
-
-/* --------------------------------------------------------------------------
-   6. Reusable Atelier Reveal Choreography (always visible by default!)
-   -------------------------------------------------------------------------- */
-
-.oa-stagger-item {
-  animation: oaSurfaceRise 360ms var(--ease-out) both;
-  animation-delay: calc(min(var(--stagger-i, 0), 6) * 42ms);
-}
-
-@keyframes oaSurfaceRise {
-  from {
-    opacity: 0.01;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Keyboard badge */
-kbd {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 22px;
+}
+.empty-card h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.24rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.empty-card p {
+  margin: 0;
+  max-width: 48ch;
+  color: var(--text-secondary);
+}
+
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
   height: 22px;
   padding: 0 6px;
-  border-radius: 4px;
+  border-radius: 0;
   border: 1px solid var(--border-strong);
-  background: var(--bg-subtle);
-  color: var(--text-primary);
+  background: var(--bg-surface);
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 500;
-  line-height: 1;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tabular-nums { font-variant-numeric: tabular-nums; }
+.mono-code { font-family: var(--font-mono); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+
+/* Clean exponential entrance */
+.oa-stagger-item {
+  animation: facRowIn 260ms var(--ease-out) both;
+  animation-delay: calc(var(--stagger-i, 0) * 32ms);
+}
+@keyframes facRowIn {
+  from { opacity: 0.2; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.oa-panel {
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  padding: 22px 24px;
 }

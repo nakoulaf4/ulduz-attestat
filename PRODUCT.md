@@ -16,7 +16,7 @@ Provide a 100% offline-capable, zero-latency exam preparation studio covering al
 
 ## Positioning
 
-Combines 230 digitized official March 2026 DİM exam tasks (`09.03.2026` and `15.03.2026`), 115 deterministic procedural task generators, official DİM 100-point/300-point scoring formulas shared between JS and the native Rust (Tauri v2) backend, full Russian/Azerbaijani (`RU / AZ`) localization, and a bespoke dark monochrome-neon design system (**Obsidian Atelier**) with live-selectable interactive animation engines.
+Combines 230 digitized official March 2026 DİM exam tasks (`09.03.2026` and `15.03.2026`), 115 deterministic procedural task generators, official DİM 100-point/300-point scoring formulas shared between JS and the native Rust (Tauri v2) backend, full Russian/Azerbaijani (`RU / AZ`) localization, and a bold, unmistakable visual identity built specifically for Azerbaijani 11th-grade exam preparation.
 
 ## Operating Context
 
@@ -35,11 +35,10 @@ Combines 230 digitized official March 2026 DİM exam tasks (`09.03.2026` and `15
 
 ## Brand Commitments
 
-- **Unified Pure Monochrome Black-and-White Neon Aesthetic ("Obsidian Atelier"):** Entire application operates in an obsidian dark theme with pure black-to-white luminance hierarchy, razor-sharp 1px luminous borders, architectural asymmetry, and zero colored themes or rainbow accents.
-- **5 Unlockable Monochrome Modes:** Visual modes unlocked through solving tasks and mastering full exams (`Obsidian`, `Prism [i]`, `Pulse [n]`, `Monolith [a]`, `Eclipse · Мастер`), each strictly monochrome B&W neon yet distinct in layout geometry, button placement, display font voice, and signature animations.
-- **3 Live-Selectable Interactive FX Modes:** Users can switch live between `minimal` (restraint + micro-physics), `tactile` (60fps Canvas-2D constellation + specular light borders + magnetic physics + photon ripples), and `webgl` (custom GLSL monochrome liquid-light shader + velocity trails + supernova pulses).
-- **Signature Brand Mark:** The 8-ray geometric Azerbaijani **Ulduz** star, used as the interactive home Light Compass and the 8-ray focus sprint meter.
-- **Reusable Design Template:** Documented in `DESIGN.md`, `.impeccable/design.json`, `docs/DESIGN-TEMPLATE.md`, `site/css/tokens.css`, `site/css/primitives.css`, and `site/js/app/ui-kit.js` so future features automatically inherit the same Obsidian Atelier language.
+- **Committed Replacement Visual World — Factory Records / Peter Saville Archival Catalog (`brand-identity-canon-saville-catalog-sleeve`):** Chosen directly by the user to replace the discarded monochrome Obsidian Atelier design. Dry absorbent matte black paper ground (`#0C0C0E`), warm paper-white plot ink (`#EAEAE6`), strict zero-radius (`0px`) 1px hairline divisions, iconic 4-color industrial code blocks (`#D63031` Math Red, `#2663C9` Russian Blue, `#DFB41D` English Yellow, `#2E9E5B` Azerbaijani Green), live interactive 3D Canvas pulsar accuracy plots, and zero rounded SaaS card grids.
+- **5 Unlockable Archival Pressing Editions:** Unlockable catalog editions (`FAC 01 · Archive` [default], `FAC 02 · Blueprint [i]`, `FAC 03 · Haçienda [n]`, `FAC 04 · Crimson [a]`, `FAC 05 · Master Press` daylight cotton edition) earned through solving subject tasks and scoring 100/100 or 300/300 on exams.
+- **Signature Brand Name:** **Ulduz** (Azerbaijani for *Star*).
+- **Reusable Design System:** Documented cleanly at finish in `DESIGN.md`, `.impeccable/design.json`, and `docs/DESIGN-TEMPLATE.md`.
 
 ## Evidence on Hand
 
@@ -50,15 +49,15 @@ Combines 230 digitized official March 2026 DİM exam tasks (`09.03.2026` and `15
 
 ## Product Principles
 
-1. **Academic clarity inside dark luxury:** Atmospheric craft and interactive light elevate focus rather than competing with equations or reading passages.
-2. **Tactile feedback with zero friction:** Every answer lock, strike-through, route shift, and mastery milestone feels immediate, physical, and reversible.
-3. **Pure luminance semantics:** Status, progress, and hierarchy communicate through contrast, stroke pattern, geometry, icon, and motion — never relying on hue.
-4. **Mobile-first speed, desktop precision:** Touch gestures, bottom thumb ergonomics, and 60fps GPU-composited effects work natively on Android/iOS as cleanly as keyboard shortcuts on desktop.
-5. **Composable template discipline:** Every new screen or widget is assembled from shared Obsidian Atelier primitives and tokens.
+1. **Archival clarity on matte stock:** Heavy absorbent black stock (`#0C0C0E`), cool cotton-rag daylight stock (`#ECECEB` on `FAC 05`), and hairline structural divisions elevate exam focus rather than competing with equations or reading passages.
+2. **Tactile feedback with zero friction:** Every answer lock, strike-through, route shift, and mastery milestone feels immediate, physical, and reversible via crisp signal pulses and native haptics.
+3. **Industrial Saville color-code + pattern semantics:** Subjects and exam statuses combine the four Peter Saville industrial color blocks (`#D63031` Math / Wrong, `#2663C9` Russian, `#DFB41D` English / Partial, `#2E9E5B` Azerbaijani / Correct) with catalog numbers (`DİM 01`–`DİM 04`), icons, and hairline geometry so meaning never depends on color alone.
+4. **Mobile-first speed, desktop precision:** Touch gestures, square 4-cell thumb ergonomics, and 60fps Canvas pulsar telemetry work natively on Android/iOS as cleanly as keyboard shortcuts on desktop.
+5. **Composable catalog discipline:** Every screen, drawer, and ledger is assembled from shared Factory Records tokens (`tokens.css`) and zero-radius primitives (`primitives.css`).
 
 ## Accessibility & Inclusion
 
-- WCAG 2.1 AA+ contrast (`≥4.5:1` for body/muted/placeholder text, `≥7:1` for primary copy) across all 5 monochrome modes.
+- WCAG 2.1 AA+ contrast (`≥4.5:1` for body/muted/placeholder text, `≥7:1` for primary copy) across all 5 archival editions (`FAC 01`–`FAC 05`, including the daylight cotton-rag `FAC 05` Master Press edition).
 - Full keyboard navigation (`1–5`/`A–E`, `Enter`, `Space`, `F`, `H`, `Esc`, arrow keys) and ARIA live announcements.
 - Complete `RU / AZ` bilingual UI parity with proper `<html lang>` and localized dates.
 - Full `prefers-reduced-motion: reduce` non-spatial fallback that preserves every confirmation state.

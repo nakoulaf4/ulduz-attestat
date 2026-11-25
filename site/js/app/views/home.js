@@ -1,90 +1,61 @@
-// Home Screen — Obsidian Atelier Asymmetric Workbench + Sculpted Ulduz 8-Ray Light Compass.
-// Instant cold render from static SUBJECTS_META (zero eager subject bundle loading).
+// Home Screen — Factory Records / Peter Saville Archival Exam Catalog
+// 1. Hairline-split archival sleeve (Catalog Index DİM 01–04 with 40px Square Color Plates | Live Angled 3D Pulsar)
+// 2. Saville Technical Colophon (real solved/accuracy/streak + 10-block signal meter; zero eyebrows, zero fake telemetry)
+// 3. Full-width bottom 5-block interactive Color Decoder Bar + Primary Square-Keycap CTA
+// 4. Below-the-fold 3-column Archival Releases Grid (FAC 09.03, FAC 15.03, FAC ERR) with 196px Jagged Polar Spectra
 
 import { SUBJECTS_META } from '../../subjects/index.js';
-import { loadState, clearActiveExam, getActiveMistakesCount, getFxMode } from '../../core/storage.js';
+import { loadState, clearActiveExam, getActiveMistakesCount } from '../../core/storage.js';
 import { haptic } from '../../core/native.js';
 import { hasResponse } from '../task-view.js';
-import { t, subjectTitle } from '../i18n.js';
-import { icon, ulduzStarSvg } from '../icons.js';
+import { t, subjectTitle, subjectShort } from '../i18n.js';
+import { icon } from '../icons.js';
 import { escapeHtml } from '../math.js';
-import { oaAnimateCounter } from '../ui-kit.js';
+import {
+  SUBJECT_CODES,
+  mountHomePulsar,
+  buildRadialSpectrumSvg,
+  buildSignalMeterHtml,
+} from '../fx-engine.js';
 
-const SUBJECT_DESC_KEYS = {
-  math: 'subjectMathDesc',
-  ru: 'subjectRuDesc',
-  en: 'subjectEnDesc',
-  az: 'subjectAzDesc',
-};
-
-const COMPASS_NODES = [
-  { id: 'math', angleDeg: -90, labelPos: 'top' },
-  { id: 'ru',   angleDeg: 0,   labelPos: 'right' },
-  { id: 'en',   angleDeg: 90,  labelPos: 'bottom' },
-  { id: 'az',   angleDeg: 180, labelPos: 'left' },
-];
-
-function buildVernierTicksSvg() {
-  const ticks = [];
-  for (let i = 0; i < 48; i++) {
-    const major = i % 6 === 0;
-    const r1 = major ? 112 : 117;
-    const r2 = 123;
-    const deg = i * (360 / 48);
-    ticks.push(
-      `<line x1="160" y1="${160 - r1}" x2="160" y2="${160 - r2}" class="${major ? 'compass-tick compass-tick--major' : 'compass-tick'}" transform="rotate(${deg} 160 160)" />`
-    );
-  }
-  return ticks.join('');
-}
-
-function buildCompassStarRaysSvg(streakDays) {
-  const rays = [];
-  const lit = Math.min(8, Math.max(0, Math.floor(Number(streakDays) || 0)));
-  for (let i = 0; i < 8; i++) {
-    const angle = i * 45;
-    // Symmetric 4 cardinal rays when fresh (streak=0); progressive 1..8 illumination with active streak
-    const isLit = lit === 0 ? (i % 2 === 0) : (i < lit);
-    rays.push(
-      `<polygon class="compass-ray ${isLit ? 'is-lit' : ''}" data-compass-ray="${i}" points="160,82 168.5,142 160,152 151.5,142" transform="rotate(${angle} 160 160)" />`
-    );
-  }
-  return rays.join('');
-}
-
-function buildWatermarkSvg(glyph) {
-  return `<svg class="subject-card__watermark-svg" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true" focusable="false">
-    <text x="112" y="102" text-anchor="end" fill="#FFFFFF" fill-opacity="0.065" font-size="96" font-weight="800">${escapeHtml(glyph)}</text>
-  </svg>`;
-}
-
-export async function renderHomeView(container, { setFxMode: applyFxMode, setCleanup } = {}) {
+export async function renderHomeView(container, { setCleanup } = {}) {
   let confirmDiscard = false;
-  let compassRaf = 0;
+  let pulsarCtrl = null;
+  let activeSubject = 'math';
 
   if (setCleanup) {
     setCleanup(() => {
-      if (compassRaf) {
-        cancelAnimationFrame(compassRaf);
-        compassRaf = 0;
+      if (pulsarCtrl) {
+        pulsarCtrl.destroy();
+        pulsarCtrl = null;
       }
     });
   }
 
   function render() {
-    if (compassRaf) {
-      cancelAnimationFrame(compassRaf);
-      compassRaf = 0;
+    if (pulsarCtrl) {
+      pulsarCtrl.destroy();
+      pulsarCtrl = null;
     }
 
     const state = loadState();
-    const activeFx = getFxMode();
     const totalAttempted = state.stats.totalAttempted || 0;
     const totalCorrect = state.stats.totalCorrect || 0;
     const accuracy = totalAttempted > 0 ? Math.round((totalCorrect / totalAttempted) * 100) : 0;
     const activeMistakes = getActiveMistakesCount();
     const streakDays = state.streak?.days || 0;
     const activeExam = state.activeExam;
+
+    // Real March 2026 booklet progress computed truthfully from state.solvedOriginals
+    const solvedMap = state.solvedOriginals || {};
+    const solvedKeys = Object.keys(solvedMap);
+    const done0903 = solvedKeys.filter((k) => k.includes('09.03') || k.includes('0903')).length;
+    const done1503 = solvedKeys.filter((k) => k.includes('15.03') || k.includes('1503')).length;
+    const pct0903 = Math.min(100, Math.round((done0903 / 115) * 100));
+    const pct1503 = Math.min(100, Math.round((done1503 / 115) * 100));
+    const totalMistakesRecorded = Object.keys(state.mistakes || {}).length;
+    const resolvedMistakes = Object.values(state.mistakes || {}).filter((m) => m.resolved).length;
+    const pctErr = totalMistakesRecorded > 0 ? Math.round((resolvedMistakes / totalMistakesRecorded) * 100) : 0;
 
     const activeAnswered = activeExam
       ? (activeExam.tasks || []).filter((tk) => hasResponse(tk, activeExam.responses?.[tk.id])).length
@@ -93,26 +64,28 @@ export async function renderHomeView(container, { setFxMode: applyFxMode, setCle
 
     const primaryCta = activeMistakes > 0
       ? { href: '#/mistakes', label: t('heroPrimaryMistakes', { n: activeMistakes }) }
-      : totalAttempted > 0
-      ? { href: '#/exam/all', label: t('heroPrimaryContinue') }
-      : { href: '#/exam/all', label: t('heroPrimaryNew') };
+      : { href: '#/exam/all', label: `${t('heroPrimaryContinue')} · 300` };
 
     const metaById = Object.fromEntries(SUBJECTS_META.map((m) => [m.id, m]));
+    const activeMeta = metaById[activeSubject] || SUBJECTS_META[0];
+    const activeCode = SUBJECT_CODES[activeSubject] || SUBJECT_CODES.math;
+    const activeSb = state.stats.bySubject[activeSubject] ?? { attempted: 0, correct: 0 };
+    const activeAcc = activeSb.attempted > 0 ? Math.round((activeSb.correct / activeSb.attempted) * 100) : null;
 
     container.innerHTML = `
-      <div class="page-container">
+      <div class="fac-home-root">
         ${activeExam ? `
-          <div class="active-exam-banner" data-specular role="region" aria-label="${escapeHtml(t('examActiveBanner'))}">
+          <div class="active-exam-banner" role="region" aria-label="${escapeHtml(t('examActiveBanner'))}">
             <div class="active-exam-banner__info">
-              <span class="active-exam-banner__dot" aria-hidden="true"></span>
+              <span class="fac-alert-blk" aria-hidden="true"></span>
               <div>
                 <strong>${escapeHtml(t('examActiveBanner'))}: ${escapeHtml(activeExam.title || subjectTitle(activeExam.subjectId))}</strong>
-                <span class="text-secondary tabular-nums"> · ${escapeHtml(t('examAnsweredProgress', { done: activeAnswered, total: activeTotal }))}</span>
+                <span class="text-secondary tabular-nums mono-code"> · ${escapeHtml(t('examAnsweredProgress', { done: activeAnswered, total: activeTotal }))}</span>
               </div>
             </div>
             <div class="active-exam-banner__actions">
               ${!confirmDiscard ? `
-                <a href="#/exam/${escapeHtml(activeExam.subjectId)}?resume=1" class="btn btn--primary btn--sm" data-ripple>
+                <a href="#/exam/${escapeHtml(activeExam.subjectId)}?resume=1" class="btn btn--primary btn--sm">
                   <span>${escapeHtml(t('examResumeBtn'))}</span>
                   ${icon('arrow-right', { size: 15 })}
                 </a>
@@ -126,344 +99,314 @@ export async function renderHomeView(container, { setFxMode: applyFxMode, setCle
           </div>
         ` : ''}
 
-        <!-- Asymmetric Obsidian Atelier Showcase + Sculpted Ulduz 8-Ray Light Compass -->
-        <section class="home-welcome atelier-stage">
-          <div class="home-welcome__text">
-            <h1 class="home-title">${escapeHtml(t('heroTitle'))}</h1>
-            <p class="home-subtitle">${escapeHtml(t('heroSubtitle'))}</p>
-
-            <div class="home-welcome__cta-row">
-              <a href="${primaryCta.href}" class="btn btn--primary btn--lg" data-magnetic data-ripple>
-                <span class="oa-mag-inner">
-                  <span>${escapeHtml(primaryCta.label)}</span>
-                  ${icon('arrow-right', { size: 16 })}
-                </span>
-              </a>
-              ${totalAttempted === 0 ? `<span class="home-welcome__hint text-muted">${escapeHtml(t('heroSecondaryNew'))}</span>` : ''}
+        <!-- First Viewport: Factory Records 2-Column Archival Sleeve (Catalog Index | Live 3D Angled Pulsar) -->
+        <section class="fac-sleeve home-welcome" aria-labelledby="home-h1">
+          <!-- Left Column: Monumental Catalog Index (DİM 300 + DİM 01–04 with Bold Square Color Plates) -->
+          <div class="fac-sleeve__index">
+            <div class="fac-sleeve__head">
+              <h1 id="home-h1" class="home-title">DİM 300</h1>
+              <p class="home-subtitle">${escapeHtml(t('heroTitle'))}</p>
             </div>
 
-            ${totalAttempted > 0 ? `
-              <div class="home-stats-strip" aria-label="${escapeHtml(t('navStats'))}">
-                <div class="home-stat">
-                  <span class="home-stat__val tabular-nums" data-count-to="${totalAttempted}">${totalAttempted}</span>
-                  <span class="home-stat__lbl">${escapeHtml(t('statSolved'))}</span>
-                </div>
-                <div class="home-stat">
-                  <span class="home-stat__val tabular-nums" data-count-to="${accuracy}" data-count-suffix="%">${accuracy}%</span>
-                  <span class="home-stat__lbl">${escapeHtml(t('statAccuracy'))}</span>
-                </div>
-                <a href="#/mistakes" class="home-stat home-stat--link ${activeMistakes > 0 ? 'is-alert' : ''}">
-                  <span class="home-stat__val tabular-nums">${activeMistakes}</span>
-                  <span class="home-stat__lbl">${escapeHtml(t('statMistakes'))}</span>
-                </a>
-                <div class="home-stat">
-                  <span class="home-stat__val home-stat__val--star tabular-nums">
-                    ${ulduzStarSvg(Math.min(8, streakDays > 0 ? Math.max(1, streakDays) : 0), { size: 18 })}
-                    <span>${escapeHtml(t('daysShort', { n: streakDays }))}</span>
-                  </span>
-                  <span class="home-stat__lbl">${escapeHtml(t('statStreak'))}</span>
-                </div>
-              </div>
-            ` : ''}
-          </div>
-
-          <!-- Right Optical Column: Sculpted Ulduz Compass + Live 3-Tier Light FX Strip -->
-          <div class="atelier-compass-col">
-            <div class="atelier-compass-wrap" id="ulduz-compass" data-specular aria-label="${escapeHtml(t('compassAria'))}">
-              <svg class="atelier-compass__svg" viewBox="0 0 320 320" width="320" height="320" aria-hidden="true">
-                <defs>
-                  <linearGradient id="compassWedgeGrad" x1="0" y1="0.5" x2="1" y2="0.5">
-                    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.16" />
-                    <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
-                  </linearGradient>
-                </defs>
-                <circle class="compass-orbit compass-orbit--outer" cx="160" cy="160" r="126" />
-                <circle class="compass-orbit compass-orbit--inner" cx="160" cy="160" r="82" />
-                <g class="compass-vernier">${buildVernierTicksSvg()}</g>
-                <line class="compass-axis" x1="160" y1="36" x2="160" y2="284" />
-                <line class="compass-axis" x1="36" y1="160" x2="284" y2="160" />
-                <!-- Spring-steered interactive optical beam & radar cone -->
-                <g class="compass-beam" id="compass-beam" transform="rotate(-45 160 160)">
-                  <path class="compass-beam__cone" d="M160 160 L272 134 A118 118 0 0 1 272 186 Z" fill="url(#compassWedgeGrad)" />
-                  <line class="compass-beam__line" x1="160" y1="160" x2="274" y2="160" />
-                  <circle class="compass-beam__tip" cx="274" cy="160" r="3.4" />
-                </g>
-                <!-- 8-Ray Geometric Ulduz Star -->
-                <g class="compass-star">${buildCompassStarRaysSvg(streakDays)}</g>
-                <circle class="compass-aperture-bg" cx="160" cy="160" r="52" />
-                <circle class="compass-aperture-ring" cx="160" cy="160" r="52" />
-              </svg>
-
-              <!-- Center Telemetry Readout (legible >=11.2px inside r=52 aperture) -->
-              <div class="atelier-compass__core" aria-live="polite">
-                <span class="atelier-compass__core-title mono-code" id="compass-core-title">${escapeHtml(t('compassCenterDefault'))}</span>
-                <span class="atelier-compass__core-sub tabular-nums" id="compass-core-sub">230 PDF</span>
-              </div>
-
-              <!-- 4 Interactive Orbital Subject Portals -->
-              ${COMPASS_NODES.map((node) => {
-                const meta = metaById[node.id];
-                const sb = state.stats.bySubject[node.id] ?? { attempted: 0, correct: 0 };
+            <!-- 4 Hairline-Divided Subject Catalog Entries (DİM 01 – DİM 04) -->
+            <div class="fac-catalog-list" role="list">
+              ${SUBJECTS_META.map((meta, idx) => {
+                const code = SUBJECT_CODES[meta.id] || SUBJECT_CODES.math;
+                const sb = state.stats.bySubject[meta.id] ?? { attempted: 0, correct: 0 };
                 const acc = sb.attempted > 0 ? Math.round((sb.correct / sb.attempted) * 100) : null;
-                const subTitle = subjectTitle(node.id);
-                const detailText = acc !== null
-                  ? `${sb.attempted} · ${acc}%`
-                  : `${meta?.originals ?? 0} PDF`;
+                const subjMistakes = getActiveMistakesCount(meta.id);
+                const title = subjectTitle(meta.id);
+                const isAct = activeSubject === meta.id;
                 return `
-                  <a
-                    href="#/subject/${node.id}"
-                    class="compass-beacon compass-beacon--${node.labelPos}"
-                    data-compass-subject="${node.id}"
-                    data-compass-angle="${node.angleDeg}"
-                    data-compass-title="${escapeHtml(subTitle)}"
-                    data-compass-detail="${escapeHtml(detailText)}"
-                    aria-label="${escapeHtml(t('compassOpenSubject', { subject: subTitle }))}"
-                    title="${escapeHtml(subTitle)}"
-                    data-ripple
+                  <article
+                    class="fac-catalog-row subject-card subject-card--${meta.id} oa-stagger-item ${isAct ? 'is-active' : ''}"
+                    style="--stagger-i:${idx}; --row-c:${code.color}"
+                    data-fac-subject="${meta.id}"
+                    role="listitem"
                   >
-                    <span class="compass-beacon__glyph">${escapeHtml(meta?.icon ?? '')}</span>
-                  </a>
+                    <span class="fac-catalog-row__plate mono-code" style="background:${code.color};color:${code.onColor}" aria-hidden="true">${code.num}</span>
+                    <div class="fac-catalog-row__main">
+                      <div class="fac-catalog-row__top">
+                        <span class="fac-catalog-row__no mono-code">${code.catNo}</span>
+                        <h2 class="fac-catalog-row__title">
+                          <a href="#/subject/${meta.id}" class="fac-catalog-row__link">${escapeHtml(title)}</a>
+                        </h2>
+                        ${subjMistakes > 0 ? `<a href="#/mistakes?subject=${meta.id}" class="badge badge--warn">${escapeHtml(t('mistakeShortBadge', { n: subjMistakes }))}</a>` : ''}
+                      </div>
+                      <div class="fac-catalog-row__sub mono-code">
+                        <span class="fac-inline-grp">${escapeHtml(t('metaTypesCount', { n: meta.types ?? 0 }))} · ${escapeHtml(t('metaPdfCount', { n: meta.originals ?? 0 }))}</span>
+                        <span class="hide-xs" aria-hidden="true">·</span>
+                        <span class="fac-inline-grp"><a href="#/practice/${meta.id}" class="fac-inline-act">${escapeHtml(t('btnPractice'))}</a> / <a href="#/originals/${meta.id}" class="fac-inline-act">${escapeHtml(t('btnOriginals'))}</a></span>
+                      </div>
+                    </div>
+                    <div class="fac-catalog-row__pct mono-code tabular-nums">
+                      ${acc !== null ? `${acc}%` : `${meta.originals ?? 0}`}
+                    </div>
+                  </article>
                 `;
               }).join('')}
             </div>
 
-            <!-- Live 3-Tier Interactive FX Mode Switcher docked quietly under the Optical Compass -->
-            <div class="home-fx-strip" role="group" aria-label="${escapeHtml(t('fxSectionTitle'))}">
-              ${[
-                ['minimal', 'circle-dot'],
-                ['tactile', 'sparkles'],
-                ['webgl', 'waves'],
-              ].map(([fxId, ic]) => `
-                <button
-                  type="button"
-                  class="home-fx-pill ${activeFx === fxId ? 'is-active' : ''}"
-                  data-action="select-fx-inline"
-                  data-fx-id="${fxId}"
-                  aria-pressed="${activeFx === fxId}"
-                  data-ripple
-                >
-                  ${icon(ic, { size: 13 })}
-                  <span>${escapeHtml(t(`fxShort_${fxId}`))}</span>
-                </button>
-              `).join('')}
+            <div class="fac-sleeve__foot-note mono-code text-muted">
+              <span>${escapeHtml(t('facSessionStamp'))}</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Live Interactive Angled 3D Floating Pulsar Stage + Saville Technical Colophon -->
+          <div class="fac-sleeve__pulsar">
+            <div class="fac-pulsar-hud">
+              <div class="fac-pulsar-hud__val" id="fac-active-readout">
+                <span class="fac-dot-sq" style="background:${activeCode.color}"></span>
+                <span class="mono-code">${activeCode.catNo}</span>
+                <strong>${escapeHtml(subjectTitle(activeSubject))}</strong>
+                <span class="mono-code text-secondary tabular-nums">${activeAcc !== null ? `${activeAcc}%` : `${activeMeta.originals ?? 0} PDF`}</span>
+              </div>
+
+              ${totalAttempted > 0 ? `
+                <div class="fac-colophon fac-pulsar-hud__stats mono-code tabular-nums">
+                  <div class="fac-colophon__row">
+                    <span>${escapeHtml(t('statSolved'))}</span>
+                    <b>${totalAttempted}</b>
+                  </div>
+                  <div class="fac-colophon__row">
+                    <span>${escapeHtml(t('statAccuracy'))}</span>
+                    <b>${accuracy}%</b>
+                  </div>
+                  <div class="fac-colophon__row">
+                    <span>${escapeHtml(t('statStreak'))}</span>
+                    <b>${escapeHtml(t('daysShort', { n: streakDays }))}</b>
+                  </div>
+                  <div class="fac-colophon__meter" id="fac-colophon-meter">
+                    ${buildSignalMeterHtml(activeAcc ?? accuracy, activeCode.color, { ariaLabel: t('statAccuracy') })}
+                  </div>
+                </div>
+              ` : `
+                <div class="fac-colophon mono-code tabular-nums">
+                  <div class="fac-colophon__row">
+                    <span>${escapeHtml(t('facColophonStatus'))}</span>
+                    <b>${escapeHtml(t('facStatusReady'))}</b>
+                  </div>
+                  <div class="fac-colophon__row">
+                    <span>${escapeHtml(t('facColophonItems'))}</span>
+                    <b>230 PDF</b>
+                  </div>
+                  <div class="fac-colophon__meter" id="fac-colophon-meter">
+                    ${buildSignalMeterHtml(0, activeCode.color, { ariaLabel: t('statAccuracy') })}
+                  </div>
+                </div>
+              `}
+            </div>
+
+            <div class="fac-pulsar-canvas-wrap">
+              <canvas
+                id="fac-pulsar-canvas"
+                class="fac-pulsar-canvas"
+                role="img"
+                aria-label="${escapeHtml(t('facPulsarAria'))}"
+              ></canvas>
             </div>
           </div>
         </section>
 
-        <!-- Staggered Asymmetric Subject Runway (7fr/5fr + 5fr/7fr) -->
-        <section class="section-block" aria-labelledby="subjects-heading">
-          <div class="section-header">
-            <h2 id="subjects-heading" class="section-title">${escapeHtml(t('chooseSubject'))}</h2>
-            <p class="section-subtitle">${escapeHtml(t('chooseSubjectSub'))}</p>
+        <!-- Full-Width Bottom Industrial Color Decoder & Primary Exam Launch Bar -->
+        <section class="fac-decoder-bar home-welcome__cta-row" aria-label="${escapeHtml(t('chooseSubject'))}">
+          <div class="fac-decoder-bar__left">
+            <div class="fac-decoder-swatches" role="group" aria-label="${escapeHtml(t('chooseSubject'))}">
+              ${SUBJECTS_META.map((meta) => {
+                const code = SUBJECT_CODES[meta.id] || SUBJECT_CODES.math;
+                return `
+                  <a
+                    href="#/subject/${meta.id}"
+                    class="fac-swatch-btn ${activeSubject === meta.id ? 'is-active' : ''}"
+                    style="background:${code.color}"
+                    data-decoder-subject="${meta.id}"
+                    aria-label="${escapeHtml(`${code.catNo} ${subjectTitle(meta.id)}`)}"
+                    title="${escapeHtml(`${code.catNo} — ${subjectTitle(meta.id)}`)}"
+                  >
+                    <span class="sr-only">${escapeHtml(subjectShort(meta.id))}</span>
+                  </a>
+                `;
+              }).join('')}
+              <a
+                href="#/originals/math"
+                class="fac-swatch-btn fac-swatch-btn--paper"
+                data-decoder-paper="1"
+                aria-label="${escapeHtml(t('facRel0903Title'))}"
+                title="${escapeHtml(t('facSessionStamp'))}"
+              >
+                <span class="sr-only">PDF</span>
+              </a>
+            </div>
+            <span class="fac-decoder-label mono-code text-secondary" id="fac-decoder-label">
+              ${escapeHtml(t('facDecoderHint'))}
+            </span>
           </div>
 
-          <div class="subjects-grid atelier-subjects">
-            ${SUBJECTS_META.map((meta, idx) => {
-              const typeCount = meta.types ?? 0;
-              const topicsCount = meta.topics ?? 1;
-              const origCount = meta.originals ?? 0;
-              const sb = state.stats.bySubject[meta.id] ?? { attempted: 0, correct: 0 };
-              const subjAcc = sb.attempted > 0 ? Math.round((sb.correct / sb.attempted) * 100) : 0;
-              const subjMistakes = getActiveMistakesCount(meta.id);
-              const title = subjectTitle(meta.id);
-              const desc = t(SUBJECT_DESC_KEYS[meta.id]) || '';
-              const spanCls = idx === 0 || idx === 3 ? 'subject-card--wide' : 'subject-card--compact';
-
-              return `
-                <article class="subject-card subject-card--${meta.id} ${spanCls} oa-stagger-item" style="--stagger-i:${idx}" data-specular>
-                  ${buildWatermarkSvg(meta.icon)}
-
-                  <div class="subject-card__top">
-                    <a href="#/subject/${meta.id}" class="subject-card__icon-wrap" aria-hidden="true" tabindex="-1">
-                      <span class="subject-card__icon">${escapeHtml(meta.icon)}</span>
-                    </a>
-                    <div class="subject-card__headings">
-                      <div class="subject-card__title-row">
-                        <h3 class="subject-card__title">
-                          <a href="#/subject/${meta.id}" class="subject-card__title-link">${escapeHtml(title)}</a>
-                        </h3>
-                        ${subjMistakes > 0 ? `<a href="#/mistakes?subject=${meta.id}" class="badge badge--warn">${escapeHtml(t('mistakeShortBadge', { n: subjMistakes }))}</a>` : ''}
-                      </div>
-                      <p class="subject-card__desc">${escapeHtml(desc)}</p>
-                    </div>
-                  </div>
-
-                  <div class="subject-card__meta-line mono-code">
-                    <span>${escapeHtml(t('metaTopicsCount', { n: topicsCount || 1 }))}</span>
-                    <span class="meta-sep" aria-hidden="true">·</span>
-                    <span>${escapeHtml(t('metaTypesCount', { n: typeCount }))}</span>
-                    <span class="meta-sep" aria-hidden="true">·</span>
-                    <span>${escapeHtml(t('metaPdfCount', { n: origCount }))}</span>
-                  </div>
-
-                  ${sb.attempted > 0 ? `
-                    <div class="subject-card__progress">
-                      <div class="progress-row">
-                        <span class="text-secondary">${escapeHtml(t('labelSolved'))}: <b class="tabular-nums">${sb.attempted}</b></span>
-                        <span class="text-secondary">${escapeHtml(t('labelAccuracy'))}: <b class="tabular-nums">${subjAcc}%</b></span>
-                      </div>
-                      <div class="progress-bar" role="progressbar" aria-valuenow="${subjAcc}" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar__fill" style="width:${subjAcc}%"></div>
-                      </div>
-                    </div>
-                  ` : `
-                    <div class="subject-card__fresh text-muted">${escapeHtml(t('notStartedYet'))}</div>
-                  `}
-
-                  <div class="subject-card__actions">
-                    <a href="#/subject/${meta.id}" class="btn btn--secondary btn--sm subject-card__primary-btn" data-ripple>${escapeHtml(t('btnPractice'))}</a>
-                    <a href="#/exam/${meta.id}" class="btn btn--ghost btn--sm" data-ripple>
-                      ${icon('clock', { size: 15 })}
-                      <span>${escapeHtml(t('btnExam'))}</span>
-                    </a>
-                    <a href="#/originals/${meta.id}" class="btn btn--ghost btn--sm" data-ripple>
-                      ${icon('file-text', { size: 15 })}
-                      <span>${escapeHtml(t('btnOriginals'))}</span>
-                    </a>
-                  </div>
-                </article>
-              `;
-            }).join('')}
-          </div>
+          <a href="${primaryCta.href}" class="btn btn--primary btn--lg fac-launch-cta">
+            <span>${escapeHtml(primaryCta.label)}</span>
+            ${icon('arrow-right', { size: 17 })}
+          </a>
         </section>
 
-        <!-- Bottom Architectural Command Split Rail -->
-        <section class="quick-banners-grid" aria-label="${escapeHtml(t('bannerExamTitle'))}">
-          <div class="feature-banner" data-specular>
-            <div class="feature-banner__body">
-              <h3>${escapeHtml(t('bannerExamTitle'))}</h3>
-              <p>${escapeHtml(t('bannerExamDesc'))}</p>
-            </div>
-            <div class="feature-banner__cta">
-              <a href="#/exam/all" class="btn btn--secondary btn--sm" data-ripple>
+        <!-- Below the Fold: Factory Archival Releases Strip (FAC 09.03 | FAC 15.03 | FAC ERR) -->
+        <section class="fac-releases-section" aria-labelledby="archive-releases-heading">
+          <div class="fac-releases-grid">
+            <div class="fac-releases-intro">
+              <h2 id="archive-releases-heading" class="section-title">${escapeHtml(t('facArchiveHeading'))}</h2>
+              <p class="text-secondary">${escapeHtml(t('facArchiveSub'))}</p>
+              <a href="#/exam/all" class="btn btn--secondary btn--sm">
                 <span>${escapeHtml(t('bannerExamBtn'))}</span>
                 ${icon('arrow-right', { size: 15 })}
               </a>
             </div>
-          </div>
 
-          <div class="feature-banner" data-specular>
-            <div class="feature-banner__body">
-              <h3>${escapeHtml(t('bannerMistakesTitle'))}</h3>
-              <p>${escapeHtml(t('bannerMistakesDesc'))}</p>
-            </div>
-            <div class="feature-banner__cta">
-              <a href="#/mistakes" class="btn btn--secondary btn--sm" data-ripple>
-                <span>${escapeHtml(t('bannerMistakesBtn', { n: activeMistakes }))}</span>
-                ${icon('arrow-right', { size: 15 })}
-              </a>
-            </div>
+            <article class="fac-release-tile">
+              <div class="fac-release-tile__top">
+                <span class="mono-code fac-release-tile__no">FAC 09.03</span>
+                <span class="mono-code text-muted tabular-nums">${done0903} / 115</span>
+              </div>
+              <div class="fac-release-tile__dial">
+                ${buildRadialSpectrumSvg(pct0903, '#D63031', { size: 196, seed: 9 })}
+              </div>
+              <h3 class="fac-release-tile__title">${escapeHtml(t('facRel0903Title'))}</h3>
+              <dl class="fac-spec-kv mono-code tabular-nums">
+                <div><dt>${escapeHtml(t('facColophonFormat'))}</dt><dd>4 PDF · 115</dd></div>
+                <div><dt>${escapeHtml(t('facColophonProgress'))}</dt><dd>${pct0903}%</dd></div>
+              </dl>
+              <div class="fac-release-tile__links mono-code">
+                <a href="#/originals/math?pdf=0903">${escapeHtml(subjectShort('math'))}</a>
+                <a href="#/originals/ru?pdf=0903">${escapeHtml(subjectShort('ru'))}</a>
+                <a href="#/originals/en?pdf=0903">${escapeHtml(subjectShort('en'))}</a>
+                <a href="#/originals/az?pdf=0903">${escapeHtml(subjectShort('az'))}</a>
+              </div>
+            </article>
+
+            <article class="fac-release-tile">
+              <div class="fac-release-tile__top">
+                <span class="mono-code fac-release-tile__no">FAC 15.03</span>
+                <span class="mono-code text-muted tabular-nums">${done1503} / 115</span>
+              </div>
+              <div class="fac-release-tile__dial">
+                ${buildRadialSpectrumSvg(pct1503, '#2663C9', { size: 196, seed: 15 })}
+              </div>
+              <h3 class="fac-release-tile__title">${escapeHtml(t('facRel1503Title'))}</h3>
+              <dl class="fac-spec-kv mono-code tabular-nums">
+                <div><dt>${escapeHtml(t('facColophonFormat'))}</dt><dd>4 PDF · 115</dd></div>
+                <div><dt>${escapeHtml(t('facColophonProgress'))}</dt><dd>${pct1503}%</dd></div>
+              </dl>
+              <div class="fac-release-tile__links mono-code">
+                <a href="#/originals/math?pdf=1503">${escapeHtml(subjectShort('math'))}</a>
+                <a href="#/originals/ru?pdf=1503">${escapeHtml(subjectShort('ru'))}</a>
+                <a href="#/originals/en?pdf=1503">${escapeHtml(subjectShort('en'))}</a>
+                <a href="#/originals/az?pdf=1503">${escapeHtml(subjectShort('az'))}</a>
+              </div>
+            </article>
+
+            <article class="fac-release-tile">
+              <div class="fac-release-tile__top">
+                <span class="mono-code fac-release-tile__no">FAC ERR</span>
+                <span class="badge ${activeMistakes > 0 ? 'badge--warn' : 'badge--subtle'} tabular-nums">${activeMistakes}</span>
+              </div>
+              <div class="fac-release-tile__dial">
+                ${buildRadialSpectrumSvg(pctErr, activeMistakes > 0 ? '#D63031' : '#2E9E5B', { size: 196, seed: 27 })}
+              </div>
+              <h3 class="fac-release-tile__title">${escapeHtml(t('facRelErrTitle'))}</h3>
+              <dl class="fac-spec-kv mono-code tabular-nums">
+                <div><dt>${escapeHtml(t('facColophonStatus'))}</dt><dd>${activeMistakes > 0 ? escapeHtml(t('facStatusActive')) : escapeHtml(t('facStatusReady'))}</dd></div>
+                <div><dt>${escapeHtml(t('facColophonProgress'))}</dt><dd>${resolvedMistakes}/${totalMistakesRecorded}</dd></div>
+              </dl>
+              <div class="fac-release-tile__cta">
+                <a href="#/mistakes" class="btn btn--secondary btn--sm">
+                  <span>${escapeHtml(t('bannerMistakesBtn', { n: activeMistakes }))}</span>
+                  ${icon('arrow-right', { size: 14 })}
+                </a>
+              </div>
+            </article>
           </div>
         </section>
       </div>
     `;
 
-    // Animate telemetry counters softly
-    container.querySelectorAll('[data-count-to]').forEach((el) => {
-      const targetVal = Number(el.dataset.countTo || 0);
-      const suffix = el.dataset.countSuffix || '';
-      oaAnimateCounter(el, targetVal, { duration: 480, suffix });
-    });
-
-    // Wire inline live 3-tier FX switcher
-    container.querySelectorAll('[data-action="select-fx-inline"]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const fxId = btn.dataset.fxId;
-        if (!fxId) return;
-        haptic('selection');
-        if (applyFxMode) applyFxMode(fxId);
-      });
-    });
-
-    // Wire Interactive Ulduz 8-Ray Light Compass
-    const compassEl = container.querySelector('#ulduz-compass');
-    const beamEl = container.querySelector('#compass-beam');
-    const coreTitleEl = container.querySelector('#compass-core-title');
-    const coreSubEl = container.querySelector('#compass-core-sub');
-    const defaultTitle = t('compassCenterDefault');
-    const defaultSub = '230 PDF';
-
-    if (compassEl && beamEl) {
-      let curAngle = -45;
-      let targetAngle = -45;
-      let isPointerInside = false;
-
-      const shortestDelta = (from, to) => {
-        let d = ((to - from + 540) % 360) - 180;
-        if (d < -180) d += 360;
-        return d;
-      };
-
-      const stepBeam = () => {
-        const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-        const delta = shortestDelta(curAngle, targetAngle);
-        if (reduced || Math.abs(delta) < 0.15) {
-          curAngle = targetAngle;
-          beamEl.setAttribute('transform', `rotate(${curAngle.toFixed(2)} 160 160)`);
-          compassRaf = 0;
-          return;
-        }
-        curAngle += delta * 0.16;
-        beamEl.setAttribute('transform', `rotate(${curAngle.toFixed(2)} 160 160)`);
-        compassRaf = requestAnimationFrame(stepBeam);
-      };
-
-      const aimTo = (deg) => {
-        targetAngle = deg;
-        if (!compassRaf) compassRaf = requestAnimationFrame(stepBeam);
-      };
-
-      const resetReadout = () => {
-        if (coreTitleEl) coreTitleEl.textContent = defaultTitle;
-        if (coreSubEl) coreSubEl.textContent = defaultSub;
-        compassEl.querySelectorAll('.compass-beacon').forEach((b) => b.classList.remove('is-focused'));
-      };
-
-      compassEl.addEventListener('pointermove', (e) => {
-        isPointerInside = true;
-        const rect = compassEl.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        const deg = (Math.atan2(e.clientY - cy, e.clientX - cx) * 180) / Math.PI;
-        aimTo(deg);
-      }, { passive: true });
-
-      compassEl.addEventListener('pointerleave', () => {
-        isPointerInside = false;
-        resetReadout();
-        aimTo(-45);
-      }, { passive: true });
-
-      compassEl.querySelectorAll('.compass-beacon').forEach((beacon) => {
-        const focusBeacon = () => {
-          const deg = Number(beacon.dataset.compassAngle || 0);
-          aimTo(deg);
-          compassEl.querySelectorAll('.compass-beacon').forEach((b) => b.classList.toggle('is-focused', b === beacon));
-          if (coreTitleEl) coreTitleEl.textContent = beacon.dataset.compassTitle || defaultTitle;
-          if (coreSubEl) coreSubEl.textContent = beacon.dataset.compassDetail || defaultSub;
-        };
-        beacon.addEventListener('pointerenter', focusBeacon);
-        beacon.addEventListener('focus', focusBeacon);
-        beacon.addEventListener('blur', () => {
-          if (!isPointerInside) resetReadout();
-        });
-      });
-    }
-
+    // Wire Active Exam Discard 2-step controls
     container.querySelector('[data-action="ask-discard-exam"]')?.addEventListener('click', () => {
       confirmDiscard = true;
       render();
-      container.querySelector('[data-action="cancel-discard-exam"]')?.focus();
     });
     container.querySelector('[data-action="cancel-discard-exam"]')?.addEventListener('click', () => {
       confirmDiscard = false;
       render();
-      container.querySelector('[data-action="ask-discard-exam"]')?.focus();
     });
     container.querySelector('[data-action="confirm-discard-exam"]')?.addEventListener('click', () => {
+      haptic('warning');
       clearActiveExam();
       confirmDiscard = false;
       render();
+    });
+
+    const readoutEl = container.querySelector('#fac-active-readout');
+    const decoderLbl = container.querySelector('#fac-decoder-label');
+    const meterHost = container.querySelector('#fac-colophon-meter');
+
+    function setHighlightedSubject(sid) {
+      if (!sid || !SUBJECT_CODES[sid]) return;
+      activeSubject = sid;
+      const code = SUBJECT_CODES[sid];
+      const meta = metaById[sid] || SUBJECTS_META[0];
+      const sb = state.stats.bySubject[sid] ?? { attempted: 0, correct: 0 };
+      const acc = sb.attempted > 0 ? Math.round((sb.correct / sb.attempted) * 100) : null;
+
+      container.querySelectorAll('.fac-catalog-row').forEach((row) => {
+        row.classList.toggle('is-active', row.dataset.facSubject === sid);
+      });
+      container.querySelectorAll('[data-decoder-subject]').forEach((sw) => {
+        sw.classList.toggle('is-active', sw.dataset.decoderSubject === sid);
+      });
+      if (readoutEl) {
+        readoutEl.innerHTML = `
+          <span class="fac-dot-sq" style="background:${code.color}"></span>
+          <span class="mono-code">${code.catNo}</span>
+          <strong>${escapeHtml(subjectTitle(sid))}</strong>
+          <span class="mono-code text-secondary tabular-nums">${acc !== null ? `${acc}%` : `${meta.originals ?? 0} PDF`}</span>
+        `;
+      }
+      if (meterHost) {
+        meterHost.innerHTML = buildSignalMeterHtml(acc ?? (totalAttempted > 0 ? accuracy : 0), code.color, { ariaLabel: subjectTitle(sid) });
+      }
+      if (decoderLbl) {
+        decoderLbl.textContent = t('facDecoderActive', {
+          code: code.catNo,
+          subject: subjectTitle(sid),
+          types: meta.types ?? 0,
+          pdfs: meta.originals ?? 0,
+        });
+      }
+      pulsarCtrl?.setActive(sid);
+    }
+
+    // Mount live interactive angled 3D Pulsar Canvas
+    const canvasEl = container.querySelector('#fac-pulsar-canvas');
+    pulsarCtrl = mountHomePulsar(canvasEl, {
+      statsBySubject: state.stats.bySubject,
+      activeSubject,
+      onSelectSubject: (sid) => {
+        haptic('selection');
+        setHighlightedSubject(sid);
+      },
+    });
+
+    // Hover/focus synchronization across catalog rows & bottom color decoder blocks
+    container.querySelectorAll('.fac-catalog-row').forEach((row) => {
+      const sid = row.dataset.facSubject;
+      row.addEventListener('pointerenter', () => setHighlightedSubject(sid));
+      row.addEventListener('focusin', () => setHighlightedSubject(sid));
+    });
+    container.querySelectorAll('[data-decoder-subject]').forEach((sw) => {
+      const sid = sw.dataset.decoderSubject;
+      sw.addEventListener('pointerenter', () => setHighlightedSubject(sid));
+      sw.addEventListener('focus', () => setHighlightedSubject(sid));
+    });
+    container.querySelector('[data-decoder-paper]')?.addEventListener('pointerenter', () => {
+      if (decoderLbl) decoderLbl.textContent = t('facSessionStamp');
     });
   }
 

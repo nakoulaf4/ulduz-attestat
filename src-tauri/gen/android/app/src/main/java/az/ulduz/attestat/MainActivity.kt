@@ -45,7 +45,7 @@ class MainActivity : TauriActivity() {
 
   override fun onWebViewCreate(webView: WebView) {
     super.onWebViewCreate(webView)
-    webView.setBackgroundColor(Color.parseColor("#030304"))
+    webView.setBackgroundColor(Color.parseColor("#0C0C0E"))
     appWebView = webView
   }
 }

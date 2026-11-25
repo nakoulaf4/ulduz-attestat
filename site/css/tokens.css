@@ -1,110 +1,110 @@
 /* ==========================================================================
-   Ulduz — Obsidian Atelier Design Token System (Single Source of Truth)
-   Pure Monochrome Black & White Neon Dark Architecture
-   All new screens and modules consume these tokens via var(--oa-*) or semantic aliases.
+   Ulduz — Factory Records / Peter Saville Archival Catalog Tokens
+   Single Source of Truth: Matte Absorbent Black Stock, Warm Plot Ink White,
+   Zero-Radius 1px Hairline Divisions, and 4 Industrial Saville Color Codes.
    ========================================================================== */
 
 :root {
   color-scheme: dark;
 
   /* 1. Typography Voices (100% local vendored .woff2; RU Cyrillic + AZ Latin verified) */
-  --font-display: 'Ulduz Wide', 'Inter Variable', system-ui, sans-serif;
-  --font-ui-label: 'Ulduz Wide', 'Inter Variable', system-ui, sans-serif;
+  --font-display: 'Ulduz Nvidia', 'Inter Variable', system-ui, sans-serif;
+  --font-ui-label: 'Ulduz Nvidia', 'Inter Variable', system-ui, sans-serif;
   --font-sans: 'Inter Variable', 'Inter', 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
   --font-serif: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'Cascadia Mono', monospace;
 
-  /* 2. Obsidian Luminance Surfaces (Zero Hue — Pure Depth Hierarchy) */
-  --oa-void: #030304;
-  --oa-surface: #0A0A0D;
-  --oa-surface-2: #111116;
-  --oa-elevated: #17171E;
-  --oa-glass: rgba(10, 10, 13, 0.82);
-  --oa-glass-strong: rgba(8, 8, 11, 0.92);
+  /* 2. Dry Absorbent Matte Sleeve Surfaces + Seamless Tactile Stock Raster Tile */
+  --fac-stock-tile: url('../assets/textures/matte-stock-dark.png');
+  --fac-ground: #0C0C0E;
+  --fac-surface: #111113;
+  --fac-surface-2: #17171A;
+  --fac-elevated: #1D1D21;
 
-  /* 3. Ink Scale (WCAG 2.1 AA+ / AAA verified across all surfaces) */
-  --oa-ink: #FAFAFC;            /* 19.1:1 on #0A0A0D */
-  --oa-ink-2: #C8C8D2;          /* 11.4:1 on #111116 */
-  --oa-ink-muted: #9898A6;      /* 5.8:1 on #17171E, 6.7:1 on #0A0A0D */
+  /* 3. Plot Ink Scale (WCAG 2.1 AA+ / AAA across all surfaces) */
+  --fac-ink: #EAEAE6;            /* 16.4:1 on #0C0C0E */
+  --fac-ink-2: #B8B8B2;          /* 9.5:1 on #111113 */
+  --fac-muted: #90908B;          /* 5.9:1 on #111113, 5.1:1 on #1D1D21 */
+  --fac-ink-on-light: #0C0C0E;   /* 16.4:1 on #EAEAE6 */
 
-  /* 4. Precision 1px Hairlines & Luminous Neon Edge Tokens */
-  --oa-line-faint: rgba(255, 255, 255, 0.07);
-  --oa-line-subtle: rgba(255, 255, 255, 0.14);
-  --oa-line-strong: rgba(255, 255, 255, 0.34);
-  --oa-line-bright: rgba(255, 255, 255, 0.88);
+  /* 4. Architectural 1px Hairlines */
+  --fac-line-faint: rgba(234, 234, 230, 0.11);
+  --fac-line: rgba(234, 234, 230, 0.18);
+  --fac-line-strong: rgba(234, 234, 230, 0.4);
+  --fac-line-bright: #EAEAE6;
 
-  --oa-neon: #FFFFFF;
-  --oa-neon-hover: #E6E6EE;
-  --oa-neon-soft: rgba(255, 255, 255, 0.11);
-  --oa-neon-veil: rgba(255, 255, 255, 0.055);
-  --oa-on-neon: #050507;        /* 20.4:1 on #FFFFFF */
+  /* 5. Iconic Peter Saville Industrial Color-Code System (FAC 101–606) */
+  --fac-red: #D63031;            /* FAC 303 · DİM 01 Math / Primary Signal / Wrong */
+  --fac-blue: #2663C9;           /* FAC 101 · DİM 02 Russian / Secondary Signal */
+  --fac-yellow: #DFB41D;         /* FAC 202 · DİM 03 English / Caution / Partial */
+  --fac-green: #2E9E5B;          /* FAC 606 · DİM 04 Azerbaijani / Correct */
+  --fac-steel: #848482;          /* FAC 505 · Neutral Industrial */
+  --fac-paper: #EAEAE6;          /* FAC 404 · Archival Paper White */
 
-  /* 5. Specular Pointer Sheen Intensity (tuned per FX mode: minimal / tactile / webgl) */
-  --oa-specular-alpha: 0.42;
-  --oa-specular-radius: 260px;
-  --oa-glow-strength: 1;
+  --fac-primary-tab: var(--fac-red);
+  --fac-secondary-tab: var(--fac-blue);
 
-  /* 6. Semantic Aliases (unified contract across existing & future views) */
-  --bg-canvas: var(--oa-void);
-  --bg-surface: var(--oa-surface);
-  --bg-subtle: var(--oa-surface-2);
-  --bg-elevated: var(--oa-elevated);
+  /* 6. Semantic Aliases (unified contract across all screens & future modules) */
+  --bg-canvas: var(--fac-ground);
+  --bg-surface: var(--fac-surface);
+  --bg-subtle: var(--fac-surface-2);
+  --bg-elevated: var(--fac-elevated);
 
-  --text-primary: var(--oa-ink);
-  --text-secondary: var(--oa-ink-2);
-  --text-muted: var(--oa-ink-muted);
+  --text-primary: var(--fac-ink);
+  --text-secondary: var(--fac-ink-2);
+  --text-muted: var(--fac-muted);
 
-  --border-subtle: var(--oa-line-subtle);
-  --border-strong: var(--oa-line-strong);
+  --border-subtle: var(--fac-line);
+  --border-strong: var(--fac-line-strong);
 
-  --accent-primary: var(--oa-neon);
-  --accent-primary-hover: var(--oa-neon-hover);
-  --accent-primary-soft: var(--oa-neon-soft);
-  --accent-gold: #FFFFFF;
-  --accent-gold-fill: #FFFFFF;
-  --accent-gold-text: #F2F2F7;
-  --accent-gold-soft: rgba(255, 255, 255, 0.12);
-  --selection-bg: rgba(255, 255, 255, 0.28);
+  --accent-primary: var(--fac-ink);
+  --accent-primary-hover: #FFFFFF;
+  --accent-primary-soft: rgba(234, 234, 230, 0.1);
+  --accent-gold: var(--fac-yellow);
+  --accent-gold-fill: var(--fac-yellow);
+  --accent-gold-text: var(--fac-yellow);
+  --accent-gold-soft: rgba(223, 180, 29, 0.14);
+  --selection-bg: var(--fac-red);
+  --selection-ink: #FFFFFF;
 
-  /* Pure Monochrome Subject Accents (differentiated by luminance & glyph, zero color hue) */
-  --subj-math: #FFFFFF;
-  --subj-math-soft: rgba(255, 255, 255, 0.11);
-  --subj-ru: #E8E8F0;
-  --subj-ru-soft: rgba(255, 255, 255, 0.095);
-  --subj-en: #F4F4FA;
-  --subj-en-soft: rgba(255, 255, 255, 0.12);
-  --subj-az: #DCDCE6;
-  --subj-az-soft: rgba(255, 255, 255, 0.09);
+  /* Subject Industrial Color Codes */
+  --subj-math: var(--fac-red);
+  --subj-math-soft: rgba(214, 48, 49, 0.14);
+  --subj-ru: var(--fac-blue);
+  --subj-ru-soft: rgba(38, 99, 201, 0.14);
+  --subj-en: var(--fac-yellow);
+  --subj-en-soft: rgba(223, 180, 29, 0.14);
+  --subj-az: var(--fac-green);
+  --subj-az-soft: rgba(46, 158, 91, 0.14);
 
-  /* Monochrome Verification States (Solid White = Correct, Dotted Silver = Partial, Hatched Ash = Wrong) */
-  --state-correct: #FFFFFF;
-  --state-correct-border: rgba(255, 255, 255, 0.92);
-  --state-correct-soft: rgba(255, 255, 255, 0.12);
-  --state-partial: #DCDCE6;
-  --state-partial-border: rgba(255, 255, 255, 0.56);
-  --state-partial-soft: rgba(255, 255, 255, 0.075);
-  --state-wrong: #E2E2EC;
-  --state-wrong-border: rgba(255, 255, 255, 0.44);
-  --state-wrong-soft: rgba(255, 255, 255, 0.055);
+  /* Answer Verification States (Saville Color + Icon + Pattern) */
+  --state-correct: var(--fac-green);
+  --state-correct-border: var(--fac-green);
+  --state-correct-soft: rgba(46, 158, 91, 0.14);
+  --state-partial: var(--fac-yellow);
+  --state-partial-border: var(--fac-yellow);
+  --state-partial-soft: rgba(223, 180, 29, 0.14);
+  --state-wrong: var(--fac-red);
+  --state-wrong-border: var(--fac-red);
+  --state-wrong-soft: rgba(214, 48, 49, 0.14);
 
-  --on-primary: var(--oa-on-neon);
-  --on-accent: var(--oa-on-neon);
-  --on-correct: var(--oa-on-neon);
-  --on-wrong: var(--oa-on-neon);
+  --on-primary: var(--fac-ink-on-light);
+  --on-accent: var(--fac-ink-on-light);
+  --on-correct: #0C0C0E;
+  --on-wrong: #FFFFFF;
 
-  /* 7. Structural Depth & Architectural Shadows (always offset + soft blur) */
-  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.52);
-  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.68);
-  --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.84);
-  --shadow-neon-btn: 0 8px 26px rgba(255, 255, 255, 0.18), 0 4px 12px rgba(0, 0, 0, 0.72);
+  /* 7. Structural Depth (flat surfaces at rest; offset soft shadows only on overlays/modals) */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.42);
+  --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.58);
+  --shadow-lg: 0 24px 52px rgba(0, 0, 0, 0.74);
 
-  /* 8. Form Geometry & Spacing Rhythm */
-  --r-xs: 4px;
-  --r-sm: 6px;
-  --r-md: 10px;
-  --r-lg: 14px;
-  --r-xl: 20px;
-  --r-pill: 999px;
+  /* 8. Strict Zero-Radius Industrial Geometry & Spacing Rhythm */
+  --r-xs: 0px;
+  --r-sm: 0px;
+  --r-md: 0px;
+  --r-lg: 0px;
+  --r-xl: 0px;
+  --r-pill: 0px;
 
   --sp-1: 4px;
   --sp-2: 8px;
@@ -116,35 +116,20 @@
   --sp-10: 40px;
   --sp-12: 48px;
 
-  /* 9. Motion Grammar & Physics Curves */
+  /* 9. Motion Grammar (exponential ease-out, zero bounce) */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-snappy: cubic-bezier(0.2, 0.9, 0.25, 1);
   --ease-sharp: cubic-bezier(0.2, 0, 0, 1);
-  --dur-instant: 110ms;
-  --dur-fast: 170ms;
-  --dur-med: 260ms;
-  --dur-slow: 420ms;
-  --dur-focal: 620ms;
+  --dur-instant: 90ms;
+  --dur-fast: 150ms;
+  --dur-med: 240ms;
+  --dur-slow: 380ms;
 
   /* 10. Type Scale */
-  --text-h1: clamp(1.78rem, 3.4vw, 2.75rem);
-  --text-h2: clamp(1.16rem, 1.8vw, 1.48rem);
-  --text-h3: clamp(1rem, 1.3vw, 1.16rem);
+  --text-h1: clamp(2.9rem, 5.4vw, 5.1rem);
+  --text-h2: clamp(1.18rem, 1.8vw, 1.48rem);
+  --text-h3: clamp(0.98rem, 1.25vw, 1.14rem);
   --text-body: 0.96rem;
   --text-sm: 0.86rem;
-  --text-xs: 0.78rem;
-}
-
-/* FX Tier Token Modifiers (switched live via <html data-fx="minimal|tactile|webgl">) */
-html[data-fx="minimal"] {
-  --oa-specular-alpha: 0;
-  --oa-glow-strength: 0.35;
-}
-html[data-fx="tactile"] {
-  --oa-specular-alpha: 0.42;
-  --oa-glow-strength: 1;
-}
-html[data-fx="webgl"] {
-  --oa-specular-alpha: 0.58;
-  --oa-glow-strength: 1.25;
+  --text-xs: 0.76rem;
 }

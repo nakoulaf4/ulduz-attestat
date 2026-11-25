@@ -13,7 +13,7 @@ import { isNativeApp, exportNativeProgress, haptic } from '../../core/native.js'
 import { t, subjectTitle, subjectShort, formatDateTime } from '../i18n.js';
 import { icon, ulduzStarSvg } from '../icons.js';
 import { escapeHtml } from '../math.js';
-import { oaAnimateCounter } from '../ui-kit.js';
+import { SUBJECT_CODES, buildSignalMeterHtml } from '../fx-engine.js';
 
 export async function renderStatsView(container, { setKeyHandler }) {
   if (setKeyHandler) setKeyHandler(null);
@@ -82,16 +82,17 @@ export async function renderStatsView(container, { setKeyHandler }) {
             ${SUBJECTS_META.map((m) => {
               const sb = bySubject[m.id] ?? { attempted: 0, correct: 0, earned: 0, max: 0 };
               const acc = sb.attempted > 0 ? Math.round((sb.correct / sb.attempted) * 100) : 0;
+              const code = SUBJECT_CODES[m.id] || SUBJECT_CODES.math;
               return `
-                <article class="stat-subj-card subject-card--${m.id}" data-specular>
+                <article class="stat-subj-card subject-card--${m.id}">
                   <div class="stat-subj-card__head">
                     <span class="stat-subj-card__icon" aria-hidden="true">${escapeHtml(m.icon)}</span>
                     <div>
-                      <h3>${escapeHtml(subjectTitle(m.id))}</h3>
-                      <span class="text-secondary tabular-nums">${escapeHtml(t('statsCorrectOf', { correct: sb.correct, attempted: sb.attempted, acc }))}</span>
+                      <h3>${escapeHtml(code.catNo)} · ${escapeHtml(subjectTitle(m.id))}</h3>
+                      <span class="text-secondary tabular-nums mono-code">${escapeHtml(t('statsCorrectOf', { correct: sb.correct, attempted: sb.attempted, acc }))}</span>
                     </div>
                   </div>
-                  <div class="progress-bar"><div class="progress-bar__fill" style="width:${acc}%"></div></div>
+                  ${buildSignalMeterHtml(acc, code.color, { ariaLabel: subjectTitle(m.id) })}
                   <div class="stat-subj-card__foot">
                     <a href="#/practice/${m.id}" class="btn btn--ghost btn--xs">
                       <span>${escapeHtml(t('statsTrainLink'))}</span>
@@ -224,10 +225,6 @@ export async function renderStatsView(container, { setKeyHandler }) {
         </section>
       </div>
     `;
-
-    container.querySelectorAll('.stats-summary-cell__val[data-count-to]').forEach((el) => {
-      oaAnimateCounter(el, Number(el.dataset.countTo || 0), { duration: 480, suffix: el.dataset.countSuffix || '' });
-    });
 
     container.querySelector('[data-action="export-json"]')?.addEventListener('click', async () => {
       const json = exportProgressJson();

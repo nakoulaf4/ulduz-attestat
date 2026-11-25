@@ -1,5 +1,5 @@
 // Lightweight Offline PWA Service Worker for Ulduz (active on Web/PWA only; skipped in Tauri native app).
-const CACHE_NAME = 'ulduz-pwa-v3';
+const CACHE_NAME = 'ulduz-pwa-v5';
 
 const APP_SHELL = [
   './',
@@ -12,6 +12,8 @@ const APP_SHELL = [
   './assets/favicon.svg',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
+  './assets/textures/matte-stock-dark.png',
+  './assets/textures/matte-stock-light.png',
   './vendor/fonts/fonts.css',
   './vendor/fonts/theme-fonts.css',
   './vendor/fonts/ulduz-intel.woff2',
@@ -53,7 +55,6 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
 
-  // Cache-first for immutable vendored fonts, KaTeX & icons
   if (url.pathname.includes('/vendor/') || url.pathname.includes('/assets/')) {
     event.respondWith(
       caches.match(req).then((cached) => {
@@ -70,7 +71,6 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Network-first with offline cache fallback for HTML, JS, CSS & JSON data
   event.respondWith(
     fetch(req)
       .then((res) => {

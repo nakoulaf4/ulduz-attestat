@@ -4,6 +4,7 @@ dist/
 work/
 .impeccable/review/
 .impeccable/mocks/
+.impeccable/reference/
 .impeccable/critique/
 .impeccable/tmp/
 
